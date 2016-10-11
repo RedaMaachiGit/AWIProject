@@ -6,3 +6,5 @@ Babacar Thiaw
 Coline Labat
 Gaetan Philipe
 Reda MAACHI
+
+The aim of the project is to build an application which purpose is to help people in achieving objectives by making activities such as gardening, running or building a treehouse. In addition to that, users of the app can shop products like on a shopping website. They also can interact with sellers or other users and keep a diary of their activities.
