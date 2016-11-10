@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Starter Template for Bootstrap</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -25,7 +24,7 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
-
+	
   </head>
 
   <body>
@@ -43,65 +42,15 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <!-- <li><a href="./signup">Sign Up</a></li> -->
+          	<li><a href="./">Home</a></li>
+            <li class="active"><a href="#">Sign Up</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-    <div class="container">
-
-	<div class="row">	
-		
-      <div class="col-lg-8 col-lg-offset-2">
-        <!-- lg pour la longueur de la zone de texte-->
-        <!-- lg-offset pour l'emplacement du début de la zone et du texte -->
-		
-		<div class="starter-template">
-        <h1>Welcome !</h1>
-      	</div>
-		
-        <!--begin HTML Form-->
-        <form class="form-horizontal" role="form" method="post" action=" ">
-
-        <div class="form-group">
-        
-        <label for="name" class="col-sm-3 control-label"> Username :</label>
-        <!-- col-sm taille du texte -->
-        <div class="col-sm-4"> <!-- Taille de la zone de texte -->
-        <input type="text" class="form-control" id="name" name="name" placeholder="micka15">
-        </div>
-        </div>
-
-        <div class="form-group">
-        <label for="email" class="col-sm-3 control-label">Password : </label>
-        <div class="col-sm-4">
-        <input type="email" class="form-control" id="email" name="email" placeholder="LgmP3eD">
-        </div>
-        </div>
-
-        <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
-          <!-- col-sm-offset -->
-          <!-- col-sm taille du bouton -->
-          <!-- col-sm-offset emplacement de début du bouton -->
-        <button type="submit" id="submit" name="submit" class="btn-lg btn-primary btn-block">Log In</button>
-        </div>
-        </div>
-        <!--end Form--></form>
-        <!--end col block--></div>
-
-      <!--end col--></div>
-      <!--end row--></div>
-      
-    </div>
-    
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    
+	<!-- <script src="../resources/script.js" type="text/javascript"></script> -->
     <div class="container">
     	<div class="row">
-    	<h1>Sign Up</h1>
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
 					<div class="panel-heading">
@@ -144,27 +93,23 @@
 									</div>
 											
 									<div class="form-group">
-										<input type="text" name="zipCode" id="zipCode" tabindex="7" class="form-control" placeholder="Zip code">
+										<input type="text" name="password" id="password" tabindex="7" class="form-control" placeholder="Zip code">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="cityName" id="cityName" tabindex="8" class="form-control" placeholder="City name">
+										<input type="text" name="password" id="password" tabindex="8" class="form-control" placeholder="City name">
 									</div>
 									
 									<div class="form-group">
-										<input type="tel" name="phoneNumber" id="phoneNumber" tabindex="9" class="form-control" placeholder="Phone number">
+										<input type="tel" name="password" id="password" tabindex="9" class="form-control" placeholder="Phone number">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="iban" id="iban" tabindex="10" class="form-control" placeholder="IBAN">
+										<input type="text" name="password" id="password" tabindex="10" class="form-control" placeholder="Username">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="11" class="form-control" placeholder="Username">
-									</div>
-									
-									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="12" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="11" class="form-control" placeholder="Password">
 									</div>
 																		
 									<div class="form-group">
@@ -211,27 +156,23 @@
 									</div>
 											
 									<div class="form-group">
-										<input type="text" name="zipCode" id="zipCode" tabindex="7" class="form-control" placeholder="Zip code">
+										<input type="text" name="password" id="password" tabindex="7" class="form-control" placeholder="Zip code">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="cityName" id="cityName" tabindex="8" class="form-control" placeholder="City name">
+										<input type="text" name="password" id="password" tabindex="8" class="form-control" placeholder="City name">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="phoneNumber" id="phoneNumber" tabindex="9" class="form-control" placeholder="Phone number">
+										<input type="text" name="password" id="password" tabindex="9" class="form-control" placeholder="Phone number">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="iban" id="iban" tabindex="10" class="form-control" placeholder="IBAN">
+										<input type="text" name="password" id="password" tabindex="10" class="form-control" placeholder="Username">
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="11" class="form-control" placeholder="Username">
-									</div>
-									
-									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="12" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="11" class="form-control" placeholder="Password">
 									</div>
 																		
 									<div class="form-group">
@@ -249,6 +190,28 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script type="text/javascript">
     $(function() {
@@ -268,8 +231,11 @@
 		e.preventDefault();
 	});
 	
+
 });
-    </script>   
+    </script>
+    
+    
     
   </body>
 </html>
