@@ -97,7 +97,8 @@ public class ProductDao implements ProductDaoInterface<Product, Integer> {
 	@SuppressWarnings("unchecked")
 	public List<Product> findByUser(User user) {
 		int userId = user.getUserId();
-		List<Product> products =  (List<Product>) getCurrentSession().createQuery("from Product where " + userId).list();
+		List<Product> products = (List<Product>) getCurrentSession().createQuery("from Product where userId = " + userId).list();
 		return products; 
 	}
+	
 }

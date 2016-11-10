@@ -39,20 +39,20 @@ public class TestEmployee {
 		 
 		 
 		 
-		 User user = new User("ok", "0608983599", "gg@mail.fr", "78","45200", "montpel","johny","jona","e","ok","scinfo","9999999",1);
+		 User user = new User(new java.sql.Date(System.currentTimeMillis()), "0608983599", "gg@mail.fr", "78","45200", "montpel","johny","jona","e",new java.sql.Date(System.currentTimeMillis()),"scinfo","9999999",1);
+		 //userService.persist(user);
 		 
-		 Scinfo scinfo = new Scinfo("9999","industrie","www.fr.fr",1);
-		 
-		 Product p1 = new Product("etagere","solide","img link",10.5,8,1);
-		 Product p2 = new Product("meuble","solide","img link",1555,8,1);
-		 
-		 	 
-		 userService.persist(user);
+		 Scinfo scinfo = new Scinfo("9999","industrie","www.fr.fr",user.getUserId());
 		 //scinfoService.persist(scinfo);
+		 
+		 Product p1 = new Product("etagere","solide","img link",10.5,8,user.getUserId());
+		 Product p2 = new Product("meuble","solide","img link",1555,8,user.getUserId());
 		 //productService.persist(p1);
 		 //productService.persist(p2);
 		 
-		 //System.out.println("PRODDDDDUUUUUCTS DE MON USER : " + productService.findByUser(user));
+		 User u = userService.findById(7);
+		 
+		 System.out.println("PRODDDDDUUUUUCTS DE MON USER : " + productService.findByUser(u));
 		 
 		 
 		// END SERVICE SCINFO

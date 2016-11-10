@@ -1,5 +1,7 @@
 package com.aiop.yourtask.persistence;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="yourtaskuser")
 public class User {
 	
 	@Id
@@ -17,7 +19,7 @@ public class User {
 	private int userId;
 
 	@Column(name="userDateofbirth")
-	private String userDateofbirth;
+	private Date userDateofbirth;
 	
 	@Column(name="userPhonenumber")
 	private String userPhonenumber;
@@ -44,7 +46,7 @@ public class User {
 	private String userToken;
 	
 	@Column(name="userLastconnectiondate")
-	private String userLastconnectiondate;
+	private Date userLastconnectiondate;
 	
 	@Column(name="userType")
 	private String userType;
@@ -54,10 +56,12 @@ public class User {
 	
 	@Column(name="roleId")
 	private int roleId;
+	
+	public User() {}
 
-	public User(int userId, String userDateofbirth, String userPhonenumber, String userEmail, String userStreetnumber,
+	public User(int userId, Date userDateofbirth, String userPhonenumber, String userEmail, String userStreetnumber,
 			String userZipcode, String userCity, String userUsername, String userPassword, String userToken,
-			String userLastconnectiondate, String userType, String userIban, int roleId) {
+			Date userLastconnectiondate, String userType, String userIban, int roleId) {
 		this.userId = userId;
 		this.userDateofbirth = userDateofbirth;
 		this.userPhonenumber = userPhonenumber;
@@ -74,9 +78,9 @@ public class User {
 		this.roleId = roleId;
 	}
 
-	public User(String userDateofbirth, String userPhonenumber, String userEmail, String userStreetnumber,
+	public User(Date userDateofbirth, String userPhonenumber, String userEmail, String userStreetnumber,
 			String userZipcode, String userCity, String userUsername, String userPassword, String userToken,
-			String userLastconnectiondate, String userType, String userIban, int roleId) {
+			Date userLastconnectiondate, String userType, String userIban, int roleId) {
 		this.userDateofbirth = userDateofbirth;
 		this.userPhonenumber = userPhonenumber;
 		this.userEmail = userEmail;
@@ -100,11 +104,11 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getUserDateofbirth() {
+	public Date getUserDateofbirth() {
 		return userDateofbirth;
 	}
 
-	public void setUserDateofbirth(String userDateofbirth) {
+	public void setUserDateofbirth(Date userDateofbirth) {
 		this.userDateofbirth = userDateofbirth;
 	}
 
@@ -172,11 +176,11 @@ public class User {
 		this.userToken = userToken;
 	}
 
-	public String getUserLastconnectiondate() {
+	public Date getUserLastconnectiondate() {
 		return userLastconnectiondate;
 	}
 
-	public void setUserLastconnectiondate(String userLastconnectiondate) {
+	public void setUserLastconnectiondate(Date userLastconnectiondate) {
 		this.userLastconnectiondate = userLastconnectiondate;
 	}
 
@@ -213,7 +217,8 @@ public class User {
 				+ userLastconnectiondate + ", userType=" + userType + ", userIban=" + userIban + ", roleId=" + roleId
 				+ "]";
 	}
+	
+	
 
-
-
+	
 }
