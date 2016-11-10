@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 nov. 2016 17:17:42 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.User" table="user">
+        <id name="userId" type="int">
+            <column name="userid" />
+            <generator class="assigned" />
+        </id>
+        <property name="userDateofbirth" type="java.lang.String">
+            <column name="userdateofbirth" />
+        </property>
+        <property name="userPhonenumber" type="java.lang.String">
+            <column name="userphonenumber" />
+        </property>
+        <property name="userEmail" type="java.lang.String">
+            <column name="useremail" />
+        </property>
+        <property name="userStreetnumber" type="java.lang.String">
+            <column name="userstreetnumber" />
+        </property>
+        <property name="userZipcode" type="java.lang.String">
+            <column name="userzipcode" />
+        </property>
+        <property name="userCity" type="java.lang.String">
+            <column name="usercity" />
+        </property>
+        <property name="userUsername" type="java.lang.String">
+            <column name="userusername" />
+        </property>
+        <property name="userPassword" type="java.lang.String">
+            <column name="userpassword" />
+        </property>
+        <property name="userToken" type="java.lang.String">
+            <column name="usertoken" />
+        </property>
+        <property name="userLastconnectiondate" type="java.lang.String">
+            <column name="userlastconnectiondate" />
+        </property>
+        <property name="userType" type="java.lang.String">
+            <column name="usertype" />
+        </property>
+        <property name="userIban" type="java.lang.String">
+            <column name="useriban" />
+        </property>
+        <property name="roleId" type="int">
+            <column name="roleid" />
+        </property>
+    </class>
+</hibernate-mapping>

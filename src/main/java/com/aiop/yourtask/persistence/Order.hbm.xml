@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 9 nov. 2016 20:52:15 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.Order" table="order">
+        <id name="orderId" type="int">
+            <column name="orderid" />
+            <generator class="assigned" />
+        </id>
+        <property name="orderDate" type="java.sql.Date">
+            <column name="orderdate" />
+        </property>
+        <property name="orderShippingcost" type="double">
+            <column name="ordershippingcost" />
+        </property>
+        <property name="orderPrice" type="int">
+            <column name="orderprice" />
+        </property>
+        <property name="orderState" type="java.lang.String">
+            <column name="orderstate" />
+        </property>
+        <property name="userId" type="int">
+            <column name="userid" />
+        </property>
+    </class>
+</hibernate-mapping>
