@@ -77,15 +77,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    	<!-- <tr><a href="./homesu"></a> -->
+                        <tr onclick="location='./diaryentrysu'">
                             <td>Sample</td>
                             <td>12-11-2011 11:11</td>
                         </tr>
-                        <tr>
+                        <tr onclick="location='./diaryentrysu'">
                             <td>Try</td>
                             <td>11-20-2013 08:56</td>
                         </tr>
-                        <tr>
+                        <tr onclick="location='./diaryentrysu'">
                             <td>§</td>
                             <td>%</td>
                         </tr>
@@ -94,11 +95,6 @@
 		</div>
 	</div>
 </div>
-  
-  
-  
-  
-  
   
   </body>
 </html>
