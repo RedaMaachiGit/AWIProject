@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 nov. 2016 11:18:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.Task" table="task">
+        <id name="taskId" type="int">
+            <column name="taskid" />
+            <generator class="assigned" />
+        </id>
+        <property name="taskContent" type="java.lang.String">
+            <column name="taskcontent" />
+        </property>
+        <property name="activityId" type="int">
+            <column name="activityid" />
+        </property>
+    </class>
+</hibernate-mapping>

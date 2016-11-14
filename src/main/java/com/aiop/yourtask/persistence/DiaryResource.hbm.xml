@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 nov. 2016 11:25:58 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.DiaryResource" table="diaryresource">
+        <id name="diaryResourceId" type="int">
+            <column name="iddiaryresource" />
+            <generator class="assigned" />
+        </id>
+        <property name="diaryResourceType" type="java.lang.String">
+            <column name="typediaryresource" />
+        </property>
+        <property name="diaryResourceUrl" type="java.lang.String">
+            <column name="urldiaryresource" />
+        </property>
+        <property name="diaryEntryId" type="int">
+            <column name="diaryentryid" />
+        </property>
+    </class>
+</hibernate-mapping>

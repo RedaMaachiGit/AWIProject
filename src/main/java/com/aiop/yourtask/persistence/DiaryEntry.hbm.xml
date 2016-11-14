@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 nov. 2016 11:24:55 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.DiaryEntry" table="diaryentry">
+        <id name="diaryEntryId" type="int">
+            <column name="diaryentryid" />
+            <generator class="assigned" />
+        </id>
+        <property name="diaryEntryDate" type="java.sql.Date">
+            <column name="diaryentrydate" />
+        </property>
+        <property name="diaryEntryContent" type="java.lang.String">
+            <column name="diaryentrycontent" />
+        </property>
+        <property name="diaryEntryVisibility" type="java.lang.Boolean">
+            <column name="diaryentryvisibility" />
+        </property>
+        <property name="diaryId" type="int">
+            <column name="iddiary" />
+        </property>
+    </class>
+</hibernate-mapping>
