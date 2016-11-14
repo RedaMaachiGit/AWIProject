@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>YourTask</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -46,8 +46,11 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="./accountsu">My account</a></li>
             <li><a href="./diarysu">My diaries</a></li>
-            <li><a href="./">My activities</a></li>
-            <li><a href="./">My orders</a></li>
+            <li><a href="./activitysu">My activities</a></li>
+            <li><a href="./ordersu">My orders</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="./">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,16 +84,22 @@
                             <td>Sample</td>
                             <td>Filter</td>
                             <td>12-11-2011 11:11</td>
+                            <td><button class="Edit">Edit</button></td>
+                            <td><button class="Delete" onclick="supprimer()">Delete</button></td>
                         </tr>
                         <tr>
                             <td>Try</td>
                             <td>It</td>
                             <td>11-20-2013 08:56</td>
+                            <td><button class="Edit">Edit</button></td>
+                            <td><button class="Delete" onclick="supprimer()">Delete</button></td>
                         </tr>
                         <tr>
                             <td>§</td>
                             <td>$</td>
                             <td>%</td>
+                            <td><button class="Edit">Edit</button></td>
+                            <td><button class="Delete" onclick="supprimer()">Delete</button></td>
                         </tr>
                     </tbody>
                 </table>   
