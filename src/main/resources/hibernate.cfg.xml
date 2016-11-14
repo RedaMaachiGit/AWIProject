@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory name="SessionFactory">
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.password">yourtask</property>
+        <property name="hibernate.connection.password">XXXXXXXX</property>
         <property name="hibernate.connection.url">jdbc:postgresql://postgresql-yourtask.alwaysdata.net/yourtask_database</property>
-        <property name="hibernate.connection.username">yourtask</property>
+        <property name="hibernate.connection.username">XXXXXXXX</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     </session-factory>
 </hibernate-configuration>
