@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>YourTask</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -43,11 +43,14 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-          <li><a href="./homesu">Home</a></li>
+          	<li><a href="./homesu">Home</a></li>
             <li class="active"><a href="#">My account</a></li>
             <li><a href="./diarysu">My diaries</a></li>
-            <li><a href="./">My activities</a></li>
-            <li><a href="./">My orders</a></li>
+            <li><a href="./activitysu">My activities</a></li>
+            <li><a href="./ordersu">My orders</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="./">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -65,63 +68,57 @@
 							<div class="col-lg-12">
 								<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">				
 									<div class="form-group">
-										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="">									
+										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" >									
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="surname" id="surname" tabindex="2" class="form-control" placeholder="Surname">
+										<input type="text" name="surname" id="surname" tabindex="2" class="form-control" placeholder="Surname" >
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="dateBirth" id="dateBirth" tabindex="3" class="form-control" placeholder="Date of birth">
+										<input type="text" name="dateBirth" id="dateBirth" tabindex="3" class="form-control" placeholder="Date of birth" >
 									</div>
 									
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email address">
+										<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email address" >
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="streetNumber" id="streetNumber" tabindex="5" class="form-control" placeholder="Street number">
+										<input type="text" name="streetNumber" id="streetNumber" tabindex="5" class="form-control" placeholder="Street number" >
 									</div>
 												
 									<div class="form-group">
-										<input type="text" name="streetName" id="streetName" tabindex="6" class="form-control" placeholder="Street name">
+										<input type="text" name="streetName" id="streetName" tabindex="6" class="form-control" placeholder="Street name" >
 									</div>
 											
 									<div class="form-group">
-										<input type="text" name="zipCode" id="zipCode" tabindex="7" class="form-control" placeholder="Zip code">
+										<input type="text" name="zipCode" id="zipCode" tabindex="7" class="form-control" placeholder="Zip code" >
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="cityName" id="cityName" tabindex="8" class="form-control" placeholder="City name">
+										<input type="text" name="cityName" id="cityName" tabindex="8" class="form-control" placeholder="City name" >
 									</div>
 									
 									<div class="form-group">
-										<input type="tel" name="phoneNumber" id="phoneNumber" tabindex="9" class="form-control" placeholder="Phone number">
+										<input type="tel" name="phoneNumber" id="phoneNumber" tabindex="9" class="form-control" placeholder="Phone number" >
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="iban" id="iban" tabindex="10" class="form-control" placeholder="IBAN">
+										<input type="text" name="iban" id="iban" tabindex="10" class="form-control" placeholder="IBAN" >
 									</div>
 									
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="11" class="form-control" placeholder="Username">
+										<input type="text" name="username" id="username" tabindex="11" class="form-control" placeholder="Username" >
 									</div>
 									
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="12" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="12" class="form-control" placeholder="Password" >
 									</div>
 																		
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<button type="submit" id="submit" name="submit" class="btn-lg btn-primary btn-block">Edit</button>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12">
 											</div>
 										</div>
 									</div>
