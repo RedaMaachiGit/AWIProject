@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>YourTask</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -43,11 +43,14 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-          <li><a href="./homesu">Home</a></li>
-            <li class="./accountsu"><a href="#">My account</a></li>
+          	<li><a href="./homesu">Home</a></li>
+            <li><a href="./accountsu">My account</a></li>
             <li class="active"><a href="#">My diaries</a></li>
-            <li><a href="./">My activities</a></li>
+            <li><a href="./activitysu">My activities</a></li>
             <li><a href="./">My orders</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	<li><a href="./ordersu">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,14 +84,20 @@
                         <tr onclick="location='./diaryentrysu'">
                             <td>Sample</td>
                             <td>12-11-2011 11:11</td>
+                            <td><button class="edit">Edit</button></td>
+                            <td><button class="Delete">Delete</button></td>
                         </tr>
                         <tr onclick="location='./diaryentrysu'">
                             <td>Try</td>
                             <td>11-20-2013 08:56</td>
+                            <td><button class="edit">Edit</button></td>
+                            <td><button class="Delete">Delete</button></td>
                         </tr>
                         <tr onclick="location='./diaryentrysu'">
                             <td>§</td>
                             <td>%</td>
+                            <td><button class="edit">Edit</button></td>
+                            <td><button class="Delete">Delete</button></td>
                         </tr>
                     </tbody>
                 </table>   
@@ -98,3 +107,13 @@
   
   </body>
 </html>
+
+
+
+<script>
+$(document).ready(function(){
+    $('.edit').click(function(){
+        $(this).html($(this).html() == 'edit' ? 'modify' : 'edit');
+    });
+});
+</script>
