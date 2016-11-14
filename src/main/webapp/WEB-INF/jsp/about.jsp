@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Projet AIOP</title>
+        <title>YourTask</title>
     </head>
 
     <body>
