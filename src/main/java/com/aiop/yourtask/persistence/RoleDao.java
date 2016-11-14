@@ -9,13 +9,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class NotificationDao implements NotificationDaoInterface<Notification, Integer> {
+public class RoleDao implements RoleDaoInterface<Role, Integer> {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
 
-	public NotificationDao() {
+	public RoleDao() {
 	}
 
 	public Session openCurrentSession() {
@@ -40,7 +40,7 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 	
 	private static SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Notification.class); 
+		configuration.addAnnotatedClass(Role.class); 
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -63,41 +63,33 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 		this.currentTransaction = currentTransaction;
 	}
 
-	public void persist(Notification entity) {
+	public void persist(Role entity) {
 		getCurrentSession().save(entity);
 	}
 
-	public void update(Notification entity) {
+	public void update(Role entity) {
 		getCurrentSession().update(entity);
 	}
 
-	public Notification findById(Integer id) {
-		Notification notification = (Notification) getCurrentSession().get(Notification.class, id);
-		return notification; 
+	public Role findById(Integer id) {
+		Role role = (Role) getCurrentSession().get(Role.class, id);
+		return role; 
 	}
 
-	public void delete(Notification entity) {
+	public void delete(Role entity) {
 		getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Notification> findAll() {
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification").list();
-		return notifications;
+	public List<Role> findAll() {
+		List<Role> roles = (List<Role>) getCurrentSession().createQuery("from Role").list();
+		return roles;
 	}
 
 	public void deleteAll() {
-		List<Notification> entityList = findAll();
-		for (Notification entity : entityList) {
+		List<Role> entityList = findAll();
+		for (Role entity : entityList) {
 			delete(entity);
 		}
-	}
-	
-	
-	@SuppressWarnings("unchecked")
-	public List<Notification> findByUser(User user) {
-		int userId = user.getUserId();
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification where userId = " + userId).list();
-		return notifications; 
 	}
 }

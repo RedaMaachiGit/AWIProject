@@ -1,5 +1,6 @@
 package com.aiop.yourtask.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -9,13 +10,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class NotificationDao implements NotificationDaoInterface<Notification, Integer> {
+public class RoleResourceDao implements RoleResourceDaoInterface<RoleResource, Integer> {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
 
-	public NotificationDao() {
+	public RoleResourceDao() {
 	}
 
 	public Session openCurrentSession() {
@@ -40,7 +41,7 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 	
 	private static SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Notification.class); 
+		configuration.addAnnotatedClass(RoleResource.class); 
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -63,41 +64,54 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 		this.currentTransaction = currentTransaction;
 	}
 
-	public void persist(Notification entity) {
+	public void persist(RoleResource entity) {
 		getCurrentSession().save(entity);
 	}
 
-	public void update(Notification entity) {
+	public void update(RoleResource entity) {
 		getCurrentSession().update(entity);
 	}
 
-	public Notification findById(Integer id) {
-		Notification notification = (Notification) getCurrentSession().get(Notification.class, id);
-		return notification; 
+	public RoleResource findByIdPK(RoleResourcePK entityPK) {
+		RoleResource roleresource = (RoleResource) getCurrentSession().get(RoleResource.class, entityPK);
+		return roleresource; 
 	}
 
-	public void delete(Notification entity) {
+	public void delete(RoleResource entity) {
 		getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Notification> findAll() {
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification").list();
-		return notifications;
+	public List<RoleResource> findAll() {
+		List<RoleResource> roleresources = (List<RoleResource>) getCurrentSession().createQuery("from RoleResource").list();
+		return roleresources;
 	}
 
 	public void deleteAll() {
-		List<Notification> entityList = findAll();
-		for (Notification entity : entityList) {
+		List<RoleResource> entityList = findAll();
+		for (RoleResource entity : entityList) {
 			delete(entity);
 		}
 	}
 	
-	
-	@SuppressWarnings("unchecked")
-	public List<Notification> findByUser(User user) {
-		int userId = user.getUserId();
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification where userId = " + userId).list();
-		return notifications; 
+	/* MARCHE PAS A VOIR
+	public List<RoleResource> findByRole(Role entity) {
+		int roleresourceId = entity.getRoleId();
+		List<RoleResource> roleresources = (List<RoleResource>) getCurrentSession().createQuery("from RoleResource where roleResourceId = " + roleresourceId).list();
+		return roleresources; 
+	}*/
+
+	public List<RoleResource> findByRole(Role entity) {
+		int roleresourceId = entity.getRoleId();
+		List<RoleResource> allroleresources = (List<RoleResource>) getCurrentSession().createQuery("from RoleResource").list();
+		
+		List<RoleResource> roleresources = new ArrayList<>();
+		for(RoleResource item : allroleresources){
+			if(item.getRoleResourcePK().getRoleId() == roleresourceId) {
+				roleresources.add(item);
+			}
+		}
+		return roleresources;
 	}
+	
 }

@@ -92,4 +92,11 @@ public class ActivityDao implements ActivityDaoInterface<Activity, Integer> {
 			delete(entity);
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Activity> findByUser(User user) {
+		int userId = user.getUserId();
+		List<Activity> activities = (List<Activity>) getCurrentSession().createQuery("from Activity where userId = " + userId).list();
+		return activities; 
+	}
 }

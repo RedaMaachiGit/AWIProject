@@ -9,13 +9,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class NotificationDao implements NotificationDaoInterface<Notification, Integer> {
+public class GoalDao implements GoalDaoInterface<Goal, Integer> {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
 
-	public NotificationDao() {
+	public GoalDao() {
 	}
 
 	public Session openCurrentSession() {
@@ -40,7 +40,7 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 	
 	private static SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Notification.class); 
+		configuration.addAnnotatedClass(Goal.class); 
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -63,41 +63,42 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 		this.currentTransaction = currentTransaction;
 	}
 
-	public void persist(Notification entity) {
+	public void persist(Goal entity) {
 		getCurrentSession().save(entity);
 	}
 
-	public void update(Notification entity) {
+	public void update(Goal entity) {
 		getCurrentSession().update(entity);
 	}
 
-	public Notification findById(Integer id) {
-		Notification notification = (Notification) getCurrentSession().get(Notification.class, id);
-		return notification; 
+	public Goal findById(Integer id) {
+		Goal goal = (Goal) getCurrentSession().get(Goal.class, id);
+		return goal; 
 	}
 
-	public void delete(Notification entity) {
+	public void delete(Goal entity) {
 		getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Notification> findAll() {
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification").list();
-		return notifications;
+	public List<Goal> findAll() {
+		List<Goal> goals = (List<Goal>) getCurrentSession().createQuery("from Goal").list();
+		return goals;
 	}
 
 	public void deleteAll() {
-		List<Notification> entityList = findAll();
-		for (Notification entity : entityList) {
+		List<Goal> entityList = findAll();
+		for (Goal entity : entityList) {
 			delete(entity);
 		}
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Notification> findByUser(User user) {
-		int userId = user.getUserId();
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification where userId = " + userId).list();
-		return notifications; 
+	public List<Goal> findByDiary(Diary diary) {
+		int diaryId = diary.getDiaryId();
+		List<Goal> goals = (List<Goal>) getCurrentSession().createQuery("from Goal where diaryId = " + diaryId).list();
+		return goals; 
 	}
+	
 }

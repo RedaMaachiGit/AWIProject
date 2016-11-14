@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 nov. 2016 10:46:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.aiop.yourtask.persistence.RoleResourcePK" table="roleresourcepk">
+        <id name="roleId" type="java.lang.Integer">
+            <column name="roleid" />
+            <generator class="assigned" />
+        </id>
+        <property name="resourceId" type="java.lang.Integer">
+            <column name="resourceid" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -9,13 +9,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class NotificationDao implements NotificationDaoInterface<Notification, Integer> {
+public class DiaryEntryDao implements DiaryEntryDaoInterface<DiaryEntry, Integer> {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
 
-	public NotificationDao() {
+	public DiaryEntryDao() {
 	}
 
 	public Session openCurrentSession() {
@@ -40,7 +40,7 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 	
 	private static SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Notification.class); 
+		configuration.addAnnotatedClass(DiaryEntry.class); 
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -63,41 +63,42 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 		this.currentTransaction = currentTransaction;
 	}
 
-	public void persist(Notification entity) {
+	public void persist(DiaryEntry entity) {
 		getCurrentSession().save(entity);
 	}
 
-	public void update(Notification entity) {
+	public void update(DiaryEntry entity) {
 		getCurrentSession().update(entity);
 	}
 
-	public Notification findById(Integer id) {
-		Notification notification = (Notification) getCurrentSession().get(Notification.class, id);
-		return notification; 
+	public DiaryEntry findById(Integer id) {
+		DiaryEntry diaryentry = (DiaryEntry) getCurrentSession().get(DiaryEntry.class, id);
+		return diaryentry; 
 	}
 
-	public void delete(Notification entity) {
+	public void delete(DiaryEntry entity) {
 		getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Notification> findAll() {
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification").list();
-		return notifications;
+	public List<DiaryEntry> findAll() {
+		List<DiaryEntry> diaryentries = (List<DiaryEntry>) getCurrentSession().createQuery("from DiaryEntry").list();
+		return diaryentries;
 	}
 
 	public void deleteAll() {
-		List<Notification> entityList = findAll();
-		for (Notification entity : entityList) {
+		List<DiaryEntry> entityList = findAll();
+		for (DiaryEntry entity : entityList) {
 			delete(entity);
 		}
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<Notification> findByUser(User user) {
-		int userId = user.getUserId();
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification where userId = " + userId).list();
-		return notifications; 
+	public List<DiaryEntry> findByDiary(Diary diary) {
+		int diaryId = diary.getDiaryId();
+		List<DiaryEntry> diaryentries = (List<DiaryEntry>) getCurrentSession().createQuery("from DiaryEntry where diaryId = " + diaryId).list();
+		return diaryentries; 
 	}
+	
 }

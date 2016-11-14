@@ -17,4 +17,6 @@ public interface TaskDaoInterface<T, Id extends Serializable> {
 	
 	public void deleteAll();
 	
+	public List<T> findByActivity(Activity activity);
+	
 }

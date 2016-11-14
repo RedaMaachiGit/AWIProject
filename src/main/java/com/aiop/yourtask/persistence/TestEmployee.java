@@ -17,9 +17,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import com.aiop.yourtask.persistence.Employee;
-import com.aiop.yourtask.service.ProductService;
-import com.aiop.yourtask.service.ScinfoService;
-import com.aiop.yourtask.service.UserService;
+import com.aiop.yourtask.service.*;
 
 public class TestEmployee {
 	
@@ -29,7 +27,98 @@ public class TestEmployee {
 	
 	public static void main(String[] args) {
 		
+		DiaryService diaryservice = new DiaryService();
+		Diary diary = diaryservice.findById(1);
 		
+		DiaryEntryService diaryentryservice = new DiaryEntryService();
+		
+		DiaryResourceService diaryresourceservice = new DiaryResourceService();
+		
+		GoalService goalservice = new GoalService();
+		/*
+		GoalService goalservice = new GoalService();
+		Goal goal = new Goal("nomGoal","madescription",diary.getDiaryId());
+		goalservice.persist(goal);
+		
+		DiaryEntryService diaryentryservice = new DiaryEntryService();
+		DiaryEntry diaryentry = new DiaryEntry(new java.sql.Date(System.currentTimeMillis()),"okcontent",false,diary.getDiaryId());
+		diaryentryservice.persist(diaryentry);
+		
+		DiaryResourceService diaryresourceservice = new DiaryResourceService();
+		DiaryResource diaryresource = new DiaryResource("type","monurl",diaryentry.getDiaryEntryId());
+		diaryresourceservice.persist(diaryresource);
+		*/
+		DiaryResource diaryresource = diaryresourceservice.findById(1);
+		DiaryEntry diaryentry = diaryentryservice.findById(1);
+		Goal goal = goalservice.findById(1);
+		
+		System.out.println("YYYYYYYYYYYYYYYYEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS");
+		System.out.println("XXDIARYRESOURCE: " + diaryresourceservice.findByDiaryEntry(diaryentry));
+		/*System.out.println("YYYYYYYYYYYYYYYYEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS");
+		System.out.println("XXDIARY: " + diaryservice.findAll());
+		System.out.println("YYYYYYYYYYYYYYYYEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS");
+		System.out.println("XXGOAL: " + goalservice.findByDiary(diary));*/
+		
+		/* NOTIFICATION 
+		NotificationService ns = new NotificationService();
+		UserService us = new UserService();
+		User u = us.findById(8);
+		List<Notification> notifications = ns.findByUser(u);
+		
+		System.out.println(notifications);
+		*/
+		
+		
+		
+		/* ROLE RESOURCE 
+		RoleResourceService roleResourceService = new RoleResourceService();
+		
+		RoleService roleService = new RoleService();
+		Role role = roleService.findById(1);
+		
+		List<RoleResource> roleresources = roleResourceService.findByRole(role);
+		
+		ResourceService resourceservice = new ResourceService();
+		
+		for(RoleResource item : roleresources){
+			System.out.println(resourceservice.findByRoleResource(item));
+		} 
+		*/
+		// START SERVICE ROLERESOURCE
+				/*
+			 RoleResourceService roleResourceService = new RoleResourceService();
+			 
+			 RoleResourcePK roleResourcePK = new RoleResourcePK();
+			 roleResourcePK.setResourceId(1);
+			 roleResourcePK.setRoleId(1);
+			 
+			 RoleResource roleresource = new RoleResource();
+			 roleresource.setRoleResourcePK(roleResourcePK);
+			 roleresource.setRightRole(true);
+			
+
+			 System.out.println("*** Persist - start ***");
+			 
+			 roleResourceService.
+			 
+			 
+			 List<UserSuinfo> products1 = productService.findAll();
+			 System.out.println("Books Persisted are :");
+			 for (UserSuinfo b : products1) {
+				 System.out.println("-" + b.toString());
+			 }
+			 System.out.println("*** Persist - end ***");	
+				
+			 SuinfoService suinfoService = new SuinfoService();
+			 Suinfo suinfo = suinfoService.findByUserSuinfoEntity(emp);
+			 suinfo.toString();
+			 System.out.println("SU INFO FIRSTNAME = " + suinfo.getSuinfoFirstname());
+			 */
+			
+		// END SERVICE ROLERESOURCE
+		
+		
+		/*
 		
 		// START SERVICE (new package) SCINFO
 		
@@ -56,7 +145,7 @@ public class TestEmployee {
 		 
 		 
 		// END SERVICE SCINFO
-		
+		*/
 		
 		// START SERVICE USERSUINFO
 		/*

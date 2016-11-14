@@ -1,5 +1,6 @@
 package com.aiop.yourtask.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -9,13 +10,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class NotificationDao implements NotificationDaoInterface<Notification, Integer> {
+public class OrderProductDao implements OrderProductDaoInterface<OrderProduct, Integer> {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
 
-	public NotificationDao() {
+	public OrderProductDao() {
 	}
 
 	public Session openCurrentSession() {
@@ -40,7 +41,7 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 	
 	private static SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure();
-		configuration.addAnnotatedClass(Notification.class); 
+		configuration.addAnnotatedClass(OrderProduct.class); 
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
@@ -63,41 +64,47 @@ public class NotificationDao implements NotificationDaoInterface<Notification, I
 		this.currentTransaction = currentTransaction;
 	}
 
-	public void persist(Notification entity) {
+	public void persist(OrderProduct entity) {
 		getCurrentSession().save(entity);
 	}
 
-	public void update(Notification entity) {
+	public void update(OrderProduct entity) {
 		getCurrentSession().update(entity);
 	}
 
-	public Notification findById(Integer id) {
-		Notification notification = (Notification) getCurrentSession().get(Notification.class, id);
-		return notification; 
+	public OrderProduct findByIdPK(OrderProductPK entityPK) {
+		OrderProduct orderproduct = (OrderProduct) getCurrentSession().get(OrderProduct.class, entityPK);
+		return orderproduct; 
 	}
 
-	public void delete(Notification entity) {
+	public void delete(OrderProduct entity) {
 		getCurrentSession().delete(entity);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Notification> findAll() {
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification").list();
-		return notifications;
+	public List<OrderProduct> findAll() {
+		List<OrderProduct> orderproducts = (List<OrderProduct>) getCurrentSession().createQuery("from OrderProduct").list();
+		return orderproducts;
 	}
 
 	public void deleteAll() {
-		List<Notification> entityList = findAll();
-		for (Notification entity : entityList) {
+		List<OrderProduct> entityList = findAll();
+		for (OrderProduct entity : entityList) {
 			delete(entity);
 		}
 	}
 	
-	
 	@SuppressWarnings("unchecked")
-	public List<Notification> findByUser(User user) {
-		int userId = user.getUserId();
-		List<Notification> notifications = (List<Notification>) getCurrentSession().createQuery("from Notification where userId = " + userId).list();
-		return notifications; 
+	public List<OrderProduct> findByOrder(Order entity) {
+		int orderproductId = entity.getOrderId();
+		List<OrderProduct> allorderproducts = (List<OrderProduct>) getCurrentSession().createQuery("from OrderProduct").list();
+		
+		List<OrderProduct> orderproducts = new ArrayList<>();
+		for(OrderProduct item : allorderproducts){
+			if(item.getOrderProductPK().getOrderId() == orderproductId) {
+				orderproducts.add(item);
+			}
+		}
+		return orderproducts;
 	}
 }

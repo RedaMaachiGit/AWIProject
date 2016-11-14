@@ -92,4 +92,12 @@ public class TaskDao implements TaskDaoInterface<Task, Integer> {
 			delete(entity);
 		}
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Task> findByActivity(Activity activity) {
+		int activityId = activity.getActivityId();
+		List<Task> tasks = (List<Task>) getCurrentSession().createQuery("from Task where activityId = " + activityId).list();
+		return tasks; 
+	}
 }

@@ -17,4 +17,7 @@ public interface NotificationDaoInterface<T, Id extends Serializable> {
 	
 	public void deleteAll();
 	
+	
+	public List<T> findByUser(User user);
+	
 }

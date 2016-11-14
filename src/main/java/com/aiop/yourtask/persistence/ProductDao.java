@@ -101,4 +101,10 @@ public class ProductDao implements ProductDaoInterface<Product, Integer> {
 		return products; 
 	}
 	
+	public Product findByOrderProduct(OrderProduct entity) {
+		int productId = entity.getOrderProductPK().getProductId();
+		Product product = (Product) getCurrentSession().get(Product.class, productId);
+		return product; 
+	}
+	
 }

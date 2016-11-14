@@ -3,6 +3,7 @@ package com.aiop.yourtask.service;
 
 import java.util.List;
 
+import com.aiop.yourtask.persistence.OrderProduct;
 import com.aiop.yourtask.persistence.Product;
 import com.aiop.yourtask.persistence.ProductDao;
 import com.aiop.yourtask.persistence.User;
@@ -74,4 +75,10 @@ public class ProductService {
 		return products;
 	}
 	
+	public Product findByOrderProduct(OrderProduct entity) {
+		productDao.openCurrentSession();
+		Product product = productDao.findByOrderProduct(entity);
+		productDao.closeCurrentSession();
+		return product;
+	}
 }

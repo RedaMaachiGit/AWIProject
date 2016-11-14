@@ -3,7 +3,7 @@ package com.aiop.yourtask.persistence;
 import java.io.Serializable;
 import java.util.List;
 
-public interface ProductDaoInterface<T, Id extends Serializable> {
+public interface DiaryResourceDaoInterface<T, Id extends Serializable> {
 
 	public void persist(T entity);
 	
@@ -17,8 +17,6 @@ public interface ProductDaoInterface<T, Id extends Serializable> {
 	
 	public void deleteAll();
 	
-	public List<T> findByUser(User user);
-	
-	public Product findByOrderProduct(OrderProduct entity);
+	public List<T> findByDiaryEntry(DiaryEntry diaryEntry);
 	
 }
