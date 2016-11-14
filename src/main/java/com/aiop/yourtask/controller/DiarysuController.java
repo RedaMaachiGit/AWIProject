@@ -24,7 +24,7 @@ public class DiarysuController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/diarysu", method = RequestMethod.GET)
-	public String accountSu(Locale locale, Model model) {
+	public String diarySu(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
