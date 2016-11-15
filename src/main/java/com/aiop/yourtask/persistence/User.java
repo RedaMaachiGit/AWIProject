@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="yourtaskuser")
 public class User {
@@ -17,7 +19,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="userId")
 	private int userId;
-
+	
 	@Column(name="userDateofbirth")
 	private Date userDateofbirth;
 	

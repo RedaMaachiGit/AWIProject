@@ -5,15 +5,24 @@ import java.util.List;
 
 import com.aiop.yourtask.persistence.User;
 import com.aiop.yourtask.persistence.UserDao;
+import com.aiop.yourtask.serviceinterface.UserServiceInterface;
 
-public class UserService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service("UserServiceInterface")
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+public class UserService implements UserServiceInterface{
+	@Autowired
 	private static UserDao userDao;
 
 	public UserService() {
 		userDao = new UserDao();
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void persist(User entity) {
 		userDao.openCurrentSessionwithTransaction();
 		userDao.persist(entity);
