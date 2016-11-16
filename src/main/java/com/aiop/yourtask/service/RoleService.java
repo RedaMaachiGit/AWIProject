@@ -3,18 +3,26 @@ package com.aiop.yourtask.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.aiop.yourtask.persistence.Role;
 import com.aiop.yourtask.persistence.RoleDao;
-import com.aiop.yourtask.persistence.User;
+import com.aiop.yourtask.serviceinterface.RoleServiceInterface;
 
-public class RoleService {
-
+@Service
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+public class RoleService implements RoleServiceInterface{
+	@Autowired
 	private static RoleDao roleDao;
 
 	public RoleService() {
 		roleDao = new RoleDao();
 	}
-
+	
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void persist(Role entity) {
 		roleDao.openCurrentSessionwithTransaction();
 		roleDao.persist(entity);

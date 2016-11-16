@@ -33,6 +33,8 @@
 		<ol>
 			<li><a href="/yourtask/user/list">List of users</a></li>
 			<li><a href="/yourtask/user/add">Add user</a></li>
+			<li><a href="/yourtask/role/list">List of roles</a></li>
+			<li><a href="/yourtask/role/add">Add role</a></li>
 		</ol>
 </body>
 

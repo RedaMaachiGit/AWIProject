@@ -1,6 +1,5 @@
 package com.aiop.yourtask.bean;
 
-import java.util.Date;
 
 /**
  * @author Babacar THIAW
