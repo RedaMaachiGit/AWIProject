@@ -226,7 +226,7 @@ public class YourtaskuserController {
 	@RequestMapping("/editYourtaskuserActivities")
 	public ModelAndView editYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer activities_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
-
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("activity", activity);
@@ -380,6 +380,7 @@ public class YourtaskuserController {
 	* View an existing Activity entity
 	* 
 	*/
+	
 	@RequestMapping("/selectYourtaskuserActivities")
 	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer activities_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
@@ -387,7 +388,13 @@ public class YourtaskuserController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("activity", activity);
-		mav.setViewName("yourtaskuser/activities/viewActivities.jsp");
+		
+		//ActivityDAO activityDAO = new ActivityDAO();
+		//activityDAOfindActivityByPrimaryKey(activityidKey)
+		
+		
+		
+		mav.setViewName("yourtaskuser/activities/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -636,7 +643,7 @@ public class YourtaskuserController {
 
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("yourtaskuser", yourtaskuser);
-		mav.setViewName("yourtaskuser/viewYourtaskuser.jsp");
+		mav.setViewName("yourtaskuser/activitybyuser.jsp");
 
 		return mav;
 	}
@@ -910,13 +917,17 @@ public class YourtaskuserController {
 	* 
 	*/
 	@RequestMapping("/saveYourtaskuserActivities")
-	public ModelAndView saveYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Activity activities) {
+	public ModelAndView saveYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Activity activities) {	
+		if (activities.getActivityid() == null) {
+			int id = 1000 + (int)(Math.random() * ((5000 - 1000) + 1));
+			activities.setActivityid(id);
+		}
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);
-
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("yourtaskuser", parent_yourtaskuser);
-		mav.setViewName("yourtaskuser/viewYourtaskuser.jsp");
+		mav.setViewName("yourtaskuser/activitybyuser.jsp");
 
 		return mav;
 	}
@@ -1129,7 +1140,8 @@ public class YourtaskuserController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey));
-		mav.setViewName("yourtaskuser/viewYourtaskuser.jsp");
+		
+		mav.setViewName("yourtaskuser/activitybyuser.jsp");
 
 		return mav;
 	}

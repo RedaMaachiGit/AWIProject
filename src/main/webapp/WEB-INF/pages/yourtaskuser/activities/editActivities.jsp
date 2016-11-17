@@ -3,19 +3,19 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="yourtaskuser.title"/> <fmt:message key="activity.title"/></title>
+<title>Add/edit activity</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 	<div id="content">
-		<h1><fmt:message key="navigation.edit"/> <fmt:message key="activity.title"/></h1>
+		<h1>Add/Edit activity</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${yourtaskuser_userid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveYourtaskuserActivities" method="POST" modelAttribute="activity">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="activity.activityid.title"/>:
 						</td>
