@@ -3,7 +3,7 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources"/>
 <html>
 <head>
-<title>View <fmt:message key="yourtaskuser.title"/> <fmt:message key="activity.title"/></title>
+<title>Delete activity</title>
 </head>
 <body>
 <div id="contentarea">      
@@ -14,15 +14,6 @@
 			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${yourtaskuser_userid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="activity.activityid.title"/>:
-						</td>
-						<td>
-							${activity.activityid}
-						&nbsp;
-						</td>
-					</tr>
 					<tr>
 						<td class="label" valign="top">
 							<fmt:message key="activity.activityname.title"/>:

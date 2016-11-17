@@ -358,6 +358,18 @@ public class ActivityController {
 
 		return mav;
 	}
+	/*
+	@RequestMapping("/selectYourtaskuserActivities")
+	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer activityidKey) {
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
+		mav.setViewName("activity/viewActivity.jsp");
+
+		//mav.setViewName("yourtaskuser/activities/detailsActivity.jsp");
+
+		return mav;
+	}*/
 
 	/**
 	* View an existing Yourtaskuser entity
