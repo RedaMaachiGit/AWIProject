@@ -1,77 +1,100 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Activity;
+import com.aiop.yourtask.domain.Comment;
+import com.aiop.yourtask.domain.Diary;
+import com.aiop.yourtask.domain.Task;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Activity;
-import com.aiop.yourtask.persistence.ActivityDao;
-import com.aiop.yourtask.persistence.User;
+/**
+ * Spring service that handles CRUD requests for Activity entities
+ * 
+ */
+public interface ActivityService {
 
-public class ActivityService {
+	/**
+	* Save an existing Diary entity
+	* 
+	 */
+	public Activity saveActivityDiaries(Integer activityid, Diary related_diaries);
 
-	private static ActivityDao activityDao;
+	/**
+	* Delete an existing Activity entity
+	* 
+	 */
+	public void deleteActivity(Activity activity);
 
-	public ActivityService() {
-		activityDao = new ActivityDao();
-	}
+	/**
+	* Delete an existing Comment entity
+	* 
+	 */
+	public Activity deleteActivityComments(Integer activity_activityid, Integer related_comments_commentid);
 
-	public void persist(Activity entity) {
-		activityDao.openCurrentSessionwithTransaction();
-		activityDao.persist(entity);
-		activityDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Return all Activity entity
+	* 
+	 */
+	public List<Activity> findAllActivitys(Integer startResult, Integer maxRows);
 
-	public void update(Activity entity) {
-		activityDao.openCurrentSessionwithTransaction();
-		activityDao.update(entity);
-		activityDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Comment entity
+	* 
+	 */
+	public Activity saveActivityComments(Integer activityid_1, Comment related_comments);
 
-	public Activity findById(int id) {
-		activityDao.openCurrentSession();
-		Activity activity = activityDao.findById(id);
-		activityDao.closeCurrentSession();
-		return activity;
-	}
+	/**
+	 */
+	public Activity findActivityByPrimaryKey(Integer activityid_2);
 
-	/*
-	public void delete(int id) {
-		activityDao.openCurrentSessionwithTransaction();
-		Activity activity = activityDao.findById(id);
-		activityDao.delete(activity);
-		activityDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Activity entity) {
-		activityDao.openCurrentSessionwithTransaction();
-		activityDao.delete(entity);
-		activityDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Task entity
+	* 
+	 */
+	public Activity saveActivityTasks(Integer activityid_3, Task related_tasks);
 
-	public List<Activity> findAll() {
-		activityDao.openCurrentSession();
-		List<Activity> activities = activityDao.findAll();
-		activityDao.closeCurrentSession();
-		return activities;
-	}
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Activity saveActivityYourtaskuser(Integer activityid_4, Yourtaskuser related_yourtaskuser);
 
-	public void deleteAll() {
-		activityDao.openCurrentSessionwithTransaction();
-		activityDao.deleteAll();
-		activityDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Activity entity
+	* 
+	 */
+	public void saveActivity(Activity activity_1);
 
-	public ActivityDao activityDao() {
-		return activityDao;
-	}
-	
-	
-	public List<Activity> findByUser(User user) {
-		activityDao.openCurrentSession();
-		List<Activity> activities = activityDao.findByUser(user);
-		activityDao.closeCurrentSession();
-		return activities;
-	}
+	/**
+	* Delete an existing Task entity
+	* 
+	 */
+	public Activity deleteActivityTasks(Integer activity_activityid_1, Integer related_tasks_taskid);
 
+	/**
+	* Delete an existing Diary entity
+	* 
+	 */
+	public Activity deleteActivityDiaries(Integer activity_activityid_2, Integer related_diaries_iddiary);
+
+	/**
+	* Return a count of all Activity entity
+	* 
+	 */
+	public Integer countActivitys();
+
+	/**
+	* Load an existing Activity entity
+	* 
+	 */
+	public Set<Activity> loadActivitys();
+
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Activity deleteActivityYourtaskuser(Integer activity_activityid_3, Integer related_yourtaskuser_userid);
 }

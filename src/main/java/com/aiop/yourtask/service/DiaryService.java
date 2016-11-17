@@ -1,85 +1,100 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Activity;
+import com.aiop.yourtask.domain.Diary;
+import com.aiop.yourtask.domain.Diaryentry;
+import com.aiop.yourtask.domain.Goal;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Activity;
-import com.aiop.yourtask.persistence.Diary;
-import com.aiop.yourtask.persistence.DiaryDao;
-import com.aiop.yourtask.persistence.User;
+/**
+ * Spring service that handles CRUD requests for Diary entities
+ * 
+ */
+public interface DiaryService {
 
-public class DiaryService {
+	/**
+	* Save an existing Activity entity
+	* 
+	 */
+	public Diary saveDiaryActivity(Integer iddiary, Activity related_activity);
 
-	private static DiaryDao diaryDao;
+	/**
+	* Delete an existing Diary entity
+	* 
+	 */
+	public void deleteDiary(Diary diary);
 
-	public DiaryService() {
-		diaryDao = new DiaryDao();
-	}
+	/**
+	* Save an existing Diary entity
+	* 
+	 */
+	public void saveDiary(Diary diary_1);
 
-	public void persist(Diary entity) {
-		diaryDao.openCurrentSessionwithTransaction();
-		diaryDao.persist(entity);
-		diaryDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	 */
+	public Diary findDiaryByPrimaryKey(Integer iddiary_1);
 
-	public void update(Diary entity) {
-		diaryDao.openCurrentSessionwithTransaction();
-		diaryDao.update(entity);
-		diaryDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Load an existing Diary entity
+	* 
+	 */
+	public Set<Diary> loadDiarys();
 
-	public Diary findById(int id) {
-		diaryDao.openCurrentSession();
-		Diary diary = diaryDao.findById(id);
-		diaryDao.closeCurrentSession();
-		return diary;
-	}
+	/**
+	* Delete an existing Diaryentry entity
+	* 
+	 */
+	public Diary deleteDiaryDiaryentries(Integer diary_iddiary, Integer related_diaryentries_diaryentryid);
 
-	/*
-	public void delete(int id) {
-		diaryDao.openCurrentSessionwithTransaction();
-		Diary diary = diaryDao.findById(id);
-		diaryDao.delete(diary);
-		diaryDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Diary entity) {
-		diaryDao.openCurrentSessionwithTransaction();
-		diaryDao.delete(entity);
-		diaryDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Goal entity
+	* 
+	 */
+	public Diary deleteDiaryGoals(Integer diary_iddiary_1, Integer related_goals_goalid);
 
-	public List<Diary> findAll() {
-		diaryDao.openCurrentSession();
-		List<Diary> diaries = diaryDao.findAll();
-		diaryDao.closeCurrentSession();
-		return diaries;
-	}
+	/**
+	* Return all Diary entity
+	* 
+	 */
+	public List<Diary> findAllDiarys(Integer startResult, Integer maxRows);
 
-	public void deleteAll() {
-		diaryDao.openCurrentSessionwithTransaction();
-		diaryDao.deleteAll();
-		diaryDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Diaryentry entity
+	* 
+	 */
+	public Diary saveDiaryDiaryentries(Integer iddiary_2, Diaryentry related_diaryentries);
 
-	public DiaryDao diaryDao() {
-		return diaryDao;
-	}
-	
-	
-	public List<Diary> findByUser(User user) {
-		diaryDao.openCurrentSession();
-		List<Diary> diaries = diaryDao.findByUser(user);
-		diaryDao.closeCurrentSession();
-		return diaries;
-	}
+	/**
+	* Return a count of all Diary entity
+	* 
+	 */
+	public Integer countDiarys();
 
-	public List<Diary> findByActivity(Activity activity) {
-		diaryDao.openCurrentSession();
-		List<Diary> diaries = diaryDao.findByActivity(activity);
-		diaryDao.closeCurrentSession();
-		return diaries;
-	}
-	
+	/**
+	* Save an existing Goal entity
+	* 
+	 */
+	public Diary saveDiaryGoals(Integer iddiary_3, Goal related_goals);
+
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Diary deleteDiaryYourtaskuser(Integer diary_iddiary_2, Integer related_yourtaskuser_userid);
+
+	/**
+	* Delete an existing Activity entity
+	* 
+	 */
+	public Diary deleteDiaryActivity(Integer diary_iddiary_3, Integer related_activity_activityid);
+
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Diary saveDiaryYourtaskuser(Integer iddiary_4, Yourtaskuser related_yourtaskuser);
 }
