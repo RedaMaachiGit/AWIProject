@@ -1,84 +1,74 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.OrderProduct;
+import com.aiop.yourtask.domain.Product;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.OrderProduct;
-import com.aiop.yourtask.persistence.Product;
-import com.aiop.yourtask.persistence.ProductDao;
-import com.aiop.yourtask.persistence.User;
+/**
+ * Spring service that handles CRUD requests for Product entities
+ * 
+ */
+public interface ProductService {
 
-public class ProductService {
+	/**
+	* Delete an existing OrderProduct entity
+	* 
+	 */
+	public Product deleteProductOrderProducts(Integer product_productid, Integer related_orderproducts_orderid, Integer related_orderproducts_productid);
 
-	private static ProductDao productDao;
+	/**
+	* Save an existing Product entity
+	* 
+	 */
+	public void saveProduct(Product product);
 
-	public ProductService() {
-		productDao = new ProductDao();
-	}
+	/**
+	* Load an existing Product entity
+	* 
+	 */
+	public Set<Product> loadProducts();
 
-	public void persist(Product entity) {
-		productDao.openCurrentSessionwithTransaction();
-		productDao.persist(entity);
-		productDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Product saveProductYourtaskuser(Integer productid, Yourtaskuser related_yourtaskuser);
 
-	public void update(Product entity) {
-		productDao.openCurrentSessionwithTransaction();
-		productDao.update(entity);
-		productDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Product entity
+	* 
+	 */
+	public void deleteProduct(Product product_1);
 
-	public Product findById(int id) {
-		productDao.openCurrentSession();
-		Product product = productDao.findById(id);
-		productDao.closeCurrentSession();
-		return product;
-	}
+	/**
+	* Return all Product entity
+	* 
+	 */
+	public List<Product> findAllProducts(Integer startResult, Integer maxRows);
 
-	/*
-	public void delete(int id) {
-		productDao.openCurrentSessionwithTransaction();
-		Product product = productDao.findById(id);
-		productDao.delete(product);
-		productDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Product entity) {
-		productDao.openCurrentSessionwithTransaction();
-		productDao.delete(entity);
-		productDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing OrderProduct entity
+	* 
+	 */
+	public Product saveProductOrderProducts(Integer productid_1, OrderProduct related_orderproducts);
 
-	public List<Product> findAll() {
-		productDao.openCurrentSession();
-		List<Product> products = productDao.findAll();
-		productDao.closeCurrentSession();
-		return products;
-	}
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Product deleteProductYourtaskuser(Integer product_productid_1, Integer related_yourtaskuser_userid);
 
-	public void deleteAll() {
-		productDao.openCurrentSessionwithTransaction();
-		productDao.deleteAll();
-		productDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	 */
+	public Product findProductByPrimaryKey(Integer productid_2);
 
-	public ProductDao productDao() {
-		return productDao;
-	}
-	
-	
-	public List<Product> findByUser(User user) {
-		productDao.openCurrentSession();
-		List<Product> products = productDao.findByUser(user);
-		productDao.closeCurrentSession();
-		return products;
-	}
-	
-	public Product findByOrderProduct(OrderProduct entity) {
-		productDao.openCurrentSession();
-		Product product = productDao.findByOrderProduct(entity);
-		productDao.closeCurrentSession();
-		return product;
-	}
+	/**
+	* Return a count of all Product entity
+	* 
+	 */
+	public Integer countProducts();
 }

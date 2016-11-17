@@ -1,0 +1,6 @@
+#org.skyway.core settings
+#Thu Nov 17 09:25:11 CET 2016
+version=11.0.1.me201602080330
+default.top.level.package=com.aiop.yourtask
+models.folder.name=.springDSL
+initialized=true

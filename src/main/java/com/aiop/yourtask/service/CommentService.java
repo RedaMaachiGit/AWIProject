@@ -1,85 +1,74 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Activity;
+import com.aiop.yourtask.domain.Comment;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Activity;
-import com.aiop.yourtask.persistence.Comment;
-import com.aiop.yourtask.persistence.CommentDao;
-import com.aiop.yourtask.persistence.User;
+/**
+ * Spring service that handles CRUD requests for Comment entities
+ * 
+ */
+public interface CommentService {
 
-public class CommentService {
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Comment saveCommentYourtaskuser(Integer commentid, Yourtaskuser related_yourtaskuser);
 
-	private static CommentDao commentDao;
+	/**
+	* Save an existing Activity entity
+	* 
+	 */
+	public Comment saveCommentActivity(Integer commentid_1, Activity related_activity);
 
-	public CommentService() {
-		commentDao = new CommentDao();
-	}
+	/**
+	* Delete an existing Comment entity
+	* 
+	 */
+	public void deleteComment(Comment comment);
 
-	public void persist(Comment entity) {
-		commentDao.openCurrentSessionwithTransaction();
-		commentDao.persist(entity);
-		commentDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Comment deleteCommentYourtaskuser(Integer comment_commentid, Integer related_yourtaskuser_userid);
 
-	public void update(Comment entity) {
-		commentDao.openCurrentSessionwithTransaction();
-		commentDao.update(entity);
-		commentDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Activity entity
+	* 
+	 */
+	public Comment deleteCommentActivity(Integer comment_commentid_1, Integer related_activity_activityid);
 
-	public Comment findById(int id) {
-		commentDao.openCurrentSession();
-		Comment comment = commentDao.findById(id);
-		commentDao.closeCurrentSession();
-		return comment;
-	}
+	/**
+	* Return a count of all Comment entity
+	* 
+	 */
+	public Integer countComments();
 
-	/*
-	public void delete(int id) {
-		commentDao.openCurrentSessionwithTransaction();
-		Comment comment = commentDao.findById(id);
-		commentDao.delete(comment);
-		commentDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Comment entity) {
-		commentDao.openCurrentSessionwithTransaction();
-		commentDao.delete(entity);
-		commentDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Load an existing Comment entity
+	* 
+	 */
+	public Set<Comment> loadComments();
 
-	public List<Comment> findAll() {
-		commentDao.openCurrentSession();
-		List<Comment> comments = commentDao.findAll();
-		commentDao.closeCurrentSession();
-		return comments;
-	}
+	/**
+	* Return all Comment entity
+	* 
+	 */
+	public List<Comment> findAllComments(Integer startResult, Integer maxRows);
 
-	public void deleteAll() {
-		commentDao.openCurrentSessionwithTransaction();
-		commentDao.deleteAll();
-		commentDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Comment entity
+	* 
+	 */
+	public void saveComment(Comment comment_1);
 
-	public CommentDao commentDao() {
-		return commentDao;
-	}
-	
-	
-	public List<Comment> findByUser(User user) {
-		commentDao.openCurrentSession();
-		List<Comment> comments = commentDao.findByUser(user);
-		commentDao.closeCurrentSession();
-		return comments;
-	}
-
-	public List<Comment> findByActivity(Activity activity) {
-		commentDao.openCurrentSession();
-		List<Comment> comments = commentDao.findByActivity(activity);
-		commentDao.closeCurrentSession();
-		return comments;
-	}
-	
+	/**
+	 */
+	public Comment findCommentByPrimaryKey(Integer commentid_2);
 }

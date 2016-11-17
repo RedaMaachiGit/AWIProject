@@ -1,0 +1,79 @@
+<%@page language="java" isELIgnored="false" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:directive.include file="/WEB-INF/sitemesh-decorators/include.jsp"/>
+<fmt:setBundle basename="bundles.order-resources"/>
+<html>
+<head>
+<title>Edit <fmt:message key="order.title"/> <fmt:message key="orderproduct.title"/></title>
+</head>
+<body>
+<div id="contentarea">      
+	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
+	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
+	<div id="content">
+		<h1><fmt:message key="navigation.edit"/> <fmt:message key="orderproduct.title"/></h1>
+		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectOrder?orderidKey=${order_orderid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
+		<form:form action="${pageContext.request.contextPath}/saveOrderOrderProducts" method="POST" modelAttribute="orderproduct">
+			<table cellpadding="0" cellspacing="0" id="viewTable">
+				<tbody>
+					<tr>
+						<td class="label" valign="top">
+							<fmt:message key="orderproduct.orderid.title"/>:
+						</td>
+						<td>
+							<c:choose>
+								<c:when test='${newFlag}' >
+							<form:input id="orderproduct_orderid" path="orderid" cssStyle="width:300px;"/>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "orderproduct_orderid",widgetType : "dijit.form.NumberTextBox",widgetAttrs : {promptMessage: "<fmt:message key="orderproduct.orderid.help"/>", constraints : {places:0}}})); </script>
+								</c:when>
+								<c:otherwise>
+							${orderproduct.orderid}
+						&nbsp;
+									<form:hidden id="orderproduct_orderid" path="orderid"/>
+								</c:otherwise>
+							</c:choose>
+						</td>
+					</tr>
+					<tr>
+						<td class="label" valign="top">
+							<fmt:message key="orderproduct.productid.title"/>:
+						</td>
+						<td>
+							<c:choose>
+								<c:when test='${newFlag}' >
+							<form:input id="orderproduct_productid" path="productid" cssStyle="width:300px;"/>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "orderproduct_productid",widgetType : "dijit.form.NumberTextBox",widgetAttrs : {promptMessage: "<fmt:message key="orderproduct.productid.help"/>", constraints : {places:0}}})); </script>
+								</c:when>
+								<c:otherwise>
+							${orderproduct.productid}
+						&nbsp;
+									<form:hidden id="orderproduct_productid" path="productid"/>
+								</c:otherwise>
+							</c:choose>
+						</td>
+					</tr>
+					<tr>
+						<td class="label" valign="top">
+							<fmt:message key="orderproduct.quantity.title"/>:
+						</td>
+						<td>
+							<form:input id="orderproduct_quantity" path="quantity" cssStyle="width:300px;"/>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "orderproduct_quantity",widgetType : "dijit.form.NumberTextBox",widgetAttrs : {promptMessage: "<fmt:message key="orderproduct.quantity.help"/>", constraints : {places:0}}})); </script>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<span class="inputbutton"><input class="savebutton" id="save" type="submit" value="<fmt:message key="navigation.save"/>"/></span>
+			<script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'save', event:'onclick'}));</script>
+				<input type="hidden" name="order_orderid" value="${order_orderid}" >
+				
+				
+				
+				
+		</form:form>
+		<div class="clear">&nbsp;</div>
+	</div>
+	</div></div></div></div>
+	</div></div></div></div>
+</div>
+</body>
+</html>
