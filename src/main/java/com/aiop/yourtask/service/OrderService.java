@@ -1,69 +1,86 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Order;
+import com.aiop.yourtask.domain.OrderProduct;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Order;
-import com.aiop.yourtask.persistence.OrderDao;
+/**
+ * Spring service that handles CRUD requests for Order entities
+ * 
+ */
+public interface OrderService {
 
-public class OrderService {
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Order saveOrderYourtaskuserByUseridsc(Integer orderid, Yourtaskuser related_yourtaskuserbyuseridsc);
 
-	private static OrderDao roleDao;
+	/**
+	* Save an existing OrderProduct entity
+	* 
+	 */
+	public Order saveOrderOrderProducts(Integer orderid_1, OrderProduct related_orderproducts);
 
-	public OrderService() {
-		roleDao = new OrderDao();
-	}
+	/**
+	* Save an existing Order entity
+	* 
+	 */
+	public void saveOrder(Order order);
 
-	public void persist(Order entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.persist(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing OrderProduct entity
+	* 
+	 */
+	public Order deleteOrderOrderProducts(Integer order_orderid, Integer related_orderproducts_orderid, Integer related_orderproducts_productid);
 
-	public void update(Order entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.update(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Order entity
+	* 
+	 */
+	public void deleteOrder(Order order_1);
 
-	public Order findById(int id) {
-		roleDao.openCurrentSession();
-		Order role = roleDao.findById(id);
-		roleDao.closeCurrentSession();
-		return role;
-	}
+	/**
+	 */
+	public Order findOrderByPrimaryKey(Integer orderid_2);
 
-	/*
-	public void delete(int id) {
-		roleDao.openCurrentSessionwithTransaction();
-		Order role = roleDao.findById(id);
-		roleDao.delete(role);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Order entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.delete(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Order deleteOrderYourtaskuserByUserid(Integer order_orderid_1, Integer related_yourtaskuserbyuserid_userid);
 
-	public List<Order> findAll() {
-		roleDao.openCurrentSession();
-		List<Order> roles = roleDao.findAll();
-		roleDao.closeCurrentSession();
-		return roles;
-	}
+	/**
+	* Load an existing Order entity
+	* 
+	 */
+	public Set<Order> loadOrders();
 
-	public void deleteAll() {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.deleteAll();
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Return all Order entity
+	* 
+	 */
+	public List<Order> findAllOrders(Integer startResult, Integer maxRows);
 
-	public OrderDao roleDao() {
-		return roleDao;
-	}
-	
-	
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Order saveOrderYourtaskuserByUserid(Integer orderid_3, Yourtaskuser related_yourtaskuserbyuserid);
+
+	/**
+	* Return a count of all Order entity
+	* 
+	 */
+	public Integer countOrders();
+
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Order deleteOrderYourtaskuserByUseridsc(Integer order_orderid_2, Integer related_yourtaskuserbyuseridsc_userid);
 }

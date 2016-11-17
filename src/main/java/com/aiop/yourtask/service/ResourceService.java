@@ -1,79 +1,61 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Resource;
+import com.aiop.yourtask.domain.RoleResource;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Resource;
-import com.aiop.yourtask.persistence.ResourceDao;
-import com.aiop.yourtask.persistence.RoleResource;
-import com.aiop.yourtask.persistence.User;
+/**
+ * Spring service that handles CRUD requests for Resource entities
+ * 
+ */
+public interface ResourceService {
 
-public class ResourceService {
+	/**
+	 */
+	public Resource findResourceByPrimaryKey(Integer resourceid);
 
-	private static ResourceDao resourceDao;
+	/**
+	* Return all Resource entity
+	* 
+	 */
+	public List<Resource> findAllResources(Integer startResult, Integer maxRows);
 
-	public ResourceService() {
-		resourceDao = new ResourceDao();
-	}
+	/**
+	* Save an existing RoleResource entity
+	* 
+	 */
+	public Resource saveResourceRoleResources(Integer resourceid_1, RoleResource related_roleresources);
 
-	public void persist(Resource entity) {
-		resourceDao.openCurrentSessionwithTransaction();
-		resourceDao.persist(entity);
-		resourceDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Resource entity
+	* 
+	 */
+	public void saveResource(Resource resource);
 
-	public void update(Resource entity) {
-		resourceDao.openCurrentSessionwithTransaction();
-		resourceDao.update(entity);
-		resourceDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Return a count of all Resource entity
+	* 
+	 */
+	public Integer countResources();
 
-	public Resource findById(int id) {
-		resourceDao.openCurrentSession();
-		Resource resource = resourceDao.findById(id);
-		resourceDao.closeCurrentSession();
-		return resource;
-	}
+	/**
+	* Load an existing Resource entity
+	* 
+	 */
+	public Set<Resource> loadResources();
 
-	/*
-	public void delete(int id) {
-		resourceDao.openCurrentSessionwithTransaction();
-		Resource resource = resourceDao.findById(id);
-		resourceDao.delete(resource);
-		resourceDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Resource entity) {
-		resourceDao.openCurrentSessionwithTransaction();
-		resourceDao.delete(entity);
-		resourceDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Resource entity
+	* 
+	 */
+	public void deleteResource(Resource resource_1);
 
-	public List<Resource> findAll() {
-		resourceDao.openCurrentSession();
-		List<Resource> resources = resourceDao.findAll();
-		resourceDao.closeCurrentSession();
-		return resources;
-	}
-
-	public void deleteAll() {
-		resourceDao.openCurrentSessionwithTransaction();
-		resourceDao.deleteAll();
-		resourceDao.closeCurrentSessionwithTransaction();
-	}
-
-	public ResourceDao resourceDao() {
-		return resourceDao;
-	}
-	
-	
-	public Resource findByRoleResource(RoleResource entity) {
-		resourceDao.openCurrentSession();
-		Resource resource = resourceDao.findByRoleResource(entity);
-		resourceDao.closeCurrentSession();
-		return resource;
-	}
-	
-	
+	/**
+	* Delete an existing RoleResource entity
+	* 
+	 */
+	public Resource deleteResourceRoleResources(Integer resource_resourceid, Integer related_roleresources_roleid, Integer related_roleresources_resourceid);
 }

@@ -1,78 +1,61 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Diary;
+import com.aiop.yourtask.domain.Goal;
 
 import java.util.List;
+import java.util.Set;
 
-import com.aiop.yourtask.persistence.Goal;
-import com.aiop.yourtask.persistence.GoalDao;
-import com.aiop.yourtask.persistence.Diary;
+/**
+ * Spring service that handles CRUD requests for Goal entities
+ * 
+ */
+public interface GoalService {
 
-public class GoalService {
+	/**
+	* Load an existing Goal entity
+	* 
+	 */
+	public Set<Goal> loadGoals();
 
-	private static GoalDao goalDao;
+	/**
+	* Save an existing Goal entity
+	* 
+	 */
+	public void saveGoal(Goal goal);
 
-	public GoalService() {
-		goalDao = new GoalDao();
-	}
+	/**
+	* Delete an existing Goal entity
+	* 
+	 */
+	public void deleteGoal(Goal goal_1);
 
-	public void persist(Goal entity) {
-		goalDao.openCurrentSessionwithTransaction();
-		goalDao.persist(entity);
-		goalDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Save an existing Diary entity
+	* 
+	 */
+	public Goal saveGoalDiary(Integer goalid, Diary related_diary);
 
-	public void update(Goal entity) {
-		goalDao.openCurrentSessionwithTransaction();
-		goalDao.update(entity);
-		goalDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	 */
+	public Goal findGoalByPrimaryKey(Integer goalid_1);
 
-	public Goal findById(int id) {
-		goalDao.openCurrentSession();
-		Goal goal = goalDao.findById(id);
-		goalDao.closeCurrentSession();
-		return goal;
-	}
+	/**
+	* Return a count of all Goal entity
+	* 
+	 */
+	public Integer countGoals();
 
-	/*
-	public void delete(int id) {
-		goalDao.openCurrentSessionwithTransaction();
-		Goal goal = goalDao.findById(id);
-		goalDao.delete(goal);
-		goalDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Goal entity) {
-		goalDao.openCurrentSessionwithTransaction();
-		goalDao.delete(entity);
-		goalDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Delete an existing Diary entity
+	* 
+	 */
+	public Goal deleteGoalDiary(Integer goal_goalid, Integer related_diary_iddiary);
 
-	public List<Goal> findAll() {
-		goalDao.openCurrentSession();
-		List<Goal> goals = goalDao.findAll();
-		goalDao.closeCurrentSession();
-		return goals;
-	}
-
-	public void deleteAll() {
-		goalDao.openCurrentSessionwithTransaction();
-		goalDao.deleteAll();
-		goalDao.closeCurrentSessionwithTransaction();
-	}
-
-	public GoalDao goalDao() {
-		return goalDao;
-	}
-	
-	
-	public List<Goal> findByDiary(Diary diary) {
-		goalDao.openCurrentSession();
-		List<Goal> goals = goalDao.findByDiary(diary);
-		goalDao.closeCurrentSession();
-		return goals;
-	}
-
-	
+	/**
+	* Return all Goal entity
+	* 
+	 */
+	public List<Goal> findAllGoals(Integer startResult, Integer maxRows);
 }

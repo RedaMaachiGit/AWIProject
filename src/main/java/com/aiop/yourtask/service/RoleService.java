@@ -1,78 +1,74 @@
+
 package com.aiop.yourtask.service;
 
+import com.aiop.yourtask.domain.Role;
+import com.aiop.yourtask.domain.RoleResource;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.List;
+import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+/**
+ * Spring service that handles CRUD requests for Role entities
+ * 
+ */
+public interface RoleService {
 
-import com.aiop.yourtask.persistence.Role;
-import com.aiop.yourtask.persistence.RoleDao;
-import com.aiop.yourtask.serviceinterface.RoleServiceInterface;
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	 */
+	public Role deleteRoleYourtaskusers(Integer role_roleid, Integer related_yourtaskusers_userid);
 
-@Service
-@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-public class RoleService implements RoleServiceInterface{
-	@Autowired
-	private static RoleDao roleDao;
+	/**
+	* Delete an existing Role entity
+	* 
+	 */
+	public void deleteRole(Role role);
 
-	public RoleService() {
-		roleDao = new RoleDao();
-	}
-	
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public void persist(Role entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.persist(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	 */
+	public Role findRoleByPrimaryKey(Integer roleid);
 
-	public void update(Role entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.update(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Return a count of all Role entity
+	* 
+	 */
+	public Integer countRoles();
 
-	public Role findById(int id) {
-		roleDao.openCurrentSession();
-		Role role = roleDao.findById(id);
-		roleDao.closeCurrentSession();
-		return role;
-	}
+	/**
+	* Save an existing Yourtaskuser entity
+	* 
+	 */
+	public Role saveRoleYourtaskusers(Integer roleid_1, Yourtaskuser related_yourtaskusers);
 
-	/*
-	public void delete(int id) {
-		roleDao.openCurrentSessionwithTransaction();
-		Role role = roleDao.findById(id);
-		roleDao.delete(role);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
-	*/
-	
-	public void delete(Role entity) {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.delete(entity);
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Load an existing Role entity
+	* 
+	 */
+	public Set<Role> loadRoles();
 
-	public List<Role> findAll() {
-		roleDao.openCurrentSession();
-		List<Role> roles = roleDao.findAll();
-		roleDao.closeCurrentSession();
-		return roles;
-	}
+	/**
+	* Save an existing RoleResource entity
+	* 
+	 */
+	public Role saveRoleRoleResources(Integer roleid_2, RoleResource related_roleresources);
 
-	public void deleteAll() {
-		roleDao.openCurrentSessionwithTransaction();
-		roleDao.deleteAll();
-		roleDao.closeCurrentSessionwithTransaction();
-	}
+	/**
+	* Return all Role entity
+	* 
+	 */
+	public List<Role> findAllRoles(Integer startResult, Integer maxRows);
 
-	public RoleDao roleDao() {
-		return roleDao;
-	}
-	
-	
+	/**
+	* Save an existing Role entity
+	* 
+	 */
+	public void saveRole(Role role_1);
+
+	/**
+	* Delete an existing RoleResource entity
+	* 
+	 */
+	public Role deleteRoleRoleResources(Integer role_roleid_1, Integer related_roleresources_roleid, Integer related_roleresources_resourceid);
 }
