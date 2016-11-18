@@ -3,19 +3,19 @@
 <fmt:setBundle basename="bundles.diary-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="diary.title"/> <fmt:message key="goal.title"/></title>
+<title>Add/Edit Goal</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 	<div id="content">
-		<h1><fmt:message key="navigation.edit"/> <fmt:message key="goal.title"/></h1>
+		<h1>Add/Edit Goal</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveDiaryGoals" method="POST" modelAttribute="goal">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="goal.goalid.title"/>:
 						</td>
@@ -35,20 +35,20 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="goal.goalname.title"/>:
+							Name : 
 						</td>
 						<td>
 							<form:input id="goal_goalname" path="goalname" cssStyle="width:300px;"/>
-							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "goal_goalname",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="goal.goalname.help"/>"}})); </script>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "goal_goalname",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter/Edit your goal name"}})); </script>
 						</td>
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="goal.goaldescription.title"/>:
+							Description : 
 						</td>
 						<td>
 							<form:input id="goal_goaldescription" path="goaldescription" cssStyle="width:300px;"/>
-							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "goal_goaldescription",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="goal.goaldescription.help"/>"}})); </script>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "goal_goaldescription",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter/Edit your goal description"}})); </script>
 						</td>
 					</tr>
 				</tbody>

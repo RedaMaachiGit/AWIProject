@@ -14,6 +14,8 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.DiaryService;
 
+import java.util.Calendar;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -151,7 +153,7 @@ public class DiaryController {
 
 		mav.addObject("diary_iddiary", diary_iddiary);
 		mav.addObject("diary", diary);
-		mav.setViewName("diary/viewDiary.jsp");
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -270,12 +272,16 @@ public class DiaryController {
 	*/
 	@RequestMapping("/saveDiaryDiaryentries")
 	public ModelAndView saveDiaryDiaryentries(@RequestParam Integer diary_iddiary, @ModelAttribute Diaryentry diaryentries) {
+		if (diaryentries.getDiaryentryid() == null) {
+			diaryentries.setDiaryentryid((int)System.currentTimeMillis());
+			diaryentries.setDiaryentrydate(Calendar.getInstance());
+		}
 		Diary parent_diary = diaryService.saveDiaryDiaryentries(diary_iddiary, diaryentries);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("diary_iddiary", diary_iddiary);
 		mav.addObject("diary", parent_diary);
-		mav.setViewName("diary/viewDiary.jsp");
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -308,6 +314,7 @@ public class DiaryController {
 	* View an existing Goal entity
 	* 
 	*/
+	/*
 	@RequestMapping("/selectDiaryGoals")
 	public ModelAndView selectDiaryGoals(@RequestParam Integer diary_iddiary, @RequestParam Integer goals_goalid) {
 		Goal goal = goalDAO.findGoalByPrimaryKey(goals_goalid, -1, -1);
@@ -318,7 +325,7 @@ public class DiaryController {
 		mav.setViewName("diary/goals/viewGoals.jsp");
 
 		return mav;
-	}
+	}*/
 
 	/**
 	* Show all Goal entities by Diary
@@ -392,12 +399,15 @@ public class DiaryController {
 	*/
 	@RequestMapping("/saveDiaryGoals")
 	public ModelAndView saveDiaryGoals(@RequestParam Integer diary_iddiary, @ModelAttribute Goal goals) {
+		if (goals.getGoalid() == null) {
+			goals.setGoalid((int)System.currentTimeMillis());
+		}
 		Diary parent_diary = diaryService.saveDiaryGoals(diary_iddiary, goals);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("diary_iddiary", diary_iddiary);
 		mav.addObject("diary", parent_diary);
-		mav.setViewName("diary/viewDiary.jsp");
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -417,6 +427,7 @@ public class DiaryController {
 	* View an existing Diaryentry entity
 	* 
 	*/
+	/*
 	@RequestMapping("/selectDiaryDiaryentries")
 	public ModelAndView selectDiaryDiaryentries(@RequestParam Integer diary_iddiary, @RequestParam Integer diaryentries_diaryentryid) {
 		Diaryentry diaryentry = diaryentryDAO.findDiaryentryByPrimaryKey(diaryentries_diaryentryid, -1, -1);
@@ -427,7 +438,7 @@ public class DiaryController {
 		mav.setViewName("diary/diaryentries/viewDiaryentries.jsp");
 
 		return mav;
-	}
+	}*/
 
 	/**
 	* Edit an existing Activity entity
@@ -501,7 +512,7 @@ public class DiaryController {
 
 		mav.addObject("diary_iddiary", diary_iddiary);
 		mav.addObject("diary", diary);
-		mav.setViewName("diary/viewDiary.jsp");
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -575,12 +586,25 @@ public class DiaryController {
 	* Select an existing Diary entity
 	* 
 	*/
+	
 	@RequestMapping("/selectDiary")
 	public ModelAndView selectDiary(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("diary", diaryDAO.findDiaryByPrimaryKey(iddiaryKey));
-		mav.setViewName("diary/viewDiary.jsp");
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
+
+		return mav;
+	}
+	
+	@RequestMapping("/selectActivityDiaries")
+	public ModelAndView selectActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
+		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("diary", diary);
+		mav.setViewName("activity/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
