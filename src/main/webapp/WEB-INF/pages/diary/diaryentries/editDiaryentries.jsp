@@ -3,19 +3,19 @@
 <fmt:setBundle basename="bundles.diary-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="diary.title"/> <fmt:message key="diaryentry.title"/></title>
+<title>Add/Edit Diary Entry</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 	<div id="content">
-		<h1><fmt:message key="navigation.edit"/> <fmt:message key="diaryentry.title"/></h1>
+		<h1>Add/Edit Diary Entry</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveDiaryDiaryentries" method="POST" modelAttribute="diaryentry">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="diaryentry.diaryentryid.title"/>:
 						</td>
@@ -33,9 +33,9 @@
 							</c:choose>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentrydate.title"/>:
+							Date : 
 						</td>
 						<td>
 							<input id="diaryentry_diaryentrydate" name="diaryentrydate" type="text" value="<fmt:formatDate value="${diaryentry.diaryentrydate.time}" pattern="yyyy-MM-dd"/>" dojoType="dijit.form.DateTextBox" constraints="{datePattern:'<fmt:message key="date.format"/>'}" trim="true" promptMessage="<fmt:message key="date.format" />" invalidMessage="<fmt:message key="date.format.invalid" /> <fmt:message key="date.format" />." style="width:300px;" />
@@ -43,14 +43,14 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentrycontent.title"/>:
+							Content : 
 						</td>
 						<td>
 							<form:input id="diaryentry_diaryentrycontent" path="diaryentrycontent" cssStyle="width:300px;"/>
-							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "diaryentry_diaryentrycontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="diaryentry.diaryentrycontent.help"/>"}})); </script>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "diaryentry_diaryentrycontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter your diary entry content"}})); </script>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="diaryentry.diaryentryvisibility.title"/>:
 						</td>
