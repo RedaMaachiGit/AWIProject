@@ -3,7 +3,7 @@
 <fmt:setBundle basename="bundles.activity-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="activity.title"/> <fmt:message key="comment.title"/></title>
+<title>Add Comment</title>
 </head>
 <body>
 <div id="contentarea">      
@@ -15,7 +15,7 @@
 		<form:form action="${pageContext.request.contextPath}/saveActivityComments" method="POST" modelAttribute="comment">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="comment.commentid.title"/>:
 						</td>
@@ -35,14 +35,14 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="comment.commentcontent.title"/>:
+							Your comment : 
 						</td>
 						<td>
 							<form:input id="comment_commentcontent" path="commentcontent" cssStyle="width:300px;"/>
 							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "comment_commentcontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="comment.commentcontent.help"/>"}})); </script>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="comment.commentdate.title"/>:
 						</td>
