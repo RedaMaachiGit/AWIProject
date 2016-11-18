@@ -3,7 +3,7 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources"/>
 <html>
 <head>
-<title>View <fmt:message key="yourtaskuser.title"/></title>
+<title>YourTask <fmt:message key="yourtaskuser.title"/></title>
 </head>
 <body>
 <div id="contentarea">      
