@@ -31,6 +31,7 @@
 			<jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
 		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")){ %>
 		    <div id="nav">
+		    	<!-- Bouton BACK TO DASHBOARD -->
 				<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/index.jsp"><span><img src="${pageContext.request.contextPath}/images/icons/back.gif" /><fmt:message key="navigation.backToDashboard"/></span></a></div>
 		    </div>
 			<% } %>     
@@ -42,7 +43,8 @@
 				<% } %>
 				<div class="hidden">&nbsp;</div>     
 			</div><!-- end contentwrapper -->   
-			<jsp:include page="/WEB-INF/sitemesh-common/footer.jsp" />
+			<!-- Inclusion du FOOTER -->
+			<!-- <jsp:include page="/WEB-INF/sitemesh-common/footer.jsp" /> -->
 		</div><!-- end wrapper -->
 		<img src="${pageContext.request.contextPath}/images/button_hover.gif" class="hidden"/>
 		<img src="${pageContext.request.contextPath}/images/button_span_hover.gif" class="hidden"/>
