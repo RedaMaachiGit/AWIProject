@@ -3,19 +3,19 @@
 <fmt:setBundle basename="bundles.activity-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="activity.title"/> <fmt:message key="diary.title"/></title>
+<title>Add/Edit Diary</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 	<div id="content">
-		<h1><fmt:message key="navigation.edit"/> <fmt:message key="diary.title"/></h1>
+		<h1>Add/Edit Diary</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveActivityDiaries" method="POST" modelAttribute="diary">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="diary.iddiary.title"/>:
 						</td>
@@ -35,14 +35,14 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="diary.diaryname.title"/>:
+							Name :
 						</td>
 						<td>
 							<form:input id="diary_diaryname" path="diaryname" cssStyle="width:300px;"/>
 							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "diary_diaryname",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="diary.diaryname.help"/>"}})); </script>
 						</td>
 					</tr>
-					<tr>
+					<tr  style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="diary.diarydate.title"/>:
 						</td>

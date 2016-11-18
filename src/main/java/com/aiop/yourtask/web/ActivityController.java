@@ -14,6 +14,9 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ActivityService;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -200,13 +203,20 @@ public class ActivityController {
 	* 
 	*/
 	@RequestMapping("/saveActivityComments")
-	public ModelAndView saveActivityComments(@RequestParam Integer activity_activityid, @ModelAttribute Comment comments) {
+	public ModelAndView saveActivityComments(@RequestParam Integer activity_activityid, @ModelAttribute Comment comments) {		
+		if (comments.getCommentid() == null) {
+			int id = (int)System.currentTimeMillis();
+			comments.setCommentid(id);
+			comments.setCommentdate(Calendar.getInstance());
+		}		
+		comments.setYourtaskuser(activityDAO.findActivityByActivityid(activity_activityid).getYourtaskuser());
+		
 		Activity parent_activity = activityService.saveActivityComments(activity_activityid, comments);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -230,6 +240,7 @@ public class ActivityController {
 	* Select the child Comment entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
+	/*
 	@RequestMapping("/confirmDeleteActivityComments")
 	public ModelAndView confirmDeleteActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer related_comments_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -240,6 +251,7 @@ public class ActivityController {
 
 		return mav;
 	}
+	*/
 
 	/**
 	* Save an existing Task entity
@@ -247,12 +259,15 @@ public class ActivityController {
 	*/
 	@RequestMapping("/saveActivityTasks")
 	public ModelAndView saveActivityTasks(@RequestParam Integer activity_activityid, @ModelAttribute Task tasks) {
+		if (tasks.getTaskid() == null) {
+			tasks.setTaskid((int)System.currentTimeMillis());
+		}
 		Activity parent_activity = activityService.saveActivityTasks(activity_activityid, tasks);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -269,6 +284,7 @@ public class ActivityController {
 	* View an existing Diary entity
 	* 
 	*/
+	/*
 	@RequestMapping("/selectActivityDiaries")
 	public ModelAndView selectActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
@@ -280,7 +296,7 @@ public class ActivityController {
 
 		return mav;
 	}
-
+	*/
 	/**
 	* Edit an existing Task entity
 	* 
@@ -354,22 +370,22 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
-	/*
+	
 	@RequestMapping("/selectYourtaskuserActivities")
-	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer activityidKey) {
+	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer activities_activityid) {
+		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
+		
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
-		mav.setViewName("activity/viewActivity.jsp");
-
-		//mav.setViewName("yourtaskuser/activities/detailsActivity.jsp");
+		mav.addObject("activity", activity);
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
-	}*/
+	}
 
 	/**
 	* View an existing Yourtaskuser entity
@@ -399,7 +415,7 @@ public class ActivityController {
 
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("activity", activity);
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -454,12 +470,17 @@ public class ActivityController {
 	*/
 	@RequestMapping("/saveActivityDiaries")
 	public ModelAndView saveActivityDiaries(@RequestParam Integer activity_activityid, @ModelAttribute Diary diaries) {
+		if (diaries.getIddiary() == null) {
+			diaries.setIddiary((int)System.currentTimeMillis());
+			diaries.setDiarydate(Calendar.getInstance());
+		}
+		diaries.setYourtaskuser(activityDAO.findActivityByActivityid(activity_activityid).getYourtaskuser());
 		Activity parent_activity = activityService.saveActivityDiaries(activity_activityid, diaries);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -563,6 +584,7 @@ public class ActivityController {
 	* View an existing Comment entity
 	* 
 	*/
+	/*
 	@RequestMapping("/selectActivityComments")
 	public ModelAndView selectActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer comments_commentid) {
 		Comment comment = commentDAO.findCommentByPrimaryKey(comments_commentid, -1, -1);
@@ -573,7 +595,7 @@ public class ActivityController {
 		mav.setViewName("activity/comments/viewComments.jsp");
 
 		return mav;
-	}
+	}*/
 
 	/**
 	* Create a new Diary entity
@@ -602,7 +624,7 @@ public class ActivityController {
 
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("activity", activity);
-		mav.setViewName("activity/viewActivity.jsp");
+		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -611,6 +633,7 @@ public class ActivityController {
 	* Edit an existing Comment entity
 	* 
 	*/
+	/*
 	@RequestMapping("/editActivityComments")
 	public ModelAndView editActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer comments_commentid) {
 		Comment comment = commentDAO.findCommentByPrimaryKey(comments_commentid, -1, -1);
@@ -621,7 +644,7 @@ public class ActivityController {
 		mav.setViewName("activity/comments/editComments.jsp");
 
 		return mav;
-	}
+	}*/
 
 	/**
 	* Create a new Comment entity

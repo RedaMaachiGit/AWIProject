@@ -380,7 +380,7 @@ public class YourtaskuserController {
 	* View an existing Activity entity
 	* 
 	*/
-	
+	/*
 	@RequestMapping("/selectYourtaskuserActivities")
 	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer activities_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
@@ -397,7 +397,7 @@ public class YourtaskuserController {
 		mav.setViewName("yourtaskuser/activities/detailsActivity.jsp");
 
 		return mav;
-	}
+	}*/
 
 	/**
 	* Edit an existing Product entity
@@ -643,7 +643,7 @@ public class YourtaskuserController {
 
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("yourtaskuser", yourtaskuser);
-		mav.setViewName("yourtaskuser/activitybyuser.jsp");
+		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
 
 		return mav;
 	}
@@ -919,15 +919,14 @@ public class YourtaskuserController {
 	@RequestMapping("/saveYourtaskuserActivities")
 	public ModelAndView saveYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Activity activities) {	
 		if (activities.getActivityid() == null) {
-			int id = 1000 + (int)(Math.random() * ((5000 - 1000) + 1));
-			activities.setActivityid(id);
+			activities.setActivityid((int)System.currentTimeMillis());
 		}
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("yourtaskuser", parent_yourtaskuser);
-		mav.setViewName("yourtaskuser/activitybyuser.jsp");
+		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
 
 		return mav;
 	}
@@ -1141,7 +1140,7 @@ public class YourtaskuserController {
 
 		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey));
 		
-		mav.setViewName("yourtaskuser/activitybyuser.jsp");
+		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
 
 		return mav;
 	}

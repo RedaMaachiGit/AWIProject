@@ -3,19 +3,19 @@
 <fmt:setBundle basename="bundles.activity-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="activity.title"/> <fmt:message key="task.title"/></title>
+<title>Add/Edit Task</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 	<div id="content">
-		<h1><fmt:message key="navigation.edit"/> <fmt:message key="task.title"/></h1>
+		<h1>Add/Edit Task</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveActivityTasks" method="POST" modelAttribute="task">
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
-					<tr>
+					<tr style="display:none;">
 						<td class="label" valign="top">
 							<fmt:message key="task.taskid.title"/>:
 						</td>
@@ -35,11 +35,11 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="task.taskcontent.title"/>:
+							Task : 
 						</td>
 						<td>
 							<form:input id="task_taskcontent" path="taskcontent" cssStyle="width:300px;"/>
-							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "task_taskcontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="task.taskcontent.help"/>"}})); </script>
+							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "task_taskcontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter/Edit task content"}})); </script>
 						</td>
 					</tr>
 				</tbody>
