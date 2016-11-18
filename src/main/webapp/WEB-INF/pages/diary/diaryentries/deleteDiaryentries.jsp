@@ -16,16 +16,7 @@
 				<tbody>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentryid.title"/>:
-						</td>
-						<td>
-							${diaryentry.diaryentryid}
-						&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentrydate.title"/>:
+							Date : 
 						</td>
 						<td>
 							<fmt:formatDate dateStyle="short" type="date" value="${diaryentry.diaryentrydate.time}"/>
@@ -34,19 +25,10 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentrycontent.title"/>:
+							Content : 
 						</td>
 						<td>
 							${diaryentry.diaryentrycontent}
-						&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="diaryentry.diaryentryvisibility.title"/>:
-						</td>
-						<td>
-							${diaryentry.diaryentryvisibility}
 						&nbsp;
 						</td>
 					</tr>
