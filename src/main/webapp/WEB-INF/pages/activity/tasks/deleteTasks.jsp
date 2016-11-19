@@ -51,7 +51,11 @@
             			<li><a href="./ordersu">My orders</a></li>
           			</ul>
           			<ul class="nav navbar-nav navbar-right">
-          				<li><a href="./">Log out</a></li>
+          				<li>
+          					<!-- <a href="./">Log out</a> -->
+          					<c:url value="/logout" var="logoutUrl" />
+      						<a class="float-xs-right btn btn-outline-danger" href="${logoutUrl}">Log out</a>
+          				</li>
           			</ul>
         		</div><!--/.nav-collapse -->
       		</div>
@@ -63,14 +67,20 @@
 				<!-- <div id="lb"><div id="rb"><div id="bb"><div id="blc"> -->
 				<!-- <div id="brc"><div id="tb"><div id="tlc"><div id="trc"> -->
 					<div id="content">
-					<!-- <h1>Delete Task</h1> -->
-						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
+						
+						<div class="navitem">
+							<a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								<span><fmt:message key="navigation.back"/></span>
+							</a>
+						</div>
+						<h1>Delete Task</h1>
 						</br>
 							<table class="table table-list-search" id="viewTable">
 								<tbody>
 									<div class="form-group">
 										<tr>
-											<td class="label" valign="top">
+											<td valign="top">
 												Task :
 											</td>
 											<td>

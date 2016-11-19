@@ -64,6 +64,7 @@
 				<!-- <div id="lb"><div id="rb"><div id="bb"><div id="blc"> -->
 				<!-- <div id="brc"><div id="tb"><div id="tlc"><div id="trc"> -->
 					<div id="content">
+					<h1>Delete</h1>
 					<!-- <h1><fmt:message key="activity.title"/> Details</h1> -->
 						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/indexActivity"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 							<table class="table table-list-search" id="viewTable">
