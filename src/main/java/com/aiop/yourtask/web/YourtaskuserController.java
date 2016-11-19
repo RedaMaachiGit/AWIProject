@@ -827,6 +827,29 @@ public class YourtaskuserController {
 
 		return mav;
 	}
+	
+	/**
+	* Edit an existing Yourtaskuser entity
+	* 
+	*/
+	@RequestMapping("/editSU")
+	public ModelAndView editSU(/*@RequestParam Integer useridKey*/) {
+		ModelAndView mav = new ModelAndView();
+
+		
+/*
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("suinfo", suinfo);
+		mav.setViewName("yourtaskuser/suinfos/editSuinfos.jsp");
+	*/	
+		
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(1)); // a enlever , remplacer par id cookies
+		mav.setViewName("yourtaskuser/editSU.jsp");
+
+		return mav;
+	}
+	
 
 	/**
 	* Delete an existing Comment entity
@@ -1226,10 +1249,62 @@ public class YourtaskuserController {
 	* 
 	*/
 	@RequestMapping("/saveYourtaskuser")
-	public String saveYourtaskuser(@ModelAttribute Yourtaskuser yourtaskuser) {
+	public String saveYourtaskuser(@ModelAttribute Yourtaskuser yourtaskuser) { // retournait un String avant
 		yourtaskuserService.saveYourtaskuser(yourtaskuser);
 		return "forward:/indexYourtaskuser";
+		//int id=yourtaskuser.getUserid(); // rajouté
+		//return "forward:/indexYourtaskuser";
+	/*	return "forward:/selectYourtaskUser?useridKey=1&"; // rajouté
+		
+		
+		
+		//saveYourtaskuserActivities
+		if (yourtaskuser.getUserid() == null) {
+			yourtaskuser.setUserid((int)System.currentTimeMillis());
+		}
+		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("yourtaskuser", parent_yourtaskuser);
+		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
+
+		return mav;
+		
+		//indexYourtaskUser
+		ModelAndView mav = new ModelAndView();
+
+		ActivityDAO activityDAO = new ActivityDAO();
+		activityDAO.findActivityByY
+		mav.addObject("yourtaskusers", yourtaskuserService.loadYourtaskusers());
+
+		mav.setViewName("yourtaskuser/listYourtaskusers.jsp");
+
+		return mav;
+		
+		//selectyourtaskuser
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser.getUserid()));
+		
+		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
+		
+		return mav;
+	*/	
+		
 	}
+	
+	/**
+	* Save an existing SU entity
+	* 
+	*/
+	/*
+	@RequestMapping("/saveSU")
+	public String saveSU(@ModelAttribute Yourtaskuser yourtaskuser) {
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		int id=yourtaskuser.getUserid();
+		return "forward:/selectYourtaskUser?useridKey="+id+"&";
+	}*/
 
 	/**
 	* Edit an existing Suinfo entity

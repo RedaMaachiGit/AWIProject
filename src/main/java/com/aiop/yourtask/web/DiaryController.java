@@ -600,11 +600,25 @@ public class DiaryController {
 	@RequestMapping("/selectActivityDiaries")
 	public ModelAndView selectActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
-
+		Activity activity = activityDAO.findActivityByActivityid(activity_activityid);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		mav.addObject("diary", diary);
 		mav.setViewName("activity/diaries/detailsDiary.jsp");
+
+		return mav;
+	}
+	
+	@RequestMapping("/selectPublicActivityDiaries")
+	public ModelAndView selectPublicActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
+		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
+		Activity activity = activityDAO.findActivityByActivityid(activity_activityid);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("userid", activity.getYourtaskuser().getUserid());
+		mav.addObject("diary", diary);
+		mav.setViewName("activity/diaries/detailsDiaryPublicActivity.jsp");
 
 		return mav;
 	}

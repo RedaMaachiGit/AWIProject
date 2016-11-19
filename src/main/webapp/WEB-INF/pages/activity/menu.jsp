@@ -2,3 +2,6 @@
 <jsp:directive.include file="/WEB-INF/sitemesh-decorators/include.jsp"/>
 <fmt:setBundle basename="bundles.activity-resources"/>
 <a class="button" href="${pageContext.request.contextPath}/indexActivity"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/> <fmt:message key="activity.title"/>s</span></a>
+
+<a class="button" href="${pageContext.request.contextPath}/indexActivity"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/>See all activities</span></a>
+

@@ -16,6 +16,7 @@ import com.aiop.yourtask.service.ActivityService;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -375,6 +376,20 @@ public class ActivityController {
 		return mav;
 	}
 	
+	/**
+	* Select an existing Activity entity
+	* 
+	*/
+	@RequestMapping("/selectPublicActivity")
+	public ModelAndView selectPublicActivity(@RequestParam Integer activityidKey) {
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
+		mav.setViewName("activity/detailsPublicActivity.jsp");
+
+		return mav;
+	}
+	
 	@RequestMapping("/selectYourtaskuserActivities")
 	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer activities_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
@@ -382,6 +397,8 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activity);
+		mav.addObject("userid", activity.getYourtaskuser().getUserid());
+		
 		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
@@ -573,9 +590,9 @@ public class ActivityController {
 	public ModelAndView listActivitys() {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("activitys", activityService.loadActivitys());
+		mav.addObject("activitys", activityDAO.findActivityByActivityvisibility(true));
 
-		mav.setViewName("activity/listActivitys.jsp");
+		mav.setViewName("activity/listActivities.jsp");
 
 		return mav;
 	}
@@ -657,6 +674,21 @@ public class ActivityController {
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/comments/editComments.jsp");
+
+		return mav;
+	}
+	
+	/**
+	* Create a new Comment entity
+	* 
+	*/
+	@RequestMapping("/newPublicActivityComments")
+	public ModelAndView newPublicActivityComments(@RequestParam Integer activity_activityid) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("comment", new Comment());
+		mav.addObject("newFlag", true);
+		mav.setViewName("activity/comments/editCommentsPublicActivity.jsp");
 
 		return mav;
 	}
