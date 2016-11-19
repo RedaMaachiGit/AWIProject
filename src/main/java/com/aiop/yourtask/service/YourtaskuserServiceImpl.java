@@ -22,6 +22,7 @@ import com.aiop.yourtask.domain.Scinfo;
 import com.aiop.yourtask.domain.Suinfo;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -673,5 +674,18 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 		yourtaskuserDAO.flush();
 
 		return yourtaskuser;
+	}
+
+	@Override
+	public Yourtaskuser findByUsername(String username) {
+		// TODO Auto-generated method stub
+		Iterator it = yourtaskuserDAO.findYourtaskuserByUserusername(username).iterator();
+		if (it.hasNext()){
+			return (Yourtaskuser) it.next();
+		}
+		
+		// this for avoiding exception
+		System.out.println("this user doesnt exist unfortunately");
+		return new Yourtaskuser();
 	}
 }

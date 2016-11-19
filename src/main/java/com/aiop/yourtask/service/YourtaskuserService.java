@@ -174,4 +174,6 @@ public interface YourtaskuserService {
 	* 
 	 */
 	public Yourtaskuser saveYourtaskuserActivities(Integer userid_10, Activity related_activities);
+
+	public Yourtaskuser findByUsername(String username);
 }
