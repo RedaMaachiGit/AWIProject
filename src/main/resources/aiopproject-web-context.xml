@@ -78,23 +78,3 @@
 	<!-- ******************************************************************** -->
 	<context:component-scan base-package="com.aiop.yourtask.web" scoped-proxy="interfaces" />
 </beans>
-	<!-- ******************************************************************** -->
-	<!-- Added by Reda for the API -->
-	<!-- ******************************************************************** -->	
-	<annotation-driven>
-	    <message-converters>
-	        <beans:bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-	            <beans:property name="marshaller" ref="jaxbMarshaller"/>
-	            <beans:property name="unmarshaller" ref="jaxbMarshaller"/>
-	        </beans:bean>
-	    </message-converters>
-	</annotation-driven>
-
-	<beans:bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-	    <beans:property name="classesToBeBound">
-	        <beans:list>
-	            <beans:value>com.stackoverflow.jaxb.domain.JaxbGenericList</beans:value>
-	            <beans:value>com.stackoverflow.jaxb.domain.Product</beans:value>
-	        </beans:list>
-	    </beans:property>
-	</beans:bean>
