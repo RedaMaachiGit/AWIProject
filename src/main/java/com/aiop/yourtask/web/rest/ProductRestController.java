@@ -10,12 +10,14 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ProductService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.WebDataBinder;
@@ -232,14 +234,32 @@ public class ProductRestController {
 		productService.saveProductOrderProducts(product_productid, orderproduct);
 		return orderProductDAO.findOrderProductByPrimaryKey(orderproduct.getOrderid(), orderproduct.getProductid());
 	}
-
+//
+//	/**
+//	* Show all Product entities
+//	* 
+//	*/
+//	@RequestMapping(value = "/Product", method = RequestMethod.GET)
+//	@ResponseBody
+//	public List<Product> listProducts() {
+//		return new java.util.ArrayList<Product>(productService.loadProducts());
+//	}
+//	
 	/**
 	* Show all Product entities
 	* 
 	*/
-	@RequestMapping(value = "/Product", method = RequestMethod.GET)
+	@RequestMapping(value = "/Product", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
 	@ResponseBody
-	public List<Product> listProducts() {
-		return new java.util.ArrayList<Product>(productService.loadProducts());
+	public RestResponseList addObjects() {
+		Set<Product> listeProducts = productDAO.findAllProducts(); 
+        List<Object> fooList= new ArrayList<Object>();
+        for(Product produit: listeProducts){
+        	System.out.println(produit.toString());
+		    fooList.add(produit);
+		}
+        RestResponseList books=new RestResponseList();
+        books.setList(fooList);
+		return books;
 	}
 }
