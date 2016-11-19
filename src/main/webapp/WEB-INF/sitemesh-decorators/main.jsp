@@ -15,8 +15,17 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/spring/Spring.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/spring/Spring-Dojo.js"></script>
 		<script type="text/javascript">dojo.require("dojo.parser");</script>
-		
-		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" /> 
+		<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+				|| ((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+		<link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" /> 
+		<% } %>
+		<!-- bootstrap css --><link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
+		<!-- sticky footer css --><link href="${pageContext.request.contextPath}/css/sticky-footer.css" rel="stylesheet" type="text/css" /> 
+		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+				&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+			<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
+		<% } %>
+		 
 		<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")){ %>
 		<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet" type="text/css" /> 
 		<% } %>     
@@ -28,8 +37,14 @@
     </head>
 	<body class="tundra spring">
 		<div id="wrapper">
-			<jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
-		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")){ %>
+			<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+		    <jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
+			<% } %> 
+			
+		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")
+		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
 		    <div id="nav">
 		    	<!-- Bouton BACK TO DASHBOARD -->
 				<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/index.jsp"><span><img src="${pageContext.request.contextPath}/images/icons/back.gif" /><fmt:message key="navigation.backToDashboard"/></span></a></div>
@@ -46,8 +61,8 @@
 			<!-- Inclusion du FOOTER -->
 			<!-- <jsp:include page="/WEB-INF/sitemesh-common/footer.jsp" /> -->
 		</div><!-- end wrapper -->
-		<img src="${pageContext.request.contextPath}/images/button_hover.gif" class="hidden"/>
-		<img src="${pageContext.request.contextPath}/images/button_span_hover.gif" class="hidden"/>
+<%-- 		<img src="${pageContext.request.contextPath}/images/button_hover.gif" class="hidden"/> --%>
+<%-- 		<img src="${pageContext.request.contextPath}/images/button_span_hover.gif" class="hidden"/> --%>
 	</body>
 </html>
 
