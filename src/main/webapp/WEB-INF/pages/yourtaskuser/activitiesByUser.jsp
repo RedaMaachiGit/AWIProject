@@ -50,7 +50,11 @@
             			<li><a href="./ordersu">My orders</a></li>
           			</ul>
           			<ul class="nav navbar-nav navbar-right">
-          				<li><a href="./">Log out</a></li>
+          				<li>
+          					<!-- <a href="./">Log out</a> -->
+          					<c:url value="/logout" var="logoutUrl" />
+      						<a class="float-xs-right btn btn-outline-danger" href="${logoutUrl}">Log out</a>
+          				</li>
           			</ul>
         		</div><!--/.nav-collapse -->
       		</div>
@@ -62,9 +66,19 @@
 				<!-- <div id="lb"><div id="rb"><div id="bb"><div id="blc"> -->
 				<!-- <div id="brc"><div id="tb"><div id="tlc"><div id="trc"> -->
 					<div id="content">
-						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/indexYourtaskuser"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>	
+						<div class="navitem">
+							<a class="button" href="${pageContext.request.contextPath}/indexYourtaskuser">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								<span><fmt:message key="navigation.back"/></span>
+							</a>
+						</div>	
 						<h1>My Activities</h1>
-						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/newYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&"><span><img src="${pageContext.request.contextPath}/images/icons/new.gif" /><fmt:message key="navigation.new"/> <fmt:message key="activity.title"/></span></a></div>
+						<div class="navitem">
+							<a class="button" href="${pageContext.request.contextPath}/newYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&">
+								<span class="glyphicon glyphicon-plus"></span>
+								<span><fmt:message key="navigation.new"/> <fmt:message key="activity.title"/></span>
+							</a>
+						</div>
 						<table class="table table-list-search" id="viewTable">
 							<thead>
 								<tr>
@@ -86,9 +100,17 @@
 									</c:choose>
 									<tr class="${rowclass}">
 										<td nowrap="nowrap">
-											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&"><img src="images/icons/view.gif" /></a>
-											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&"><img src="images/icons/edit.gif" /></a>
-											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&related_activities_activityid=${current.activityid}&"><img src="images/icons/delete.gif" /></a>
+											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&">
+												<span class="glyphicon glyphicon-zoom-in"></span>
+											</a>
+											
+											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</a>
+											
+											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&related_activities_activityid=${current.activityid}&">
+												<span class="glyphicon glyphicon-trash"></span>
+											</a>
 										</td>
 										<td>
 											${current.activityname}
