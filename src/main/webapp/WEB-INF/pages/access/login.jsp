@@ -18,10 +18,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="./login" class="active" >Login</a>
+								<a href="" disabled="disabled" class="active" >Login</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="./register">Register</a>
+								<a href="${pageContext.request.contextPath}/register">Register</a>
 							</div>
 						</div>
 						<hr>
