@@ -290,6 +290,17 @@ public class ProductController {
 
 		return mav;
 	}
+	
+	@RequestMapping("/allProducts")
+	public ModelAndView allProducts() {
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("products", productService.loadProducts());
+
+		mav.setViewName("product/listAllProducts.jsp");
+
+		return mav;
+	}
 
 	/**
 	* Delete an existing OrderProduct entity

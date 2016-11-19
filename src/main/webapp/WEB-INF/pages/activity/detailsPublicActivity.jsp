@@ -11,7 +11,7 @@
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 		<div id="content">
 			<h1>Activity details</h1>
-			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${userid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>	
+			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/indexActivity"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>	
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
 					<tr>
@@ -32,15 +32,6 @@
 						&nbsp;
 						</td>
 					</tr>
-					<tr>
-						<td class="label" valign="top">
-							Visibility : 
-						</td>
-						<td>
-							${activity.activityvisibility}
-						&nbsp;
-						</td>
-					</tr>
 				</tbody>
 			</table>
 			<div class="clear">&nbsp;</div>
@@ -48,7 +39,6 @@
 
 			<h1>Diaries</h1>
 					
-			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/newActivityDiaries?activity_activityid=${activity.activityid}&"><span><img src="${pageContext.request.contextPath}/images/icons/new.gif" /><fmt:message key="navigation.new"/> <fmt:message key="diary.title"/></span></a></div>
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<thead>
 					<tr>
@@ -69,9 +59,7 @@
 						</c:choose>
 					<tr class="${rowclass}">
 						<td nowrap="nowrap">
-							<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&"><img src="images/icons/view.gif" /></a>
-							<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&"><img src="images/icons/edit.gif" /></a>
-							<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityDiaries?activity_activityid=${activity.activityid}&related_diaries_iddiary=${current.iddiary}&"><img src="images/icons/delete.gif" /></a>
+							<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectPublicActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&"><img src="images/icons/view.gif" /></a>
 						</td>
 						<td>
 							${current.diaryname}
@@ -91,7 +79,6 @@
 			
 			<h1>Tasks</h1>
 					
-			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/newActivityTasks?activity_activityid=${activity.activityid}&"><span><img src="${pageContext.request.contextPath}/images/icons/new.gif" /><fmt:message key="navigation.new"/> <fmt:message key="task.title"/></span></a></div>
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<thead>
 					<tr>
@@ -110,10 +97,6 @@
 							</c:otherwise>
 						</c:choose>
 					<tr class="${rowclass}">
-						<td nowrap="nowrap">
-							<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityTasks?activity_activityid=${activity.activityid}&tasks_taskid=${current.taskid}&"><img src="images/icons/edit.gif" /></a>
-							<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityTasks?activity_activityid=${activity.activityid}&related_tasks_taskid=${current.taskid}&"><img src="images/icons/delete.gif" /></a>
-						</td>
 						<td>
 							${current.taskcontent}
 						&nbsp;
@@ -128,7 +111,7 @@
 			
 			<h1>Comments</h1>
 					
-			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/newActivityComments?activity_activityid=${activity.activityid}&"><span><img src="${pageContext.request.contextPath}/images/icons/new.gif" /><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span></a></div>
+			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/newPublicActivityComments?activity_activityid=${activity.activityid}&"><span><img src="${pageContext.request.contextPath}/images/icons/new.gif" /><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span></a></div>
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<thead>
 					<tr>

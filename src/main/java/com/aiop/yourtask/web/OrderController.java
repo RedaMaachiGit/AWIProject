@@ -418,6 +418,21 @@ public class OrderController {
 
 		return mav;
 	}
+	
+	/**
+	* Show all Order entities
+	* 
+	*/
+	@RequestMapping("/ordersBySU")
+	public ModelAndView listOrdersBySU() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(1)); // 1 A CHANGER PAR idUser
+		
+		mav.setViewName("order/listOrdersBySU.jsp");
+
+		return mav;
+	}
 
 	/**
 	* Edit an existing Order entity
