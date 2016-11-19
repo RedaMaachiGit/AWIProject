@@ -22,7 +22,7 @@
         <a class="dropdown-item" href="#">Something else here</a>
       </div>
     </li>
-    <li class="nav-item right">
+    <li class="nav-item float-xs-right">
     	<c:url value="/logout" var="logoutUrl" />
       	<a class="float-xs-right btn btn-outline-danger" href="${logoutUrl}">Log out</a>
     </li>

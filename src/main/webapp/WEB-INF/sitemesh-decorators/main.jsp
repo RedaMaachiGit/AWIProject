@@ -16,13 +16,13 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/spring/Spring-Dojo.js"></script>
 		<script type="text/javascript">dojo.require("dojo.parser");</script>
 		<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-				|| ((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+				|| ((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		<link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" /> 
 		<% } %>
 		<!-- bootstrap css --><link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
 		<!-- sticky footer css --><link href="${pageContext.request.contextPath}/css/sticky-footer.css" rel="stylesheet" type="text/css" /> 
 		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-				&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+				&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 			<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 		<% } %>
 		 
@@ -38,13 +38,13 @@
 	<body class="tundra spring">
 		<div id="wrapper">
 			<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		    <jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
 			<% } %> 
 			
 		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")
 		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/register")){ %>
+		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		    <div id="nav">
 		    	<!-- Bouton BACK TO DASHBOARD -->
 				<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/index.jsp"><span><img src="${pageContext.request.contextPath}/images/icons/back.gif" /><fmt:message key="navigation.backToDashboard"/></span></a></div>

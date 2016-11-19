@@ -22,7 +22,8 @@
 	<http auto-config="true" create-session="ifRequired">
 
 		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		
+		<intercept-url pattern="/saveYourtaskuser*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/saveuser*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/register*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 
 		<intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
