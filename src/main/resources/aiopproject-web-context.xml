@@ -77,6 +77,4 @@
 	<!-- Scan for web layer annotated beans -->
 	<!-- ******************************************************************** -->
 	<context:component-scan base-package="com.aiop.yourtask.web" scoped-proxy="interfaces" />
-	
-	
 </beans>

@@ -146,6 +146,20 @@ public class ProductController {
 		binder.registerCustomEditor(Double.class, new org.skyway.spring.util.databinding.NaNHandlingNumberEditor(Double.class, true));
 	}
 
+	
+	/**
+	 * Select an existing Activity entity
+	 * 
+	 */
+	 @RequestMapping("/selectProducts")
+	 public ModelAndView selectProducts() {
+	 	ModelAndView mav = new ModelAndView();
+	  	mav.addObject("products", productDAO.findAllProducts());
+	 	mav.setViewName("products/detailsProducts.jsp");
+	  	return mav;
+	 }
+	 
+	
 	/**
 	* Create a new Yourtaskuser entity
 	* 
