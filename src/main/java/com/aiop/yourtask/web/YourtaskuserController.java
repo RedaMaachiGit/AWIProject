@@ -24,6 +24,9 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.YourtaskuserService;
 
+import java.util.Calendar;
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -1430,4 +1433,71 @@ public class YourtaskuserController {
 
 		return mav;
 	}
+	
+	/**
+	* register a simple user
+	* 
+	*/
+	@RequestMapping("/register/saveuser")
+	public String saveNewUser(@ModelAttribute Yourtaskuser yourtaskuser) {
+		Random rand = new Random();
+		int id = rand.nextInt();
+		yourtaskuser.setUserid(id);
+		yourtaskuser.setRole(roleDAO.findRoleByRoleid(2));
+		yourtaskuser.setUsertype("USER");
+		yourtaskuser.setUsertoken("");
+		yourtaskuser.setUserlastconnectiondate(Calendar.getInstance());
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		Suinfo suinfo = new Suinfo();
+		suinfo.setSuinfoid(id);suinfo.setSuinfofirstname("");
+		suinfo.setSuinfolastname("");suinfo.setYourtaskuser(yourtaskuser);
+		suinfoDAO.store(suinfo);
+		return "redirect:/login";
+	}
+	
+	/**
+	* register a company
+	* 
+	*/
+	@RequestMapping("/register/savecompany")
+	public String saveNewCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
+		Random rand = new Random();
+		int id = rand.nextInt();
+		yourtaskuser.setUserid(id);
+		yourtaskuser.setRole(roleDAO.findRoleByRoleid(3));
+		yourtaskuser.setUsertype("COMPANY");
+		yourtaskuser.setUsertoken("");
+		yourtaskuser.setUserlastconnectiondate(Calendar.getInstance());
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		Scinfo scinfo = new Scinfo();
+		scinfo.setScinfoid(id);scinfo.setScinfoactivitydomain("");
+		scinfo.setScinfosiret("");scinfo.setScinfowebsite("");
+		scinfo.setYourtaskuser(yourtaskuser);
+		scinfoDAO.store(scinfo);
+		return "redirect:/login";
+	}
+	
+	/**
+	* Save an existing Scinfo entity
+	* 
+	*//*
+	@RequestMapping("/register/addcompanyinfos")
+	public String registerYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Scinfo scinfos) {
+		yourtaskuserService.saveYourtaskuserScinfos(yourtaskuser_userid, scinfos);
+
+		return "forward:/login";
+	}*/
+
+	/**
+	* Save an existing Suinfo entity
+	* 
+	*/
+	/*
+	@RequestMapping("/register/adduserinfos")
+	public String registerYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Suinfo suinfos) {	
+		yourtaskuserService.saveYourtaskuserSuinfos(yourtaskuser_userid, suinfos);
+
+
+		return "forward:/login";
+	}*/
 }
