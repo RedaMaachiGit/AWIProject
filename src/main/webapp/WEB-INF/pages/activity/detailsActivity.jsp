@@ -86,151 +86,151 @@
 							</tbody>
 						</table>
 
-					<h1>Diaries</h1>
-					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/newActivityDiaries?activity_activityid=${activity.activityid}&">
-							<span class="glyphicon glyphicon-plus"></span>
-							<span><fmt:message key="navigation.new"/> <fmt:message key="diary.title"/></span>
-						</a>
-					</div>
-						<table class="table table-list-search" id="viewTable">
-							<thead>
-								<tr>
-									<th class="thead">&nbsp;</th>
-									<th class="thead">Name</th>
-									<th class="thead">Date</th>
-								</tr>
-							</thead>
-							<div class="form-group">
-								<tbody>
-									<c:forEach items="${activity.diaries}" var="current"  varStatus="i">	
-										<c:choose>
-											<c:when test="${(i.count) % 2 == 0}">
-									    		<c:set var="rowclass" value="rowtwo"/>
-											</c:when>
-											<c:otherwise>
-									    		<c:set var="rowclass" value="rowone"/>
-											</c:otherwise>
-										</c:choose>
-										<tr class="${rowclass}">
-											<td nowrap="nowrap">
-												<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
-													<span class="glyphicon glyphicon-zoom-in"></span>
-												</a>
-												
-												<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
-													<span class="glyphicon glyphicon-pencil"></span>
-													
-												</a>
-												<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityDiaries?activity_activityid=${activity.activityid}&related_diaries_iddiary=${current.iddiary}&">
-													<span class="glyphicon glyphicon-trash"></span>
-												</a>
-											</td>
-											<td>
-												${current.diaryname}
-												&nbsp;
-											</td>
-											<td>
-												<fmt:formatDate dateStyle="short" type="date" value="${current.diarydate.time}"/>
-												&nbsp;
-											</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</div>
-						</table>
-								
-					<h1>Tasks</h1>
-					<div class="navitem">					
-						<a class="button" href="${pageContext.request.contextPath}/newActivityTasks?activity_activityid=${activity.activityid}&">
-							<span class="glyphicon glyphicon-plus"></span>
-							<span><fmt:message key="navigation.new"/> <fmt:message key="task.title"/></span>
-						</a>
-					</div>
-						<table class="table table-list-search" id="viewTable">
-							<thead>
-								<tr>
-									<th class="thead">&nbsp;</th>
-									<th class="thead">Task</th>
-								</tr>
-							</thead>
-							<div class="form-group">
-								<tbody>
-									<c:forEach items="${activity.tasks}" var="current"  varStatus="i">	
-										<c:choose>
-											<c:when test="${(i.count) % 2 == 0}">
-									    		<c:set var="rowclass" value="rowtwo"/>
-											</c:when>
-											<c:otherwise>
-									    		<c:set var="rowclass" value="rowone"/>
-											</c:otherwise>
-										</c:choose>
-										<tr class="${rowclass}">
-											<td nowrap="nowrap">
-												<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityTasks?activity_activityid=${activity.activityid}&tasks_taskid=${current.taskid}&">
-													<span class="glyphicon glyphicon-pencil"></span>
-												</a>
-												
-												<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityTasks?activity_activityid=${activity.activityid}&related_tasks_taskid=${current.taskid}&">
-													<span class="glyphicon glyphicon-trash"></span>
-												</a>
-											</td>
-											<td>
-												${current.taskcontent}
-												&nbsp;
-											</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</div>
-						</table>
-								
-					<h1>Comments</h1>				
-					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/newActivityComments?activity_activityid=${activity.activityid}&">
-							<span class="glyphicon glyphicon-plus"></span>
-							<span><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span>
-						</a>
-					</div>
-						<table class="table table-list-search" id="viewTable">
-							<thead>
-								<tr>
-									<!--<th class="thead">&nbsp;</th>-->
-									<th class="thead">Date</th>
-									<th class="thead">Comment</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${activity.comments}" var="current"  varStatus="i">	
-									<c:choose>
-										<c:when test="${(i.count) % 2 == 0}">
-								    		<c:set var="rowclass" value="rowtwo"/>
-										</c:when>
-										<c:otherwise>
-								    		<c:set var="rowclass" value="rowone"/>
-										</c:otherwise>
-									</c:choose>
-									<tr class="${rowclass}">
-										<!--
-										<td nowrap="nowrap">
-											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityComments?activity_activityid=${activity.activityid}&comments_commentid=${current.commentid}&"><img src="images/icons/view.gif" /></a>
-											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityComments?activity_activityid=${activity.activityid}&comments_commentid=${current.commentid}&"><img src="images/icons/edit.gif" /></a>
-											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityComments?activity_activityid=${activity.activityid}&related_comments_commentid=${current.commentid}&"><img src="images/icons/delete.gif" /></a>
-										</td>
-										-->
-										<td>
-											<fmt:formatDate dateStyle="short" type="date" value="${current.commentdate.time}"/>
-											&nbsp;
-										</td>
-										<td>
-											${current.commentcontent}
-											&nbsp;
-										</td>
+						<h1>Diaries</h1>
+						<div class="navitem">
+							<a class="button" href="${pageContext.request.contextPath}/newActivityDiaries?activity_activityid=${activity.activityid}&">
+								<span class="glyphicon glyphicon-plus"></span>
+								<span><fmt:message key="navigation.new"/> <fmt:message key="diary.title"/></span>
+							</a>
+						</div>
+							<table class="table table-list-search" id="viewTable">
+								<thead>
+									<tr>
+										<th class="thead">&nbsp;</th>
+										<th class="thead">Name</th>
+										<th class="thead">Date</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+								</thead>
+								<div class="form-group">
+									<tbody>
+										<c:forEach items="${activity.diaries}" var="current"  varStatus="i">	
+											<c:choose>
+												<c:when test="${(i.count) % 2 == 0}">
+										    		<c:set var="rowclass" value="rowtwo"/>
+												</c:when>
+												<c:otherwise>
+										    		<c:set var="rowclass" value="rowone"/>
+												</c:otherwise>
+											</c:choose>
+											<tr class="${rowclass}">
+												<td nowrap="nowrap">
+													<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
+														<span class="glyphicon glyphicon-zoom-in"></span>
+													</a>
+													
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
+														<span class="glyphicon glyphicon-pencil"></span>
+														
+													</a>
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityDiaries?activity_activityid=${activity.activityid}&related_diaries_iddiary=${current.iddiary}&">
+														<span class="glyphicon glyphicon-trash"></span>
+													</a>
+												</td>
+												<td>
+													${current.diaryname}
+													&nbsp;
+												</td>
+												<td>
+													<fmt:formatDate dateStyle="short" type="date" value="${current.diarydate.time}"/>
+													&nbsp;
+												</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</div>
+							</table>
+									
+						<h1>Tasks</h1>
+						<div class="navitem">					
+							<a class="button" href="${pageContext.request.contextPath}/newActivityTasks?activity_activityid=${activity.activityid}&">
+								<span class="glyphicon glyphicon-plus"></span>
+								<span><fmt:message key="navigation.new"/> <fmt:message key="task.title"/></span>
+							</a>
+						</div>
+							<table class="table table-list-search" id="viewTable">
+								<thead>
+									<tr>
+										<th class="thead">&nbsp;</th>
+										<th class="thead">Task</th>
+									</tr>
+								</thead>
+								<div class="form-group">
+									<tbody>
+										<c:forEach items="${activity.tasks}" var="current"  varStatus="i">	
+											<c:choose>
+												<c:when test="${(i.count) % 2 == 0}">
+										    		<c:set var="rowclass" value="rowtwo"/>
+												</c:when>
+												<c:otherwise>
+										    		<c:set var="rowclass" value="rowone"/>
+												</c:otherwise>
+											</c:choose>
+											<tr class="${rowclass}">
+												<td nowrap="nowrap">
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityTasks?activity_activityid=${activity.activityid}&tasks_taskid=${current.taskid}&">
+														<span class="glyphicon glyphicon-pencil"></span>
+													</a>
+													
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityTasks?activity_activityid=${activity.activityid}&related_tasks_taskid=${current.taskid}&">
+														<span class="glyphicon glyphicon-trash"></span>
+													</a>
+												</td>
+												<td>
+													${current.taskcontent}
+													&nbsp;
+												</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</div>
+							</table>
+									
+						<h1>Comments</h1>				
+						<div class="navitem">
+							<a class="button" href="${pageContext.request.contextPath}/newActivityComments?activity_activityid=${activity.activityid}&">
+								<span class="glyphicon glyphicon-plus"></span>
+								<span><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span>
+							</a>
+						</div>
+							<table class="table table-list-search" id="viewTable">
+								<thead>
+									<tr>
+										<!--<th class="thead">&nbsp;</th>-->
+										<th class="thead">Date</th>
+										<th class="thead">Comment</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${activity.comments}" var="current"  varStatus="i">	
+										<c:choose>
+											<c:when test="${(i.count) % 2 == 0}">
+									    		<c:set var="rowclass" value="rowtwo"/>
+											</c:when>
+											<c:otherwise>
+									    		<c:set var="rowclass" value="rowone"/>
+											</c:otherwise>
+										</c:choose>
+										<tr class="${rowclass}">
+											<!--
+											<td nowrap="nowrap">
+												<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityComments?activity_activityid=${activity.activityid}&comments_commentid=${current.commentid}&"><img src="images/icons/view.gif" /></a>
+												<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityComments?activity_activityid=${activity.activityid}&comments_commentid=${current.commentid}&"><img src="images/icons/edit.gif" /></a>
+												<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityComments?activity_activityid=${activity.activityid}&related_comments_commentid=${current.commentid}&"><img src="images/icons/delete.gif" /></a>
+											</td>
+											-->
+											<td>
+												<fmt:formatDate dateStyle="short" type="date" value="${current.commentdate.time}"/>
+												&nbsp;
+											</td>
+											<td>
+												${current.commentcontent}
+												&nbsp;
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					<div class="clear">&nbsp;</div>
 				</div>
 			</div>
