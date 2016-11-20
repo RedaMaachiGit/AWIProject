@@ -4,7 +4,7 @@ package com.aiop.yourtask.dao;
 import com.aiop.yourtask.domain.Product;
 
 import java.math.BigDecimal;
-
+import java.util.Collection;
 import java.util.Set;
 
 import org.skyway.spring.util.dao.JpaDao;
@@ -77,6 +77,25 @@ public interface ProductDAO extends JpaDao<Product> {
 	 */
 	public Set<Product> findProductByProductname(String productname, int startResult, int maxRows) throws DataAccessException;
 
+
+	/**
+	 * JPQL Query - findAllProducts for a certain company
+	 *
+	 */
+	public Collection<? extends Product> findProductByCompany(Integer company_companyid) throws DataAccessException ;
+
+	/**
+	 * JPQL Query - findAllProducts for a certain company
+	 *
+	 */
+	public Collection<? extends Product> findProductByCompany(Integer company_companyid, int startResult) throws DataAccessException ;
+
+	/**
+	 * JPQL Query - findAllProducts for a certain company
+	 *
+	 */
+	public Collection<? extends Product> findProductByCompany(Integer company_companyid, int startResult, int maxRows) throws DataAccessException ;
+
 	/**
 	 * JPQL Query - findAllProducts
 	 *
@@ -148,5 +167,6 @@ public interface ProductDAO extends JpaDao<Product> {
 	 *
 	 */
 	public Set<Product> findProductByProductnameContaining(String productname_1, int startResult, int maxRows) throws DataAccessException;
+
 
 }
