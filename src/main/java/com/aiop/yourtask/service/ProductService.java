@@ -49,7 +49,18 @@ public interface ProductService {
 	* 
 	 */
 	public List<Product> findAllProducts(Integer startResult, Integer maxRows);
+	
+	/**
+	* Return all Product entity
+	* 
+	 */
+	public List<Product> findAllProducts();
 
+	/**
+	* Return all Product entity of a certain entity
+	* 
+	 */
+	public List<Product> findAllCompanysProducts(Integer company_companyid);
 	/**
 	* Save an existing OrderProduct entity
 	* 

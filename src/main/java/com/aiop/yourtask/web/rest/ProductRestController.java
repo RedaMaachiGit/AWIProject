@@ -6,15 +6,19 @@ import com.aiop.yourtask.dao.YourtaskuserDAO;
 
 import com.aiop.yourtask.domain.OrderProduct;
 import com.aiop.yourtask.domain.Product;
+import com.aiop.yourtask.domain.Products;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ProductService;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -230,9 +234,11 @@ public class ProductRestController {
 	*/
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts", method = RequestMethod.POST)
 	@ResponseBody
-	public OrderProduct newProductOrderProducts(@PathVariable Integer product_productid, @RequestBody OrderProduct orderproduct) {
+	//public OrderProduct newProductOrderProducts(@PathVariable Integer product_productid, @RequestBody OrderProduct orderproduct) {
+	public void newProductOrderProducts(@PathVariable Integer product_productid, @RequestBody OrderProduct orderproduct) {
 		productService.saveProductOrderProducts(product_productid, orderproduct);
-		return orderProductDAO.findOrderProductByPrimaryKey(orderproduct.getOrderid(), orderproduct.getProductid());
+		System.out.println("Create a new OrderProduct Entity");
+		//return orderProductDAO.findOrderProductByPrimaryKey(orderproduct.getOrderid(), orderproduct.getProductid());
 	}
 //
 //	/**
@@ -249,17 +255,43 @@ public class ProductRestController {
 	* Show all Product entities
 	* 
 	*/
-	@RequestMapping(value = "/Product", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+	@RequestMapping(value = "/Product", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
-	public RestResponseList addObjects() {
-		Set<Product> listeProducts = productDAO.findAllProducts(); 
-        List<Object> fooList= new ArrayList<Object>();
-        for(Product produit: listeProducts){
-        	System.out.println(produit.toString());
-		    fooList.add(produit);
-		}
-        RestResponseList books=new RestResponseList();
-        books.setList(fooList);
-		return books;
+	public EntityList<Product> getProducts() {
+		List<Product> listeProducts = productService.findAllProducts();
+		EntityList<Product> listOfProducts = new EntityList<Product>(listeProducts);
+	    return listOfProducts;   
 	}
+	
+	/**
+	* Show all Product entities of a certain company
+	* 
+	*/
+	// Path must be Product (without s)
+	@RequestMapping(value = "/Products/{company_companyid}", method = RequestMethod.GET, produces="application/xml")
+	@ResponseBody
+	public EntityList<Product> getCompanysProducts(@PathVariable Integer company_companyid) {
+		List<Product> listeProducts = productService.findAllCompanysProducts(company_companyid);
+		EntityList<Product> listOfProducts = new EntityList<Product>(listeProducts);
+	    return listOfProducts;
+	}
+
+//  for(Product produit: listeProducts){
+//	System.out.println(produit.toString());
+//	products.add(produit);
+//}	
+//	public Object[] listProducts() {
+//	Products products = new Products();
+//		//ProductService productService = new ProductService();
+//		List<Product> listeProducts = productService.findAllProducts(0,1);
+//		Set<Product> fooList= new LinkedHashSet<Product>();
+//        for(Product produit: listeProducts){
+//        	System.out.println(produit.toString());
+//		    fooList.add(produit);
+//		}
+//        System.out.println(fooList.toString());
+//        //RestResponseList books=new RestResponseList();
+//        //books.setList(fooList);
+//		return fooList.toArray();
+//	}
 }

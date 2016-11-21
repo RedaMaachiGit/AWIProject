@@ -163,6 +163,26 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> findAllProducts(Integer startResult, Integer maxRows) {
 		return new java.util.ArrayList<Product>(productDAO.findAllProducts(startResult, maxRows));
 	}
+	
+
+	/**
+	 * Return all Product entity of a company without limit
+	 * 
+	 */
+	@Transactional
+	public List<Product> findAllCompanysProducts(Integer company_companyid) {
+		return new java.util.ArrayList<Product>(productDAO.findProductByCompany(company_companyid));
+	}
+
+	
+	/**
+	 * Return all Product entity without limit
+	 * 
+	 */
+	@Transactional
+	public List<Product> findAllProducts() {
+		return new java.util.ArrayList<Product>(productDAO.findAllProducts());
+	}
 
 	/**
 	 * Save an existing OrderProduct entity

@@ -9,6 +9,7 @@ import com.aiop.yourtask.dao.YourtaskuserDAO;
 import com.aiop.yourtask.domain.Activity;
 import com.aiop.yourtask.domain.Comment;
 import com.aiop.yourtask.domain.Diary;
+import com.aiop.yourtask.domain.Product;
 import com.aiop.yourtask.domain.Task;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
@@ -119,11 +120,15 @@ public class ActivityRestController {
 	* Show all Activity entities
 	* 
 	*/
-	@RequestMapping(value = "/Activity", method = RequestMethod.GET)
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/Activity", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
-	public List<Activity> listActivitys() {
-		return new java.util.ArrayList<Activity>(activityService.loadActivitys());
+	public EntityList<Activity> listActivitys() {
+		List<Activity> listeActivitys = (List<Activity>) activityService.loadActivitys();
+		EntityList<Activity> listOfActivitys = new EntityList<Activity>(listeActivitys);
+	    return listOfActivitys;
 	}
+	
 
 	/**
 	* View an existing Diary entity

@@ -92,6 +92,53 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 			return null;
 		}
 	}
+	
+
+	/**
+	 * JPQL Query - findProductByCompany
+	 *
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public Set<Product> findProductByCompany(Integer company_companyid, int startResult, int maxRows) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findProductByCompany", startResult, maxRows, company_companyid);
+			return new LinkedHashSet<Product>(query.getResultList());
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
+	
+	/**
+	 * JPQL Query - findProductByCompany (without max rows)
+	 *
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public Set<Product> findProductByCompany(Integer company_companyid, int startResult) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findProductByCompany", startResult, -1, company_companyid);
+			return new LinkedHashSet<Product>(query.getResultList());
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
+	
+
+	/**
+	 * JPQL Query - findProductByCompany (without max rows & start results)
+	 *
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public Set<Product> findProductByCompany(Integer company_companyid) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findProductByCompany", -1, -1, company_companyid);
+			return new LinkedHashSet<Product>(query.getResultList());
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
 
 	/**
 	 * JPQL Query - findProductByProductdescriptionContaining
