@@ -26,6 +26,8 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "findAllProducts", query = "select myProduct from Product myProduct"),
+		//TODO right request
+		@NamedQuery(name = "findProductByCompany", query = "select myProduct from Product myProduct"),
 		@NamedQuery(name = "findProductByPrimaryKey", query = "select myProduct from Product myProduct where myProduct.productid = ?1"),
 		@NamedQuery(name = "findProductByProductavailablequantity", query = "select myProduct from Product myProduct where myProduct.productavailablequantity = ?1"),
 		@NamedQuery(name = "findProductByProductdescription", query = "select myProduct from Product myProduct where myProduct.productdescription = ?1"),

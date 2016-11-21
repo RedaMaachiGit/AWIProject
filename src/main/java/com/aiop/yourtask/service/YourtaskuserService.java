@@ -175,5 +175,27 @@ public interface YourtaskuserService {
 	 */
 	public Yourtaskuser saveYourtaskuserActivities(Integer userid_10, Activity related_activities);
 
+	/**
+	* Find a user by his username
+	* 
+	 */
 	public Yourtaskuser findByUsername(String username);
+
+	/**
+	* Find all companys
+	* 
+	 */
+	public List<Yourtaskuser> findAllCompanys();
+
+	/**
+	* Find all companys
+	* 
+	 */
+	public List<Yourtaskuser> findAllCompanys(int startResult, int maxRows);
+
+	/**
+	* Find company by SIRET
+	* 
+	 */
+	public Yourtaskuser findCompanyBySIRET(String company_companySIRET);
 }

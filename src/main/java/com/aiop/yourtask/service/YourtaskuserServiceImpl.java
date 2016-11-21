@@ -688,4 +688,21 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 		System.out.println("this user doesnt exist unfortunately");
 		return new Yourtaskuser();
 	}
+
+	@Override
+	public List<Yourtaskuser> findAllCompanys(int startResult,int maxRows) {
+		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserDAO.findAllCompanys(startResult, maxRows));
+	}
+
+	@Override
+	public List<Yourtaskuser> findAllCompanys() {
+		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserDAO.findAllCompanys());
+	}
+
+	@Override
+	public Yourtaskuser findCompanyBySIRET(String company_companySIRET) {
+		Yourtaskuser company = yourtaskuserDAO.findCompanyBySIRET(company_companySIRET);
+		// TODO Auto-generated method stub
+		return company;
+	}
 }

@@ -366,11 +366,43 @@ public class YourtaskuserRestController {
 	* Show all Yourtaskuser entities
 	* 
 	*/
-	@RequestMapping(value = "/Yourtaskuser", method = RequestMethod.GET)
+	@RequestMapping(value = "/Company", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
-	public List<Yourtaskuser> listYourtaskusers() {
-		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserService.loadYourtaskusers());
+	public EntityListCompany<Yourtaskuser> getCompanys() {
+//		List<Product> listeProducts = productService.findAllProducts();
+//		EntityList<Product> listOfProducts = new EntityList<Product>(listeProducts);
+//	    return listOfProducts;   
+
+		List<Yourtaskuser> listeCompanys = yourtaskuserService.findAllCompanys();
+		EntityListCompany<Yourtaskuser> listOfCompanys = new EntityListCompany<Yourtaskuser>(listeCompanys);
+		return listOfCompanys;
 	}
+	
+	/**
+	* Show all Yourtaskuser entities
+	* 
+	*/
+	@RequestMapping(value = "/Company/{company_companySIRET}", method = RequestMethod.GET, produces="application/xml")
+	@ResponseBody
+	public Yourtaskuser getCompanyBySIRET(@PathVariable String company_companySIRET) {
+		Yourtaskuser company = yourtaskuserService.findCompanyBySIRET(company_companySIRET);
+		///EntityList<Yourtaskuser> listOfCompanys = new EntityList<Yourtaskuser>(listeCompanys);
+		return company;
+//		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserService.loadYourtaskusers());
+	}
+	
+//
+//	/**
+//	* Show all Product entities
+//	* 
+//	*/
+//	@RequestMapping(value = "/Product", method = RequestMethod.GET, produces="application/xml")
+//	@ResponseBody
+//	public EntityList<Product> getProducts() {
+//		List<Product> listeProducts = productService.findAllProducts();
+//		EntityList<Product> listOfProducts = new EntityList<Product>(listeProducts);
+//	    return listOfProducts;   
+//	}
 
 	/**
 	* Save an existing Role entity

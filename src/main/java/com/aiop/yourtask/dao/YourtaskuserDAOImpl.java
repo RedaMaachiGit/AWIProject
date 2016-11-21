@@ -721,4 +721,65 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	public boolean canBeMerged(Yourtaskuser entity) {
 		return true;
 	}
+
+
+	/**
+	 * JPQL Query - findAllCompanys
+	 *
+	 */
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<Yourtaskuser> findAllCompanys(int startResult, int maxRows) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findAllCompanys", startResult, maxRows);
+			return new LinkedHashSet<Yourtaskuser>(query.getResultList());
+		} catch (NoResultException nre){
+			return null;
+		}
+	}
+
+	
+
+	/**
+	 * JPQL Query - findAllCompanys
+	 *
+	 */
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<Yourtaskuser> findAllCompanys() throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findAllCompanys", -1, -1);
+			return new LinkedHashSet<Yourtaskuser>(query.getResultList());	
+		} catch (NoResultException nre) {
+			return null;
+		}	
+	}
+
+	@Override
+	public Yourtaskuser findCompanyBySIRET(String company_companySIRET) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findCompanyBySIRET", -1, -1, company_companySIRET);
+			return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
+	
+	@Override
+	public Yourtaskuser findCompanyBySIRET(Integer company_companySIRET, int startResult, int maxRows) throws DataAccessException {
+		try {
+			Query query = createNamedQuery("findCompanyBySIRET", startResult, maxRows, company_companySIRET);
+			return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
 }
+
+
+
+
+
+
