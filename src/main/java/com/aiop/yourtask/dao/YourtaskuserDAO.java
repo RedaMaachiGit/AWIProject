@@ -4,6 +4,7 @@ package com.aiop.yourtask.dao;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Set;
 
 import org.skyway.spring.util.dao.JpaDao;
@@ -363,5 +364,29 @@ public interface YourtaskuserDAO extends JpaDao<Yourtaskuser> {
 	 *
 	 */
 	public Set<Yourtaskuser> findYourtaskuserByUseremailContaining(String useremail_1, int startResult, int maxRows) throws DataAccessException;
+
+	/**
+	 * JPQL Query - findAllCompanys
+	 *
+	 */
+	public Set<Yourtaskuser> findAllCompanys(int startResult, int maxRows) throws DataAccessException;
+
+	/**
+	 * JPQL Query - findAllCompanys
+	 *
+	 */
+	public Set<Yourtaskuser> findAllCompanys() throws DataAccessException;
+
+	/**
+	 * JPQL Query - findCompanyBySIRET
+	 *
+	 */
+	public Yourtaskuser findCompanyBySIRET(String company_companySIRET) throws DataAccessException;
+
+	/**
+	 * JPQL Query - findCompanyBySIRET
+	 *
+	 */
+	public Yourtaskuser findCompanyBySIRET(Integer company_companySIRET, int startResult, int maxRows) throws DataAccessException;
 
 }

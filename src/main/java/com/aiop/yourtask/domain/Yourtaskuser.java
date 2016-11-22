@@ -25,6 +25,12 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "findAllYourtaskusers", query = "select myYourtaskuser from Yourtaskuser myYourtaskuser"),
+		@NamedQuery(name = "findAllCompanys", query = "select myYourtaskuser from Yourtaskuser myYourtaskuser where myYourtaskuser.usertype = 'sc'"),
+		//TODO correct query maybe not COMPANY the keyword
+		//@NamedQuery(name = "findCompanyBySIRET", query = "SELECT myYourtaskuser FROM Yourtaskuser myYourtaskuser JOIN myYourtaskuser.scinfo info WHERE info.scinfosiret = ?1"),
+		@NamedQuery(name = "findCompanyBySIRET", query = "SELECT user FROM Scinfo myScinfo JOIN myScinfo.yourtaskuser user WHERE myScinfo.scinfosiret = ?1"),
+		//select o from Employee o where o.departments.departmentId is null or o.departments.departmentId=:departmentId
+		//END TO DO
 		@NamedQuery(name = "findYourtaskuserByPrimaryKey", query = "select myYourtaskuser from Yourtaskuser myYourtaskuser where myYourtaskuser.userid = ?1"),
 		@NamedQuery(name = "findYourtaskuserByUsercity", query = "select myYourtaskuser from Yourtaskuser myYourtaskuser where myYourtaskuser.usercity = ?1"),
 		@NamedQuery(name = "findYourtaskuserByUsercityContaining", query = "select myYourtaskuser from Yourtaskuser myYourtaskuser where myYourtaskuser.usercity like ?1"),
