@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,10 +72,9 @@ public class ProfileController {
 	* 
 	*/
 	@RequestMapping("/su/profile")
-	public ModelAndView suprofile() {
+	public ModelAndView suprofile(@CookieValue(value = "AUTHCOOKIE") String authCookie) {
 		ModelAndView mav = new ModelAndView();
-		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Yourtaskuser yourtaskuser=yourtaskuserService.findByUsername(user.getUsername());
+		Yourtaskuser yourtaskuser=yourtaskuserService.findByUsername(authCookie);
 		mav.addObject("yourtaskuser",yourtaskuser );
 		mav.addObject("suinfo", suinfoDAO.findSuinfoByPrimaryKey(yourtaskuser.getUserid()));
 		mav.setViewName("profile/userprofile.jsp");
@@ -86,15 +86,16 @@ public class ProfileController {
 	* 
 	*/
 	@RequestMapping("/sc/profile")
-	public ModelAndView scprofile() {
+	public ModelAndView scprofile(@CookieValue(value = "AUTHCOOKIE") String authCookie) {
 		ModelAndView mav = new ModelAndView();
-		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Yourtaskuser yourtaskuser=yourtaskuserService.findByUsername(user.getUsername());
+		Yourtaskuser yourtaskuser=yourtaskuserService.findByUsername(authCookie);
 		mav.addObject("yourtaskuser",yourtaskuser );
 		mav.addObject("scinfo", scinfoDAO.findScinfoByPrimaryKey(yourtaskuser.getUserid()));
 		mav.setViewName("profile/companyprofile.jsp");
 		return mav;
 	}
+	
+	/*Gaétan pour les modelview du controller pour récupèrer le user courant il faut mettre comme @CookieValue(value = "AUTHCOOKIE") String authCookie*/
 
 
 
