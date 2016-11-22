@@ -74,7 +74,7 @@
 						</div>	
 						<h1>My Activities</h1>
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/newYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/createActivity">
 								<span class="glyphicon glyphicon-plus"></span>
 								<span><fmt:message key="navigation.new"/> <fmt:message key="activity.title"/></span>
 							</a>
@@ -100,15 +100,15 @@
 									</c:choose>
 									<tr class="${rowclass}">
 										<td nowrap="nowrap">
-											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&">
+											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}">
 												<span class="glyphicon glyphicon-zoom-in"></span>
 											</a>
 											
-											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&activities_activityid=${current.activityid}&">
+											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}/editActivity">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</a>
 											
-											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser.userid}&related_activities_activityid=${current.activityid}&">
+											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}/deleteActivity">
 												<span class="glyphicon glyphicon-trash"></span>
 											</a>
 										</td>

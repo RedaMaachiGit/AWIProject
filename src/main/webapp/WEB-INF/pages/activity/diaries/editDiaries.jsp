@@ -71,13 +71,13 @@
 			<div id="content">
 					<!--  Bouton back -->
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
 					</div>
 						<h1>Add or edit a diary</h1>
-						<form:form action="${pageContext.request.contextPath}/saveActivityDiaries" method="POST" modelAttribute="diary">
+						<form:form action="${pageContext.request.contextPath}/saveActivityDiaries/${userid}/${activityid}" method="POST" modelAttribute="diary">
 							<table class="table table-list-search" id="viewTable">
 								<tbody>
 									<div class="form-group">
@@ -107,7 +107,7 @@
 											</td>
 											<td>
 												<form:input id="diary_diaryname" path="diaryname" cssStyle="width:300px;"/>
-												<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "diary_diaryname",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="diary.diaryname.help"/>"}})); </script>
+												<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "diary_diaryname",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter/Edit diary name"}})); </script>
 											</td>
 										</tr>
 										<tr style="display:none;">

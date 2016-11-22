@@ -86,7 +86,7 @@
 								</c:choose>	
 								<tr class="${rowclass}">
 									<td nowrap="nowrap" class="tabletd">
-										<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectPublicActivity?activityidKey=${current.activityid}&">
+										<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/allactivities/activity/${current.activityid}">
 											<span class="glyphicon glyphicon-zoom-in"></span>
 										</a>
 									</td>

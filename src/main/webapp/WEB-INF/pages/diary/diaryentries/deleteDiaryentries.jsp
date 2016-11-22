@@ -68,7 +68,7 @@
 				<!-- <div id="brc"><div id="tb"><div id="tlc"><div id="trc"> -->
 					<div id="content">
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diaryid}">
 								<span class="glyphicon glyphicon-arrow-left"></span>
 								<span><fmt:message key="navigation.back"/></span>
 							</a>
@@ -104,7 +104,7 @@
 							
 							<div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
 								<span class="inputbutton">
-									<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteDiaryDiaryentries?diary_iddiary=${diary_iddiary}&related_diaryentries_diaryentryid=${diaryentry.diaryentryid}&"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
+									<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteDiaryDiaryentries/${userid}/${activityid}/${diaryid}/${diaryentry.diaryentryid}"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
 								</span>
 							<!-- <div class="clear">&nbsp;</div> -->
 						</div>

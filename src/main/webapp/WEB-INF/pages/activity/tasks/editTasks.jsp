@@ -72,13 +72,13 @@
 					
 					<!-- Bouton BACK -->
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
 					</div>
 					<h1>Add or edit Task</h1>
-						<form:form action="${pageContext.request.contextPath}/saveActivityTasks" method="POST" modelAttribute="task">
+						<form:form action="${pageContext.request.contextPath}/saveActivityTasks/${userid}/${activityid}" method="POST" modelAttribute="task">
 							<table class="table table-list-search" id="viewTable">
 								<tbody>
 									<div class="form-group">

@@ -69,7 +69,7 @@
 					<div id="content">
 							<!-- Bouton BACK -->
 							<div class="navitem">
-								<a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&">
+								<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diaryid}">
 									<span class="glyphicon glyphicon-arrow-left"></span>
 									<span><fmt:message key="navigation.back"/></span>
 								</a>
@@ -101,7 +101,7 @@
 								</table>
 								<div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
 									<span class="inputbutton">
-										<div class="btn-lg btn-primary btn-block"><a class="button" href="${pageContext.request.contextPath}/deleteDiaryGoals?diary_iddiary=${diary_iddiary}&related_goals_goalid=${goal.goalid}&"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
+										<div class="btn-lg btn-primary btn-block"><a class="button" href="${pageContext.request.contextPath}/deleteDiaryGoals/${userid}/${activityid}/${diaryid}/${goal.goalid}"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
 									</span>
 								</div>
 								<!-- <div class="clear">&nbsp;</div> -->

@@ -116,7 +116,7 @@
 						</table>
 						<div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
 							<span class="inputbutton">
-								<div class="btn-lg btn-primary btn-block"><a class="button" href="${pageContext.request.contextPath}/deleteYourtaskuserActivities?yourtaskuser_userid=${yourtaskuser_userid}&related_activities_activityid=${activity.activityid}&"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
+								<div class="btn-lg btn-primary btn-block"><a class="button" href="${pageContext.request.contextPath}/deleteYourtaskuserActivities/${yourtaskuser_userid}/${activity.activityid}"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
 							</span>
 						</div>
 						<div class="clear">&nbsp;</div>

@@ -3,4 +3,4 @@
 <fmt:setBundle basename="bundles.order-resources"/>
 <a class="button" href="${pageContext.request.contextPath}/indexOrder"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/> <fmt:message key="order.title"/>s</span></a>
 
-<a class="button" href="${pageContext.request.contextPath}/ordersBySU"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/>SU-See My Orders(SU)</span></a>
+<a class="button" href="${pageContext.request.contextPath}/su/orders"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/>SU-See My Orders(SU)</span></a>

@@ -71,7 +71,7 @@
 					<div id="content">
 					<h1>TEST</h1>
 					<!-- <h1>Activity details</h1> -->
-						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${userid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
+						<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/su/${activity.userid}/activities"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 							<table class="table table-list-search" id="viewTable">
 								<tbody>
 									<div class="form-group">

@@ -65,7 +65,7 @@
 					<!-- Bouton BACK -->
 					
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/indexActivity">
+						<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activities"> 
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
@@ -88,7 +88,7 @@
 
 						<h1>Diaries</h1>
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/newActivityDiaries?activity_activityid=${activity.activityid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/createDiary">
 								<span class="glyphicon glyphicon-plus"></span>
 								<span><fmt:message key="navigation.new"/> <fmt:message key="diary.title"/></span>
 							</a>
@@ -114,15 +114,15 @@
 											</c:choose>
 											<tr class="${rowclass}">
 												<td nowrap="nowrap">
-													<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
+													<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/diary/${current.iddiary}">
 														<span class="glyphicon glyphicon-zoom-in"></span>
 													</a>
 													
-													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/diary/${current.iddiary}/editDiary">
 														<span class="glyphicon glyphicon-pencil"></span>
 														
 													</a>
-													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityDiaries?activity_activityid=${activity.activityid}&related_diaries_iddiary=${current.iddiary}&">
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/diary/${current.iddiary}/deleteDiary">
 														<span class="glyphicon glyphicon-trash"></span>
 													</a>
 												</td>
@@ -142,7 +142,7 @@
 									
 						<h1>Tasks</h1>
 						<div class="navitem">					
-							<a class="button" href="${pageContext.request.contextPath}/newActivityTasks?activity_activityid=${activity.activityid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/createTask">
 								<span class="glyphicon glyphicon-plus"></span>
 								<span><fmt:message key="navigation.new"/> <fmt:message key="task.title"/></span>
 							</a>
@@ -167,11 +167,11 @@
 											</c:choose>
 											<tr class="${rowclass}">
 												<td nowrap="nowrap">
-													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editActivityTasks?activity_activityid=${activity.activityid}&tasks_taskid=${current.taskid}&">
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/task/${current.taskid}/editTask">
 														<span class="glyphicon glyphicon-pencil"></span>
 													</a>
 													
-													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteActivityTasks?activity_activityid=${activity.activityid}&related_tasks_taskid=${current.taskid}&">
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/task/${current.taskid}/deleteTask">
 														<span class="glyphicon glyphicon-trash"></span>
 													</a>
 												</td>
@@ -187,7 +187,7 @@
 									
 						<h1>Comments</h1>				
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/newActivityComments?activity_activityid=${activity.activityid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/createComment">
 								<span class="glyphicon glyphicon-plus"></span>
 								<span><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span>
 							</a>

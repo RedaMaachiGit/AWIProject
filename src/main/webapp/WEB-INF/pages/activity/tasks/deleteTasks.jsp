@@ -69,7 +69,7 @@
 					<div id="content">
 						
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}">
 								<span class="glyphicon glyphicon-arrow-left"></span>
 								<span><fmt:message key="navigation.back"/></span>
 							</a>
@@ -93,7 +93,7 @@
 							</table>
 						<div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
 							<span class="inputbutton">
-								<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteActivityTasks?activity_activityid=${activity_activityid}&related_tasks_taskid=${task.taskid}&"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
+								<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteActivityTasks/${userid}/${activityid}/${task.taskid}"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
 							</span>
 							<!-- <div class="clear">&nbsp;</div> -->
 						</div>

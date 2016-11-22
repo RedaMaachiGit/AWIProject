@@ -64,7 +64,7 @@
 				<div id="content">
 					<!-- Bouton BACK -->
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/indexActivity">
+						<a class="button" href="${pageContext.request.contextPath}/su/allactivities">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
@@ -107,7 +107,7 @@
 								</c:choose>
 								<tr class="${rowclass}">
 									<td nowrap="nowrap">
-										<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectPublicActivityDiaries?activity_activityid=${activity.activityid}&diaries_iddiary=${current.iddiary}&">
+										<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/allactivities/activity/${activity.activityid}/diary/${current.iddiary}">
 											<span class="glyphicon glyphicon-zoom-in"></span>
 										</a>
 									</td>
@@ -158,7 +158,7 @@
 					<h1>Comments</h1>
 					
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/newPublicActivityComments?activity_activityid=${activity.activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/allactivities/activity/${activity.activityid}/createComment">
 							<span class="glyphicon glyphicon-plus"></span>
 							<span><fmt:message key="navigation.new"/> <fmt:message key="comment.title"/></span>
 						</a>

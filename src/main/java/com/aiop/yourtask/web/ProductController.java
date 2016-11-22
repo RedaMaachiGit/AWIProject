@@ -305,7 +305,7 @@ public class ProductController {
 		return mav;
 	}
 	
-	@RequestMapping("/allProducts")
+	@RequestMapping("/su/allproducts")
 	public ModelAndView allProducts() {
 		ModelAndView mav = new ModelAndView();
 
