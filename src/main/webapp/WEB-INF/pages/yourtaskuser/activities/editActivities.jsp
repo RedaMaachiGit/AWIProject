@@ -72,13 +72,13 @@
 					<div id="content">
 						<!-- Bouton back -->
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${yourtaskuser_userid}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${yourtaskuser_userid}/activities">
 								<span class="glyphicon glyphicon-arrow-left"></span>
 								<span><fmt:message key="navigation.back"/></span>
 							</a>
 						</div>
-							<h1>Edit activity</h1>
-							<form:form action="${pageContext.request.contextPath}/saveYourtaskuserActivities" method="POST" modelAttribute="activity">
+							<h1>Add/Edit activity</h1>
+							<form:form action="${pageContext.request.contextPath}/saveYourtaskuserActivities/${yourtaskuser_userid}" method="POST" modelAttribute="activity">
 								<table class="table table-list-search" id="viewTable">
 										<tbody>
 											<div class="form-group">

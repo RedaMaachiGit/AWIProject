@@ -44,7 +44,7 @@
 					</c:choose>	
 				<tr class="${rowclass}">
 					<td nowrap="nowrap" class="tabletd">
-						<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${current.userid}&"><img src="images/icons/view.gif" /></a>
+						<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/${current.userid}/activities"><img src="images/icons/view.gif" /></a>
 						<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editYourtaskuser?useridKey=${current.userid}&"><img src="images/icons/edit.gif" /></a>
 						<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteYourtaskuser?useridKey=${current.userid}&"><img src="images/icons/delete.gif" /></a>
 					</td>

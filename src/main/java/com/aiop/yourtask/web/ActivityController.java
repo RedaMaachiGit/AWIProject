@@ -29,6 +29,7 @@ import org.springframework.web.bind.WebDataBinder;
 
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -117,10 +118,11 @@ public class ActivityController {
 	* Create a new Task entity
 	* 
 	*/
-	@RequestMapping("/newActivityTasks")
-	public ModelAndView newActivityTasks(@RequestParam Integer activity_activityid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/createTask")
+	public ModelAndView newUserActivityTask(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("task", new Task());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/tasks/editTasks.jsp");
@@ -203,23 +205,17 @@ public class ActivityController {
 	* Save an existing Comment entity
 	* 
 	*/
-	@RequestMapping("/saveActivityComments")
-	public ModelAndView saveActivityComments(@RequestParam Integer activity_activityid, @ModelAttribute Comment comments) {		
+	@RequestMapping("/saveActivityComments/{userId}/{activityId}")
+	public String saveActivityComments(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Comment comments) {		
 		if (comments.getCommentid() == null) {
-			int id = (int)System.currentTimeMillis();
+			int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
 			comments.setCommentid(id);
 			comments.setCommentdate(Calendar.getInstance());
-		}		
-		comments.setYourtaskuser(activityDAO.findActivityByActivityid(activity_activityid).getYourtaskuser());
+		}
 		
-		Activity parent_activity = activityService.saveActivityComments(activity_activityid, comments);
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
-		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/detailsActivity.jsp");
-
-		return mav;
+		comments.setYourtaskuser(yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
+		activityService.saveActivityComments(activityId, comments);
+		return "redirect:/su/"+userId+"/activity/"+activityId;
 	}
 
 	/**
@@ -258,19 +254,23 @@ public class ActivityController {
 	* Save an existing Task entity
 	* 
 	*/
-	@RequestMapping("/saveActivityTasks")
-	public ModelAndView saveActivityTasks(@RequestParam Integer activity_activityid, @ModelAttribute Task tasks) {
-		if (tasks.getTaskid() == null) {
-			tasks.setTaskid((int)System.currentTimeMillis());
+	@RequestMapping("/saveActivityTasks/{userId}/{activityId}")
+	public String saveActivityTasks(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Task task) {
+		if (task.getTaskid() == null) {
+			task.setTaskid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
-		Activity parent_activity = activityService.saveActivityTasks(activity_activityid, tasks);
+		activityService.saveActivityTasks(activityId, task);
 
+		/*
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activity_activityid", activityId);
 		mav.addObject("activity", parent_activity);
 		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
+		*/
+		
+		return "redirect:/su/"+userId+"/activity/"+activityId;
 	}
 
 	/**
@@ -302,12 +302,13 @@ public class ActivityController {
 	* Edit an existing Task entity
 	* 
 	*/
-	@RequestMapping("/editActivityTasks")
-	public ModelAndView editActivityTasks(@RequestParam Integer activity_activityid, @RequestParam Integer tasks_taskid) {
-		Task task = taskDAO.findTaskByPrimaryKey(tasks_taskid, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}/task/{taskId}/editTask")
+	public ModelAndView editActivityTasks(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
+		Task task = taskDAO.findTaskByPrimaryKey(taskId, -1, -1);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("task", task);
 		mav.setViewName("activity/tasks/editTasks.jsp");
 
@@ -350,12 +351,13 @@ public class ActivityController {
 	* Edit an existing Diary entity
 	* 
 	*/
-	@RequestMapping("/editActivityDiaries")
-	public ModelAndView editActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
-		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/editDiary")
+	public ModelAndView editUserActivityDiary(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
+		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("diary", diary);
 		mav.setViewName("activity/diaries/editDiaries.jsp");
 
@@ -380,19 +382,19 @@ public class ActivityController {
 	* Select an existing Activity entity
 	* 
 	*/
-	@RequestMapping("/selectPublicActivity")
-	public ModelAndView selectPublicActivity(@RequestParam Integer activityidKey) {
+	@RequestMapping("/su/allactivities/activity/{activityId}")
+	public ModelAndView selectPublicActivity(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
+		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityId));
 		mav.setViewName("activity/detailsPublicActivity.jsp");
 
 		return mav;
 	}
 	
-	@RequestMapping("/selectYourtaskuserActivities")
-	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer activities_activityid) {
-		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}")
+	public ModelAndView selectUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
+		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
 		
 		ModelAndView mav = new ModelAndView();
 
@@ -424,29 +426,32 @@ public class ActivityController {
 	* Delete an existing Diary entity
 	* 
 	*/
-	@RequestMapping("/deleteActivityDiaries")
-	public ModelAndView deleteActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer related_diaries_iddiary) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping("/deleteActivityDiaries/{userId}/{activityId}/{diaryId}")
+	public String deleteActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
+		//ModelAndView mav = new ModelAndView();
 
-		Activity activity = activityService.deleteActivityDiaries(activity_activityid, related_diaries_iddiary);
-
-		mav.addObject("activity_activityid", activity_activityid);
+		activityService.deleteActivityDiaries(activityId, diaryId);
+/*
+		mav.addObject("activity_activityid", activityId);
 		mav.addObject("activity", activity);
 		mav.setViewName("activity/detailsActivity.jsp");
 
 		return mav;
+		*/
+		return "redirect:/su/"+userId+"/activity/"+activityId;
 	}
 
 	/**
 	* Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
-	@RequestMapping("/confirmDeleteActivityDiaries")
-	public ModelAndView confirmDeleteActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer related_diaries_iddiary) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/deleteDiary")
+	public ModelAndView confirmDeleteActivityDiaries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("diary", diaryDAO.findDiaryByPrimaryKey(related_diaries_iddiary));
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("diary", diaryDAO.findDiaryByPrimaryKey(diaryId));
+		mav.addObject("activityid",activityId);
+		mav.addObject("userid",userId);
 		mav.setViewName("activity/diaries/deleteDiaries.jsp");
 
 		return mav;
@@ -470,12 +475,13 @@ public class ActivityController {
 	* Select the child Task entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
-	@RequestMapping("/confirmDeleteActivityTasks")
-	public ModelAndView confirmDeleteActivityTasks(@RequestParam Integer activity_activityid, @RequestParam Integer related_tasks_taskid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/task/{taskId}/deleteTask")
+	public ModelAndView confirmDeleteActivityTasks(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("task", taskDAO.findTaskByPrimaryKey(related_tasks_taskid));
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("task", taskDAO.findTaskByPrimaryKey(taskId));
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid",userId);
 		mav.setViewName("activity/tasks/deleteTasks.jsp");
 
 		return mav;
@@ -485,21 +491,16 @@ public class ActivityController {
 	* Save an existing Diary entity
 	* 
 	*/
-	@RequestMapping("/saveActivityDiaries")
-	public ModelAndView saveActivityDiaries(@RequestParam Integer activity_activityid, @ModelAttribute Diary diaries) {
-		if (diaries.getIddiary() == null) {
-			diaries.setIddiary((int)System.currentTimeMillis());
-			diaries.setDiarydate(Calendar.getInstance());
+	@RequestMapping("/saveActivityDiaries/{userId}/{activityId}")
+	public String saveActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Diary diary) {
+		if (diary.getIddiary() == null) {
+			diary.setIddiary((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
+			diary.setDiarydate(Calendar.getInstance());
 		}
-		diaries.setYourtaskuser(activityDAO.findActivityByActivityid(activity_activityid).getYourtaskuser());
-		Activity parent_activity = activityService.saveActivityDiaries(activity_activityid, diaries);
+		diary.setYourtaskuser(activityDAO.findActivityByActivityid(activityId).getYourtaskuser());
+		activityService.saveActivityDiaries(activityId, diary);
 
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
-		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/detailsActivity.jsp");
-
-		return mav;
+		return "redirect:/su/"+userId+"/activity/"+activityId;
 	}
 
 	/**
@@ -586,7 +587,7 @@ public class ActivityController {
 	* Show all Activity entities
 	* 
 	*/
-	@RequestMapping("/indexActivity")
+	@RequestMapping("/su/allactivities")
 	public ModelAndView listActivitys() {
 		ModelAndView mav = new ModelAndView();
 
@@ -618,10 +619,11 @@ public class ActivityController {
 	* Create a new Diary entity
 	* 
 	*/
-	@RequestMapping("/newActivityDiaries")
-	public ModelAndView newActivityDiaries(@RequestParam Integer activity_activityid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/createDiary")
+	public ModelAndView newUserActivityDiary(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("diary", new Diary());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/diaries/editDiaries.jsp");
@@ -633,17 +635,13 @@ public class ActivityController {
 	* Delete an existing Task entity
 	* 
 	*/
-	@RequestMapping("/deleteActivityTasks")
-	public ModelAndView deleteActivityTasks(@RequestParam Integer activity_activityid, @RequestParam Integer related_tasks_taskid) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping("/deleteActivityTasks/{userId}/{activityId}/{taskId}")
+	public String deleteActivityTasks(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 
-		Activity activity = activityService.deleteActivityTasks(activity_activityid, related_tasks_taskid);
-
-		mav.addObject("activity_activityid", activity_activityid);
-		mav.addObject("activity", activity);
-		mav.setViewName("activity/detailsActivity.jsp");
-
-		return mav;
+		activityService.deleteActivityTasks(activityId, taskId);
+		
+		return "redirect:/su/"+userId+"/activity/"+activityId;
+		
 	}
 
 	/**
@@ -667,10 +665,11 @@ public class ActivityController {
 	* Create a new Comment entity
 	* 
 	*/
-	@RequestMapping("/newActivityComments")
-	public ModelAndView newActivityComments(@RequestParam Integer activity_activityid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/createComment")
+	public ModelAndView newUserActivityComment(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/comments/editComments.jsp");
@@ -682,10 +681,10 @@ public class ActivityController {
 	* Create a new Comment entity
 	* 
 	*/
-	@RequestMapping("/newPublicActivityComments")
-	public ModelAndView newPublicActivityComments(@RequestParam Integer activity_activityid) {
+	@RequestMapping("/su/allactivities/activity/{activityId}/createComment")
+	public ModelAndView newPublicActivityComments(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activity_activityid", activityId);
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/comments/editCommentsPublicActivity.jsp");

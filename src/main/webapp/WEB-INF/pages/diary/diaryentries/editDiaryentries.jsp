@@ -71,13 +71,13 @@
 					<div id="content">
 						<!-- Bouton back -->
 							<div class="navitem">
-								<a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&">
+								<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diaryid}">
 									<span class="glyphicon glyphicon-arrow-left"></span>
 									<span><fmt:message key="navigation.back"/></span>
 								</a>
 							</div>
 								<h1>Add or edit diary entry</h1>
-								<form:form action="${pageContext.request.contextPath}/saveDiaryDiaryentries" method="POST" modelAttribute="diaryentry">
+								<form:form action="${pageContext.request.contextPath}/saveDiaryDiaryentries/${userid}/${activityid}/${diaryid}" method="POST" modelAttribute="diaryentry">
 									<table class="table table-list-search" id="viewTable">
 										<tbody>
 											<div class="form-group">

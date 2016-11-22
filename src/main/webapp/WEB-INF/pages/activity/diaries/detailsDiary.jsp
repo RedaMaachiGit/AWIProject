@@ -70,7 +70,7 @@
 
 					<!-- Bouton BACK -->
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectYourtaskuserActivities?yourtaskuser_userid=${userid}&activities_activityid=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activity_activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
@@ -94,9 +94,9 @@
 						<h1>Goals</h1>
 					
 						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/newDiaryGoals?diary_iddiary=${diary.iddiary}&">
+							<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/createGoal">
 								<span class="glyphicon glyphicon-plus"></span>
-								<span><fmt:message key="navigation.new"/><fmt:message key="goal.title"/></span>
+								<span>New goal</span>
 							</a>
 						</div>
 							<table class="table table-list-search" id="viewTable">
@@ -123,11 +123,11 @@
 												<td nowrap="nowrap">			
 													<!--<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectDiaryGoals?diary_iddiary=${diary.iddiary}&goals_goalid=${current.goalid}&"><img src="images/icons/view.gif" /></a>-->
 													
-													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editDiaryGoals?diary_iddiary=${diary.iddiary}&goals_goalid=${current.goalid}&">
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/goal/${current.goalid}/editGoal">
 														<span class="glyphicon glyphicon-pencil"></span>
 													</a>
 													
-													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteDiaryGoals?diary_iddiary=${diary.iddiary}&related_goals_goalid=${current.goalid}&">
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/goal/${current.goalid}/deleteGoal">
 														<span class="glyphicon glyphicon-trash"></span>
 													</a>
 												</td>
@@ -148,9 +148,9 @@
 							<h1>Diary Entries</h1>
 					
 							<div class="navitem">
-								<a class="button" href="${pageContext.request.contextPath}/newDiaryDiaryentries?diary_iddiary=${diary.iddiary}&">
+								<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/createDiaryentry">
 									<span class="glyphicon glyphicon-plus"></span>
-									<span><fmt:message key="navigation.new"/> <fmt:message key="diaryentry.title"/></span>
+									<span>New Diary Entry</span>
 								</a>
 							</div>
 									
@@ -179,11 +179,11 @@
 												
 													<!--<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/selectDiaryDiaryentries?diary_iddiary=${diary.iddiary}&diaryentries_diaryentryid=${current.diaryentryid}&"><img src="images/icons/view.gif" /></a>-->
 													
-													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/editDiaryDiaryentries?diary_iddiary=${diary.iddiary}&diaryentries_diaryentryid=${current.diaryentryid}&">
+													<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/diaryentry/${current.diaryentryid}/editDiaryentry">
 														<span class="glyphicon glyphicon-pencil"></span>
 													</a>
 													
-													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/confirmDeleteDiaryDiaryentries?diary_iddiary=${diary.iddiary}&related_diaryentries_diaryentryid=${current.diaryentryid}&">
+													<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}/diary/${diary.iddiary}/diaryentry/${current.diaryentryid}/deleteDiaryentry">
 														<span class="glyphicon glyphicon-trash"></span>
 													</a>
 													

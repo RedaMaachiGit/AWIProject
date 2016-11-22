@@ -69,7 +69,7 @@
 			<div id="contentarea">      
 				<div id="content">
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectPublicActivity?activityidKey=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/allactivities/activity/${activity_activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
@@ -77,7 +77,7 @@
 					<!-- <h1><fmt:message key="navigation.edit"/> <fmt:message key="comment.title"/></h1> -->
 					<h1>Add comment</h1>
 			
-					<form:form action="${pageContext.request.contextPath}/saveActivityComments" method="POST" modelAttribute="comment">
+					<form:form action="${pageContext.request.contextPath}/saveActivityComments/USERID/${activity_activityid}" method="POST" modelAttribute="comment">
 						<table class="table table-list-search" id="viewTable">
 							<tbody>
 								<div class="form-group">

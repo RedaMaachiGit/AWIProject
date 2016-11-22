@@ -38,6 +38,7 @@ import org.springframework.web.bind.WebDataBinder;
 
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -226,12 +227,12 @@ public class YourtaskuserController {
 	* Edit an existing Activity entity
 	* 
 	*/
-	@RequestMapping("/editYourtaskuserActivities")
-	public ModelAndView editYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer activities_activityid) {
-		Activity activity = activityDAO.findActivityByPrimaryKey(activities_activityid, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}/editActivity")
+	public ModelAndView editUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
+		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("yourtaskuser_userid", userId);
 		mav.addObject("activity", activity);
 		mav.setViewName("yourtaskuser/activities/editActivities.jsp");
 
@@ -638,17 +639,20 @@ public class YourtaskuserController {
 	* Delete an existing Activity entity
 	* 
 	*/
-	@RequestMapping("/deleteYourtaskuserActivities")
-	public ModelAndView deleteYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_activities_activityid) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping("/deleteYourtaskuserActivities/{userId}/{activityId}")
+	public String deleteYourtaskuserActivities(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
+		//ModelAndView mav = new ModelAndView();
 
-		Yourtaskuser yourtaskuser = yourtaskuserService.deleteYourtaskuserActivities(yourtaskuser_userid, related_activities_activityid);
+		yourtaskuserService.deleteYourtaskuserActivities(userId, activityId);
 
+		/*
 		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
 		mav.addObject("yourtaskuser", yourtaskuser);
 		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
 
 		return mav;
+		*/
+		return "redirect:/su/"+userId+"/activities/";
 	}
 
 	/**
@@ -733,10 +737,10 @@ public class YourtaskuserController {
 	* Create a new Activity entity
 	* 
 	*/
-	@RequestMapping("/newYourtaskuserActivities")
-	public ModelAndView newYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid) {
+	@RequestMapping("/su/{userId}/createActivity")
+	public ModelAndView newUserActivity(@PathVariable("userId") Integer userId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("yourtaskuser_userid", userId);
 		mav.addObject("activity", new Activity());
 		mav.addObject("newFlag", true);
 		mav.setViewName("yourtaskuser/activities/editActivities.jsp");
@@ -942,19 +946,21 @@ public class YourtaskuserController {
 	* Save an existing Activity entity
 	* 
 	*/
-	@RequestMapping("/saveYourtaskuserActivities")
-	public ModelAndView saveYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Activity activities) {	
-		if (activities.getActivityid() == null) {
-			activities.setActivityid((int)System.currentTimeMillis());
+	@RequestMapping("/saveYourtaskuserActivities/{userId}")
+	public String saveYourtaskuserActivities(@PathVariable("userId") Integer userId, @ModelAttribute Activity activity) {	
+		if (activity.getActivityid() == null) {
+			activity.setActivityid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
-		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);
-		
+		yourtaskuserService.saveYourtaskuserActivities(userId, activity);
+		/*
+		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(userId, activities);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("yourtaskuser_userid", userId);
 		mav.addObject("yourtaskuser", parent_yourtaskuser);
 		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
+		*/
 
-		return mav;
+		return "redirect:/su/"+userId+"/activities/";
 	}
 
 	/**
@@ -1160,11 +1166,11 @@ public class YourtaskuserController {
 	* Select an existing Yourtaskuser entity
 	* 
 	*/
-	@RequestMapping("/selectYourtaskuser")
-	public ModelAndView selectYourtaskuser(@RequestParam Integer useridKey) {
+	@RequestMapping("/su/{userId}/activities")
+	public ModelAndView selectYourtaskuser(@PathVariable("userId") Integer userId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey));
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
 		
 		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
 
@@ -1236,12 +1242,12 @@ public class YourtaskuserController {
 	* Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
-	@RequestMapping("/confirmDeleteYourtaskuserActivities")
-	public ModelAndView confirmDeleteYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_activities_activityid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/deleteActivity")
+	public ModelAndView deleteUserActivity(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(related_activities_activityid));
-		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
+		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityId));
+		mav.addObject("yourtaskuser_userid", userId);
 		mav.setViewName("yourtaskuser/activities/deleteActivities.jsp");
 
 		return mav;
@@ -1263,7 +1269,7 @@ public class YourtaskuserController {
 		
 		//saveYourtaskuserActivities
 		if (yourtaskuser.getUserid() == null) {
-			yourtaskuser.setUserid((int)System.currentTimeMillis());
+			yourtaskuser.setUserid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuser(yourtaskuser);
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);

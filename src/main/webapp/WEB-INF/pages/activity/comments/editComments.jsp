@@ -73,13 +73,13 @@
 					<!-- <h1><fmt:message key="navigation.edit"/> <fmt:message key="comment.title"/></h1> -->
 					<!-- Bouton BACK -->
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectActivity?activityidKey=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/${userid}/activity/${activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
 					</div>
 					<h1>Add a comment</h1>
-						<form:form action="${pageContext.request.contextPath}/saveActivityComments" method="POST" modelAttribute="comment">
+						<form:form action="${pageContext.request.contextPath}/saveActivityComments/${userid}/${activityid}" method="POST" modelAttribute="comment">
 							<table class="table table-list-search" id="viewTable">
 								<tbody>
 									<div class="form-group">
@@ -108,7 +108,7 @@
 											</td>
 											<td>
 												<form:input id="comment_commentcontent" path="commentcontent" cssStyle="width:300px;"/>
-												<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "comment_commentcontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="comment.commentcontent.help"/>"}})); </script>
+												<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "comment_commentcontent",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "Enter your comment"}})); </script>
 											</td>
 										</tr>
 										<tr style="display:none;">

@@ -423,7 +423,7 @@ public class OrderController {
 	* Show all Order entities
 	* 
 	*/
-	@RequestMapping("/ordersBySU")
+	@RequestMapping("/su/orders")
 	public ModelAndView listOrdersBySU() {
 		ModelAndView mav = new ModelAndView();
 		

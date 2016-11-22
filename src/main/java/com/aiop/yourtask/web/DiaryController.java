@@ -27,6 +27,7 @@ import org.springframework.web.bind.WebDataBinder;
 
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -87,12 +88,14 @@ public class DiaryController {
 	 * Edit an existing Diaryentry entity
 	 * 
 	 */
-	@RequestMapping("/editDiaryDiaryentries")
-	public ModelAndView editDiaryDiaryentries(@RequestParam Integer diary_iddiary, @RequestParam Integer diaryentries_diaryentryid) {
-		Diaryentry diaryentry = diaryentryDAO.findDiaryentryByPrimaryKey(diaryentries_diaryentryid, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/diaryentry/{diaryentryId}/editDiaryentry")
+	public ModelAndView editDiaryDiaryentries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId) {
+		Diaryentry diaryentry = diaryentryDAO.findDiaryentryByPrimaryKey(diaryentryId, -1, -1);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
+		mav.addObject("diaryid", diaryId);
 		mav.addObject("diaryentry", diaryentry);
 		mav.setViewName("diary/diaryentries/editDiaryentries.jsp");
 
@@ -145,17 +148,10 @@ public class DiaryController {
 	* Delete an existing Goal entity
 	* 
 	*/
-	@RequestMapping("/deleteDiaryGoals")
-	public ModelAndView deleteDiaryGoals(@RequestParam Integer diary_iddiary, @RequestParam Integer related_goals_goalid) {
-		ModelAndView mav = new ModelAndView();
-
-		Diary diary = diaryService.deleteDiaryGoals(diary_iddiary, related_goals_goalid);
-
-		mav.addObject("diary_iddiary", diary_iddiary);
-		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
-
-		return mav;
+	@RequestMapping("/deleteDiaryGoals/{userId}/{activityId}/{diaryId}/{goalId}")
+	public String deleteDiaryGoals(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId ) {
+		diaryService.deleteDiaryGoals(diaryId, goalId);
+		return "redirect:/su/"+userId+"/activity/"+activityId+"/diary/"+diaryId;
 	}
 
 	/**
@@ -255,12 +251,14 @@ public class DiaryController {
 	* Select the child Diaryentry entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
-	@RequestMapping("/confirmDeleteDiaryDiaryentries")
-	public ModelAndView confirmDeleteDiaryDiaryentries(@RequestParam Integer diary_iddiary, @RequestParam Integer related_diaryentries_diaryentryid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/diaryentry/{diaryentryId}/deleteDiaryentry")
+	public ModelAndView confirmDeleteDiaryDiaryentries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("diaryentry", diaryentryDAO.findDiaryentryByPrimaryKey(related_diaryentries_diaryentryid));
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("diaryentry", diaryentryDAO.findDiaryentryByPrimaryKey(diaryentryId));
+		mav.addObject("diaryid", diaryId);
+		mav.addObject("activityid",activityId);
+		mav.addObject("userid",userId);
 		mav.setViewName("diary/diaryentries/deleteDiaryentries.jsp");
 
 		return mav;
@@ -270,20 +268,15 @@ public class DiaryController {
 	* Save an existing Diaryentry entity
 	* 
 	*/
-	@RequestMapping("/saveDiaryDiaryentries")
-	public ModelAndView saveDiaryDiaryentries(@RequestParam Integer diary_iddiary, @ModelAttribute Diaryentry diaryentries) {
-		if (diaryentries.getDiaryentryid() == null) {
-			diaryentries.setDiaryentryid((int)System.currentTimeMillis());
-			diaryentries.setDiaryentrydate(Calendar.getInstance());
+	@RequestMapping("/saveDiaryDiaryentries/{userId}/{activityId}/{diaryId}")
+	public String saveDiaryDiaryentries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId, @ModelAttribute Diaryentry diaryentry) {
+		if (diaryentry.getDiaryentryid() == null) {
+			diaryentry.setDiaryentryid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
+			diaryentry.setDiaryentrydate(Calendar.getInstance());
 		}
-		Diary parent_diary = diaryService.saveDiaryDiaryentries(diary_iddiary, diaryentries);
+		diaryService.saveDiaryDiaryentries(diaryId, diaryentry);
 
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
-		mav.addObject("diary", parent_diary);
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
-
-		return mav;
+		return "redirect:/su/"+userId+"/activity/"+activityId+"/diary/"+diaryId;
 	}
 
 	/**
@@ -359,10 +352,12 @@ public class DiaryController {
 	* Create a new Goal entity
 	* 
 	*/
-	@RequestMapping("/newDiaryGoals")
-	public ModelAndView newDiaryGoals(@RequestParam Integer diary_iddiary) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/createGoal")
+	public ModelAndView newUserActivityDiaryGoal(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("diaryid", diaryId);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("goal", new Goal());
 		mav.addObject("newFlag", true);
 		mav.setViewName("diary/goals/editGoals.jsp");
@@ -397,19 +392,14 @@ public class DiaryController {
 	* Save an existing Goal entity
 	* 
 	*/
-	@RequestMapping("/saveDiaryGoals")
-	public ModelAndView saveDiaryGoals(@RequestParam Integer diary_iddiary, @ModelAttribute Goal goals) {
-		if (goals.getGoalid() == null) {
-			goals.setGoalid((int)System.currentTimeMillis());
+	@RequestMapping("/saveDiaryGoals/{userId}/{activityId}/{diaryId}")
+	public String saveDiaryGoals(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId, @ModelAttribute Goal goal) {
+		if (goal.getGoalid() == null) {
+			goal.setGoalid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
-		Diary parent_diary = diaryService.saveDiaryGoals(diary_iddiary, goals);
+		diaryService.saveDiaryGoals(diaryId, goal);
 
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
-		mav.addObject("diary", parent_diary);
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
-
-		return mav;
+		return "redirect:/su/"+userId+"/activity/"+activityId+"/diary/"+diaryId;
 	}
 
 	/**
@@ -504,17 +494,10 @@ public class DiaryController {
 	* Delete an existing Diaryentry entity
 	* 
 	*/
-	@RequestMapping("/deleteDiaryDiaryentries")
-	public ModelAndView deleteDiaryDiaryentries(@RequestParam Integer diary_iddiary, @RequestParam Integer related_diaryentries_diaryentryid) {
-		ModelAndView mav = new ModelAndView();
-
-		Diary diary = diaryService.deleteDiaryDiaryentries(diary_iddiary, related_diaryentries_diaryentryid);
-
-		mav.addObject("diary_iddiary", diary_iddiary);
-		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
-
-		return mav;
+	@RequestMapping("/deleteDiaryDiaryentries/{userId}/{activityId}/{diaryId}/{diaryentryId}")
+	public String deleteDiaryDiaryentries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId ) {
+		diaryService.deleteDiaryDiaryentries(diaryId, diaryentryId);
+		return "redirect:/su/"+userId+"/activity/"+activityId+"/diary/"+diaryId;
 	}
 
 	/**
@@ -597,12 +580,12 @@ public class DiaryController {
 		return mav;
 	}
 	
-	@RequestMapping("/selectActivityDiaries")
-	public ModelAndView selectActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
-		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
-		Activity activity = activityDAO.findActivityByActivityid(activity_activityid);
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}")
+	public ModelAndView selectUserActivityDiary(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
+		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
+		Activity activity = activityDAO.findActivityByActivityid(activityId);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		mav.addObject("diary", diary);
 		mav.setViewName("activity/diaries/detailsDiary.jsp");
@@ -610,12 +593,12 @@ public class DiaryController {
 		return mav;
 	}
 	
-	@RequestMapping("/selectPublicActivityDiaries")
-	public ModelAndView selectPublicActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
-		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
-		Activity activity = activityDAO.findActivityByActivityid(activity_activityid);
+	@RequestMapping("/su/allactivities/activity/{activityId}/diary/{diaryId}")
+	public ModelAndView selectPublicActivityDiaries(@PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
+		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
+		Activity activity = activityDAO.findActivityByActivityid(activityId);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activity_activityid);
+		mav.addObject("activityid", activityId);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		mav.addObject("diary", diary);
 		mav.setViewName("activity/diaries/detailsDiaryPublicActivity.jsp");
@@ -627,12 +610,14 @@ public class DiaryController {
 	* Edit an existing Goal entity
 	* 
 	*/
-	@RequestMapping("/editDiaryGoals")
-	public ModelAndView editDiaryGoals(@RequestParam Integer diary_iddiary, @RequestParam Integer goals_goalid) {
-		Goal goal = goalDAO.findGoalByPrimaryKey(goals_goalid, -1, -1);
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/goal/{goalId}/editGoal")
+	public ModelAndView editDiaryGoals(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId) {
+		Goal goal = goalDAO.findGoalByPrimaryKey(goalId, -1, -1);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
+		mav.addObject("diaryid", diaryId);
 		mav.addObject("goal", goal);
 		mav.setViewName("diary/goals/editGoals.jsp");
 
@@ -658,10 +643,12 @@ public class DiaryController {
 	* Create a new Diaryentry entity
 	* 
 	*/
-	@RequestMapping("/newDiaryDiaryentries")
-	public ModelAndView newDiaryDiaryentries(@RequestParam Integer diary_iddiary) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/createDiaryentry")
+	public ModelAndView newUserActivityDiaryDiaryentry(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("diaryid", diaryId);
+		mav.addObject("activityid", activityId);
+		mav.addObject("userid", userId);
 		mav.addObject("diaryentry", new Diaryentry());
 		mav.addObject("newFlag", true);
 		mav.setViewName("diary/diaryentries/editDiaryentries.jsp");
@@ -673,12 +660,14 @@ public class DiaryController {
 	* Select the child Goal entity for display allowing the user to confirm that they would like to delete the entity
 	* 
 	*/
-	@RequestMapping("/confirmDeleteDiaryGoals")
-	public ModelAndView confirmDeleteDiaryGoals(@RequestParam Integer diary_iddiary, @RequestParam Integer related_goals_goalid) {
+	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/goal/{goalId}/deleteGoal")
+	public ModelAndView confirmDeleteDiaryGoals(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("goal", goalDAO.findGoalByPrimaryKey(related_goals_goalid));
-		mav.addObject("diary_iddiary", diary_iddiary);
+		mav.addObject("goal", goalDAO.findGoalByPrimaryKey(goalId));
+		mav.addObject("diaryid", diaryId);
+		mav.addObject("activityid",activityId);
+		mav.addObject("userid",userId);
 		mav.setViewName("diary/goals/deleteGoals.jsp");
 
 		return mav;

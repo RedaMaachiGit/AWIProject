@@ -66,7 +66,7 @@
 			<div id="contentarea">      
 				<div id="content">
 					<div class="navitem">
-						<a class="button" href="${pageContext.request.contextPath}/selectPublicActivity?activityidKey=${activity_activityid}&">
+						<a class="button" href="${pageContext.request.contextPath}/su/allactivities/activity/${activityid}">
 							<span class="glyphicon glyphicon-arrow-left"></span>
 							<span><fmt:message key="navigation.back"/></span>
 						</a>
