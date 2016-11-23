@@ -198,10 +198,11 @@
 										<!--<th class="thead">&nbsp;</th>-->
 										<th class="thead">Date</th>
 										<th class="thead">Comment</th>
+										<th class="thead">Posted By</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${activity.comments}" var="current"  varStatus="i">	
+									<c:forEach items="${listcomment}" var="current"  varStatus="i">	
 										<c:choose>
 											<c:when test="${(i.count) % 2 == 0}">
 									    		<c:set var="rowclass" value="rowtwo"/>
@@ -224,6 +225,10 @@
 											</td>
 											<td>
 												${current.commentcontent}
+												&nbsp;
+											</td>
+											<td>
+												${listusercomment[i.index].userusername}
 												&nbsp;
 											</td>
 										</tr>

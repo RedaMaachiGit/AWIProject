@@ -3,29 +3,20 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources"/>
 <html>
 <head>
-<title>View <fmt:message key="yourtaskuser.title"/> <fmt:message key="product.title"/></title>
+<title>Delete product</title>
 </head>
 <body>
 <div id="contentarea">      
 	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
 	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
 		<div id="content">
-			<h1><fmt:message key="navigation.view"/> <fmt:message key="product.title"/></h1>
+			<h1>Delete product</h1>
 			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectYourtaskuser?useridKey=${yourtaskuser_userid}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="product.productid.title"/>:
-						</td>
-						<td>
-							${product.productid}
-						&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="product.productname.title"/>:
+							Name : 
 						</td>
 						<td>
 							${product.productname}
@@ -34,7 +25,7 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="product.productdescription.title"/>:
+							Description : 
 						</td>
 						<td>
 							${product.productdescription}
@@ -43,7 +34,7 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="product.productimage.title"/>:
+							Image Link : 
 						</td>
 						<td>
 							${product.productimage}
@@ -52,7 +43,7 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="product.productprice.title"/>:
+							Price :
 						</td>
 						<td>
 							${product.productprice}
@@ -61,7 +52,7 @@
 					</tr>
 					<tr>
 						<td class="label" valign="top">
-							<fmt:message key="product.productavailablequantity.title"/>:
+							Available Quantity : 
 						</td>
 						<td>
 							${product.productavailablequantity}
@@ -70,7 +61,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteYourtaskuserProducts?yourtaskuser_userid=${yourtaskuser_userid}&related_products_productid=${product.productid}&"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
+			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/deleteYourtaskuserProducts/${yourtaskuser_userid}/${product.productid}"><span><img src="images/icons/delete.gif" /><fmt:message key="navigation.delete"/></span></a></div>
 			<div class="clear">&nbsp;</div>
 		</div>
 	</div></div></div></div>

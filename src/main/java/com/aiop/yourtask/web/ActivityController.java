@@ -14,8 +14,11 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ActivityService;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -396,8 +399,20 @@ public class ActivityController {
 	public ModelAndView selectUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
 		
+		Set<Comment> listcomment = activity.getComments();
+		Set<Yourtaskuser> listusercomment = new HashSet<Yourtaskuser>();
+		for(Comment item : listcomment) {
+			Comment comment = commentDAO.findCommentByPrimaryKey(item.getCommentid());
+			listusercomment.add(comment.getYourtaskuser());
+		}
+		List<Yourtaskuser> listusercommentok = new ArrayList<>(listusercomment);
+		
+
 		ModelAndView mav = new ModelAndView();
 
+		mav.addObject("listcomment", listcomment);
+		mav.addObject("listusercomment", listusercommentok);
+		
 		mav.addObject("activity", activity);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		
