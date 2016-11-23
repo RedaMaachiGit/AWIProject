@@ -6,6 +6,7 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -425,6 +426,7 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 			return null;
 		}
 	}
+	
 
 	/**
 	 * JPQL Query - findYourtaskuserByUserlastconnectiondate
@@ -772,6 +774,20 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 		try {
 			Query query = createNamedQuery("findCompanyBySIRET", startResult, maxRows, company_companySIRET);
 			return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
+		} catch (NoResultException nre) {
+			return null;
+		}
+	}
+
+	@Override
+	public List findYourtaskuserOrderByPrimaryKey(Integer userId) throws DataAccessException {
+		try {
+			return entityManager.createQuery(
+			        "SELECT o FROM Order o WHERE o.orderid = :orderid")
+	        .setParameter("orderid", userId)
+	        .getResultList();
+			//Query query = createNamedQuery("findYourtaskuserByPrimaryKey", startResult, maxRows, userid);
+			//return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
 		} catch (NoResultException nre) {
 			return null;
 		}

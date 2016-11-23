@@ -5,6 +5,7 @@ import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import org.skyway.spring.util.dao.JpaDao;
@@ -202,6 +203,12 @@ public interface YourtaskuserDAO extends JpaDao<Yourtaskuser> {
 	 *
 	 */
 	public Yourtaskuser findYourtaskuserByPrimaryKey(Integer userid_1) throws DataAccessException;
+	
+	/**
+	 * JPQL Query - findYourtaskuserOrderByPrimaryKey
+	 *
+	 */
+	public List findYourtaskuserOrderByPrimaryKey(Integer userid_1) throws DataAccessException;
 
 	/**
 	 * JPQL Query - findYourtaskuserByPrimaryKey

@@ -427,9 +427,20 @@ public class OrderController {
 	public ModelAndView listOrdersBySU() {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(1)); // 1 A CHANGER PAR idUser
+		mav.addObject("orders", yourtaskuserDAO.findYourtaskuserOrderByPrimaryKey(1)); // 1 A CHANGER PAR idUser
 		
 		mav.setViewName("order/listOrdersBySU.jsp");
+
+		return mav;
+	}
+	
+	@RequestMapping("/sac/orders")
+	public ModelAndView listOrdersBySC() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(1)); // 1 A CHANGER PAR idUser
+		
+		mav.setViewName("order/listOrdersBySC.jsp");
 
 		return mav;
 	}

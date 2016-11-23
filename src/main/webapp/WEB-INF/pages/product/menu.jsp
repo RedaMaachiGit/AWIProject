@@ -5,3 +5,5 @@
 <a class="button" href="${pageContext.request.contextPath}/indexProduct"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/> <fmt:message key="product.title"/>s</span></a>
 
 <a class="button" href="${pageContext.request.contextPath}/su/allproducts"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/>See all products</span></a>
+
+<a class="button" href="${pageContext.request.contextPath}/sc/2/products"><span><img src="images/icons/view.gif" /><fmt:message key="navigation.view"/>SC - CRUD SC products</span></a>
