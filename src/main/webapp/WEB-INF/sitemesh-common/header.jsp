@@ -1,6 +1,39 @@
 <%@ page language="java" isELIgnored="false" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <jsp:directive.include file="/WEB-INF/sitemesh-decorators/include.jsp"/>
 <fmt:setBundle basename="bundles.application-resources"/>
+
 <div id="header">
+	<security:authorize access="isAuthenticated()">
+		<div class="navbar navbar-default">
+    	  <div class="container-fluid">
+	        <div class="navbar-header">
+	        	<a class="navbar-brand" href="#">Your Task</a>
+         		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           			<span class="sr-only">Toggle navigation</span>
+           			<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</button>
+    
+        	</div>
+       		<div id="navbar" class="collapse navbar-collapse">
+         		<ul class="nav navbar-nav">
+         			<li><a href="./homesu">Home</a></li>
+           			<li><a href="./accountsu">My account</a></li>
+           			<li><a href="./diarysu">My diaries</a></li>
+           			<li><a href="#">My activities</a></li>
+           			<li><a href="./ordersu">My orders</a></li>
+         		</ul>
+          		<ul class="nav navbar-nav navbar-right">
+          			<li>
+          				<c:url value="/logout" var="logoutUrl" />
+      					<a class="btn btn-danger" href="${logoutUrl}">Log out</a>
+          			</li>
+          		</ul>
+        	</div>
+      	</div>
+    </div>
+	</security:authorize>
 
 </div>

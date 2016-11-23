@@ -78,6 +78,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 			
 		} else if (role.intValue() == 2) {
 			roles.add("ROLE_USER");
+		}else if (role.intValue() == 3) {
+			roles.add("ROLE_COMPANY");
 		}
 		
 		return roles;
@@ -94,5 +96,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 			authorities.add(new SimpleGrantedAuthority(role));
 		}
 		return authorities;
+	}
+	
+	public Yourtaskuser getUser(String username){
+		return userRepository.findByUsername(username);
 	}
 }

@@ -1,0 +1,107 @@
+/* Simple reset to help with crossbrowser issues */
+*{margin:0;padding:0;}
+
+
+body, html, head{height:100%;}
+body {
+ background: #fff;
+ margin: 0;
+ height: 100%;
+ color: #384452;
+ font-weight: 400;
+ position: relative;
+}
+
+h1, h2, h3, h4, H5, H6 {
+ font-family: 'Raleway', sans-serif;
+ font-weight: 700;
+}
+
+p {
+ padding: 0;
+ margin-bottom: 12px;
+ font-family: 'Raleway', sans-serif;
+ font-weight: 400;
+ font-size: 14px;
+ line-height: 24px;
+ color: #384452;
+ margin-top: 10px;
+}
+
+img {
+ height: auto;
+ max-width: 100%;
+}
+
+a {
+ padding: 0;
+ margin: 0;
+ text-decoration: none;
+ -webkit-transition: background-color .4s linear, color .4s linear;
+ -moz-transition: background-color .4s linear, color .4s linear;
+ -o-transition: background-color .4s linear, color .4s linear;
+ -ms-transition: background-color .4s linear, color .4s linear;
+ transition: background-color .4s linear, color .4s linear;
+}
+a:hover,
+a:focus {
+ text-decoration: none;
+ color: rgba(195, 197, 198, 0.87);
+}
+
+::moz-selection {
+ color: #fff;
+ text-shadow: none;
+ background: #2B2E31;
+}
+
+::selection {
+ color: #fff;
+ text-shadow: none;
+ background: #2B2E31;
+}
+
+.centered {
+ text-align: center;
+}
+
+.main{ 
+	max-width:100%;
+	min-height:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+.footer{
+	position:absolute;
+	bottom:0;
+	max-width:100%;
+	padding-top:100px;
+	height:10px;
+}
+
+.glyphicons
+
+.glyphicons-edit
+
+.glyphicon-zoom-in
+
+.glyphicon-pencil
+
+.glyphicon-trash
+
+.glyphicon-plus
+
+.glyphicon-arrow-left
+
+.glyphicon-arrow-right
+
+.glyphicon-arrow-up
+
+.glyphicon-arrow-down
+
+.glyphicon-plus
+
+.glyphicon-search
+
+

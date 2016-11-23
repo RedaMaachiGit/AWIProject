@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     	<div class="row">
-			<div class="col-md-9 col-md-offset-3">
+			<div class="col-md-6">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
@@ -29,8 +29,8 @@
 			<table cellpadding="0" cellspacing="0" id="viewTable">
 				<tbody>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userusername.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Username:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_userusername" path="userusername" cssStyle="width:200px;"/>
@@ -38,8 +38,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userpassword.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Password:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_userpassword" path="userpassword" cssStyle="width:200px;"/>
@@ -47,16 +47,16 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userdateofbirth.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Date of birth:
 						</td>
 						<td>
 							<input id="yourtaskuser_userdateofbirth" name="userdateofbirth" type="text" value="<fmt:formatDate value="${yourtaskuser.userdateofbirth.time}" pattern="yyyy-MM-dd"/>" dojoType="dijit.form.DateTextBox" constraints="{datePattern:'<fmt:message key="date.format"/>'}" trim="true" promptMessage="<fmt:message key="date.format" />" invalidMessage="<fmt:message key="date.format.invalid" /> <fmt:message key="date.format" />." style="width:300px;" />
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userphonenumber.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Phone number:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_userphonenumber" path="userphonenumber" cssStyle="width:200px;"/>
@@ -64,17 +64,17 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.useremail.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Email:
 						</td>
 						<td>
-							<form:input id="yourtaskuser_useremail" path="useremail" cssStyle="width:200px;"/>
+							<form:input id="yourtaskuser_useremail" type="email" path="useremail" cssStyle="width:200px;"/>
 							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "yourtaskuser_useremail",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="yourtaskuser.useremail.help"/>"}})); </script>
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userstreetnumber.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Street number:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_userstreetnumber" path="userstreetnumber" cssStyle="width:200px;"/>
@@ -82,8 +82,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.userzipcode.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Zip code:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_userzipcode" path="userzipcode" cssStyle="width:200px;"/>
@@ -91,8 +91,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.usercity.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							City:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_usercity" path="usercity" cssStyle="width:200px;"/>
@@ -100,8 +100,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="label" valign="top">
-							<fmt:message key="yourtaskuser.useriban.title"/>:
+						<td class=" col-lg-2 control-label" valign="top">
+							Iban:
 						</td>
 						<td>
 							<form:input id="yourtaskuser_useriban" path="useriban" cssStyle="width:200px;"/>
@@ -118,6 +118,19 @@
 				</div></div></div>
 			</div>
 		</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						What is YourTask
+					</div>
+					<div class="panel-body">
+						<p>Software engineering project - IG5. Team is composed of four fifth year engineering students of Polytech Montpellier majoring Computer Science and Management.
+							Babacar THIAW Coline LABAT Gaetan PHILIPPE Reda MAACHI.The aim of the project is to build an application which purpose is to help people in achieving objectives by making activities such as gardening, running or building a treehouse. In addition to that, users of the app can shop products like on a shopping website. They also can interact with sellers or other users and keep a diary of their activities.
+						
+						</p>	
+					</div>
+				</div>
+			</div>
 	</div>
 </div>
 </body>

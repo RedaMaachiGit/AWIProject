@@ -13,7 +13,9 @@ import com.aiop.yourtask.domain.Task;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ActivityService;
+import com.aiop.yourtask.web.security.AuthenticationFacade;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -88,6 +90,11 @@ public class ActivityController {
 	 */
 	@Autowired
 	private ActivityService activityService;
+	
+    @Autowired
+    private AuthenticationFacade authentication;
+    
+    
 
 	/**
 	 * Show all Task entities by Activity
@@ -725,5 +732,19 @@ public class ActivityController {
 	public String saveActivity(@ModelAttribute Activity activity) {
 		activityService.saveActivity(activity);
 		return "forward:/indexActivity";
+	}
+	
+	
+	/**
+	* Select the activities of a user
+	* 
+	*/
+	@RequestMapping("/su/activities")
+	public ModelAndView activitiesByUser() {
+		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("yourtaskuser", user);
+		mav.setViewName("activity/yourtaskuser/activitiesByUser.jsp");
+		return mav;
 	}
 }
