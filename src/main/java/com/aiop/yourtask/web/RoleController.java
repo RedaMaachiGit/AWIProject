@@ -409,4 +409,55 @@ public class RoleController {
 		return mav;
 
 	}
+	
+	
+	/**
+	* Edit an existing Role entity
+	* 
+	*/
+	@RequestMapping("/admin/role/edit/{roleidKey}")
+	public ModelAndView adminEditRole(@RequestParam Integer roleidKey) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("role", roleDAO.findRoleByPrimaryKey(roleidKey));
+		mav.setViewName("role/admin/editRole.jsp");
+
+		return mav;
+	}
+
+	/**
+	* Show all Role entities
+	* 
+	*/
+	@RequestMapping("/admin/role")
+	public ModelAndView adminListRoles() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("roles", roleService.loadRoles());
+		mav.setViewName("role/admin/listRoles.jsp");
+		return mav;
+	}
+	
+	/**
+	* Create a new Role entity
+	* 
+	*/
+	@RequestMapping("/admin/role/new")
+	public ModelAndView adminNewRole() {
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("role", new Role());
+		mav.addObject("newFlag", true);
+		mav.setViewName("role/editRole.jsp");
+		return mav;
+	}
+	
+	/**
+	* Delete an existing Role entity
+	* 
+	*/
+	@RequestMapping("/admin/role/delete/{roleidKey}")
+	public String adminDeleteRole(@RequestParam Integer roleidKey) {
+		Role role = roleDAO.findRoleByPrimaryKey(roleidKey);
+		roleService.deleteRole(role);
+		return "forward:/indexRole";
+	}
 }

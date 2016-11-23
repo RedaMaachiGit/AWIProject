@@ -23,7 +23,9 @@ import com.aiop.yourtask.domain.Suinfo;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.YourtaskuserService;
+import com.aiop.yourtask.web.security.AuthenticationFacade;
 
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -52,6 +54,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller("YourtaskuserController")
 
 public class YourtaskuserController {
+	
+	@Autowired
+    private AuthenticationFacade authenticationFacade;
 
 	/**
 	 * DAO injected by Spring that manages Activity entities
@@ -1164,21 +1169,6 @@ public class YourtaskuserController {
 
 		return mav;
 	}
-
-	/**
-	* Select an existing Yourtaskuser entity
-	* 
-	*/
-	@RequestMapping("/su/{userId}/activities")
-	public ModelAndView selectYourtaskuser(@PathVariable("userId") Integer userId) {
-		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
-		
-		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
-
-		return mav;
-	}
 	
 	/**
 	* Select an existing Yourtaskuser entity
@@ -1540,4 +1530,114 @@ public class YourtaskuserController {
 
 		return "forward:/login";
 	}*/
+	
+	/*
+	* Show all Yourtaskuser entities for the administrator
+	* 
+	*/
+	@RequestMapping("/admin/users")
+	public ModelAndView adminListYourtaskusers() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskusers", yourtaskuserService.loadYourtaskusers());
+		mav.setViewName("yourtaskuser/admin/listYourtaskusers.jsp");
+
+		return mav;
+	}
+	
+	/**
+	* Create a new Yourtaskuser entity for administrator
+	* 
+	*/
+	@RequestMapping("/admin/users/newuser")
+	public ModelAndView adminNewUser() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser", new Yourtaskuser());
+		mav.addObject("newFlag", true);
+		mav.setViewName("yourtaskuser/admin/newuser.jsp");
+
+		return mav;
+	}
+	
+	/**
+	* Create a new Yourtaskuser entity for administrator
+	* 
+	*/
+	@RequestMapping("/admin/users/newcompany")
+	public ModelAndView adminNewCompany() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser", new Yourtaskuser());
+		mav.addObject("newFlag", true);
+		mav.setViewName("yourtaskuser/admin/newuser.jsp");
+
+		return mav;
+	}
+	
+	/**
+	* Edit an existing Yourtaskuser entity
+	* 
+	*/
+	@RequestMapping("/admin/users/edit/{userid}")
+	public ModelAndView adminEditYourtaskuser(@PathVariable Integer userid) {
+		ModelAndView mav = new ModelAndView();
+		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(userid);
+		mav.addObject("yourtaskuser", yourtaskuser);
+		if (yourtaskuser.getRole().equals("ROLE_COMPANY")){
+			mav.addObject("yourtaskuser",yourtaskuser );
+			mav.addObject("scinfo", scinfoDAO.findScinfoByPrimaryKey(yourtaskuser.getUserid()));
+			mav.setViewName("yourtaskuser/admin/editcompany.jsp");
+		}else{
+			mav.addObject("yourtaskuser",yourtaskuser );
+			mav.addObject("suinfo", suinfoDAO.findSuinfoByPrimaryKey(userid));
+			mav.setViewName("yourtaskuser/admin/edituser.jsp");
+		}
+		return mav;
+	}
+	
+	/**
+	* Delete an existing Yourtaskuser entity
+	* 
+	*/
+	@RequestMapping("/admin/users/delete/{userid}")
+	public String adminDeleteYourtaskuser(@RequestParam Integer useridKey) {
+		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey);
+		yourtaskuserService.deleteYourtaskuser(yourtaskuser);
+		return "forward:/admin/indexYourtaskuser";
+	}
+	
+
+	@RequestMapping("/admin/users/saveuser")
+	public String adminCreateUser(@ModelAttribute Yourtaskuser yourtaskuser) {
+		Random rand = new Random();
+		int id = rand.nextInt();
+		yourtaskuser.setUserid(id);
+		yourtaskuser.setRole(roleDAO.findRoleByRoleid(2));
+		yourtaskuser.setUsertype("USER");
+		yourtaskuser.setUsertoken("");
+		yourtaskuser.setUserlastconnectiondate(Calendar.getInstance());
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		Suinfo suinfo = new Suinfo();
+		suinfo.setSuinfoid(id);suinfo.setSuinfofirstname("");
+		suinfo.setSuinfolastname("");suinfo.setYourtaskuser(yourtaskuser);
+		suinfoDAO.store(suinfo);
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		return "redirect:/admin/users";
+	}
+	
+	@RequestMapping("/admin/users/savecompany")
+	public String adminCreateCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
+		Random rand = new Random();
+		int id = rand.nextInt();
+		yourtaskuser.setUserid(id);
+		yourtaskuser.setRole(roleDAO.findRoleByRoleid(3));
+		yourtaskuser.setUsertype("COMPANY");
+		yourtaskuser.setUsertoken("");
+		yourtaskuser.setUserlastconnectiondate(Calendar.getInstance());
+		yourtaskuserService.saveYourtaskuser(yourtaskuser);
+		Scinfo scinfo = new Scinfo();
+		scinfo.setScinfoid(id);scinfo.setScinfoactivitydomain("");
+		scinfo.setScinfosiret("");scinfo.setScinfowebsite("");
+		scinfo.setYourtaskuser(yourtaskuser);
+		scinfoDAO.store(scinfo);
+		return "redirect:/admin/users";
+	}
 }

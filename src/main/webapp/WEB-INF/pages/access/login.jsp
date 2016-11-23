@@ -4,16 +4,12 @@
 
 <html>
 <head>
-	<title>Welcome Home </title>
+	<title>Welcome to Yourtask</title>
 </head>
-
 <body>
-
-
-
 <div class="container">
     	<div class="row">
-			<div class="col-md-9 col-md-offset-3">
+			<div class="col-md-6">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
@@ -43,7 +39,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" tabindex="4" class="form-control btn btn-success btn-login" type="submit" value="Login">
+												<input type="submit" tabindex="4" class="form-control btn btn-primary btn-login" type="submit" value="Login">
 											</div>
 										</div>
 									</div>
@@ -59,6 +55,19 @@
 								</form>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						What is YourTask
+					</div>
+					<div class="panel-body">
+						<p>Software engineering project - IG5. Team is composed of four fifth year engineering students of Polytech Montpellier majoring Computer Science and Management.
+							Babacar THIAW Coline LABAT Gaetan PHILIPPE Reda MAACHI.The aim of the project is to build an application which purpose is to help people in achieving objectives by making activities such as gardening, running or building a treehouse. In addition to that, users of the app can shop products like on a shopping website. They also can interact with sellers or other users and keep a diary of their activities.
+						
+						</p>	
 					</div>
 				</div>
 			</div>

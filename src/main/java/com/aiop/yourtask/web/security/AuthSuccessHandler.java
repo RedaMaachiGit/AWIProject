@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,11 +30,24 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
   @Override
   public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
     Authentication authentication) throws IOException, ServletException {
-    SecurityContext context = SecurityContextHolder.getContext();
-    Object principalObj = context.getAuthentication().getPrincipal();
-    String principal = ((UserDetails) principalObj).getUsername();
-            
-    response.addCookie(cookieService.createCookie(principal));
-    response.sendRedirect("./su/profile");
+	  	SecurityContext context = SecurityContextHolder.getContext();
+	    Object principalObj = context.getAuthentication().getPrincipal();
+	    UserDetails principal = ((UserDetails) principalObj);
+	    //String principal = ((UserDetails) principalObj).getUsername();
+	            
+	    //response.addCookie(cookieService.createCookie(principal));
+	    //SimpleGrantedAuthority roleAdmin = new SimpleGrantedAuthority("ROLE_ADMIN");
+	    //GrantedAuthority gA;
+	    Object[] roles = principal.getAuthorities().toArray();
+	    GrantedAuthority principalRole = (GrantedAuthority) roles[roles.length-1];
+	    
+	    if(principalRole.getAuthority() == "ROLE_USER"){
+	    	response.sendRedirect("./su/activities");
+	    	
+	    }else if(principalRole.getAuthority() == "ROLE_ADMIN"){
+	    	response.sendRedirect("./admin");
+	    }else{
+	    	response.sendRedirect("./sc/products");
+	    }
   }
 }

@@ -11,6 +11,8 @@
 			@import url("${pageContext.request.contextPath}/resources/dijit/themes/tundra/tundra.css");
 		</style>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/dojo/dojo.js" djconfig="parseOnLoad: true" ></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/spring/Spring.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/spring/Spring-Dojo.js"></script>
@@ -19,12 +21,9 @@
 				|| ((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		<link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" /> 
 		<% } %>
-		<!-- bootstrap css --><link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
-		<!-- sticky footer css --><link href="${pageContext.request.contextPath}/css/sticky-footer.css" rel="stylesheet" type="text/css" /> 
-		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-				&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
-			<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
-		<% } %>
+		<!-- flatly bootstrap css --><link href="${pageContext.request.contextPath}/css/flatly-bootstrap.min.css" rel="stylesheet" type="text/css" />
+<%-- 		<!-- bootstrap css --><link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --%>
+		<!-- yourtask css --><link href="${pageContext.request.contextPath}/css/yourtask.css" rel="stylesheet" type="text/css" />    
 		 
 		<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")){ %>
 		<link href="${pageContext.request.contextPath}/css/dashboard.css" rel="stylesheet" type="text/css" /> 
@@ -36,11 +35,11 @@
 		<decorator:head />
     </head>
 	<body class="tundra spring">
-		<div id="wrapper">
-			<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
 					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		    <jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
 			<% } %> 
+		<div id="wrapper" class="container">
 			
 		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")
 		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
@@ -59,7 +58,7 @@
 				<div class="hidden">&nbsp;</div>     
 			</div><!-- end contentwrapper -->   
 			<!-- Inclusion du FOOTER -->
-			<!-- <jsp:include page="/WEB-INF/sitemesh-common/footer.jsp" /> -->
+			<jsp:include page="/WEB-INF/sitemesh-common/footer.jsp" />
 		</div><!-- end wrapper -->
 <%-- 		<img src="${pageContext.request.contextPath}/images/button_hover.gif" class="hidden"/> --%>
 <%-- 		<img src="${pageContext.request.contextPath}/images/button_span_hover.gif" class="hidden"/> --%>

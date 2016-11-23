@@ -1,32 +1,24 @@
 body {
     padding-top: 90px;
+    background-image: src("https://tse3.mm.bing.net/th?id=OIP.M53415ca1976079b018fea3819974b0feo0&pid=15.1");
 }
 .panel-login {
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	padding : 5%;
+	border : none;
 }
 .panel-login>.panel-heading {
-	color: #00415d;
 	background-color: #fff;
 	border-color: #fff;
 	text-align:center;
 }
 .panel-login>.panel-heading a{
 	text-decoration: none;
-	color: #666;
 	font-weight: bold;
 	font-size: 15px;
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
 	transition: all 0.1s linear;
 }
-.panel-login>.panel-heading a.active{
-	color: #029f5b;
-	font-size: 18px;
-}
+
 .panel-login>.panel-heading hr{
 	margin-top: 10px;
 	margin-bottom: 0px;
