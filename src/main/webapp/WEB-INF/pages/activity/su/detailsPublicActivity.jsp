@@ -92,7 +92,7 @@
 			<h1>Comments</h1>
 			<div class="navitem">
 				<a class="button"
-					href="${pageContext.request.contextPath}/su/activity/${activity.activityid}/createComment">
+					href="${pageContext.request.contextPath}/su/allactivities/activity/${activity.activityid}/createComment">
 					<span class="glyphicon glyphicon-plus"></span> <span><fmt:message
 							key="navigation.new" /> <fmt:message key="comment.title" /></span>
 				</a>

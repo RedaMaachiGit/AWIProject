@@ -229,10 +229,30 @@ public class ActivityController {
 			comments.setCommentid(id);
 			comments.setCommentdate(Calendar.getInstance());
 		}
-		
 		comments.setYourtaskuser(yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
 		activityService.saveActivityComments(activityId, comments);
 		return "redirect:/su/"+userId+"/activity/"+activityId;
+	}
+	
+	/**
+	 * Save an existing Comment entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param comments the comments
+	 * @return the string
+	 */
+	@RequestMapping("/su/savePublicActivityComments/{activityId}")
+	public String savePublicActivityComments(@PathVariable("activityId") Integer activityId, @ModelAttribute Comment comments) {		
+		if (comments.getCommentid() == null) {
+			int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
+			comments.setCommentid(id);
+			comments.setCommentdate(Calendar.getInstance());
+		}
+		Yourtaskuser user = authentication.getActiveUser();
+		comments.setYourtaskuser(yourtaskuserDAO.findYourtaskuserByPrimaryKey(user.getUserid()));
+		activityService.saveActivityComments(activityId, comments);
+		return "redirect:/su/allactivities/activity/"+activityId;
 	}
 
 	/**
@@ -429,10 +449,27 @@ public class ActivityController {
 	public ModelAndView selectPublicActivity(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityId));
-		mav.setViewName("activity/su/detailsPublicActivity.jsp");
+		Activity activity = activityDAO.findActivityByPrimaryKey(activityId);
 
+		Set<Comment> listcomment = activity.getComments();
+		List<Comment> listcommentarraylist = new ArrayList<>(listcomment);
+		
+		List<Yourtaskuser> listusercomment = new ArrayList<Yourtaskuser>();
+		
+		for(int i = 0; i < listcommentarraylist.size(); i++) {
+			Comment comment = commentDAO.findCommentByPrimaryKey(listcommentarraylist.get(i).getCommentid());
+			listusercomment.add(comment.getYourtaskuser());
+		}
+		
+		
+		mav.addObject("listcomment", listcomment);
+		mav.addObject("listusercomment", listusercomment);
+		
+		mav.addObject("activity", activity);
+		mav.setViewName("activity/su/detailsPublicActivity.jsp");
+		
 		return mav;
+
 	}
 	
 	/**
@@ -445,20 +482,21 @@ public class ActivityController {
 	@RequestMapping("/su/{userId}/activity/{activityId}")
 	public ModelAndView selectUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
-		
+
 		Set<Comment> listcomment = activity.getComments();
-		Set<Yourtaskuser> listusercomment = new HashSet<Yourtaskuser>();
-		for(Comment item : listcomment) {
-			Comment comment = commentDAO.findCommentByPrimaryKey(item.getCommentid());
+		List<Comment> listcommentarraylist = new ArrayList<>(listcomment);
+		
+		List<Yourtaskuser> listusercomment = new ArrayList<Yourtaskuser>();
+		
+		for(int i = 0; i < listcommentarraylist.size(); i++) {
+			Comment comment = commentDAO.findCommentByPrimaryKey(listcommentarraylist.get(i).getCommentid());
 			listusercomment.add(comment.getYourtaskuser());
 		}
-		List<Yourtaskuser> listusercommentok = new ArrayList<>(listusercomment);
 		
-
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("listcomment", listcomment);
-		mav.addObject("listusercomment", listusercommentok);
+		mav.addObject("listusercomment", listusercomment);
 		
 		mav.addObject("activity", activity);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
@@ -792,7 +830,7 @@ public class ActivityController {
 	@RequestMapping("/su/allactivities/activity/{activityId}/createComment")
 	public ModelAndView newPublicActivityComments(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activityId);
+		mav.addObject("activityid", activityId);
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
 		mav.setViewName("activity/comments/editCommentsPublicActivity.jsp");
