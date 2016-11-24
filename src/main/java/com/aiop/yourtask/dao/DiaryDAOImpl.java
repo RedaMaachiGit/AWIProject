@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Diary entities.
  * 
@@ -36,24 +40,21 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	 */
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] { Diary.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new DiaryDAOImpl
-	 *
+	 * Instantiates a new DiaryDAOImpl.
 	 */
 	public DiaryDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -62,14 +63,18 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydateBefore
+	 * JPQL Query - findDiaryByDiarydateBefore.
 	 *
+	 * @param diarydate the diarydate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findDiaryByDiarydateBefore(java.util.Calendar diarydate) throws DataAccessException {
@@ -78,8 +83,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydateBefore
+	 * JPQL Query - findDiaryByDiarydateBefore.
 	 *
+	 * @param diarydate the diarydate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -90,8 +100,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarynameContaining
+	 * JPQL Query - findDiaryByDiarynameContaining.
 	 *
+	 * @param diaryname the diaryname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findDiaryByDiarynameContaining(String diaryname) throws DataAccessException {
@@ -100,8 +113,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarynameContaining
+	 * JPQL Query - findDiaryByDiarynameContaining.
 	 *
+	 * @param diaryname the diaryname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -112,8 +130,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByPrimaryKey
+	 * JPQL Query - findDiaryByPrimaryKey.
 	 *
+	 * @param iddiary the iddiary
+	 * @return the diary
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Diary findDiaryByPrimaryKey(Integer iddiary) throws DataAccessException {
@@ -122,8 +143,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByPrimaryKey
+	 * JPQL Query - findDiaryByPrimaryKey.
 	 *
+	 * @param iddiary the iddiary
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the diary
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -137,8 +163,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydate
+	 * JPQL Query - findDiaryByDiarydate.
 	 *
+	 * @param diarydate the diarydate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findDiaryByDiarydate(java.util.Calendar diarydate) throws DataAccessException {
@@ -147,8 +176,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydate
+	 * JPQL Query - findDiaryByDiarydate.
 	 *
+	 * @param diarydate the diarydate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -159,8 +193,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByIddiary
+	 * JPQL Query - findDiaryByIddiary.
 	 *
+	 * @param iddiary the iddiary
+	 * @return the diary
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Diary findDiaryByIddiary(Integer iddiary) throws DataAccessException {
@@ -169,8 +206,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByIddiary
+	 * JPQL Query - findDiaryByIddiary.
 	 *
+	 * @param iddiary the iddiary
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the diary
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -184,8 +226,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydateAfter
+	 * JPQL Query - findDiaryByDiarydateAfter.
 	 *
+	 * @param diarydate the diarydate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findDiaryByDiarydateAfter(java.util.Calendar diarydate) throws DataAccessException {
@@ -194,8 +239,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiarydateAfter
+	 * JPQL Query - findDiaryByDiarydateAfter.
 	 *
+	 * @param diarydate the diarydate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -206,8 +256,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiaryname
+	 * JPQL Query - findDiaryByDiaryname.
 	 *
+	 * @param diaryname the diaryname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findDiaryByDiaryname(String diaryname) throws DataAccessException {
@@ -216,8 +269,13 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findDiaryByDiaryname
+	 * JPQL Query - findDiaryByDiaryname.
 	 *
+	 * @param diaryname the diaryname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -228,8 +286,10 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllDiarys
+	 * JPQL Query - findAllDiarys.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diary> findAllDiarys() throws DataAccessException {
@@ -238,8 +298,12 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllDiarys
+	 * JPQL Query - findAllDiarys.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -250,10 +314,11 @@ public class DiaryDAOImpl extends AbstractJpaDao<Diary> implements DiaryDAO {
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Diary entity) {
 		return true;

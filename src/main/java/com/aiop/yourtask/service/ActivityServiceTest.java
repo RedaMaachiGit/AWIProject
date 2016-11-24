@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -39,6 +42,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -81,8 +85,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Diary entity
-	* 
+	 * Save an existing Diary entity.
 	 */
 	@Test
 	public void saveActivityDiaries() {
@@ -96,8 +99,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Activity entity
-	* 
+	 * Delete an existing Activity entity.
 	 */
 	@Test
 	public void deleteActivity() {
@@ -108,8 +110,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Comment entity
-	* 
+	 * Delete an existing Comment entity.
 	 */
 	@Test
 	public void deleteActivityComments() {
@@ -123,8 +124,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Activity entity
-	* 
+	 * Return all Activity entity.
 	 */
 	@Test
 	public void findAllActivitys() {
@@ -138,8 +138,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Comment entity
-	* 
+	 * Save an existing Comment entity.
 	 */
 	@Test
 	public void saveActivityComments() {
@@ -152,7 +151,7 @@ public class ActivityServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findActivityByPrimaryKey() {
@@ -165,8 +164,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Task entity
-	* 
+	 * Save an existing Task entity.
 	 */
 	@Test
 	public void saveActivityTasks() {
@@ -180,8 +178,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveActivityYourtaskuser() {
@@ -195,8 +192,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Activity entity
-	* 
+	 * Save an existing Activity entity.
 	 */
 	@Test
 	public void saveActivity() {
@@ -207,8 +203,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Task entity
-	* 
+	 * Delete an existing Task entity.
 	 */
 	@Test
 	public void deleteActivityTasks() {
@@ -222,8 +217,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Diary entity
-	* 
+	 * Delete an existing Diary entity.
 	 */
 	@Test
 	public void deleteActivityDiaries() {
@@ -237,8 +231,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Activity entity
-	* 
+	 * Return a count of all Activity entity.
 	 */
 	@Test
 	public void countActivitys() {
@@ -249,8 +242,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Activity entity
-	* 
+	 * Load an existing Activity entity.
 	 */
 	@Test
 	public void loadActivitys() {
@@ -261,8 +253,7 @@ public class ActivityServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteActivityYourtaskuser() {
@@ -277,6 +268,7 @@ public class ActivityServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -286,8 +278,7 @@ public class ActivityServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -32,9 +35,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Yourtaskuser entities
- * 
+ * Spring service that handles CRUD requests for Yourtaskuser entities.
  */
 
 @Service("YourtaskuserService")
@@ -42,73 +45,43 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class YourtaskuserServiceImpl implements YourtaskuserService {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Notification entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Notification entities. */
 	@Autowired
 	private NotificationDAO notificationDAO;
 
-	/**
-	 * DAO injected by Spring that manages Order entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Order entities. */
 	@Autowired
 	private OrderDAO orderDAO;
 
-	/**
-	 * DAO injected by Spring that manages Product entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Product entities. */
 	@Autowired
 	private ProductDAO productDAO;
 
-	/**
-	 * DAO injected by Spring that manages Role entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Role entities. */
 	@Autowired
 	private RoleDAO roleDAO;
 
-	/**
-	 * DAO injected by Spring that manages Scinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Scinfo entities. */
 	@Autowired
 	private ScinfoDAO scinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Suinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Suinfo entities. */
 	@Autowired
 	private SuinfoDAO suinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -120,8 +93,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Comment entity
-	 * 
+	 * Save an existing Comment entity.
+	 *
+	 * @param userid the userid
+	 * @param related_comments the related comments
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserComments(Integer userid, Comment related_comments) {
@@ -148,8 +124,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Role entity
-	 * 
+	 * Delete an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_role_roleid the related role roleid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserRole(Integer yourtaskuser_userid, Integer related_role_roleid) {
@@ -171,8 +150,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Order entity
-	 * 
+	 * Save an existing Order entity.
+	 *
+	 * @param userid the userid
+	 * @param related_ordersforuseridsc the related ordersforuseridsc
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserOrdersForUseridsc(Integer userid, Order related_ordersforuseridsc) {
@@ -201,8 +183,9 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser the yourtaskuser
 	 */
 	@Transactional
 	public void deleteYourtaskuser(Yourtaskuser yourtaskuser) {
@@ -211,8 +194,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Suinfo entity
-	 * 
+	 * Delete an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_suinfos_suinfoid the related suinfos suinfoid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserSuinfos(Integer yourtaskuser_userid, Integer related_suinfos_suinfoid) {
@@ -230,8 +216,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Notification entity
-	 * 
+	 * Delete an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_notifications_notificationid the related notifications notificationid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserNotifications(Integer yourtaskuser_userid, Integer related_notifications_notificationid) {
@@ -249,8 +238,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Suinfo entity
-	 * 
+	 * Save an existing Suinfo entity.
+	 *
+	 * @param userid the userid
+	 * @param related_suinfos the related suinfos
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserSuinfos(Integer userid, Suinfo related_suinfos) {
@@ -277,8 +269,9 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Return a count of all Yourtaskuser entity
-	 * 
+	 * Return a count of all Yourtaskuser entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countYourtaskusers() {
@@ -286,8 +279,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Comment entity
-	 * 
+	 * Delete an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserComments(Integer yourtaskuser_userid, Integer related_comments_commentid) {
@@ -305,8 +301,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Scinfo entity
-	 * 
+	 * Delete an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_scinfos_scinfoid the related scinfos scinfoid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserScinfos(Integer yourtaskuser_userid, Integer related_scinfos_scinfoid) {
@@ -324,8 +323,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Order entity
-	 * 
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuseridsc_orderid the related ordersforuseridsc orderid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserOrdersForUseridsc(Integer yourtaskuser_userid, Integer related_ordersforuseridsc_orderid) {
@@ -343,8 +345,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Scinfo entity
-	 * 
+	 * Save an existing Scinfo entity.
+	 *
+	 * @param userid the userid
+	 * @param related_scinfos the related scinfos
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserScinfos(Integer userid, Scinfo related_scinfos) {
@@ -372,8 +377,9 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser the yourtaskuser
 	 */
 	@Transactional
 	public void saveYourtaskuser(Yourtaskuser yourtaskuser) {
@@ -403,8 +409,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Order entity
-	 * 
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuserid_orderid the related ordersforuserid orderid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserOrdersForUserid(Integer yourtaskuser_userid, Integer related_ordersforuserid_orderid) {
@@ -422,8 +431,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Product entity
-	 * 
+	 * Save an existing Product entity.
+	 *
+	 * @param userid the userid
+	 * @param related_products the related products
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserProducts(Integer userid, Product related_products) {
@@ -453,8 +465,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Return all Yourtaskuser entity
-	 * 
+	 * Return all Yourtaskuser entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Yourtaskuser> findAllYourtaskusers(Integer startResult, Integer maxRows) {
@@ -462,8 +477,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Activity entity
-	 * 
+	 * Delete an existing Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_activities_activityid the related activities activityid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserActivities(Integer yourtaskuser_userid, Integer related_activities_activityid) {
@@ -481,8 +499,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Role entity
-	 * 
+	 * Save an existing Role entity.
+	 *
+	 * @param userid the userid
+	 * @param related_role the related role
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserRole(Integer userid, Role related_role) {
@@ -508,8 +529,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Diary entity
-	 * 
+	 * Save an existing Diary entity.
+	 *
+	 * @param userid the userid
+	 * @param related_diaries the related diaries
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserDiaries(Integer userid, Diary related_diaries) {
@@ -536,8 +560,9 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Load an existing Yourtaskuser entity
-	 * 
+	 * Load an existing Yourtaskuser entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Yourtaskuser> loadYourtaskusers() {
@@ -545,8 +570,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Notification entity
-	 * 
+	 * Save an existing Notification entity.
+	 *
+	 * @param userid the userid
+	 * @param related_notifications the related notifications
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserNotifications(Integer userid, Notification related_notifications) {
@@ -572,7 +600,8 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 		return yourtaskuser;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.YourtaskuserService#findYourtaskuserByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Yourtaskuser findYourtaskuserByPrimaryKey(Integer userid) {
@@ -580,8 +609,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Product entity
-	 * 
+	 * Delete an existing Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_products_productid the related products productid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserProducts(Integer yourtaskuser_userid, Integer related_products_productid) {
@@ -599,8 +631,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Delete an existing Diary entity
-	 * 
+	 * Delete an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser deleteYourtaskuserDiaries(Integer yourtaskuser_userid, Integer related_diaries_iddiary) {
@@ -618,8 +653,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Order entity
-	 * 
+	 * Save an existing Order entity.
+	 *
+	 * @param userid the userid
+	 * @param related_ordersforuserid the related ordersforuserid
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserOrdersForUserid(Integer userid, Order related_ordersforuserid) {
@@ -648,8 +686,11 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 	}
 
 	/**
-	 * Save an existing Activity entity
-	 * 
+	 * Save an existing Activity entity.
+	 *
+	 * @param userid the userid
+	 * @param related_activities the related activities
+	 * @return the yourtaskuser
 	 */
 	@Transactional
 	public Yourtaskuser saveYourtaskuserActivities(Integer userid, Activity related_activities) {
@@ -676,6 +717,9 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 		return yourtaskuser;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.YourtaskuserService#findByUsername(java.lang.String)
+	 */
 	@Override
 	public Yourtaskuser findByUsername(String username) {
 		// TODO Auto-generated method stub
@@ -689,16 +733,25 @@ public class YourtaskuserServiceImpl implements YourtaskuserService {
 		return new Yourtaskuser();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.YourtaskuserService#findAllCompanys(int, int)
+	 */
 	@Override
 	public List<Yourtaskuser> findAllCompanys(int startResult,int maxRows) {
 		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserDAO.findAllCompanys(startResult, maxRows));
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.YourtaskuserService#findAllCompanys()
+	 */
 	@Override
 	public List<Yourtaskuser> findAllCompanys() {
 		return new java.util.ArrayList<Yourtaskuser>(yourtaskuserDAO.findAllCompanys());
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.YourtaskuserService#findCompanyBySIRET(java.lang.String)
+	 */
 	@Override
 	public Yourtaskuser findCompanyBySIRET(String company_companySIRET) {
 		Yourtaskuser company = yourtaskuserDAO.findCompanyBySIRET(company_companySIRET);

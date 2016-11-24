@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web.rest;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>ProductRestController</code> controller.
  *
@@ -43,6 +47,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidyourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidyourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidorderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidorderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidorderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidorderProductsorderproduct_orderidorderproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productidorderProductsorderproduct_orderidorderproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Product()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Product()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Product()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class ProductRestControllerTest {
 
 	/**
 	 * Test <code>Productproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -299,6 +333,7 @@ public class ProductRestControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -310,6 +345,7 @@ public class ProductRestControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -321,6 +357,7 @@ public class ProductRestControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

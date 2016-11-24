@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.OrderProductDAO;
@@ -33,46 +36,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Product entities
- * 
+ * Spring Rest controller that handles CRUD requests for Product entities.
  */
 
 @Controller("ProductRestController")
 
 public class ProductRestController {
 
-	/**
-	 * DAO injected by Spring that manages OrderProduct entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages OrderProduct entities. */
 	@Autowired
 	private OrderProductDAO orderProductDAO;
 
-	/**
-	 * DAO injected by Spring that manages Product entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Product entities. */
 	@Autowired
 	private ProductDAO productDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Product entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Product entities. */
 	@Autowired
 	private ProductService productService;
 
 	/**
-	 * Save an existing OrderProduct entity
-	 * 
+	 * Save an existing OrderProduct entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param orderproducts the orderproducts
+	 * @return the order product
 	 */
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts", method = RequestMethod.PUT)
 	@ResponseBody
@@ -82,9 +76,12 @@ public class ProductRestController {
 	}
 
 	/**
-	* Delete an existing OrderProduct entity
-	* 
-	*/
+	 * Delete an existing OrderProduct entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_orderproducts_orderid the related orderproducts orderid
+	 * @param related_orderproducts_productid the related orderproducts productid
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts/{orderproduct_orderid}/{orderproduct_productid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteProductOrderProducts(@PathVariable Integer product_productid, @PathVariable Integer related_orderproducts_orderid, @PathVariable Integer related_orderproducts_productid) {
@@ -92,9 +89,13 @@ public class ProductRestController {
 	}
 
 	/**
-	* View an existing OrderProduct entity
-	* 
-	*/
+	 * View an existing OrderProduct entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_orderproducts_orderid the related orderproducts orderid
+	 * @param related_orderproducts_productid the related orderproducts productid
+	 * @return the order product
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts/{orderproduct_orderid}/{orderproduct_productid}", method = RequestMethod.GET)
 	@ResponseBody
 	public OrderProduct loadProductOrderProducts(@PathVariable Integer product_productid, @PathVariable Integer related_orderproducts_orderid, @PathVariable Integer related_orderproducts_productid) {
@@ -104,9 +105,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Show all OrderProduct entities by Product
-	* 
-	*/
+	 * Show all OrderProduct entities by Product.
+	 *
+	 * @param product_productid the product productid
+	 * @return the product order products
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts", method = RequestMethod.GET)
 	@ResponseBody
 	public List<OrderProduct> getProductOrderProducts(@PathVariable Integer product_productid) {
@@ -114,9 +117,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Get Yourtaskuser entity by Product
-	* 
-	*/
+	 * Get Yourtaskuser entity by Product.
+	 *
+	 * @param product_productid the product productid
+	 * @return the product yourtaskuser
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/yourtaskuser", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser getProductYourtaskuser(@PathVariable Integer product_productid) {
@@ -124,9 +129,12 @@ public class ProductRestController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser loadProductYourtaskuser(@PathVariable Integer product_productid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -136,9 +144,10 @@ public class ProductRestController {
 	}
 
 	/**
-	* Delete an existing Product entity
-	* 
-	*/
+	 * Delete an existing Product entity.
+	 *
+	 * @param product_productid the product productid
+	 */
 	@RequestMapping(value = "/Product/{product_productid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteProduct(@PathVariable Integer product_productid) {
@@ -147,9 +156,12 @@ public class ProductRestController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/yourtaskuser", method = RequestMethod.PUT)
 	@ResponseBody
 	public Yourtaskuser saveProductYourtaskuser(@PathVariable Integer product_productid, @RequestBody Yourtaskuser yourtaskuser) {
@@ -158,9 +170,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Select an existing Product entity
-	* 
-	*/
+	 * Select an existing Product entity.
+	 *
+	 * @param product_productid the product productid
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Product/{product_productid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Product loadProduct(@PathVariable Integer product_productid) {
@@ -168,9 +182,12 @@ public class ProductRestController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/yourtaskuser", method = RequestMethod.POST)
 	@ResponseBody
 	public Yourtaskuser newProductYourtaskuser(@PathVariable Integer product_productid, @RequestBody Yourtaskuser yourtaskuser) {
@@ -179,9 +196,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Save an existing Product entity
-	* 
-	*/
+	 * Save an existing Product entity.
+	 *
+	 * @param product the product
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Product", method = RequestMethod.PUT)
 	@ResponseBody
 	public Product saveProduct(@RequestBody Product product) {
@@ -190,9 +209,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Create a new Product entity
-	* 
-	*/
+	 * Create a new Product entity.
+	 *
+	 * @param product the product
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Product", method = RequestMethod.POST)
 	@ResponseBody
 	public Product newProduct(@RequestBody Product product) {
@@ -201,9 +222,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteProductYourtaskuser(@PathVariable Integer product_productid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -211,9 +234,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -229,9 +254,11 @@ public class ProductRestController {
 	}
 
 	/**
-	* Create a new OrderProduct entity
-	* 
-	*/
+	 * Create a new OrderProduct entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param orderproduct the orderproduct
+	 */
 	@RequestMapping(value = "/Product/{product_productid}/orderProducts", method = RequestMethod.POST)
 	@ResponseBody
 	//public OrderProduct newProductOrderProducts(@PathVariable Integer product_productid, @RequestBody OrderProduct orderproduct) {
@@ -252,9 +279,10 @@ public class ProductRestController {
 //	}
 //	
 	/**
-	* Show all Product entities
-	* 
-	*/
+ * Show all Product entities.
+ *
+ * @return the products
+ */
 	@RequestMapping(value = "/Product", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
 	public EntityList<Product> getProducts() {
@@ -264,9 +292,11 @@ public class ProductRestController {
 	}
 	
 	/**
-	* Show all Product entities of a certain company
-	* 
-	*/
+	 * Show all Product entities of a certain company.
+	 *
+	 * @param company_companyid the company companyid
+	 * @return the companys products
+	 */
 	// Path must be Product (without s)
 	@RequestMapping(value = "/Products/{company_companyid}", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody

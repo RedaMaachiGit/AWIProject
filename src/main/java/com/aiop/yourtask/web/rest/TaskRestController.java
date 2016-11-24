@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -25,39 +28,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Task entities
- * 
+ * Spring Rest controller that handles CRUD requests for Task entities.
  */
 
 @Controller("TaskRestController")
 
 public class TaskRestController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Task entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Task entities. */
 	@Autowired
 	private TaskDAO taskDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Task entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Task entities. */
 	@Autowired
 	private TaskService taskService;
 
 	/**
-	 * View an existing Activity entity
-	 * 
+	 * View an existing Activity entity.
+	 *
+	 * @param task_taskid the task taskid
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the activity
 	 */
 	@RequestMapping(value = "/Task/{task_taskid}/activity/{activity_activityid}", method = RequestMethod.GET)
 	@ResponseBody
@@ -68,9 +65,12 @@ public class TaskRestController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param task_taskid the task taskid
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}/activity", method = RequestMethod.PUT)
 	@ResponseBody
 	public Activity saveTaskActivity(@PathVariable Integer task_taskid, @RequestBody Activity activity) {
@@ -79,9 +79,10 @@ public class TaskRestController {
 	}
 
 	/**
-	* Show all Task entities
-	* 
-	*/
+	 * Show all Task entities.
+	 *
+	 * @return the list
+	 */
 	@RequestMapping(value = "/Task", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Task> listTasks() {
@@ -89,9 +90,12 @@ public class TaskRestController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @param task_taskid the task taskid
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}/activity", method = RequestMethod.POST)
 	@ResponseBody
 	public Activity newTaskActivity(@PathVariable Integer task_taskid, @RequestBody Activity activity) {
@@ -100,9 +104,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Get Activity entity by Task
-	* 
-	*/
+	 * Get Activity entity by Task.
+	 *
+	 * @param task_taskid the task taskid
+	 * @return the task activity
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}/activity", method = RequestMethod.GET)
 	@ResponseBody
 	public Activity getTaskActivity(@PathVariable Integer task_taskid) {
@@ -110,9 +116,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Select an existing Task entity
-	* 
-	*/
+	 * Select an existing Task entity.
+	 *
+	 * @param task_taskid the task taskid
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Task loadTask(@PathVariable Integer task_taskid) {
@@ -120,9 +128,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param task_taskid the task taskid
+	 * @param related_activity_activityid the related activity activityid
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}/activity/{activity_activityid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteTaskActivity(@PathVariable Integer task_taskid, @PathVariable Integer related_activity_activityid) {
@@ -130,9 +140,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -148,9 +160,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Save an existing Task entity
-	* 
-	*/
+	 * Save an existing Task entity.
+	 *
+	 * @param task the task
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Task", method = RequestMethod.PUT)
 	@ResponseBody
 	public Task saveTask(@RequestBody Task task) {
@@ -159,9 +173,10 @@ public class TaskRestController {
 	}
 
 	/**
-	* Delete an existing Task entity
-	* 
-	*/
+	 * Delete an existing Task entity.
+	 *
+	 * @param task_taskid the task taskid
+	 */
 	@RequestMapping(value = "/Task/{task_taskid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteTask(@PathVariable Integer task_taskid) {
@@ -170,9 +185,11 @@ public class TaskRestController {
 	}
 
 	/**
-	* Create a new Task entity
-	* 
-	*/
+	 * Create a new Task entity.
+	 *
+	 * @param task the task
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Task", method = RequestMethod.POST)
 	@ResponseBody
 	public Task newTask(@RequestBody Task task) {

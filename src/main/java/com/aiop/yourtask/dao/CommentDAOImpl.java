@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Comment entities.
  * 
@@ -37,24 +41,21 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Comment.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new CommentDAOImpl
-	 *
+	 * Instantiates a new CommentDAOImpl.
 	 */
 	public CommentDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdateBefore
+	 * JPQL Query - findCommentByCommentdateBefore.
 	 *
+	 * @param commentdate the commentdate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findCommentByCommentdateBefore(java.util.Calendar commentdate) throws DataAccessException {
@@ -79,8 +84,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdateBefore
+	 * JPQL Query - findCommentByCommentdateBefore.
 	 *
+	 * @param commentdate the commentdate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -91,8 +101,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentcontent
+	 * JPQL Query - findCommentByCommentcontent.
 	 *
+	 * @param commentcontent the commentcontent
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findCommentByCommentcontent(String commentcontent) throws DataAccessException {
@@ -101,8 +114,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentcontent
+	 * JPQL Query - findCommentByCommentcontent.
 	 *
+	 * @param commentcontent the commentcontent
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -113,8 +131,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdateAfter
+	 * JPQL Query - findCommentByCommentdateAfter.
 	 *
+	 * @param commentdate the commentdate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findCommentByCommentdateAfter(java.util.Calendar commentdate) throws DataAccessException {
@@ -123,8 +144,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdateAfter
+	 * JPQL Query - findCommentByCommentdateAfter.
 	 *
+	 * @param commentdate the commentdate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -135,8 +161,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdate
+	 * JPQL Query - findCommentByCommentdate.
 	 *
+	 * @param commentdate the commentdate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findCommentByCommentdate(java.util.Calendar commentdate) throws DataAccessException {
@@ -145,8 +174,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentdate
+	 * JPQL Query - findCommentByCommentdate.
 	 *
+	 * @param commentdate the commentdate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -157,8 +191,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentid
+	 * JPQL Query - findCommentByCommentid.
 	 *
+	 * @param commentid the commentid
+	 * @return the comment
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Comment findCommentByCommentid(Integer commentid) throws DataAccessException {
@@ -167,8 +204,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentid
+	 * JPQL Query - findCommentByCommentid.
 	 *
+	 * @param commentid the commentid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the comment
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -182,8 +224,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentcontentContaining
+	 * JPQL Query - findCommentByCommentcontentContaining.
 	 *
+	 * @param commentcontent the commentcontent
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findCommentByCommentcontentContaining(String commentcontent) throws DataAccessException {
@@ -192,8 +237,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByCommentcontentContaining
+	 * JPQL Query - findCommentByCommentcontentContaining.
 	 *
+	 * @param commentcontent the commentcontent
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -204,8 +254,10 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findAllComments
+	 * JPQL Query - findAllComments.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Comment> findAllComments() throws DataAccessException {
@@ -214,8 +266,12 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findAllComments
+	 * JPQL Query - findAllComments.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -226,8 +282,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByPrimaryKey
+	 * JPQL Query - findCommentByPrimaryKey.
 	 *
+	 * @param commentid the commentid
+	 * @return the comment
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Comment findCommentByPrimaryKey(Integer commentid) throws DataAccessException {
@@ -236,8 +295,13 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * JPQL Query - findCommentByPrimaryKey
+	 * JPQL Query - findCommentByPrimaryKey.
 	 *
+	 * @param commentid the commentid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the comment
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -251,10 +315,11 @@ public class CommentDAOImpl extends AbstractJpaDao<Comment> implements CommentDA
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Comment entity) {
 		return true;

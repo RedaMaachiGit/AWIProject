@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -26,55 +29,46 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Comment entities
- * 
+ * Spring MVC controller that handles CRUD requests for Comment entities.
  */
 
 @Controller("CommentController")
 
 public class CommentController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Comment entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Comment entities. */
 	@Autowired
 	private CommentService commentService;
 
 	/**
-	 * Entry point to show all Comment entities
-	 * 
+	 * Entry point to show all Comment entities.
+	 *
+	 * @return the string
 	 */
 	public String indexComment() {
 		return "redirect:/indexComment";
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param comment the comment
+	 * @return the string
+	 */
 	@RequestMapping("/saveComment")
 	public String saveComment(@ModelAttribute Comment comment) {
 		commentService.saveComment(comment);
@@ -82,9 +76,12 @@ public class CommentController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param activity the activity
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveCommentActivity")
 	public ModelAndView saveCommentActivity(@RequestParam Integer comment_commentid, @ModelAttribute Activity activity) {
 		Comment parent_comment = commentService.saveCommentActivity(comment_commentid, activity);
@@ -98,9 +95,12 @@ public class CommentController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteCommentYourtaskuser")
 	public ModelAndView deleteCommentYourtaskuser(@RequestParam Integer comment_commentid, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -115,9 +115,12 @@ public class CommentController {
 	}
 
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editCommentYourtaskuser")
 	public ModelAndView editCommentYourtaskuser(@RequestParam Integer comment_commentid, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);
@@ -131,9 +134,11 @@ public class CommentController {
 	}
 
 	/**
-	* Select the Comment entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the Comment entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteComment")
 	public ModelAndView confirmDeleteComment(@RequestParam Integer commentidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -145,9 +150,11 @@ public class CommentController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newCommentActivity")
 	public ModelAndView newCommentActivity(@RequestParam Integer comment_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -160,9 +167,12 @@ public class CommentController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteCommentActivity")
 	public ModelAndView deleteCommentActivity(@RequestParam Integer comment_commentid, @RequestParam Integer related_activity_activityid) {
 		ModelAndView mav = new ModelAndView();
@@ -177,9 +187,12 @@ public class CommentController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveCommentYourtaskuser")
 	public ModelAndView saveCommentYourtaskuser(@RequestParam Integer comment_commentid, @ModelAttribute Yourtaskuser yourtaskuser) {
 		Comment parent_comment = commentService.saveCommentYourtaskuser(comment_commentid, yourtaskuser);
@@ -193,9 +206,11 @@ public class CommentController {
 	}
 
 	/**
-	* Select an existing Comment entity
-	* 
-	*/
+	 * Select an existing Comment entity.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectComment")
 	public ModelAndView selectComment(@RequestParam Integer commentidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -207,9 +222,11 @@ public class CommentController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newCommentYourtaskuser")
 	public ModelAndView newCommentYourtaskuser(@RequestParam Integer comment_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -222,9 +239,11 @@ public class CommentController {
 	}
 
 	/**
-	* Show all Activity entities by Comment
-	* 
-	*/
+	 * Show all Activity entities by Comment.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listCommentActivity")
 	public ModelAndView listCommentActivity(@RequestParam Integer commentidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -236,7 +255,12 @@ public class CommentController {
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/commentController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -246,9 +270,12 @@ public class CommentController {
 	}
 
 	/**
-	* Edit an existing Activity entity
-	* 
-	*/
+	 * Edit an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param activity_activityid the activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editCommentActivity")
 	public ModelAndView editCommentActivity(@RequestParam Integer comment_commentid, @RequestParam Integer activity_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activity_activityid, -1, -1);
@@ -262,9 +289,12 @@ public class CommentController {
 	}
 
 	/**
-	* View an existing Activity entity
-	* 
-	*/
+	 * View an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param activity_activityid the activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectCommentActivity")
 	public ModelAndView selectCommentActivity(@RequestParam Integer comment_commentid, @RequestParam Integer activity_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activity_activityid, -1, -1);
@@ -278,9 +308,10 @@ public class CommentController {
 	}
 
 	/**
-	* Show all Comment entities
-	* 
-	*/
+	 * Show all Comment entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/indexComment")
 	public ModelAndView listComments() {
 		ModelAndView mav = new ModelAndView();
@@ -293,9 +324,11 @@ public class CommentController {
 	}
 
 	/**
-	* Show all Yourtaskuser entities by Comment
-	* 
-	*/
+	 * Show all Yourtaskuser entities by Comment.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listCommentYourtaskuser")
 	public ModelAndView listCommentYourtaskuser(@RequestParam Integer commentidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -307,9 +340,10 @@ public class CommentController {
 	}
 
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newComment")
 	public ModelAndView newComment() {
 		ModelAndView mav = new ModelAndView();
@@ -322,9 +356,11 @@ public class CommentController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -340,9 +376,11 @@ public class CommentController {
 	}
 
 	/**
-	* Edit an existing Comment entity
-	* 
-	*/
+	 * Edit an existing Comment entity.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editComment")
 	public ModelAndView editComment(@RequestParam Integer commentidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -354,9 +392,12 @@ public class CommentController {
 	}
 
 	/**
-	* Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteCommentActivity")
 	public ModelAndView confirmDeleteCommentActivity(@RequestParam Integer comment_commentid, @RequestParam Integer related_activity_activityid) {
 		ModelAndView mav = new ModelAndView();
@@ -369,9 +410,11 @@ public class CommentController {
 	}
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param commentidKey the commentid key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteComment")
 	public String deleteComment(@RequestParam Integer commentidKey) {
 		Comment comment = commentDAO.findCommentByPrimaryKey(commentidKey);
@@ -380,9 +423,12 @@ public class CommentController {
 	}
 
 	/**
-	* Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteCommentYourtaskuser")
 	public ModelAndView confirmDeleteCommentYourtaskuser(@RequestParam Integer comment_commentid, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -395,9 +441,12 @@ public class CommentController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectCommentYourtaskuser")
 	public ModelAndView selectCommentYourtaskuser(@RequestParam Integer comment_commentid, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);

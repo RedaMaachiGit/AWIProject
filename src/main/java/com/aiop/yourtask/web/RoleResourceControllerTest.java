@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>RoleResourceController</code> controller.
  *
@@ -43,6 +47,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>editRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>newRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>saveRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>deleteRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>selectRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>listRoleResourceResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>editRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>newRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>saveRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>deleteRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>selectRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>listRoleResourceRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>indexRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>selectRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>editRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>saveRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>newRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>deleteRoleResource()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class RoleResourceControllerTest {
 
 	/**
 	 * Test <code>roleresourceControllerbinaryaction()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -418,6 +466,7 @@ public class RoleResourceControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -429,6 +478,7 @@ public class RoleResourceControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -440,6 +490,7 @@ public class RoleResourceControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

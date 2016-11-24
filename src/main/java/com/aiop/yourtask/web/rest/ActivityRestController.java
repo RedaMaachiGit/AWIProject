@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -32,60 +35,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Activity entities
- * 
+ * Spring Rest controller that handles CRUD requests for Activity entities.
  */
 
 @Controller("ActivityRestController")
 
 public class ActivityRestController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Task entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Task entities. */
 	@Autowired
 	private TaskDAO taskDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Activity entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Activity entities. */
 	@Autowired
 	private ActivityService activityService;
 
 	/**
-	 * Delete an existing Task entity
-	 * 
+	 * Delete an existing Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_tasks_taskid the related tasks taskid
 	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/tasks/{task_taskid}", method = RequestMethod.DELETE)
 	@ResponseBody
@@ -94,9 +81,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Activity", method = RequestMethod.PUT)
 	@ResponseBody
 	public Activity saveActivity(@RequestBody Activity activity) {
@@ -105,9 +94,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser loadActivityYourtaskuser(@PathVariable Integer activity_activityid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -117,9 +109,10 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Show all Activity entities
-	* 
-	*/
+	 * Show all Activity entities.
+	 *
+	 * @return the entity list
+	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/Activity", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
@@ -131,9 +124,12 @@ public class ActivityRestController {
 	
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/diaries/{diary_iddiary}", method = RequestMethod.GET)
 	@ResponseBody
 	public Diary loadActivityDiaries(@PathVariable Integer activity_activityid, @PathVariable Integer related_diaries_iddiary) {
@@ -143,9 +139,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -161,9 +159,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Create a new Task entity
-	* 
-	*/
+	 * Create a new Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param task the task
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/tasks", method = RequestMethod.POST)
 	@ResponseBody
 	public Task newActivityTasks(@PathVariable Integer activity_activityid, @RequestBody Task task) {
@@ -172,9 +173,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/yourtaskuser", method = RequestMethod.POST)
 	@ResponseBody
 	public Yourtaskuser newActivityYourtaskuser(@PathVariable Integer activity_activityid, @RequestBody Yourtaskuser yourtaskuser) {
@@ -183,9 +187,10 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteActivity(@PathVariable Integer activity_activityid) {
@@ -194,9 +199,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Select an existing Activity entity
-	* 
-	*/
+	 * Select an existing Activity entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Activity loadActivity(@PathVariable Integer activity_activityid) {
@@ -204,9 +211,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param comment the comment
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/comments", method = RequestMethod.POST)
 	@ResponseBody
 	public Comment newActivityComments(@PathVariable Integer activity_activityid, @RequestBody Comment comment) {
@@ -215,9 +225,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/diaries/{diary_iddiary}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteActivityDiaries(@PathVariable Integer activity_activityid, @PathVariable Integer related_diaries_iddiary) {
@@ -225,9 +237,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param diaries the diaries
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/diaries", method = RequestMethod.PUT)
 	@ResponseBody
 	public Diary saveActivityDiaries(@PathVariable Integer activity_activityid, @RequestBody Diary diaries) {
@@ -236,9 +251,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* View an existing Task entity
-	* 
-	*/
+	 * View an existing Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_tasks_taskid the related tasks taskid
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/tasks/{task_taskid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Task loadActivityTasks(@PathVariable Integer activity_activityid, @PathVariable Integer related_tasks_taskid) {
@@ -248,9 +266,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Show all Diary entities by Activity
-	* 
-	*/
+	 * Show all Diary entities by Activity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the activity diaries
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/diaries", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Diary> getActivityDiaries(@PathVariable Integer activity_activityid) {
@@ -258,9 +278,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Save an existing Task entity
-	* 
-	*/
+	 * Save an existing Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param tasks the tasks
+	 * @return the task
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/tasks", method = RequestMethod.PUT)
 	@ResponseBody
 	public Task saveActivityTasks(@PathVariable Integer activity_activityid, @RequestBody Task tasks) {
@@ -269,9 +292,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param diary the diary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/diaries", method = RequestMethod.POST)
 	@ResponseBody
 	public Diary newActivityDiaries(@PathVariable Integer activity_activityid, @RequestBody Diary diary) {
@@ -280,9 +306,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Activity", method = RequestMethod.POST)
 	@ResponseBody
 	public Activity newActivity(@RequestBody Activity activity) {
@@ -291,9 +319,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_comments_commentid the related comments commentid
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/comments/{comment_commentid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteActivityComments(@PathVariable Integer activity_activityid, @PathVariable Integer related_comments_commentid) {
@@ -301,9 +331,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param comments the comments
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/comments", method = RequestMethod.PUT)
 	@ResponseBody
 	public Comment saveActivityComments(@PathVariable Integer activity_activityid, @RequestBody Comment comments) {
@@ -312,9 +345,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* View an existing Comment entity
-	* 
-	*/
+	 * View an existing Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/comments/{comment_commentid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Comment loadActivityComments(@PathVariable Integer activity_activityid, @PathVariable Integer related_comments_commentid) {
@@ -324,9 +360,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Show all Comment entities by Activity
-	* 
-	*/
+	 * Show all Comment entities by Activity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the activity comments
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/comments", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Comment> getActivityComments(@PathVariable Integer activity_activityid) {
@@ -334,9 +372,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Show all Task entities by Activity
-	* 
-	*/
+	 * Show all Task entities by Activity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the activity tasks
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/tasks", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Task> getActivityTasks(@PathVariable Integer activity_activityid) {
@@ -344,9 +384,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteActivityYourtaskuser(@PathVariable Integer activity_activityid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -354,9 +396,11 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Get Yourtaskuser entity by Activity
-	* 
-	*/
+	 * Get Yourtaskuser entity by Activity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the activity yourtaskuser
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/yourtaskuser", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser getActivityYourtaskuser(@PathVariable Integer activity_activityid) {
@@ -364,9 +408,12 @@ public class ActivityRestController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Activity/{activity_activityid}/yourtaskuser", method = RequestMethod.PUT)
 	@ResponseBody
 	public Yourtaskuser saveActivityYourtaskuser(@PathVariable Integer activity_activityid, @RequestBody Yourtaskuser yourtaskuser) {

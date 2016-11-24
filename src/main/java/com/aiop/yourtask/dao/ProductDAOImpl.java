@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Product entities.
  * 
@@ -37,24 +41,21 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Product.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new ProductDAOImpl
-	 *
+	 * Instantiates a new ProductDAOImpl.
 	 */
 	public ProductDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findProductByPrimaryKey
+	 * JPQL Query - findProductByPrimaryKey.
 	 *
+	 * @param productid the productid
+	 * @return the product
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Product findProductByPrimaryKey(Integer productid) throws DataAccessException {
@@ -79,8 +84,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByPrimaryKey
+	 * JPQL Query - findProductByPrimaryKey.
 	 *
+	 * @param productid the productid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the product
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -95,8 +105,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	
 
 	/**
-	 * JPQL Query - findProductByCompany
+	 * JPQL Query - findProductByCompany.
 	 *
+	 * @param company_companyid the company companyid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
@@ -110,8 +125,12 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 	
 	/**
-	 * JPQL Query - findProductByCompany (without max rows)
+	 * JPQL Query - findProductByCompany (without max rows).
 	 *
+	 * @param company_companyid the company companyid
+	 * @param startResult the start result
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
@@ -126,8 +145,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	
 
 	/**
-	 * JPQL Query - findProductByCompany (without max rows & start results)
+	 * JPQL Query - findProductByCompany (without max rows & start results).
 	 *
+	 * @param company_companyid the company companyid
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
@@ -141,8 +163,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductdescriptionContaining
+	 * JPQL Query - findProductByProductdescriptionContaining.
 	 *
+	 * @param productdescription the productdescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductdescriptionContaining(String productdescription) throws DataAccessException {
@@ -151,8 +176,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductdescriptionContaining
+	 * JPQL Query - findProductByProductdescriptionContaining.
 	 *
+	 * @param productdescription the productdescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -163,8 +193,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductimage
+	 * JPQL Query - findProductByProductimage.
 	 *
+	 * @param productimage the productimage
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductimage(String productimage) throws DataAccessException {
@@ -173,8 +206,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductimage
+	 * JPQL Query - findProductByProductimage.
 	 *
+	 * @param productimage the productimage
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -185,8 +223,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductdescription
+	 * JPQL Query - findProductByProductdescription.
 	 *
+	 * @param productdescription the productdescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductdescription(String productdescription) throws DataAccessException {
@@ -195,8 +236,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductdescription
+	 * JPQL Query - findProductByProductdescription.
 	 *
+	 * @param productdescription the productdescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -207,8 +253,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductname
+	 * JPQL Query - findProductByProductname.
 	 *
+	 * @param productname the productname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductname(String productname) throws DataAccessException {
@@ -217,8 +266,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductname
+	 * JPQL Query - findProductByProductname.
 	 *
+	 * @param productname the productname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -229,8 +283,10 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findAllProducts
+	 * JPQL Query - findAllProducts.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findAllProducts() throws DataAccessException {
@@ -239,8 +295,12 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findAllProducts
+	 * JPQL Query - findAllProducts.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -251,8 +311,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductprice
+	 * JPQL Query - findProductByProductprice.
 	 *
+	 * @param productprice the productprice
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductprice(java.math.BigDecimal productprice) throws DataAccessException {
@@ -261,8 +324,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductprice
+	 * JPQL Query - findProductByProductprice.
 	 *
+	 * @param productprice the productprice
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -273,8 +341,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductavailablequantity
+	 * JPQL Query - findProductByProductavailablequantity.
 	 *
+	 * @param productavailablequantity the productavailablequantity
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductavailablequantity(Integer productavailablequantity) throws DataAccessException {
@@ -283,8 +354,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductavailablequantity
+	 * JPQL Query - findProductByProductavailablequantity.
 	 *
+	 * @param productavailablequantity the productavailablequantity
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -295,8 +371,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductid
+	 * JPQL Query - findProductByProductid.
 	 *
+	 * @param productid the productid
+	 * @return the product
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Product findProductByProductid(Integer productid) throws DataAccessException {
@@ -305,8 +384,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductid
+	 * JPQL Query - findProductByProductid.
 	 *
+	 * @param productid the productid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the product
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -320,8 +404,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductimageContaining
+	 * JPQL Query - findProductByProductimageContaining.
 	 *
+	 * @param productimage the productimage
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductimageContaining(String productimage) throws DataAccessException {
@@ -330,8 +417,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductimageContaining
+	 * JPQL Query - findProductByProductimageContaining.
 	 *
+	 * @param productimage the productimage
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -342,8 +434,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductnameContaining
+	 * JPQL Query - findProductByProductnameContaining.
 	 *
+	 * @param productname the productname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Product> findProductByProductnameContaining(String productname) throws DataAccessException {
@@ -352,8 +447,13 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * JPQL Query - findProductByProductnameContaining
+	 * JPQL Query - findProductByProductnameContaining.
 	 *
+	 * @param productname the productname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -364,10 +464,11 @@ public class ProductDAOImpl extends AbstractJpaDao<Product> implements ProductDA
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Product entity) {
 		return true;

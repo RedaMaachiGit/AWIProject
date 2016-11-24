@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -37,6 +40,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -79,8 +83,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing OrderProduct entity
-	* 
+	 * Delete an existing OrderProduct entity.
 	 */
 	@Test
 	public void deleteProductOrderProducts() {
@@ -95,8 +98,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Product entity
-	* 
+	 * Save an existing Product entity.
 	 */
 	@Test
 	public void saveProduct() {
@@ -107,8 +109,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Product entity
-	* 
+	 * Load an existing Product entity.
 	 */
 	@Test
 	public void loadProducts() {
@@ -119,8 +120,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveProductYourtaskuser() {
@@ -134,8 +134,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Product entity
-	* 
+	 * Delete an existing Product entity.
 	 */
 	@Test
 	public void deleteProduct() {
@@ -146,8 +145,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Product entity
-	* 
+	 * Return all Product entity.
 	 */
 	@Test
 	public void findAllProducts() {
@@ -161,8 +159,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing OrderProduct entity
-	* 
+	 * Save an existing OrderProduct entity.
 	 */
 	@Test
 	public void saveProductOrderProducts() {
@@ -176,8 +173,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteProductYourtaskuser() {
@@ -190,7 +186,7 @@ public class ProductServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findProductByPrimaryKey() {
@@ -203,8 +199,7 @@ public class ProductServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Product entity
-	* 
+	 * Return a count of all Product entity.
 	 */
 	@Test
 	public void countProducts() {
@@ -216,6 +211,7 @@ public class ProductServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -225,8 +221,7 @@ public class ProductServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

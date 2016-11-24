@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ResourceDAO;
@@ -17,9 +20,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for RoleResource entities
- * 
+ * Spring service that handles CRUD requests for RoleResource entities.
  */
 
 @Service("RoleResourceService")
@@ -27,24 +30,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class RoleResourceServiceImpl implements RoleResourceService {
 
-	/**
-	 * DAO injected by Spring that manages Resource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Resource entities. */
 	@Autowired
 	private ResourceDAO resourceDAO;
 
-	/**
-	 * DAO injected by Spring that manages Role entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Role entities. */
 	@Autowired
 	private RoleDAO roleDAO;
 
-	/**
-	 * DAO injected by Spring that manages RoleResource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages RoleResource entities. */
 	@Autowired
 	private RoleResourceDAO roleResourceDAO;
 
@@ -56,8 +50,11 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Return all RoleResource entity
-	 * 
+	 * Return all RoleResource entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<RoleResource> findAllRoleResources(Integer startResult, Integer maxRows) {
@@ -65,8 +62,9 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Return a count of all RoleResource entity
-	 * 
+	 * Return a count of all RoleResource entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countRoleResources() {
@@ -74,8 +72,9 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Load an existing RoleResource entity
-	 * 
+	 * Load an existing RoleResource entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<RoleResource> loadRoleResources() {
@@ -83,8 +82,9 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Save an existing RoleResource entity
-	 * 
+	 * Save an existing RoleResource entity.
+	 *
+	 * @param roleresource the roleresource
 	 */
 	@Transactional
 	public void saveRoleResource(RoleResource roleresource) {
@@ -104,8 +104,12 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Save an existing Resource entity
-	 * 
+	 * Save an existing Resource entity.
+	 *
+	 * @param roleid the roleid
+	 * @param resourceid the resourceid
+	 * @param related_resource the related resource
+	 * @return the role resource
 	 */
 	@Transactional
 	public RoleResource saveRoleResourceResource(Integer roleid, Integer resourceid, Resource related_resource) {
@@ -131,8 +135,12 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Save an existing Role entity
-	 * 
+	 * Save an existing Role entity.
+	 *
+	 * @param roleid the roleid
+	 * @param resourceid the resourceid
+	 * @param related_role the related role
+	 * @return the role resource
 	 */
 	@Transactional
 	public RoleResource saveRoleResourceRole(Integer roleid, Integer resourceid, Role related_role) {
@@ -158,8 +166,12 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Delete an existing Resource entity
-	 * 
+	 * Delete an existing Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_resource_resourceid the related resource resourceid
+	 * @return the role resource
 	 */
 	@Transactional
 	public RoleResource deleteRoleResourceResource(Integer roleresource_roleid, Integer roleresource_resourceid, Integer related_resource_resourceid) {
@@ -180,7 +192,8 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 		return roleresource;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.RoleResourceService#findRoleResourceByPrimaryKey(java.lang.Integer, java.lang.Integer)
 	 */
 	@Transactional
 	public RoleResource findRoleResourceByPrimaryKey(Integer roleid, Integer resourceid) {
@@ -188,8 +201,12 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Delete an existing Role entity
-	 * 
+	 * Delete an existing Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_role_roleid the related role roleid
+	 * @return the role resource
 	 */
 	@Transactional
 	public RoleResource deleteRoleResourceRole(Integer roleresource_roleid, Integer roleresource_resourceid, Integer related_role_roleid) {
@@ -211,8 +228,9 @@ public class RoleResourceServiceImpl implements RoleResourceService {
 	}
 
 	/**
-	 * Delete an existing RoleResource entity
-	 * 
+	 * Delete an existing RoleResource entity.
+	 *
+	 * @param roleresource the roleresource
 	 */
 	@Transactional
 	public void deleteRoleResource(RoleResource roleresource) {

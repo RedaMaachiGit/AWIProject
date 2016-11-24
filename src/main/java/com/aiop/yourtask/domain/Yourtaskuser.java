@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -19,7 +22,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Yourtaskuser.
  */
 
 @Entity
@@ -65,10 +70,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Yourtaskuser")
 @XmlRootElement(namespace = "aiopproject/com/aiop/yourtask/domain")
 public class Yourtaskuser implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The userid. */
 
 	@Column(name = "userid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -76,96 +82,96 @@ public class Yourtaskuser implements Serializable {
 	@Id
 	@XmlElement
 	Integer userid;
-	/**
-	 */
+	
+	/** The userdateofbirth. */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "userdateofbirth", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	Calendar userdateofbirth;
-	/**
-	 */
+	
+	/** The userphonenumber. */
 
 	@Column(name = "userphonenumber", length = 25, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String userphonenumber;
-	/**
-	 */
+	
+	/** The useremail. */
 
 	@Column(name = "useremail", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String useremail;
-	/**
-	 */
+	
+	/** The userstreetnumber. */
 
 	@Column(name = "userstreetnumber", length = 5, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String userstreetnumber;
-	/**
-	 */
+	
+	/** The userzipcode. */
 
 	@Column(name = "userzipcode", length = 10, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String userzipcode;
-	/**
-	 */
+	
+	/** The usercity. */
 
 	@Column(name = "usercity", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String usercity;
-	/**
-	 */
+	
+	/** The userusername. */
 
 	@Column(name = "userusername", length = 100, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String userusername;
-	/**
-	 */
+	
+	/** The userpassword. */
 
 	@Column(name = "userpassword", length = 200, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String userpassword;
-	/**
-	 */
+	
+	/** The usertoken. */
 
 	@Column(name = "usertoken", length = 200)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String usertoken;
-	/**
-	 */
+	
+	/** The userlastconnectiondate. */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "userlastconnectiondate", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	Calendar userlastconnectiondate;
-	/**
-	 */
+	
+	/** The usertype. */
 
 	@Column(name = "usertype", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String usertype;
-	/**
-	 */
+	
+	/** The useriban. */
 
 	@Column(name = "useriban", length = 25, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -173,230 +179,313 @@ public class Yourtaskuser implements Serializable {
 	@XmlElement
 	String useriban;
 
-	/**
-	 */
+	/** The role. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "roleid", referencedColumnName = "roleid", nullable = false) })
 	@XmlTransient
 	Role role;
-	/**
-	 */
+	
+	/** The suinfos. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Suinfo> suinfos;
-	/**
-	 */
+	
+	/** The notifications. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Notification> notifications;
-	/**
-	 */
+	
+	/** The scinfos. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Scinfo> scinfos;
-	/**
-	 */
+	
+	/** The orders for useridsc. */
 	@OneToMany(mappedBy = "yourtaskuserByUseridsc", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Order> ordersForUseridsc;
-	/**
-	 */
+	
+	/** The activities. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Activity> activities;
-	/**
-	 */
+	
+	/** The diaries. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Diary> diaries;
-	/**
-	 */
+	
+	/** The products. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Product> products;
-	/**
-	 */
+	
+	/** The comments. */
 	@OneToMany(mappedBy = "yourtaskuser", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Comment> comments;
-	/**
-	 */
+	
+	/** The orders for userid. */
 	@OneToMany(mappedBy = "yourtaskuserByUseridsc", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Order> ordersForUserid;
 
 	/**
+	 * Sets the userid.
+	 *
+	 * @param userid the new userid
 	 */
 	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 
 	/**
+	 * Gets the userid.
+	 *
+	 * @return the userid
 	 */
 	public Integer getUserid() {
 		return this.userid;
 	}
 
 	/**
+	 * Sets the userdateofbirth.
+	 *
+	 * @param userdateofbirth the new userdateofbirth
 	 */
 	public void setUserdateofbirth(Calendar userdateofbirth) {
 		this.userdateofbirth = userdateofbirth;
 	}
 
 	/**
+	 * Gets the userdateofbirth.
+	 *
+	 * @return the userdateofbirth
 	 */
 	public Calendar getUserdateofbirth() {
 		return this.userdateofbirth;
 	}
 
 	/**
+	 * Sets the userphonenumber.
+	 *
+	 * @param userphonenumber the new userphonenumber
 	 */
 	public void setUserphonenumber(String userphonenumber) {
 		this.userphonenumber = userphonenumber;
 	}
 
 	/**
+	 * Gets the userphonenumber.
+	 *
+	 * @return the userphonenumber
 	 */
 	public String getUserphonenumber() {
 		return this.userphonenumber;
 	}
 
 	/**
+	 * Sets the useremail.
+	 *
+	 * @param useremail the new useremail
 	 */
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;
 	}
 
 	/**
+	 * Gets the useremail.
+	 *
+	 * @return the useremail
 	 */
 	public String getUseremail() {
 		return this.useremail;
 	}
 
 	/**
+	 * Sets the userstreetnumber.
+	 *
+	 * @param userstreetnumber the new userstreetnumber
 	 */
 	public void setUserstreetnumber(String userstreetnumber) {
 		this.userstreetnumber = userstreetnumber;
 	}
 
 	/**
+	 * Gets the userstreetnumber.
+	 *
+	 * @return the userstreetnumber
 	 */
 	public String getUserstreetnumber() {
 		return this.userstreetnumber;
 	}
 
 	/**
+	 * Sets the userzipcode.
+	 *
+	 * @param userzipcode the new userzipcode
 	 */
 	public void setUserzipcode(String userzipcode) {
 		this.userzipcode = userzipcode;
 	}
 
 	/**
+	 * Gets the userzipcode.
+	 *
+	 * @return the userzipcode
 	 */
 	public String getUserzipcode() {
 		return this.userzipcode;
 	}
 
 	/**
+	 * Sets the usercity.
+	 *
+	 * @param usercity the new usercity
 	 */
 	public void setUsercity(String usercity) {
 		this.usercity = usercity;
 	}
 
 	/**
+	 * Gets the usercity.
+	 *
+	 * @return the usercity
 	 */
 	public String getUsercity() {
 		return this.usercity;
 	}
 
 	/**
+	 * Sets the userusername.
+	 *
+	 * @param userusername the new userusername
 	 */
 	public void setUserusername(String userusername) {
 		this.userusername = userusername;
 	}
 
 	/**
+	 * Gets the userusername.
+	 *
+	 * @return the userusername
 	 */
 	public String getUserusername() {
 		return this.userusername;
 	}
 
 	/**
+	 * Sets the userpassword.
+	 *
+	 * @param userpassword the new userpassword
 	 */
 	public void setUserpassword(String userpassword) {
 		this.userpassword = userpassword;
 	}
 
 	/**
+	 * Gets the userpassword.
+	 *
+	 * @return the userpassword
 	 */
 	public String getUserpassword() {
 		return this.userpassword;
 	}
 
 	/**
+	 * Sets the usertoken.
+	 *
+	 * @param usertoken the new usertoken
 	 */
 	public void setUsertoken(String usertoken) {
 		this.usertoken = usertoken;
 	}
 
 	/**
+	 * Gets the usertoken.
+	 *
+	 * @return the usertoken
 	 */
 	public String getUsertoken() {
 		return this.usertoken;
 	}
 
 	/**
+	 * Sets the userlastconnectiondate.
+	 *
+	 * @param userlastconnectiondate the new userlastconnectiondate
 	 */
 	public void setUserlastconnectiondate(Calendar userlastconnectiondate) {
 		this.userlastconnectiondate = userlastconnectiondate;
 	}
 
 	/**
+	 * Gets the userlastconnectiondate.
+	 *
+	 * @return the userlastconnectiondate
 	 */
 	public Calendar getUserlastconnectiondate() {
 		return this.userlastconnectiondate;
 	}
 
 	/**
+	 * Sets the usertype.
+	 *
+	 * @param usertype the new usertype
 	 */
 	public void setUsertype(String usertype) {
 		this.usertype = usertype;
 	}
 
 	/**
+	 * Gets the usertype.
+	 *
+	 * @return the usertype
 	 */
 	public String getUsertype() {
 		return this.usertype;
 	}
 
 	/**
+	 * Sets the useriban.
+	 *
+	 * @param useriban the new useriban
 	 */
 	public void setUseriban(String useriban) {
 		this.useriban = useriban;
 	}
 
 	/**
+	 * Gets the useriban.
+	 *
+	 * @return the useriban
 	 */
 	public String getUseriban() {
 		return this.useriban;
 	}
 
 	/**
+	 * Sets the role.
+	 *
+	 * @param role the new role
 	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
 	/**
+	 * Gets the role.
+	 *
+	 * @return the role
 	 */
 	@JsonIgnore
 	public Role getRole() {
@@ -404,12 +493,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the suinfos.
+	 *
+	 * @param suinfos the new suinfos
 	 */
 	public void setSuinfos(Set<Suinfo> suinfos) {
 		this.suinfos = suinfos;
 	}
 
 	/**
+	 * Gets the suinfos.
+	 *
+	 * @return the suinfos
 	 */
 	@JsonIgnore
 	public Set<Suinfo> getSuinfos() {
@@ -420,12 +515,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the notifications.
+	 *
+	 * @param notifications the new notifications
 	 */
 	public void setNotifications(Set<Notification> notifications) {
 		this.notifications = notifications;
 	}
 
 	/**
+	 * Gets the notifications.
+	 *
+	 * @return the notifications
 	 */
 	@JsonIgnore
 	public Set<Notification> getNotifications() {
@@ -436,12 +537,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the scinfos.
+	 *
+	 * @param scinfos the new scinfos
 	 */
 	public void setScinfos(Set<Scinfo> scinfos) {
 		this.scinfos = scinfos;
 	}
 
 	/**
+	 * Gets the scinfos.
+	 *
+	 * @return the scinfos
 	 */
 	@JsonIgnore
 	public Set<Scinfo> getScinfos() {
@@ -452,12 +559,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the orders for useridsc.
+	 *
+	 * @param ordersForUseridsc the new orders for useridsc
 	 */
 	public void setOrdersForUseridsc(Set<Order> ordersForUseridsc) {
 		this.ordersForUseridsc = ordersForUseridsc;
 	}
 
 	/**
+	 * Gets the orders for useridsc.
+	 *
+	 * @return the orders for useridsc
 	 */
 	@JsonIgnore
 	public Set<Order> getOrdersForUseridsc() {
@@ -468,12 +581,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the activities.
+	 *
+	 * @param activities the new activities
 	 */
 	public void setActivities(Set<Activity> activities) {
 		this.activities = activities;
 	}
 
 	/**
+	 * Gets the activities.
+	 *
+	 * @return the activities
 	 */
 	@JsonIgnore
 	public Set<Activity> getActivities() {
@@ -484,12 +603,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the diaries.
+	 *
+	 * @param diaries the new diaries
 	 */
 	public void setDiaries(Set<Diary> diaries) {
 		this.diaries = diaries;
 	}
 
 	/**
+	 * Gets the diaries.
+	 *
+	 * @return the diaries
 	 */
 	@JsonIgnore
 	public Set<Diary> getDiaries() {
@@ -500,12 +625,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the products.
+	 *
+	 * @param products the new products
 	 */
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
 
 	/**
+	 * Gets the products.
+	 *
+	 * @return the products
 	 */
 	@JsonIgnore
 	public Set<Product> getProducts() {
@@ -516,12 +647,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the comments.
+	 *
+	 * @param comments the new comments
 	 */
 	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
 	}
 
 	/**
+	 * Gets the comments.
+	 *
+	 * @return the comments
 	 */
 	@JsonIgnore
 	public Set<Comment> getComments() {
@@ -532,12 +669,18 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Sets the orders for userid.
+	 *
+	 * @param ordersForUserid the new orders for userid
 	 */
 	public void setOrdersForUserid(Set<Order> ordersForUserid) {
 		this.ordersForUserid = ordersForUserid;
 	}
 
 	/**
+	 * Gets the orders for userid.
+	 *
+	 * @return the orders for userid
 	 */
 	@JsonIgnore
 	public Set<Order> getOrdersForUserid() {
@@ -548,6 +691,7 @@ public class Yourtaskuser implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new yourtaskuser.
 	 */
 	public Yourtaskuser() {
 	}
@@ -555,6 +699,7 @@ public class Yourtaskuser implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Yourtaskuser that) {
 		setUserid(that.getUserid());
@@ -585,6 +730,7 @@ public class Yourtaskuser implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -607,7 +753,8 @@ public class Yourtaskuser implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -617,7 +764,8 @@ public class Yourtaskuser implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

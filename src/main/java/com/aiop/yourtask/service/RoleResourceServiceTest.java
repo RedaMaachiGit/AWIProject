@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -37,6 +40,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -79,8 +83,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all RoleResource entity
-	* 
+	 * Return all RoleResource entity.
 	 */
 	@Test
 	public void findAllRoleResources() {
@@ -94,8 +97,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all RoleResource entity
-	* 
+	 * Return a count of all RoleResource entity.
 	 */
 	@Test
 	public void countRoleResources() {
@@ -106,8 +108,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing RoleResource entity
-	* 
+	 * Load an existing RoleResource entity.
 	 */
 	@Test
 	public void loadRoleResources() {
@@ -118,8 +119,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing RoleResource entity
-	* 
+	 * Save an existing RoleResource entity.
 	 */
 	@Test
 	public void saveRoleResource() {
@@ -130,8 +130,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Resource entity
-	* 
+	 * Save an existing Resource entity.
 	 */
 	@Test
 	public void saveRoleResourceResource() {
@@ -146,8 +145,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Role entity
-	* 
+	 * Save an existing Role entity.
 	 */
 	@Test
 	public void saveRoleResourceRole() {
@@ -162,8 +160,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Resource entity
-	* 
+	 * Delete an existing Resource entity.
 	 */
 	@Test
 	public void deleteRoleResourceResource() {
@@ -177,7 +174,7 @@ public class RoleResourceServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findRoleResourceByPrimaryKey() {
@@ -191,8 +188,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Role entity
-	* 
+	 * Delete an existing Role entity.
 	 */
 	@Test
 	public void deleteRoleResourceRole() {
@@ -207,8 +203,7 @@ public class RoleResourceServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing RoleResource entity
-	* 
+	 * Delete an existing RoleResource entity.
 	 */
 	@Test
 	public void deleteRoleResource() {
@@ -220,6 +215,7 @@ public class RoleResourceServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -229,8 +225,7 @@ public class RoleResourceServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

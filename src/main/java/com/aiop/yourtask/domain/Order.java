@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -21,7 +24,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Order.
  */
 
 @Entity
@@ -42,10 +47,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Order")
 @XmlRootElement(namespace = "aiopproject/com/aiop/yourtask/domain")
 public class Order implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The orderid. */
 
 	@Column(name = "orderid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -53,32 +59,32 @@ public class Order implements Serializable {
 	@Id
 	@XmlElement
 	Integer orderid;
-	/**
-	 */
+	
+	/** The orderdate. */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "orderdate", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	Calendar orderdate;
-	/**
-	 */
+	
+	/** The ordershippingcost. */
 
 	@Column(name = "ordershippingcost", scale = 17, precision = 17)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	BigDecimal ordershippingcost;
-	/**
-	 */
+	
+	/** The orderprice. */
 
 	@Column(name = "orderprice", scale = 17, precision = 17, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	BigDecimal orderprice;
-	/**
-	 */
+	
+	/** The orderstate. */
 
 	@Column(name = "orderstate", length = 25, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -86,92 +92,127 @@ public class Order implements Serializable {
 	@XmlElement
 	String orderstate;
 
-	/**
-	 */
+	/** The yourtaskuser by useridsc. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "useridsc", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuserByUseridsc;
-	/**
-	 */
+	
+	/** The yourtaskuser by userid. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuserByUserid;
-	/**
-	 */
+	
+	/** The order products. */
 	@OneToMany(mappedBy = "order", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.OrderProduct> orderProducts;
 
 	/**
+	 * Sets the orderid.
+	 *
+	 * @param orderid the new orderid
 	 */
 	public void setOrderid(Integer orderid) {
 		this.orderid = orderid;
 	}
 
 	/**
+	 * Gets the orderid.
+	 *
+	 * @return the orderid
 	 */
 	public Integer getOrderid() {
 		return this.orderid;
 	}
 
 	/**
+	 * Sets the orderdate.
+	 *
+	 * @param orderdate the new orderdate
 	 */
 	public void setOrderdate(Calendar orderdate) {
 		this.orderdate = orderdate;
 	}
 
 	/**
+	 * Gets the orderdate.
+	 *
+	 * @return the orderdate
 	 */
 	public Calendar getOrderdate() {
 		return this.orderdate;
 	}
 
 	/**
+	 * Sets the ordershippingcost.
+	 *
+	 * @param ordershippingcost the new ordershippingcost
 	 */
 	public void setOrdershippingcost(BigDecimal ordershippingcost) {
 		this.ordershippingcost = ordershippingcost;
 	}
 
 	/**
+	 * Gets the ordershippingcost.
+	 *
+	 * @return the ordershippingcost
 	 */
 	public BigDecimal getOrdershippingcost() {
 		return this.ordershippingcost;
 	}
 
 	/**
+	 * Sets the orderprice.
+	 *
+	 * @param orderprice the new orderprice
 	 */
 	public void setOrderprice(BigDecimal orderprice) {
 		this.orderprice = orderprice;
 	}
 
 	/**
+	 * Gets the orderprice.
+	 *
+	 * @return the orderprice
 	 */
 	public BigDecimal getOrderprice() {
 		return this.orderprice;
 	}
 
 	/**
+	 * Sets the orderstate.
+	 *
+	 * @param orderstate the new orderstate
 	 */
 	public void setOrderstate(String orderstate) {
 		this.orderstate = orderstate;
 	}
 
 	/**
+	 * Gets the orderstate.
+	 *
+	 * @return the orderstate
 	 */
 	public String getOrderstate() {
 		return this.orderstate;
 	}
 
 	/**
+	 * Sets the yourtaskuser by useridsc.
+	 *
+	 * @param yourtaskuserByUseridsc the new yourtaskuser by useridsc
 	 */
 	public void setYourtaskuserByUseridsc(Yourtaskuser yourtaskuserByUseridsc) {
 		this.yourtaskuserByUseridsc = yourtaskuserByUseridsc;
 	}
 
 	/**
+	 * Gets the yourtaskuser by useridsc.
+	 *
+	 * @return the yourtaskuser by useridsc
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuserByUseridsc() {
@@ -179,12 +220,18 @@ public class Order implements Serializable {
 	}
 
 	/**
+	 * Sets the yourtaskuser by userid.
+	 *
+	 * @param yourtaskuserByUserid the new yourtaskuser by userid
 	 */
 	public void setYourtaskuserByUserid(Yourtaskuser yourtaskuserByUserid) {
 		this.yourtaskuserByUserid = yourtaskuserByUserid;
 	}
 
 	/**
+	 * Gets the yourtaskuser by userid.
+	 *
+	 * @return the yourtaskuser by userid
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuserByUserid() {
@@ -192,12 +239,18 @@ public class Order implements Serializable {
 	}
 
 	/**
+	 * Sets the order products.
+	 *
+	 * @param orderProducts the new order products
 	 */
 	public void setOrderProducts(Set<OrderProduct> orderProducts) {
 		this.orderProducts = orderProducts;
 	}
 
 	/**
+	 * Gets the order products.
+	 *
+	 * @return the order products
 	 */
 	@JsonIgnore
 	public Set<OrderProduct> getOrderProducts() {
@@ -208,6 +261,7 @@ public class Order implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new order.
 	 */
 	public Order() {
 	}
@@ -215,6 +269,7 @@ public class Order implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Order that) {
 		setOrderid(that.getOrderid());
@@ -230,6 +285,7 @@ public class Order implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -244,7 +300,8 @@ public class Order implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -254,7 +311,8 @@ public class Order implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

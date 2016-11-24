@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Resource entities.
  * 
@@ -37,24 +41,21 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Resource.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new ResourceDAOImpl
-	 *
+	 * Instantiates a new ResourceDAOImpl.
 	 */
 	public ResourceDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findResourceByPrimaryKey
+	 * JPQL Query - findResourceByPrimaryKey.
 	 *
+	 * @param resourceid the resourceid
+	 * @return the resource
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Resource findResourceByPrimaryKey(Integer resourceid) throws DataAccessException {
@@ -79,8 +84,13 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByPrimaryKey
+	 * JPQL Query - findResourceByPrimaryKey.
 	 *
+	 * @param resourceid the resourceid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the resource
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -94,8 +104,11 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceurlContaining
+	 * JPQL Query - findResourceByResourceurlContaining.
 	 *
+	 * @param resourceurl the resourceurl
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Resource> findResourceByResourceurlContaining(String resourceurl) throws DataAccessException {
@@ -104,8 +117,13 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceurlContaining
+	 * JPQL Query - findResourceByResourceurlContaining.
 	 *
+	 * @param resourceurl the resourceurl
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -116,8 +134,11 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceurl
+	 * JPQL Query - findResourceByResourceurl.
 	 *
+	 * @param resourceurl the resourceurl
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Resource> findResourceByResourceurl(String resourceurl) throws DataAccessException {
@@ -126,8 +147,13 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceurl
+	 * JPQL Query - findResourceByResourceurl.
 	 *
+	 * @param resourceurl the resourceurl
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -138,8 +164,10 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findAllResources
+	 * JPQL Query - findAllResources.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Resource> findAllResources() throws DataAccessException {
@@ -148,8 +176,12 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findAllResources
+	 * JPQL Query - findAllResources.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -160,8 +192,11 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceid
+	 * JPQL Query - findResourceByResourceid.
 	 *
+	 * @param resourceid the resourceid
+	 * @return the resource
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Resource findResourceByResourceid(Integer resourceid) throws DataAccessException {
@@ -170,8 +205,13 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * JPQL Query - findResourceByResourceid
+	 * JPQL Query - findResourceByResourceid.
 	 *
+	 * @param resourceid the resourceid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the resource
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -185,10 +225,11 @@ public class ResourceDAOImpl extends AbstractJpaDao<Resource> implements Resourc
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Resource entity) {
 		return true;

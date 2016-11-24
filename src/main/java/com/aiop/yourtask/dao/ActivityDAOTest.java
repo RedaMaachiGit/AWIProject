@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -23,9 +26,9 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Class used to test the basic Data Store Functionality
- *
+ * Class used to test the basic Data Store Functionality.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -40,10 +43,8 @@ import org.springframework.transaction.annotation.Transactional;
 		"file:./src/main/resources/aiopproject-dao-context.xml",
 		"file:./src/main/resources/aiopproject-web-context.xml" })
 public class ActivityDAOTest {
-	/**
-	 * The DAO being tested, injected by Spring
-	 *
-	 */
+	
+	/** The DAO being tested, injected by Spring. */
 	private ActivityDAO dataStore;
 
 	/**
@@ -80,9 +81,10 @@ public class ActivityDAOTest {
 	}
 
 	/**
-	 * Method to allow Spring to inject the DAO that will be tested
+	 * Method to allow Spring to inject the DAO that will be tested.
 	 *
-	*/
+	 * @param dataStore the new data store
+	 */
 	@Autowired
 	public void setDataStore(ActivityDAO dataStore) {
 		this.dataStore = dataStore;

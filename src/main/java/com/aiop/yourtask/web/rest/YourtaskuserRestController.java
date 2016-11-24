@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -41,95 +44,64 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Yourtaskuser entities
- * 
+ * Spring Rest controller that handles CRUD requests for Yourtaskuser entities.
  */
 
 @Controller("YourtaskuserRestController")
 
 public class YourtaskuserRestController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Notification entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Notification entities. */
 	@Autowired
 	private NotificationDAO notificationDAO;
 
-	/**
-	 * DAO injected by Spring that manages Order entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Order entities. */
 	@Autowired
 	private OrderDAO orderDAO;
 
-	/**
-	 * DAO injected by Spring that manages Product entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Product entities. */
 	@Autowired
 	private ProductDAO productDAO;
 
-	/**
-	 * DAO injected by Spring that manages Role entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Role entities. */
 	@Autowired
 	private RoleDAO roleDAO;
 
-	/**
-	 * DAO injected by Spring that manages Scinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Scinfo entities. */
 	@Autowired
 	private ScinfoDAO scinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Suinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Suinfo entities. */
 	@Autowired
 	private SuinfoDAO suinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Yourtaskuser entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserService yourtaskuserService;
 
 	/**
-	 * Delete an existing Diary entity
-	 * 
+	 * Delete an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_diaries_iddiary the related diaries iddiary
 	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/diaries/{diary_iddiary}", method = RequestMethod.DELETE)
 	@ResponseBody
@@ -138,9 +110,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Order entity
-	* 
-	*/
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuseridsc_orderid the related ordersforuseridsc orderid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUseridsc/{order_orderid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserOrdersForUseridsc(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_ordersforuseridsc_orderid) {
@@ -148,9 +122,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Get Role entity by Yourtaskuser
-	* 
-	*/
+	 * Get Role entity by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser role
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/role", method = RequestMethod.GET)
 	@ResponseBody
 	public Role getYourtaskuserRole(@PathVariable Integer yourtaskuser_userid) {
@@ -158,9 +134,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Order entity
-	* 
-	*/
+	 * Save an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuseridsc the ordersforuseridsc
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUseridsc", method = RequestMethod.PUT)
 	@ResponseBody
 	public Order saveYourtaskuserOrdersForUseridsc(@PathVariable Integer yourtaskuser_userid, @RequestBody Order ordersforuseridsc) {
@@ -169,9 +148,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Scinfo entity
-	* 
-	*/
+	 * Create a new Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfo the scinfo
+	 * @return the scinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/scinfos", method = RequestMethod.POST)
 	@ResponseBody
 	public Scinfo newYourtaskuserScinfos(@PathVariable Integer yourtaskuser_userid, @RequestBody Scinfo scinfo) {
@@ -180,9 +162,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Scinfo entity
-	* 
-	*/
+	 * View an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_scinfos_scinfoid the related scinfos scinfoid
+	 * @return the scinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/scinfos/{scinfo_scinfoid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Scinfo loadYourtaskuserScinfos(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_scinfos_scinfoid) {
@@ -192,9 +177,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Scinfo entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Scinfo entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser scinfos
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/scinfos", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Scinfo> getYourtaskuserScinfos(@PathVariable Integer yourtaskuser_userid) {
@@ -202,9 +189,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param diary the diary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/diaries", method = RequestMethod.POST)
 	@ResponseBody
 	public Diary newYourtaskuserDiaries(@PathVariable Integer yourtaskuser_userid, @RequestBody Diary diary) {
@@ -213,9 +203,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Scinfo entity
-	* 
-	*/
+	 * Save an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfos the scinfos
+	 * @return the scinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/scinfos", method = RequestMethod.PUT)
 	@ResponseBody
 	public Scinfo saveYourtaskuserScinfos(@PathVariable Integer yourtaskuser_userid, @RequestBody Scinfo scinfos) {
@@ -224,9 +217,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Notification entity
-	* 
-	*/
+	 * Create a new Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param notification the notification
+	 * @return the notification
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/notifications", method = RequestMethod.POST)
 	@ResponseBody
 	public Notification newYourtaskuserNotifications(@PathVariable Integer yourtaskuser_userid, @RequestBody Notification notification) {
@@ -235,9 +231,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Select an existing Yourtaskuser entity
-	* 
-	*/
+	 * Select an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser loadYourtaskuser(@PathVariable Integer yourtaskuser_userid) {
@@ -245,9 +243,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Diary entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Diary entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser diaries
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/diaries", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Diary> getYourtaskuserDiaries(@PathVariable Integer yourtaskuser_userid) {
@@ -255,9 +255,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Product entity
-	* 
-	*/
+	 * Save an existing Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param products the products
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/products", method = RequestMethod.PUT)
 	@ResponseBody
 	public Product saveYourtaskuserProducts(@PathVariable Integer yourtaskuser_userid, @RequestBody Product products) {
@@ -266,9 +269,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param comment the comment
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/comments", method = RequestMethod.POST)
 	@ResponseBody
 	public Comment newYourtaskuserComments(@PathVariable Integer yourtaskuser_userid, @RequestBody Comment comment) {
@@ -277,9 +283,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Suinfo entity
-	* 
-	*/
+	 * Save an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfos the suinfos
+	 * @return the suinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/suinfos", method = RequestMethod.PUT)
 	@ResponseBody
 	public Suinfo saveYourtaskuserSuinfos(@PathVariable Integer yourtaskuser_userid, @RequestBody Suinfo suinfos) {
@@ -288,9 +297,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param diaries the diaries
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/diaries", method = RequestMethod.PUT)
 	@ResponseBody
 	public Diary saveYourtaskuserDiaries(@PathVariable Integer yourtaskuser_userid, @RequestBody Diary diaries) {
@@ -299,9 +311,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Role entity
-	* 
-	*/
+	 * Delete an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_role_roleid the related role roleid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/role/{role_roleid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserRole(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_role_roleid) {
@@ -309,9 +323,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Product entity
-	* 
-	*/
+	 * Delete an existing Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_products_productid the related products productid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/products/{product_productid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserProducts(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_products_productid) {
@@ -319,9 +335,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Suinfo entity
-	* 
-	*/
+	 * Create a new Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfo the suinfo
+	 * @return the suinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/suinfos", method = RequestMethod.POST)
 	@ResponseBody
 	public Suinfo newYourtaskuserSuinfos(@PathVariable Integer yourtaskuser_userid, @RequestBody Suinfo suinfo) {
@@ -330,9 +349,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Suinfo entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Suinfo entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser suinfos
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/suinfos", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Suinfo> getYourtaskuserSuinfos(@PathVariable Integer yourtaskuser_userid) {
@@ -340,9 +361,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Order entity
-	* 
-	*/
+	 * Save an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuserid the ordersforuserid
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUserid", method = RequestMethod.PUT)
 	@ResponseBody
 	public Order saveYourtaskuserOrdersForUserid(@PathVariable Integer yourtaskuser_userid, @RequestBody Order ordersforuserid) {
@@ -351,9 +375,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Notification entity
-	* 
-	*/
+	 * View an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_notifications_notificationid the related notifications notificationid
+	 * @return the notification
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/notifications/{notification_notificationid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Notification loadYourtaskuserNotifications(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_notifications_notificationid) {
@@ -363,9 +390,10 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Yourtaskuser entities
-	* 
-	*/
+	 * Show all Yourtaskuser entities.
+	 *
+	 * @return the companys
+	 */
 	@RequestMapping(value = "/Company", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
 	public EntityListCompany<Yourtaskuser> getCompanys() {
@@ -379,9 +407,11 @@ public class YourtaskuserRestController {
 	}
 	
 	/**
-	* Show all Yourtaskuser entities
-	* 
-	*/
+	 * Show all Yourtaskuser entities.
+	 *
+	 * @param company_companySIRET the company company SIRET
+	 * @return the company by SIRET
+	 */
 	@RequestMapping(value = "/Company/{company_companySIRET}", method = RequestMethod.GET, produces="application/xml")
 	@ResponseBody
 	public Yourtaskuser getCompanyBySIRET(@PathVariable String company_companySIRET) {
@@ -405,9 +435,12 @@ public class YourtaskuserRestController {
 //	}
 
 	/**
-	* Save an existing Role entity
-	* 
-	*/
+ * Save an existing Role entity.
+ *
+ * @param yourtaskuser_userid the yourtaskuser userid
+ * @param role the role
+ * @return the role
+ */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/role", method = RequestMethod.PUT)
 	@ResponseBody
 	public Role saveYourtaskuserRole(@PathVariable Integer yourtaskuser_userid, @RequestBody Role role) {
@@ -416,9 +449,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Yourtaskuser", method = RequestMethod.POST)
 	@ResponseBody
 	public Yourtaskuser newYourtaskuser(@RequestBody Yourtaskuser yourtaskuser) {
@@ -427,9 +462,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_activities_activityid the related activities activityid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/activities/{activity_activityid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserActivities(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_activities_activityid) {
@@ -437,9 +474,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -455,9 +494,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/diaries/{diary_iddiary}", method = RequestMethod.GET)
 	@ResponseBody
 	public Diary loadYourtaskuserDiaries(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_diaries_iddiary) {
@@ -467,9 +509,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Suinfo entity
-	* 
-	*/
+	 * Delete an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_suinfos_suinfoid the related suinfos suinfoid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/suinfos/{suinfo_suinfoid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserSuinfos(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_suinfos_suinfoid) {
@@ -477,9 +521,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Notification entity
-	* 
-	*/
+	 * Save an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param notifications the notifications
+	 * @return the notification
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/notifications", method = RequestMethod.PUT)
 	@ResponseBody
 	public Notification saveYourtaskuserNotifications(@PathVariable Integer yourtaskuser_userid, @RequestBody Notification notifications) {
@@ -488,9 +535,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Notification entity
-	* 
-	*/
+	 * Delete an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_notifications_notificationid the related notifications notificationid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/notifications/{notification_notificationid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserNotifications(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_notifications_notificationid) {
@@ -498,9 +547,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Product entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Product entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser products
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/products", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getYourtaskuserProducts(@PathVariable Integer yourtaskuser_userid) {
@@ -508,9 +559,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Order entity
-	* 
-	*/
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuserid_orderid the related ordersforuserid orderid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUserid/{order_orderid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserOrdersForUserid(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_ordersforuserid_orderid) {
@@ -518,9 +571,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Comment entity
-	* 
-	*/
+	 * View an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/comments/{comment_commentid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Comment loadYourtaskuserComments(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_comments_commentid) {
@@ -530,9 +586,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Product entity
-	* 
-	*/
+	 * Create a new Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param product the product
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/products", method = RequestMethod.POST)
 	@ResponseBody
 	public Product newYourtaskuserProducts(@PathVariable Integer yourtaskuser_userid, @RequestBody Product product) {
@@ -541,9 +600,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Scinfo entity
-	* 
-	*/
+	 * Delete an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_scinfos_scinfoid the related scinfos scinfoid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/scinfos/{scinfo_scinfoid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserScinfos(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_scinfos_scinfoid) {
@@ -551,9 +612,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Order entity
-	* 
-	*/
+	 * Create a new Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param order the order
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUseridsc", method = RequestMethod.POST)
 	@ResponseBody
 	public Order newYourtaskuserOrdersForUseridsc(@PathVariable Integer yourtaskuser_userid, @RequestBody Order order) {
@@ -562,9 +626,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Order entity
-	* 
-	*/
+	 * View an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuserid_orderid the related ordersforuserid orderid
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUserid/{order_orderid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Order loadYourtaskuserOrdersForUserid(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_ordersforuserid_orderid) {
@@ -574,9 +641,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Notification entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Notification entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser notifications
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/notifications", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Notification> getYourtaskuserNotifications(@PathVariable Integer yourtaskuser_userid) {
@@ -584,9 +653,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Activity entity
-	* 
-	*/
+	 * View an existing Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_activities_activityid the related activities activityid
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/activities/{activity_activityid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Activity loadYourtaskuserActivities(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_activities_activityid) {
@@ -596,9 +668,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Product entity
-	* 
-	*/
+	 * View an existing Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_products_productid the related products productid
+	 * @return the product
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/products/{product_productid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Product loadYourtaskuserProducts(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_products_productid) {
@@ -608,9 +683,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/activities", method = RequestMethod.POST)
 	@ResponseBody
 	public Activity newYourtaskuserActivities(@PathVariable Integer yourtaskuser_userid, @RequestBody Activity activity) {
@@ -619,9 +697,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_comments_commentid the related comments commentid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/comments/{comment_commentid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuserComments(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_comments_commentid) {
@@ -629,9 +709,10 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteYourtaskuser(@PathVariable Integer yourtaskuser_userid) {
@@ -640,9 +721,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Role entity
-	* 
-	*/
+	 * Create a new Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param role the role
+	 * @return the role
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/role", method = RequestMethod.POST)
 	@ResponseBody
 	public Role newYourtaskuserRole(@PathVariable Integer yourtaskuser_userid, @RequestBody Role role) {
@@ -651,9 +735,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Suinfo entity
-	* 
-	*/
+	 * View an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_suinfos_suinfoid the related suinfos suinfoid
+	 * @return the suinfo
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/suinfos/{suinfo_suinfoid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Suinfo loadYourtaskuserSuinfos(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_suinfos_suinfoid) {
@@ -663,9 +750,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Order entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Order entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser orders for userid
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUserid", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Order> getYourtaskuserOrdersForUserid(@PathVariable Integer yourtaskuser_userid) {
@@ -673,9 +762,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Order entity
-	* 
-	*/
+	 * View an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuseridsc_orderid the related ordersforuseridsc orderid
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUseridsc/{order_orderid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Order loadYourtaskuserOrdersForUseridsc(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_ordersforuseridsc_orderid) {
@@ -685,9 +777,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Activity entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Activity entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser activities
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/activities", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Activity> getYourtaskuserActivities(@PathVariable Integer yourtaskuser_userid) {
@@ -695,9 +789,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* View an existing Role entity
-	* 
-	*/
+	 * View an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_role_roleid the related role roleid
+	 * @return the role
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/role/{role_roleid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Role loadYourtaskuserRole(@PathVariable Integer yourtaskuser_userid, @PathVariable Integer related_role_roleid) {
@@ -707,9 +804,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Comment entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Comment entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser comments
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/comments", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Comment> getYourtaskuserComments(@PathVariable Integer yourtaskuser_userid) {
@@ -717,9 +816,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Show all Order entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Order entities by Yourtaskuser.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the yourtaskuser orders for useridsc
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUseridsc", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Order> getYourtaskuserOrdersForUseridsc(@PathVariable Integer yourtaskuser_userid) {
@@ -727,9 +828,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Create a new Order entity
-	* 
-	*/
+	 * Create a new Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param order the order
+	 * @return the order
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/ordersForUserid", method = RequestMethod.POST)
 	@ResponseBody
 	public Order newYourtaskuserOrdersForUserid(@PathVariable Integer yourtaskuser_userid, @RequestBody Order order) {
@@ -738,9 +842,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param comments the comments
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/comments", method = RequestMethod.PUT)
 	@ResponseBody
 	public Comment saveYourtaskuserComments(@PathVariable Integer yourtaskuser_userid, @RequestBody Comment comments) {
@@ -749,9 +856,11 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Yourtaskuser", method = RequestMethod.PUT)
 	@ResponseBody
 	public Yourtaskuser saveYourtaskuser(@RequestBody Yourtaskuser yourtaskuser) {
@@ -760,9 +869,12 @@ public class YourtaskuserRestController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param activities the activities
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Yourtaskuser/{yourtaskuser_userid}/activities", method = RequestMethod.PUT)
 	@ResponseBody
 	public Activity saveYourtaskuserActivities(@PathVariable Integer yourtaskuser_userid, @RequestBody Activity activities) {

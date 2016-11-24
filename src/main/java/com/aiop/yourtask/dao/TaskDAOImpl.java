@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Task entities.
  * 
@@ -36,24 +40,21 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	 */
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] { Task.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new TaskDAOImpl
-	 *
+	 * Instantiates a new TaskDAOImpl.
 	 */
 	public TaskDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -62,14 +63,18 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findTaskByPrimaryKey
+	 * JPQL Query - findTaskByPrimaryKey.
 	 *
+	 * @param taskid the taskid
+	 * @return the task
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Task findTaskByPrimaryKey(Integer taskid) throws DataAccessException {
@@ -78,8 +83,13 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByPrimaryKey
+	 * JPQL Query - findTaskByPrimaryKey.
 	 *
+	 * @param taskid the taskid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the task
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -93,8 +103,10 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllTasks
+	 * JPQL Query - findAllTasks.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Task> findAllTasks() throws DataAccessException {
@@ -103,8 +115,12 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllTasks
+	 * JPQL Query - findAllTasks.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -115,8 +131,11 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskid
+	 * JPQL Query - findTaskByTaskid.
 	 *
+	 * @param taskid the taskid
+	 * @return the task
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Task findTaskByTaskid(Integer taskid) throws DataAccessException {
@@ -125,8 +144,13 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskid
+	 * JPQL Query - findTaskByTaskid.
 	 *
+	 * @param taskid the taskid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the task
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -140,8 +164,11 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskcontent
+	 * JPQL Query - findTaskByTaskcontent.
 	 *
+	 * @param taskcontent the taskcontent
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Task> findTaskByTaskcontent(String taskcontent) throws DataAccessException {
@@ -150,8 +177,13 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskcontent
+	 * JPQL Query - findTaskByTaskcontent.
 	 *
+	 * @param taskcontent the taskcontent
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -162,8 +194,11 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskcontentContaining
+	 * JPQL Query - findTaskByTaskcontentContaining.
 	 *
+	 * @param taskcontent the taskcontent
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Task> findTaskByTaskcontentContaining(String taskcontent) throws DataAccessException {
@@ -172,8 +207,13 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * JPQL Query - findTaskByTaskcontentContaining
+	 * JPQL Query - findTaskByTaskcontentContaining.
 	 *
+	 * @param taskcontent the taskcontent
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -184,10 +224,11 @@ public class TaskDAOImpl extends AbstractJpaDao<Task> implements TaskDAO {
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Task entity) {
 		return true;

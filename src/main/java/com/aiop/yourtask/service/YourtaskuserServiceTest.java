@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -44,6 +47,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -86,8 +90,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Comment entity
-	* 
+	 * Save an existing Comment entity.
 	 */
 	@Test
 	public void saveYourtaskuserComments() {
@@ -101,8 +104,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Role entity
-	* 
+	 * Delete an existing Role entity.
 	 */
 	@Test
 	public void deleteYourtaskuserRole() {
@@ -116,8 +118,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Order entity
-	* 
+	 * Save an existing Order entity.
 	 */
 	@Test
 	public void saveYourtaskuserOrdersForUseridsc() {
@@ -131,8 +132,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteYourtaskuser() {
@@ -143,8 +143,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Suinfo entity
-	* 
+	 * Delete an existing Suinfo entity.
 	 */
 	@Test
 	public void deleteYourtaskuserSuinfos() {
@@ -158,8 +157,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Notification entity
-	* 
+	 * Delete an existing Notification entity.
 	 */
 	@Test
 	public void deleteYourtaskuserNotifications() {
@@ -173,8 +171,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Suinfo entity
-	* 
+	 * Save an existing Suinfo entity.
 	 */
 	@Test
 	public void saveYourtaskuserSuinfos() {
@@ -188,8 +185,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Yourtaskuser entity
-	* 
+	 * Return a count of all Yourtaskuser entity.
 	 */
 	@Test
 	public void countYourtaskusers() {
@@ -200,8 +196,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Comment entity
-	* 
+	 * Delete an existing Comment entity.
 	 */
 	@Test
 	public void deleteYourtaskuserComments() {
@@ -215,8 +210,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Scinfo entity
-	* 
+	 * Delete an existing Scinfo entity.
 	 */
 	@Test
 	public void deleteYourtaskuserScinfos() {
@@ -230,8 +224,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Order entity
-	* 
+	 * Delete an existing Order entity.
 	 */
 	@Test
 	public void deleteYourtaskuserOrdersForUseridsc() {
@@ -245,8 +238,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Scinfo entity
-	* 
+	 * Save an existing Scinfo entity.
 	 */
 	@Test
 	public void saveYourtaskuserScinfos() {
@@ -260,8 +252,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveYourtaskuser() {
@@ -272,8 +263,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Order entity
-	* 
+	 * Delete an existing Order entity.
 	 */
 	@Test
 	public void deleteYourtaskuserOrdersForUserid() {
@@ -287,8 +277,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Product entity
-	* 
+	 * Save an existing Product entity.
 	 */
 	@Test
 	public void saveYourtaskuserProducts() {
@@ -302,8 +291,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Yourtaskuser entity
-	* 
+	 * Return all Yourtaskuser entity.
 	 */
 	@Test
 	public void findAllYourtaskusers() {
@@ -317,8 +305,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Activity entity
-	* 
+	 * Delete an existing Activity entity.
 	 */
 	@Test
 	public void deleteYourtaskuserActivities() {
@@ -332,8 +319,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Role entity
-	* 
+	 * Save an existing Role entity.
 	 */
 	@Test
 	public void saveYourtaskuserRole() {
@@ -347,8 +333,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Diary entity
-	* 
+	 * Save an existing Diary entity.
 	 */
 	@Test
 	public void saveYourtaskuserDiaries() {
@@ -362,8 +347,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Yourtaskuser entity
-	* 
+	 * Load an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void loadYourtaskusers() {
@@ -374,8 +358,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Notification entity
-	* 
+	 * Save an existing Notification entity.
 	 */
 	@Test
 	public void saveYourtaskuserNotifications() {
@@ -388,7 +371,7 @@ public class YourtaskuserServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findYourtaskuserByPrimaryKey() {
@@ -401,8 +384,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Product entity
-	* 
+	 * Delete an existing Product entity.
 	 */
 	@Test
 	public void deleteYourtaskuserProducts() {
@@ -416,8 +398,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Diary entity
-	* 
+	 * Delete an existing Diary entity.
 	 */
 	@Test
 	public void deleteYourtaskuserDiaries() {
@@ -431,8 +412,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Order entity
-	* 
+	 * Save an existing Order entity.
 	 */
 	@Test
 	public void saveYourtaskuserOrdersForUserid() {
@@ -446,8 +426,7 @@ public class YourtaskuserServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Activity entity
-	* 
+	 * Save an existing Activity entity.
 	 */
 	@Test
 	public void saveYourtaskuserActivities() {
@@ -462,6 +441,7 @@ public class YourtaskuserServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -471,8 +451,7 @@ public class YourtaskuserServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

@@ -46,7 +46,7 @@
 		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
 		    <div id="nav">
 		    	<!-- Bouton BACK TO DASHBOARD -->
-				<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/index.jsp"><span><img src="${pageContext.request.contextPath}/images/icons/back.gif" /><fmt:message key="navigation.backToDashboard"/></span></a></div>
+<%-- 				<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/index.jsp"><span><img src="${pageContext.request.contextPath}/images/icons/back.gif" /><fmt:message key="navigation.backToDashboard"/></span></a></div> --%>
 		    </div>
 			<% } %>     
 			<div id="contentwrapper">      

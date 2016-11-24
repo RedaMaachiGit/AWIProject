@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.security;
 
 import java.io.IOException;
@@ -15,18 +18,34 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.ldap.userdetails.LdapUserDetails;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AuthSuccessHandler.
+ */
 public class AuthSuccessHandler implements AuthenticationSuccessHandler {
  
+  /** The cookie service. */
   private CookieService cookieService;
   
+  /**
+   * Instantiates a new auth success handler.
+   */
   public AuthSuccessHandler() {
 	    this.cookieService = new CookieService.Impl();
   }
  
+  /**
+   * Instantiates a new auth success handler.
+   *
+   * @param cookieService the cookie service
+   */
   public AuthSuccessHandler(CookieService cookieService) {
     this.cookieService = cookieService;
   }
   
+  /* (non-Javadoc)
+   * @see org.springframework.security.web.authentication.AuthenticationSuccessHandler#onAuthenticationSuccess(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, org.springframework.security.core.Authentication)
+   */
   @Override
   public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
     Authentication authentication) throws IOException, ServletException {

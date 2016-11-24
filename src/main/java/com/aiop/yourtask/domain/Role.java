@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -18,7 +21,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Role.
  */
 
 @Entity
@@ -34,10 +39,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Role")
 @XmlRootElement(namespace = "aiopproject/com/aiop/yourtask/domain")
 public class Role implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The roleid. */
 
 	@Column(name = "roleid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -45,8 +51,8 @@ public class Role implements Serializable {
 	@Id
 	@XmlElement
 	Integer roleid;
-	/**
-	 */
+	
+	/** The rolename. */
 
 	@Column(name = "rolename", length = 25, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -54,50 +60,67 @@ public class Role implements Serializable {
 	@XmlElement
 	String rolename;
 
-	/**
-	 */
+	/** The yourtaskusers. */
 	@OneToMany(mappedBy = "role", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Yourtaskuser> yourtaskusers;
-	/**
-	 */
+	
+	/** The role resources. */
 	@OneToMany(mappedBy = "role", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.RoleResource> roleResources;
 
 	/**
+	 * Sets the roleid.
+	 *
+	 * @param roleid the new roleid
 	 */
 	public void setRoleid(Integer roleid) {
 		this.roleid = roleid;
 	}
 
 	/**
+	 * Gets the roleid.
+	 *
+	 * @return the roleid
 	 */
 	public Integer getRoleid() {
 		return this.roleid;
 	}
 
 	/**
+	 * Sets the rolename.
+	 *
+	 * @param rolename the new rolename
 	 */
 	public void setRolename(String rolename) {
 		this.rolename = rolename;
 	}
 
 	/**
+	 * Gets the rolename.
+	 *
+	 * @return the rolename
 	 */
 	public String getRolename() {
 		return this.rolename;
 	}
 
 	/**
+	 * Sets the yourtaskusers.
+	 *
+	 * @param yourtaskusers the new yourtaskusers
 	 */
 	public void setYourtaskusers(Set<Yourtaskuser> yourtaskusers) {
 		this.yourtaskusers = yourtaskusers;
 	}
 
 	/**
+	 * Gets the yourtaskusers.
+	 *
+	 * @return the yourtaskusers
 	 */
 	@JsonIgnore
 	public Set<Yourtaskuser> getYourtaskusers() {
@@ -108,12 +131,18 @@ public class Role implements Serializable {
 	}
 
 	/**
+	 * Sets the role resources.
+	 *
+	 * @param roleResources the new role resources
 	 */
 	public void setRoleResources(Set<RoleResource> roleResources) {
 		this.roleResources = roleResources;
 	}
 
 	/**
+	 * Gets the role resources.
+	 *
+	 * @return the role resources
 	 */
 	@JsonIgnore
 	public Set<RoleResource> getRoleResources() {
@@ -124,6 +153,7 @@ public class Role implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new role.
 	 */
 	public Role() {
 	}
@@ -131,6 +161,7 @@ public class Role implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Role that) {
 		setRoleid(that.getRoleid());
@@ -142,6 +173,7 @@ public class Role implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -153,7 +185,8 @@ public class Role implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -163,7 +196,8 @@ public class Role implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

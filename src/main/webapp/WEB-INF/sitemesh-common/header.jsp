@@ -1,10 +1,9 @@
 <%@ page language="java" isELIgnored="false" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <jsp:directive.include file="/WEB-INF/sitemesh-decorators/include.jsp"/>
 <fmt:setBundle basename="bundles.application-resources"/>
 
 <div id="header">
-	<security:authorize access="isAuthenticated()">
 		<div class="navbar navbar-default">
     	  <div class="container-fluid">
 	        <div class="navbar-header">
@@ -19,11 +18,12 @@
         	</div>
        		<div id="navbar" class="collapse navbar-collapse">
          		<ul class="nav navbar-nav">
-         			<li><a href="./homesu">Home</a></li>
-           			<li><a href="./accountsu">My account</a></li>
-           			<li><a href="./diarysu">My diaries</a></li>
-           			<li><a href="#">My activities</a></li>
-           			<li><a href="./ordersu">My orders</a></li>
+         			<li><a href="./"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+           			<li><a href="./access/profile"><span class="glyphicon glyphicon-user"></span> My profile</a></li>
+           			<li><a href="${pageContext.request.contextPath}/access/diaries"><span class="glyphicon glyphicon-shopping-cart"></span> Buy products</a></li>
+           			<li><a href="${pageContext.request.contextPath}/access/diaries"><span class="glyphicon glyphicon-list-alt"></span> My orders</a></li>
+           			<li><a href="${pageContext.request.contextPath}/access/activities"><span class="glyphicon glyphicon-calendar"></span> My activities</a></li>
+           			<li><a href="${pageContext.request.contextPath}/access/activities"><span class="glyphicon glyphicon-th"></span> All activities</a></li>
          		</ul>
           		<ul class="nav navbar-nav navbar-right">
           			<li>
@@ -34,6 +34,5 @@
         	</div>
       	</div>
     </div>
-	</security:authorize>
 
 </div>

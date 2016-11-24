@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage RoleResource entities.
  * 
@@ -37,24 +41,21 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			RoleResource.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new RoleResourceDAOImpl
-	 *
+	 * Instantiates a new RoleResourceDAOImpl.
 	 */
 	public RoleResourceDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByResourceid
+	 * JPQL Query - findRoleResourceByResourceid.
 	 *
+	 * @param resourceid the resourceid
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<RoleResource> findRoleResourceByResourceid(Integer resourceid) throws DataAccessException {
@@ -79,8 +84,13 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByResourceid
+	 * JPQL Query - findRoleResourceByResourceid.
 	 *
+	 * @param resourceid the resourceid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -91,8 +101,10 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findAllRoleResources
+	 * JPQL Query - findAllRoleResources.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<RoleResource> findAllRoleResources() throws DataAccessException {
@@ -101,8 +113,12 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findAllRoleResources
+	 * JPQL Query - findAllRoleResources.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -113,8 +129,12 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByPrimaryKey
+	 * JPQL Query - findRoleResourceByPrimaryKey.
 	 *
+	 * @param roleid the roleid
+	 * @param resourceid the resourceid
+	 * @return the role resource
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public RoleResource findRoleResourceByPrimaryKey(Integer roleid, Integer resourceid) throws DataAccessException {
@@ -123,8 +143,14 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByPrimaryKey
+	 * JPQL Query - findRoleResourceByPrimaryKey.
 	 *
+	 * @param roleid the roleid
+	 * @param resourceid the resourceid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the role resource
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -138,8 +164,11 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByRightrole
+	 * JPQL Query - findRoleResourceByRightrole.
 	 *
+	 * @param rightrole the rightrole
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<RoleResource> findRoleResourceByRightrole(Boolean rightrole) throws DataAccessException {
@@ -148,8 +177,13 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByRightrole
+	 * JPQL Query - findRoleResourceByRightrole.
 	 *
+	 * @param rightrole the rightrole
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -160,8 +194,11 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByRoleid
+	 * JPQL Query - findRoleResourceByRoleid.
 	 *
+	 * @param roleid the roleid
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<RoleResource> findRoleResourceByRoleid(Integer roleid) throws DataAccessException {
@@ -170,8 +207,13 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * JPQL Query - findRoleResourceByRoleid
+	 * JPQL Query - findRoleResourceByRoleid.
 	 *
+	 * @param roleid the roleid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -182,10 +224,11 @@ public class RoleResourceDAOImpl extends AbstractJpaDao<RoleResource> implements
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(RoleResource entity) {
 		return true;

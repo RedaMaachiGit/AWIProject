@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -18,7 +21,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Comment.
  */
 
 @Entity
@@ -37,10 +42,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Comment")
 
 public class Comment implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The commentid. */
 
 	@Column(name = "commentid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -48,16 +54,16 @@ public class Comment implements Serializable {
 	@Id
 	@XmlElement
 	Integer commentid;
-	/**
-	 */
+	
+	/** The commentcontent. */
 
 	@Column(name = "commentcontent", length = 2000, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String commentcontent;
-	/**
-	 */
+	
+	/** The commentdate. */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "commentdate", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -65,62 +71,85 @@ public class Comment implements Serializable {
 	@XmlElement
 	Calendar commentdate;
 
-	/**
-	 */
+	/** The activity. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "activityid", referencedColumnName = "activityid", nullable = false) })
 	@XmlTransient
 	Activity activity;
-	/**
-	 */
+	
+	/** The yourtaskuser. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuser;
 
 	/**
+	 * Sets the commentid.
+	 *
+	 * @param commentid the new commentid
 	 */
 	public void setCommentid(Integer commentid) {
 		this.commentid = commentid;
 	}
 
 	/**
+	 * Gets the commentid.
+	 *
+	 * @return the commentid
 	 */
 	public Integer getCommentid() {
 		return this.commentid;
 	}
 
 	/**
+	 * Sets the commentcontent.
+	 *
+	 * @param commentcontent the new commentcontent
 	 */
 	public void setCommentcontent(String commentcontent) {
 		this.commentcontent = commentcontent;
 	}
 
 	/**
+	 * Gets the commentcontent.
+	 *
+	 * @return the commentcontent
 	 */
 	public String getCommentcontent() {
 		return this.commentcontent;
 	}
 
 	/**
+	 * Sets the commentdate.
+	 *
+	 * @param commentdate the new commentdate
 	 */
 	public void setCommentdate(Calendar commentdate) {
 		this.commentdate = commentdate;
 	}
 
 	/**
+	 * Gets the commentdate.
+	 *
+	 * @return the commentdate
 	 */
 	public Calendar getCommentdate() {
 		return this.commentdate;
 	}
 
 	/**
+	 * Sets the activity.
+	 *
+	 * @param activity the new activity
 	 */
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
 
 	/**
+	 * Gets the activity.
+	 *
+	 * @return the activity
 	 */
 	@JsonIgnore
 	public Activity getActivity() {
@@ -128,12 +157,18 @@ public class Comment implements Serializable {
 	}
 
 	/**
+	 * Sets the yourtaskuser.
+	 *
+	 * @param yourtaskuser the new yourtaskuser
 	 */
 	public void setYourtaskuser(Yourtaskuser yourtaskuser) {
 		this.yourtaskuser = yourtaskuser;
 	}
 
 	/**
+	 * Gets the yourtaskuser.
+	 *
+	 * @return the yourtaskuser
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuser() {
@@ -141,6 +176,7 @@ public class Comment implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new comment.
 	 */
 	public Comment() {
 	}
@@ -148,6 +184,7 @@ public class Comment implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Comment that) {
 		setCommentid(that.getCommentid());
@@ -160,6 +197,7 @@ public class Comment implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -172,7 +210,8 @@ public class Comment implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -182,7 +221,8 @@ public class Comment implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

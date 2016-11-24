@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Notification entities.
  * 
@@ -37,24 +41,21 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Notification.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new NotificationDAOImpl
-	 *
+	 * Instantiates a new NotificationDAOImpl.
 	 */
 	public NotificationDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findNotificationByPrimaryKey
+	 * JPQL Query - findNotificationByPrimaryKey.
 	 *
+	 * @param notificationid the notificationid
+	 * @return the notification
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Notification findNotificationByPrimaryKey(Integer notificationid) throws DataAccessException {
@@ -79,8 +84,13 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	}
 
 	/**
-	 * JPQL Query - findNotificationByPrimaryKey
+	 * JPQL Query - findNotificationByPrimaryKey.
 	 *
+	 * @param notificationid the notificationid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the notification
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -94,8 +104,10 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	}
 
 	/**
-	 * JPQL Query - findAllNotifications
+	 * JPQL Query - findAllNotifications.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Notification> findAllNotifications() throws DataAccessException {
@@ -104,8 +116,12 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	}
 
 	/**
-	 * JPQL Query - findAllNotifications
+	 * JPQL Query - findAllNotifications.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -116,10 +132,11 @@ public class NotificationDAOImpl extends AbstractJpaDao<Notification> implements
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Notification entity) {
 		return true;

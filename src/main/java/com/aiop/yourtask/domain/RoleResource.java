@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class RoleResource.
  */
 @IdClass(com.aiop.yourtask.domain.RoleResourcePK.class)
 @Entity
@@ -33,10 +38,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "RoleResource")
 
 public class RoleResource implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The roleid. */
 
 	@Column(name = "roleid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -44,8 +50,8 @@ public class RoleResource implements Serializable {
 	@Id
 	@XmlElement
 	Integer roleid;
-	/**
-	 */
+	
+	/** The resourceid. */
 
 	@Column(name = "resourceid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -53,8 +59,8 @@ public class RoleResource implements Serializable {
 	@Id
 	@XmlElement
 	Integer resourceid;
-	/**
-	 */
+	
+	/** The rightrole. */
 
 	@Column(name = "rightrole", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -62,15 +68,14 @@ public class RoleResource implements Serializable {
 	@XmlElement
 	Boolean rightrole;
 
-	/**
-	 */
+	/** The resource. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "resourceid", referencedColumnName = "resourceid", nullable = false, insertable = false, updatable = false) })
 	@XmlTransient
 	Resource resource;
-	/**
-	 */
+	
+	/** The role. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "roleid", referencedColumnName = "roleid", nullable = false, insertable = false, updatable = false) })
@@ -78,48 +83,72 @@ public class RoleResource implements Serializable {
 	Role role;
 
 	/**
+	 * Sets the roleid.
+	 *
+	 * @param roleid the new roleid
 	 */
 	public void setRoleid(Integer roleid) {
 		this.roleid = roleid;
 	}
 
 	/**
+	 * Gets the roleid.
+	 *
+	 * @return the roleid
 	 */
 	public Integer getRoleid() {
 		return this.roleid;
 	}
 
 	/**
+	 * Sets the resourceid.
+	 *
+	 * @param resourceid the new resourceid
 	 */
 	public void setResourceid(Integer resourceid) {
 		this.resourceid = resourceid;
 	}
 
 	/**
+	 * Gets the resourceid.
+	 *
+	 * @return the resourceid
 	 */
 	public Integer getResourceid() {
 		return this.resourceid;
 	}
 
 	/**
+	 * Sets the rightrole.
+	 *
+	 * @param rightrole the new rightrole
 	 */
 	public void setRightrole(Boolean rightrole) {
 		this.rightrole = rightrole;
 	}
 
 	/**
+	 * Gets the rightrole.
+	 *
+	 * @return the rightrole
 	 */
 	public Boolean getRightrole() {
 		return this.rightrole;
 	}
 
 	/**
+	 * Sets the resource.
+	 *
+	 * @param resource the new resource
 	 */
 	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
 
 	/**
+	 * Gets the resource.
+	 *
+	 * @return the resource
 	 */
 	@JsonIgnore
 	public Resource getResource() {
@@ -127,12 +156,18 @@ public class RoleResource implements Serializable {
 	}
 
 	/**
+	 * Sets the role.
+	 *
+	 * @param role the new role
 	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
 	/**
+	 * Gets the role.
+	 *
+	 * @return the role
 	 */
 	@JsonIgnore
 	public Role getRole() {
@@ -140,6 +175,7 @@ public class RoleResource implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new role resource.
 	 */
 	public RoleResource() {
 	}
@@ -147,6 +183,7 @@ public class RoleResource implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(RoleResource that) {
 		setRoleid(that.getRoleid());
@@ -159,6 +196,7 @@ public class RoleResource implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -171,7 +209,8 @@ public class RoleResource implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -182,7 +221,8 @@ public class RoleResource implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

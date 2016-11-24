@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>OrderController</code> controller.
  *
@@ -43,6 +47,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>editOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>newOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>saveOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>deleteOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>selectOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>listOrderYourtaskuserByUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>editOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>newOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>saveOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>deleteOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>selectOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>listOrderYourtaskuserByUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>editOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>newOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>saveOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>deleteOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>selectOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>listOrderOrderProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>indexOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -417,6 +465,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>selectOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -434,6 +484,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>editOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -451,6 +503,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>saveOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -468,6 +522,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>newOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -485,6 +541,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -502,6 +560,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>deleteOrder()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -519,6 +579,8 @@ public class OrderControllerTest {
 
 	/**
 	 * Test <code>orderControllerbinaryaction()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -537,6 +599,7 @@ public class OrderControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -548,6 +611,7 @@ public class OrderControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -559,6 +623,7 @@ public class OrderControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

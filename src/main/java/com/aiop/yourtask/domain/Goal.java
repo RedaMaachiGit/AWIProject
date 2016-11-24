@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Goal.
  */
 
 @Entity
@@ -35,10 +40,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Goal")
 
 public class Goal implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The goalid. */
 
 	@Column(name = "goalid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -46,16 +52,16 @@ public class Goal implements Serializable {
 	@Id
 	@XmlElement
 	Integer goalid;
-	/**
-	 */
+	
+	/** The goalname. */
 
 	@Column(name = "goalname", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String goalname;
-	/**
-	 */
+	
+	/** The goaldescription. */
 
 	@Column(name = "goaldescription", length = 2000, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -63,56 +69,79 @@ public class Goal implements Serializable {
 	@XmlElement
 	String goaldescription;
 
-	/**
-	 */
+	/** The diary. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "iddiary", referencedColumnName = "iddiary", nullable = false) })
 	@XmlTransient
 	Diary diary;
 
 	/**
+	 * Sets the goalid.
+	 *
+	 * @param goalid the new goalid
 	 */
 	public void setGoalid(Integer goalid) {
 		this.goalid = goalid;
 	}
 
 	/**
+	 * Gets the goalid.
+	 *
+	 * @return the goalid
 	 */
 	public Integer getGoalid() {
 		return this.goalid;
 	}
 
 	/**
+	 * Sets the goalname.
+	 *
+	 * @param goalname the new goalname
 	 */
 	public void setGoalname(String goalname) {
 		this.goalname = goalname;
 	}
 
 	/**
+	 * Gets the goalname.
+	 *
+	 * @return the goalname
 	 */
 	public String getGoalname() {
 		return this.goalname;
 	}
 
 	/**
+	 * Sets the goaldescription.
+	 *
+	 * @param goaldescription the new goaldescription
 	 */
 	public void setGoaldescription(String goaldescription) {
 		this.goaldescription = goaldescription;
 	}
 
 	/**
+	 * Gets the goaldescription.
+	 *
+	 * @return the goaldescription
 	 */
 	public String getGoaldescription() {
 		return this.goaldescription;
 	}
 
 	/**
+	 * Sets the diary.
+	 *
+	 * @param diary the new diary
 	 */
 	public void setDiary(Diary diary) {
 		this.diary = diary;
 	}
 
 	/**
+	 * Gets the diary.
+	 *
+	 * @return the diary
 	 */
 	@JsonIgnore
 	public Diary getDiary() {
@@ -120,6 +149,7 @@ public class Goal implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new goal.
 	 */
 	public Goal() {
 	}
@@ -127,6 +157,7 @@ public class Goal implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Goal that) {
 		setGoalid(that.getGoalid());
@@ -138,6 +169,7 @@ public class Goal implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -150,7 +182,8 @@ public class Goal implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -160,7 +193,8 @@ public class Goal implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

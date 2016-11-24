@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -18,7 +21,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Resource.
  */
 
 @Entity
@@ -34,10 +39,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Resource")
 @XmlRootElement(namespace = "aiopproject/com/aiop/yourtask/domain")
 public class Resource implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The resourceid. */
 
 	@Column(name = "resourceid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -45,8 +51,8 @@ public class Resource implements Serializable {
 	@Id
 	@XmlElement
 	Integer resourceid;
-	/**
-	 */
+	
+	/** The resourceurl. */
 
 	@Column(name = "resourceurl", length = 75, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -54,44 +60,61 @@ public class Resource implements Serializable {
 	@XmlElement
 	String resourceurl;
 
-	/**
-	 */
+	/** The role resources. */
 	@OneToMany(mappedBy = "resource", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.RoleResource> roleResources;
 
 	/**
+	 * Sets the resourceid.
+	 *
+	 * @param resourceid the new resourceid
 	 */
 	public void setResourceid(Integer resourceid) {
 		this.resourceid = resourceid;
 	}
 
 	/**
+	 * Gets the resourceid.
+	 *
+	 * @return the resourceid
 	 */
 	public Integer getResourceid() {
 		return this.resourceid;
 	}
 
 	/**
+	 * Sets the resourceurl.
+	 *
+	 * @param resourceurl the new resourceurl
 	 */
 	public void setResourceurl(String resourceurl) {
 		this.resourceurl = resourceurl;
 	}
 
 	/**
+	 * Gets the resourceurl.
+	 *
+	 * @return the resourceurl
 	 */
 	public String getResourceurl() {
 		return this.resourceurl;
 	}
 
 	/**
+	 * Sets the role resources.
+	 *
+	 * @param roleResources the new role resources
 	 */
 	public void setRoleResources(Set<RoleResource> roleResources) {
 		this.roleResources = roleResources;
 	}
 
 	/**
+	 * Gets the role resources.
+	 *
+	 * @return the role resources
 	 */
 	@JsonIgnore
 	public Set<RoleResource> getRoleResources() {
@@ -102,6 +125,7 @@ public class Resource implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new resource.
 	 */
 	public Resource() {
 	}
@@ -109,6 +133,7 @@ public class Resource implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Resource that) {
 		setResourceid(that.getResourceid());
@@ -119,6 +144,7 @@ public class Resource implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -130,7 +156,8 @@ public class Resource implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -140,7 +167,8 @@ public class Resource implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

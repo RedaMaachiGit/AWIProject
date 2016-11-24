@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import java.util.ArrayList;
@@ -15,14 +18,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.aiop.yourtask.domain.Yourtaskuser;
 
+// TODO: Auto-generated Javadoc
 /**
- * A custom {@link UserDetailsService} where user information
- * is retrieved from a JPA repository
+ * Our custom {@link UserDetailsService} where user information
+ * is retrieved from a JPA repository.
  */
 @Service
 @Transactional(readOnly = true)
 public class CustomUserDetailsService implements UserDetailsService {
 	
+	/** The user repository. */
 	@Autowired
 	private YourtaskuserService userRepository;
 
@@ -30,6 +35,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 	 * Returns a populated {@link UserDetails} object. 
 	 * The username is first retrieved from the database and then mapped to 
 	 * a {@link UserDetails} object.
+	 *
+	 * @param username the username
+	 * @return the user details
+	 * @throws UsernameNotFoundException the username not found exception
 	 */
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		try {
@@ -55,7 +64,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	}
 	
 	/**
-	 * Retrieves a collection of {@link GrantedAuthority} based on a numerical role
+	 * Retrieves a collection of {@link GrantedAuthority} based on a numerical role.
+	 *
 	 * @param role the numerical role
 	 * @return a collection of {@link GrantedAuthority
 	 */
@@ -65,7 +75,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	}
 	
 	/**
-	 * Converts a numerical role to an equivalent list of roles
+	 * Converts a numerical role to an equivalent list of roles.
+	 *
 	 * @param role the numerical role
 	 * @return list of roles as as a list of {@link String}
 	 */
@@ -86,7 +97,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	}
 	
 	/**
-	 * Wraps {@link String} roles to {@link SimpleGrantedAuthority} objects
+	 * Wraps {@link String} roles to {@link SimpleGrantedAuthority} objects.
+	 *
 	 * @param roles {@link String} of roles
 	 * @return list of granted authorities
 	 */
@@ -98,6 +110,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return authorities;
 	}
 	
+	/**
+	 * Gets the user.
+	 *
+	 * @param username the username
+	 * @return the user
+	 */
 	public Yourtaskuser getUser(String username){
 		return userRepository.findByUsername(username);
 	}

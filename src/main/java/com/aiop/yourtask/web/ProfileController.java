@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,54 +26,41 @@ import com.aiop.yourtask.domain.Suinfo;
 import com.aiop.yourtask.domain.Yourtaskuser;
 import com.aiop.yourtask.service.YourtaskuserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Yourtaskuser entities
- * 
+ * Spring MVC controller that handles CRUD requests for Yourtaskuser entities.
  */
 
 @Controller("ProfileController")
 
 public class ProfileController {
 
-	/**
-	 * DAO injected by Spring that manages Notification entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Notification entities. */
 	@Autowired
 	private NotificationDAO notificationDAO;
 
-	/**
-	 * DAO injected by Spring that manages Scinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Scinfo entities. */
 	@Autowired
 	private ScinfoDAO scinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Suinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Suinfo entities. */
 	@Autowired
 	private SuinfoDAO suinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Yourtaskuser entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserService yourtaskuserService;
 	
 	/**
-	* Select an existing Yourtaskuser entity
-	* 
-	*/
+	 * Select an existing Yourtaskuser entity.
+	 *
+	 * @param authCookie the auth cookie
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/profile")
 	public ModelAndView suprofile(@CookieValue(value = "AUTHCOOKIE") String authCookie) {
 		ModelAndView mav = new ModelAndView();
@@ -82,9 +72,11 @@ public class ProfileController {
 	}
 	
 	/**
-	* Select an existing Yourtaskuser entity
-	* 
-	*/
+	 * Select an existing Yourtaskuser entity.
+	 *
+	 * @param authCookie the auth cookie
+	 * @return the model and view
+	 */
 	@RequestMapping("/sc/profile")
 	public ModelAndView scprofile(@CookieValue(value = "AUTHCOOKIE") String authCookie) {
 		ModelAndView mav = new ModelAndView();
@@ -101,9 +93,11 @@ public class ProfileController {
 
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -119,9 +113,12 @@ public class ProfileController {
 	}
 
 	/**
-	* Save an existing Scinfo entity
-	* 
-	*/
+	 * Save an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfos the scinfos
+	 * @return the string
+	 */
 	@RequestMapping("/profile/saveYourtaskuserScinfos")
 	public String saveYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Scinfo scinfos) {
 		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -132,9 +129,12 @@ public class ProfileController {
 	}
 
 	/**
-	* Save an existing Suinfo entity
-	* 
-	*/
+	 * Save an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfos the suinfos
+	 * @return the string
+	 */
 	@RequestMapping("/profile/saveYourtaskuserSuinfos")
 	public String saveYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Suinfo suinfos) {	
 		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -147,9 +147,11 @@ public class ProfileController {
 
 
 	/**
-	* Show all Notification entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Notification entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/profile/listYourtaskuserNotifications")
 	public ModelAndView listYourtaskuserNotifications(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();

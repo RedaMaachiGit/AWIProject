@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -46,98 +49,68 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Yourtaskuser entities
- * 
+ * Spring MVC controller that handles CRUD requests for Yourtaskuser entities.
  */
 
 @Controller("YourtaskuserController")
 
 public class YourtaskuserController {
 	
+	/** The authentication facade. */
 	@Autowired
     private AuthenticationFacade authenticationFacade;
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Notification entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Notification entities. */
 	@Autowired
 	private NotificationDAO notificationDAO;
 
-	/**
-	 * DAO injected by Spring that manages Order entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Order entities. */
 	@Autowired
 	private OrderDAO orderDAO;
 
-	/**
-	 * DAO injected by Spring that manages Product entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Product entities. */
 	@Autowired
 	private ProductDAO productDAO;
 
-	/**
-	 * DAO injected by Spring that manages Role entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Role entities. */
 	@Autowired
 	private RoleDAO roleDAO;
 
-	/**
-	 * DAO injected by Spring that manages Scinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Scinfo entities. */
 	@Autowired
 	private ScinfoDAO scinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Suinfo entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Suinfo entities. */
 	@Autowired
 	private SuinfoDAO suinfoDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Yourtaskuser entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserService yourtaskuserService;
 
 	/**
-	 * Create a new Product entity
-	 * 
+	 * Create a new Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
 	 */
 	@RequestMapping("/newYourtaskuserProducts")
 	public ModelAndView newYourtaskuserProducts(@RequestParam Integer yourtaskuser_userid) {
@@ -151,9 +124,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Scinfo entity
-	* 
-	*/
+	 * View an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfos_scinfoid the scinfos scinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserScinfos")
 	public ModelAndView selectYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer scinfos_scinfoid) {
 		Scinfo scinfo = scinfoDAO.findScinfoByPrimaryKey(scinfos_scinfoid, -1, -1);
@@ -167,9 +143,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Order entity
-	* 
-	*/
+	 * View an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuseridsc_orderid the ordersforuseridsc orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserOrdersForUseridsc")
 	public ModelAndView selectYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer ordersforuseridsc_orderid) {
 		Order order = orderDAO.findOrderByPrimaryKey(ordersforuseridsc_orderid, -1, -1);
@@ -183,9 +162,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Product entity
-	* 
-	*/
+	 * Delete an existing Product entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteYourtaskuserProducts/{userId}/{productId}")
 	public String deleteYourtaskuserProducts(@PathVariable("userId") Integer userId, @PathVariable("productId") Integer productId) {
 		yourtaskuserService.deleteYourtaskuserProducts(userId, productId);
@@ -193,9 +175,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Suinfo entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Suinfo entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserSuinfos")
 	public ModelAndView listYourtaskuserSuinfos(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -207,9 +191,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Order entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Order entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuserid_orderid the related ordersforuserid orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserOrdersForUserid")
 	public ModelAndView confirmDeleteYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_ordersforuserid_orderid) {
 		ModelAndView mav = new ModelAndView();
@@ -222,9 +209,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Activity entity
-	* 
-	*/
+	 * Edit an existing Activity entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/editActivity")
 	public ModelAndView editUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
@@ -238,9 +228,12 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Edit an existing Product entity
-	* 
-	*/
+	 * Edit an existing Product entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the model and view
+	 */
 	@RequestMapping("/sc/{userId}/product/{productId}/editProduct")
 	public ModelAndView editUserProduct(@PathVariable("userId") Integer userId, @PathVariable("productId") Integer productId) {
 		Product product = productDAO.findProductByPrimaryKey(productId, -1, -1);
@@ -254,9 +247,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserDiaries")
 	public ModelAndView deleteYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_diaries_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -271,9 +267,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Order entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Order entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserOrdersForUserid")
 	public ModelAndView listYourtaskuserOrdersForUserid(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -285,9 +283,10 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Yourtaskuser entities
-	* 
-	*/
+	 * Show all Yourtaskuser entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/indexYourtaskuser")
 	public ModelAndView listYourtaskusers() {
 		ModelAndView mav = new ModelAndView();
@@ -300,9 +299,10 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuser")
 	public ModelAndView newYourtaskuser() {
 		ModelAndView mav = new ModelAndView();
@@ -315,9 +315,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Suinfo entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Suinfo entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_suinfos_suinfoid the related suinfos suinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserSuinfos")
 	public ModelAndView confirmDeleteYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_suinfos_suinfoid) {
 		ModelAndView mav = new ModelAndView();
@@ -330,9 +333,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Order entity
-	* 
-	*/
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuserid_orderid the related ordersforuserid orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserOrdersForUserid")
 	public ModelAndView deleteYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_ordersforuserid_orderid) {
 		ModelAndView mav = new ModelAndView();
@@ -347,9 +353,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Role entity
-	* 
-	*/
+	 * Create a new Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserRole")
 	public ModelAndView newYourtaskuserRole(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -362,9 +370,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Role entity
-	* 
-	*/
+	 * Delete an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_role_roleid the related role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserRole")
 	public ModelAndView deleteYourtaskuserRole(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_role_roleid) {
 		ModelAndView mav = new ModelAndView();
@@ -379,9 +390,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Diary entity
-	* 
-	*/
+	 * Edit an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param diaries_iddiary the diaries iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserDiaries")
 	public ModelAndView editYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer diaries_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
@@ -395,9 +409,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Activity entity
-	* 
-	*/
+	 * View an existing Activity entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param products_productid the products productid
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/selectYourtaskuserActivities")
 	public ModelAndView selectYourtaskuserActivities(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer activities_activityid) {
@@ -434,9 +451,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -452,9 +471,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Order entity
-	* 
-	*/
+	 * Edit an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuseridsc_orderid the ordersforuseridsc orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserOrdersForUseridsc")
 	public ModelAndView editYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer ordersforuseridsc_orderid) {
 		Order order = orderDAO.findOrderByPrimaryKey(ordersforuseridsc_orderid, -1, -1);
@@ -468,9 +490,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param comments the comments
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserComments")
 	public ModelAndView saveYourtaskuserComments(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Comment comments) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserComments(yourtaskuser_userid, comments);
@@ -484,9 +509,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Scinfo entity
-	* 
-	*/
+	 * Edit an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfos_scinfoid the scinfos scinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserScinfos")
 	public ModelAndView editYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer scinfos_scinfoid) {
 		Scinfo scinfo = scinfoDAO.findScinfoByPrimaryKey(scinfos_scinfoid, -1, -1);
@@ -500,9 +528,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Product entity
-	* 
-	*/
+	 * Save an existing Product entity.
+	 *
+	 * @param userId the user id
+	 * @param product the product
+	 * @return the string
+	 */
 	@RequestMapping("/saveYourtaskuserProducts/{userId}")
 	public String saveYourtaskuserProducts(@PathVariable("userId") Integer userId, @ModelAttribute Product product) {
 		if (product.getProductid() == null) {
@@ -513,9 +544,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Comment entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Comment entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserComments")
 	public ModelAndView listYourtaskuserComments(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -527,9 +560,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Scinfo entity
-	* 
-	*/
+	 * Delete an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_scinfos_scinfoid the related scinfos scinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserScinfos")
 	public ModelAndView deleteYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_scinfos_scinfoid) {
 		ModelAndView mav = new ModelAndView();
@@ -544,9 +580,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserDiaries")
 	public ModelAndView confirmDeleteYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_diaries_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -559,9 +598,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Role entity
-	* 
-	*/
+	 * Save an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param role the role
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserRole")
 	public ModelAndView saveYourtaskuserRole(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Role role) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserRole(yourtaskuser_userid, role);
@@ -575,9 +617,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Order entity
-	* 
-	*/
+	 * View an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuserid_orderid the ordersforuserid orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserOrdersForUserid")
 	public ModelAndView selectYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer ordersforuserid_orderid) {
 		Order order = orderDAO.findOrderByPrimaryKey(ordersforuserid_orderid, -1, -1);
@@ -591,9 +636,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Activity entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Activity entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserActivities")
 	public ModelAndView listYourtaskuserActivities(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -605,9 +652,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Notification entity
-	* 
-	*/
+	 * Edit an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param notifications_notificationid the notifications notificationid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserNotifications")
 	public ModelAndView editYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer notifications_notificationid) {
 		Notification notification = notificationDAO.findNotificationByPrimaryKey(notifications_notificationid, -1, -1);
@@ -621,7 +671,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/yourtaskuserController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -631,9 +686,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param diaries the diaries
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserDiaries")
 	public ModelAndView saveYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Diary diaries) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserDiaries(yourtaskuser_userid, diaries);
@@ -647,9 +705,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteYourtaskuserActivities/{userId}/{activityId}")
 	public String deleteYourtaskuserActivities(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
 		yourtaskuserService.deleteYourtaskuserActivities(userId, activityId);
@@ -657,9 +718,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Role entity
-	* 
-	*/
+	 * View an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param role_roleid the role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserRole")
 	public ModelAndView selectYourtaskuserRole(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer role_roleid) {
 		Role role = roleDAO.findRoleByPrimaryKey(role_roleid, -1, -1);
@@ -673,9 +737,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Order entity
-	* 
-	*/
+	 * Save an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuserid the ordersforuserid
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserOrdersForUserid")
 	public ModelAndView saveYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Order ordersforuserid) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserOrdersForUserid(yourtaskuser_userid, ordersforuserid);
@@ -689,9 +756,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Notification entity
-	* 
-	*/
+	 * View an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param notifications_notificationid the notifications notificationid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserNotifications")
 	public ModelAndView selectYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer notifications_notificationid) {
 		Notification notification = notificationDAO.findNotificationByPrimaryKey(notifications_notificationid, -1, -1);
@@ -705,9 +775,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Comment entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Comment entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserComments")
 	public ModelAndView confirmDeleteYourtaskuserComments(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_comments_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -720,9 +793,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Order entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Order entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuseridsc_orderid the related ordersforuseridsc orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserOrdersForUseridsc")
 	public ModelAndView confirmDeleteYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_ordersforuseridsc_orderid) {
 		ModelAndView mav = new ModelAndView();
@@ -733,26 +809,13 @@ public class YourtaskuserController {
 
 		return mav;
 	}
-
-	/**
-	* Create a new Activity entity
-	* 
-	*/
-	@RequestMapping("/su/{userId}/createActivity")
-	public ModelAndView newUserActivity(@PathVariable("userId") Integer userId) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", userId);
-		mav.addObject("activity", new Activity());
-		mav.addObject("newFlag", true);
-		mav.setViewName("yourtaskuser/activities/editActivities.jsp");
-
-		return mav;
-	}
 	
 	/**
-	* Create a new Product entity
-	* 
-	*/
+	 * Create a new Product entity.
+	 *
+	 * @param userId the user id
+	 * @return the model and view
+	 */
 	@RequestMapping("/sc/{userId}/createProduct")
 	public ModelAndView newUserProduct(@PathVariable("userId") Integer userId) {
 		ModelAndView mav = new ModelAndView();
@@ -765,9 +828,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param useridKey the userid key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteYourtaskuser")
 	public String deleteYourtaskuser(@RequestParam Integer useridKey) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey);
@@ -776,9 +841,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Scinfo entity
-	* 
-	*/
+	 * Save an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param scinfos the scinfos
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserScinfos")
 	public ModelAndView saveYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Scinfo scinfos) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserScinfos(yourtaskuser_userid, scinfos);
@@ -792,9 +860,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Order entity
-	* 
-	*/
+	 * Create a new Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserOrdersForUseridsc")
 	public ModelAndView newYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -807,9 +877,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Scinfo entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Scinfo entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_scinfos_scinfoid the related scinfos scinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserScinfos")
 	public ModelAndView confirmDeleteYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_scinfos_scinfoid) {
 		ModelAndView mav = new ModelAndView();
@@ -822,9 +895,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Product entity
-	* 
-	*/
+	 * View an existing Product entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param products_productid the products productid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserProducts")
 	public ModelAndView selectYourtaskuserProducts(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer products_productid) {
 		Product product = productDAO.findProductByPrimaryKey(products_productid, -1, -1);
@@ -838,9 +914,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuser")
 	public ModelAndView editYourtaskuser(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -852,9 +930,10 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/editSU")
 	public ModelAndView editSU(/*@RequestParam Integer useridKey*/) {
 		ModelAndView mav = new ModelAndView();
@@ -875,9 +954,12 @@ public class YourtaskuserController {
 	
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserComments")
 	public ModelAndView deleteYourtaskuserComments(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_comments_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -892,9 +974,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Product entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Product entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserProducts")
 	public ModelAndView listYourtaskuserProducts(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -906,9 +990,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Role entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Role entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserRole")
 	public ModelAndView listYourtaskuserRole(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -920,17 +1006,21 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Entry point to show all Yourtaskuser entities
-	* 
-	*/
+	 * Entry point to show all Yourtaskuser entities.
+	 *
+	 * @return the string
+	 */
 	public String indexYourtaskuser() {
 		return "redirect:/indexYourtaskuser";
 	}
 
 	/**
-	* Edit an existing Order entity
-	* 
-	*/
+	 * Edit an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuserid_orderid the ordersforuserid orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserOrdersForUserid")
 	public ModelAndView editYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer ordersforuserid_orderid) {
 		Order order = orderDAO.findOrderByPrimaryKey(ordersforuserid_orderid, -1, -1);
@@ -944,9 +1034,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Scinfo entity
-	* 
-	*/
+	 * Create a new Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserScinfos")
 	public ModelAndView newYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -959,9 +1051,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param userId the user id
+	 * @param activity the activity
+	 * @return the string
+	 */
 	@RequestMapping("/saveYourtaskuserActivities/{userId}")
 	public String saveYourtaskuserActivities(@PathVariable("userId") Integer userId, @ModelAttribute Activity activity) {	
 		if (activity.getActivityid() == null) {
@@ -972,9 +1067,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Diary entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Diary entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserDiaries")
 	public ModelAndView listYourtaskuserDiaries(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -986,9 +1083,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Suinfo entity
-	* 
-	*/
+	 * Delete an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_suinfos_suinfoid the related suinfos suinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserSuinfos")
 	public ModelAndView deleteYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_suinfos_suinfoid) {
 		ModelAndView mav = new ModelAndView();
@@ -1003,9 +1103,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Notification entity
-	* 
-	*/
+	 * Save an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param notifications the notifications
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserNotifications")
 	public ModelAndView saveYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Notification notifications) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserNotifications(yourtaskuser_userid, notifications);
@@ -1019,9 +1122,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Comment entity
-	* 
-	*/
+	 * Edit an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param comments_commentid the comments commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserComments")
 	public ModelAndView editYourtaskuserComments(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer comments_commentid) {
 		Comment comment = commentDAO.findCommentByPrimaryKey(comments_commentid, -1, -1);
@@ -1035,9 +1141,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Notification entity
-	* 
-	*/
+	 * Create a new Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserNotifications")
 	public ModelAndView newYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1050,9 +1158,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Scinfo entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Scinfo entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserScinfos")
 	public ModelAndView listYourtaskuserScinfos(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -1064,9 +1174,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserDiaries")
 	public ModelAndView newYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1079,9 +1191,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Suinfo entity
-	* 
-	*/
+	 * Save an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfos the suinfos
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserSuinfos")
 	public ModelAndView saveYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Suinfo suinfos) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserSuinfos(yourtaskuser_userid, suinfos);
@@ -1095,9 +1210,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Product entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Product entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_products_productid the related products productid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserProducts")
 	public ModelAndView confirmDeleteYourtaskuserProducts(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_products_productid) {
 		ModelAndView mav = new ModelAndView();
@@ -1110,9 +1228,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Order entity
-	* 
-	*/
+	 * Delete an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_ordersforuseridsc_orderid the related ordersforuseridsc orderid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserOrdersForUseridsc")
 	public ModelAndView deleteYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_ordersforuseridsc_orderid) {
 		ModelAndView mav = new ModelAndView();
@@ -1127,9 +1248,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuser")
 	public ModelAndView confirmDeleteYourtaskuser(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -1141,9 +1264,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserComments")
 	public ModelAndView newYourtaskuserComments(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1156,9 +1281,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Order entity
-	* 
-	*/
+	 * Create a new Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserOrdersForUserid")
 	public ModelAndView newYourtaskuserOrdersForUserid(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1171,9 +1298,11 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Select an existing Yourtaskuser entity
-	* 
-	*/
+	 * Select an existing Yourtaskuser entity.
+	 *
+	 * @param userId the user id
+	 * @return the model and view
+	 */
 	@RequestMapping("/sc/{userId}/products")
 	public ModelAndView scProducts(@PathVariable("userId") Integer userId) {
 		ModelAndView mav = new ModelAndView();
@@ -1186,9 +1315,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Show all Order entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Order entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserOrdersForUseridsc")
 	public ModelAndView listYourtaskuserOrdersForUseridsc(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -1200,9 +1331,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Role entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Role entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_role_roleid the related role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserRole")
 	public ModelAndView confirmDeleteYourtaskuserRole(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_role_roleid) {
 		ModelAndView mav = new ModelAndView();
@@ -1215,9 +1349,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Edit an existing Role entity
-	* 
-	*/
+	 * Edit an existing Role entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param role_roleid the role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editYourtaskuserRole")
 	public ModelAndView editYourtaskuserRole(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer role_roleid) {
 		Role role = roleDAO.findRoleByPrimaryKey(role_roleid, -1, -1);
@@ -1231,9 +1368,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Order entity
-	* 
-	*/
+	 * Save an existing Order entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param ordersforuseridsc the ordersforuseridsc
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveYourtaskuserOrdersForUseridsc")
 	public ModelAndView saveYourtaskuserOrdersForUseridsc(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Order ordersforuseridsc) {
 		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserOrdersForUseridsc(yourtaskuser_userid, ordersforuseridsc);
@@ -1247,9 +1387,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/deleteActivity")
 	public ModelAndView deleteUserActivity(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
@@ -1262,9 +1405,12 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Select the child Product entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Product entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the model and view
+	 */
 	@RequestMapping("/sc/{userId}/product/{productId}/deleteProduct")
 	public ModelAndView deleteUserProduct(@PathVariable("userId") Integer userId,@PathVariable("productId") Integer productId) {
 		ModelAndView mav = new ModelAndView();
@@ -1277,9 +1423,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the string
+	 */
 	@RequestMapping("/saveYourtaskuser")
 	public String saveYourtaskuser(@ModelAttribute Yourtaskuser yourtaskuser) { // retournait un String avant
 		yourtaskuserService.saveYourtaskuser(yourtaskuser);
@@ -1327,9 +1475,12 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Save an existing SU entity
-	* 
-	*/
+	 * Save an existing SU entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfos_suinfoid the suinfos suinfoid
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/saveSU")
 	public String saveSU(@ModelAttribute Yourtaskuser yourtaskuser) {
@@ -1355,9 +1506,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Select the child Notification entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Notification entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_notifications_notificationid the related notifications notificationid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteYourtaskuserNotifications")
 	public ModelAndView confirmDeleteYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_notifications_notificationid) {
 		ModelAndView mav = new ModelAndView();
@@ -1370,9 +1524,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Delete an existing Notification entity
-	* 
-	*/
+	 * Delete an existing Notification entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param related_notifications_notificationid the related notifications notificationid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteYourtaskuserNotifications")
 	public ModelAndView deleteYourtaskuserNotifications(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer related_notifications_notificationid) {
 		ModelAndView mav = new ModelAndView();
@@ -1387,9 +1544,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param diaries_iddiary the diaries iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserDiaries")
 	public ModelAndView selectYourtaskuserDiaries(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer diaries_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaries_iddiary, -1, -1);
@@ -1403,9 +1563,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Comment entity
-	* 
-	*/
+	 * View an existing Comment entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param comments_commentid the comments commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserComments")
 	public ModelAndView selectYourtaskuserComments(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer comments_commentid) {
 		Comment comment = commentDAO.findCommentByPrimaryKey(comments_commentid, -1, -1);
@@ -1419,9 +1582,12 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* View an existing Suinfo entity
-	* 
-	*/
+	 * View an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @param suinfos_suinfoid the suinfos suinfoid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectYourtaskuserSuinfos")
 	public ModelAndView selectYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid, @RequestParam Integer suinfos_suinfoid) {
 		Suinfo suinfo = suinfoDAO.findSuinfoByPrimaryKey(suinfos_suinfoid, -1, -1);
@@ -1436,9 +1602,11 @@ public class YourtaskuserController {
 
 	
 	/**
-	* Show all Notification entities by Yourtaskuser
-	* 
-	*/
+	 * Show all Notification entities by Yourtaskuser.
+	 *
+	 * @param useridKey the userid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listYourtaskuserNotifications")
 	public ModelAndView listYourtaskuserNotifications(@RequestParam Integer useridKey) {
 		ModelAndView mav = new ModelAndView();
@@ -1450,9 +1618,11 @@ public class YourtaskuserController {
 	}
 
 	/**
-	* Create a new Suinfo entity
-	* 
-	*/
+	 * Create a new Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newYourtaskuserSuinfos")
 	public ModelAndView newYourtaskuserSuinfos(@RequestParam Integer yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1465,9 +1635,11 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* register a simple user
-	* 
-	*/
+	 * register a simple user.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the string
+	 */
 	@RequestMapping("/register/saveuser")
 	public String saveNewUser(@ModelAttribute Yourtaskuser yourtaskuser) {
 		Random rand = new Random();
@@ -1486,9 +1658,11 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* register a company
-	* 
-	*/
+	 * register a company.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the string
+	 */
 	@RequestMapping("/register/savecompany")
 	public String saveNewCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
 		Random rand = new Random();
@@ -1508,9 +1682,10 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Save an existing Scinfo entity
-	* 
-	*//*
+	 * Save an existing Scinfo entity.
+	 *
+	 * @return the model and view
+	 *//*
 	@RequestMapping("/register/addcompanyinfos")
 	public String registerYourtaskuserScinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Scinfo scinfos) {
 		yourtaskuserService.saveYourtaskuserScinfos(yourtaskuser_userid, scinfos);
@@ -1545,9 +1720,10 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Create a new Yourtaskuser entity for administrator
-	* 
-	*/
+	 * Create a new Yourtaskuser entity for administrator.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/admin/users/newuser")
 	public ModelAndView adminNewUser() {
 		ModelAndView mav = new ModelAndView();
@@ -1559,9 +1735,10 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Create a new Yourtaskuser entity for administrator
-	* 
-	*/
+	 * Create a new Yourtaskuser entity for administrator.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/admin/users/newcompany")
 	public ModelAndView adminNewCompany() {
 		ModelAndView mav = new ModelAndView();
@@ -1573,9 +1750,11 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @param userid the userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/admin/users/edit/{userid}")
 	public ModelAndView adminEditYourtaskuser(@PathVariable Integer userid) {
 		ModelAndView mav = new ModelAndView();
@@ -1594,9 +1773,11 @@ public class YourtaskuserController {
 	}
 	
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param useridKey the userid key
+	 * @return the string
+	 */
 	@RequestMapping("/admin/users/delete/{userid}")
 	public String adminDeleteYourtaskuser(@RequestParam Integer useridKey) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey);
@@ -1605,6 +1786,12 @@ public class YourtaskuserController {
 	}
 	
 
+	/**
+	 * Admin create user.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the string
+	 */
 	@RequestMapping("/admin/users/saveuser")
 	public String adminCreateUser(@ModelAttribute Yourtaskuser yourtaskuser) {
 		Random rand = new Random();
@@ -1623,6 +1810,12 @@ public class YourtaskuserController {
 		return "redirect:/admin/users";
 	}
 	
+	/**
+	 * Admin create company.
+	 *
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the string
+	 */
 	@RequestMapping("/admin/users/savecompany")
 	public String adminCreateCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
 		Random rand = new Random();

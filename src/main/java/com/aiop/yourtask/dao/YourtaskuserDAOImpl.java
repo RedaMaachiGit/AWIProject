@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -22,6 +25,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Yourtaskuser entities.
  * 
@@ -38,24 +42,21 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Yourtaskuser.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new YourtaskuserDAOImpl
-	 *
+	 * Instantiates a new YourtaskuserDAOImpl.
 	 */
 	public YourtaskuserDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -64,14 +65,18 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertype
+	 * JPQL Query - findYourtaskuserByUsertype.
 	 *
+	 * @param usertype the usertype
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsertype(String usertype) throws DataAccessException {
@@ -80,8 +85,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertype
+	 * JPQL Query - findYourtaskuserByUsertype.
 	 *
+	 * @param usertype the usertype
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -92,8 +102,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserstreetnumberContaining
+	 * JPQL Query - findYourtaskuserByUserstreetnumberContaining.
 	 *
+	 * @param userstreetnumber the userstreetnumber
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserstreetnumberContaining(String userstreetnumber) throws DataAccessException {
@@ -102,8 +115,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserstreetnumberContaining
+	 * JPQL Query - findYourtaskuserByUserstreetnumberContaining.
 	 *
+	 * @param userstreetnumber the userstreetnumber
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -114,8 +132,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseriban
+	 * JPQL Query - findYourtaskuserByUseriban.
 	 *
+	 * @param useriban the useriban
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUseriban(String useriban) throws DataAccessException {
@@ -124,8 +145,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseriban
+	 * JPQL Query - findYourtaskuserByUseriban.
 	 *
+	 * @param useriban the useriban
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -136,8 +162,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertoken
+	 * JPQL Query - findYourtaskuserByUsertoken.
 	 *
+	 * @param usertoken the usertoken
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsertoken(String usertoken) throws DataAccessException {
@@ -146,8 +175,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertoken
+	 * JPQL Query - findYourtaskuserByUsertoken.
 	 *
+	 * @param usertoken the usertoken
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -158,8 +192,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirth
+	 * JPQL Query - findYourtaskuserByUserdateofbirth.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserdateofbirth(java.util.Calendar userdateofbirth) throws DataAccessException {
@@ -168,8 +205,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirth
+	 * JPQL Query - findYourtaskuserByUserdateofbirth.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -180,8 +222,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserzipcode
+	 * JPQL Query - findYourtaskuserByUserzipcode.
 	 *
+	 * @param userzipcode the userzipcode
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserzipcode(String userzipcode) throws DataAccessException {
@@ -190,8 +235,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserzipcode
+	 * JPQL Query - findYourtaskuserByUserzipcode.
 	 *
+	 * @param userzipcode the userzipcode
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -202,8 +252,10 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findAllYourtaskusers
+	 * JPQL Query - findAllYourtaskusers.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findAllYourtaskusers() throws DataAccessException {
@@ -212,8 +264,12 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findAllYourtaskusers
+	 * JPQL Query - findAllYourtaskusers.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -224,8 +280,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserphonenumberContaining
+	 * JPQL Query - findYourtaskuserByUserphonenumberContaining.
 	 *
+	 * @param userphonenumber the userphonenumber
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserphonenumberContaining(String userphonenumber) throws DataAccessException {
@@ -234,8 +293,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserphonenumberContaining
+	 * JPQL Query - findYourtaskuserByUserphonenumberContaining.
 	 *
+	 * @param userphonenumber the userphonenumber
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -246,8 +310,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertokenContaining
+	 * JPQL Query - findYourtaskuserByUsertokenContaining.
 	 *
+	 * @param usertoken the usertoken
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsertokenContaining(String usertoken) throws DataAccessException {
@@ -256,8 +323,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertokenContaining
+	 * JPQL Query - findYourtaskuserByUsertokenContaining.
 	 *
+	 * @param usertoken the usertoken
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -268,8 +340,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserid
+	 * JPQL Query - findYourtaskuserByUserid.
 	 *
+	 * @param userid the userid
+	 * @return the yourtaskuser
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Yourtaskuser findYourtaskuserByUserid(Integer userid) throws DataAccessException {
@@ -278,8 +353,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserid
+	 * JPQL Query - findYourtaskuserByUserid.
 	 *
+	 * @param userid the userid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the yourtaskuser
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -293,8 +373,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondateAfter
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondateAfter.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserlastconnectiondateAfter(java.util.Calendar userlastconnectiondate) throws DataAccessException {
@@ -303,8 +386,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondateAfter
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondateAfter.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -315,8 +403,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirthBefore
+	 * JPQL Query - findYourtaskuserByUserdateofbirthBefore.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserdateofbirthBefore(java.util.Calendar userdateofbirth) throws DataAccessException {
@@ -325,8 +416,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirthBefore
+	 * JPQL Query - findYourtaskuserByUserdateofbirthBefore.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -337,8 +433,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserpassword
+	 * JPQL Query - findYourtaskuserByUserpassword.
 	 *
+	 * @param userpassword the userpassword
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserpassword(String userpassword) throws DataAccessException {
@@ -347,8 +446,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserpassword
+	 * JPQL Query - findYourtaskuserByUserpassword.
 	 *
+	 * @param userpassword the userpassword
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -359,8 +463,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseribanContaining
+	 * JPQL Query - findYourtaskuserByUseribanContaining.
 	 *
+	 * @param useriban the useriban
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUseribanContaining(String useriban) throws DataAccessException {
@@ -369,8 +476,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseribanContaining
+	 * JPQL Query - findYourtaskuserByUseribanContaining.
 	 *
+	 * @param useriban the useriban
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -381,8 +493,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserusernameContaining
+	 * JPQL Query - findYourtaskuserByUserusernameContaining.
 	 *
+	 * @param userusername the userusername
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserusernameContaining(String userusername) throws DataAccessException {
@@ -391,8 +506,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserusernameContaining
+	 * JPQL Query - findYourtaskuserByUserusernameContaining.
 	 *
+	 * @param userusername the userusername
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -403,8 +523,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByPrimaryKey
+	 * JPQL Query - findYourtaskuserByPrimaryKey.
 	 *
+	 * @param userid the userid
+	 * @return the yourtaskuser
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Yourtaskuser findYourtaskuserByPrimaryKey(Integer userid) throws DataAccessException {
@@ -413,8 +536,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByPrimaryKey
+	 * JPQL Query - findYourtaskuserByPrimaryKey.
 	 *
+	 * @param userid the userid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the yourtaskuser
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -429,8 +557,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondate
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondate.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserlastconnectiondate(java.util.Calendar userlastconnectiondate) throws DataAccessException {
@@ -439,8 +570,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondate
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondate.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -451,8 +587,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserusername
+	 * JPQL Query - findYourtaskuserByUserusername.
 	 *
+	 * @param userusername the userusername
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserusername(String userusername) throws DataAccessException {
@@ -461,8 +600,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserusername
+	 * JPQL Query - findYourtaskuserByUserusername.
 	 *
+	 * @param userusername the userusername
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -473,8 +617,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseremail
+	 * JPQL Query - findYourtaskuserByUseremail.
 	 *
+	 * @param useremail the useremail
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUseremail(String useremail) throws DataAccessException {
@@ -483,8 +630,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseremail
+	 * JPQL Query - findYourtaskuserByUseremail.
 	 *
+	 * @param useremail the useremail
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -495,8 +647,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsercity
+	 * JPQL Query - findYourtaskuserByUsercity.
 	 *
+	 * @param usercity the usercity
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsercity(String usercity) throws DataAccessException {
@@ -505,8 +660,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsercity
+	 * JPQL Query - findYourtaskuserByUsercity.
 	 *
+	 * @param usercity the usercity
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -517,8 +677,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserphonenumber
+	 * JPQL Query - findYourtaskuserByUserphonenumber.
 	 *
+	 * @param userphonenumber the userphonenumber
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserphonenumber(String userphonenumber) throws DataAccessException {
@@ -527,8 +690,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserphonenumber
+	 * JPQL Query - findYourtaskuserByUserphonenumber.
 	 *
+	 * @param userphonenumber the userphonenumber
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -539,8 +707,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirthAfter
+	 * JPQL Query - findYourtaskuserByUserdateofbirthAfter.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserdateofbirthAfter(java.util.Calendar userdateofbirth) throws DataAccessException {
@@ -549,8 +720,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserdateofbirthAfter
+	 * JPQL Query - findYourtaskuserByUserdateofbirthAfter.
 	 *
+	 * @param userdateofbirth the userdateofbirth
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -561,8 +737,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsercityContaining
+	 * JPQL Query - findYourtaskuserByUsercityContaining.
 	 *
+	 * @param usercity the usercity
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsercityContaining(String usercity) throws DataAccessException {
@@ -571,8 +750,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsercityContaining
+	 * JPQL Query - findYourtaskuserByUsercityContaining.
 	 *
+	 * @param usercity the usercity
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -583,8 +767,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserpasswordContaining
+	 * JPQL Query - findYourtaskuserByUserpasswordContaining.
 	 *
+	 * @param userpassword the userpassword
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserpasswordContaining(String userpassword) throws DataAccessException {
@@ -593,8 +780,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserpasswordContaining
+	 * JPQL Query - findYourtaskuserByUserpasswordContaining.
 	 *
+	 * @param userpassword the userpassword
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -605,8 +797,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserstreetnumber
+	 * JPQL Query - findYourtaskuserByUserstreetnumber.
 	 *
+	 * @param userstreetnumber the userstreetnumber
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserstreetnumber(String userstreetnumber) throws DataAccessException {
@@ -615,8 +810,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserstreetnumber
+	 * JPQL Query - findYourtaskuserByUserstreetnumber.
 	 *
+	 * @param userstreetnumber the userstreetnumber
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -627,8 +827,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondateBefore
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondateBefore.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserlastconnectiondateBefore(java.util.Calendar userlastconnectiondate) throws DataAccessException {
@@ -637,8 +840,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserlastconnectiondateBefore
+	 * JPQL Query - findYourtaskuserByUserlastconnectiondateBefore.
 	 *
+	 * @param userlastconnectiondate the userlastconnectiondate
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -649,8 +857,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserzipcodeContaining
+	 * JPQL Query - findYourtaskuserByUserzipcodeContaining.
 	 *
+	 * @param userzipcode the userzipcode
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUserzipcodeContaining(String userzipcode) throws DataAccessException {
@@ -659,8 +870,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUserzipcodeContaining
+	 * JPQL Query - findYourtaskuserByUserzipcodeContaining.
 	 *
+	 * @param userzipcode the userzipcode
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -671,8 +887,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertypeContaining
+	 * JPQL Query - findYourtaskuserByUsertypeContaining.
 	 *
+	 * @param usertype the usertype
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUsertypeContaining(String usertype) throws DataAccessException {
@@ -681,8 +900,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUsertypeContaining
+	 * JPQL Query - findYourtaskuserByUsertypeContaining.
 	 *
+	 * @param usertype the usertype
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -693,8 +917,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseremailContaining
+	 * JPQL Query - findYourtaskuserByUseremailContaining.
 	 *
+	 * @param useremail the useremail
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Yourtaskuser> findYourtaskuserByUseremailContaining(String useremail) throws DataAccessException {
@@ -703,8 +930,13 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * JPQL Query - findYourtaskuserByUseremailContaining
+	 * JPQL Query - findYourtaskuserByUseremailContaining.
 	 *
+	 * @param useremail the useremail
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -715,10 +947,11 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Yourtaskuser entity) {
 		return true;
@@ -726,8 +959,12 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 
 
 	/**
-	 * JPQL Query - findAllCompanys
+	 * JPQL Query - findAllCompanys.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	
 	@SuppressWarnings("unchecked")
@@ -744,8 +981,10 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 	
 
 	/**
-	 * JPQL Query - findAllCompanys
+	 * JPQL Query - findAllCompanys.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	
 	@SuppressWarnings("unchecked")
@@ -759,6 +998,9 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 		}	
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.dao.YourtaskuserDAO#findCompanyBySIRET(java.lang.String)
+	 */
 	@Override
 	public Yourtaskuser findCompanyBySIRET(String company_companySIRET) throws DataAccessException {
 		try {
@@ -769,6 +1011,9 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.dao.YourtaskuserDAO#findCompanyBySIRET(java.lang.Integer, int, int)
+	 */
 	@Override
 	public Yourtaskuser findCompanyBySIRET(Integer company_companySIRET, int startResult, int maxRows) throws DataAccessException {
 		try {
@@ -779,6 +1024,9 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.dao.YourtaskuserDAO#findYourtaskuserOrderByPrimaryKey(java.lang.Integer)
+	 */
 	@Override
 	public List findYourtaskuserOrderByPrimaryKey(Integer userId) throws DataAccessException {
 		try {

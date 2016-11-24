@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Task.
  */
 
 @Entity
@@ -33,10 +38,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Task")
 
 public class Task implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The taskid. */
 
 	@Column(name = "taskid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -44,8 +50,8 @@ public class Task implements Serializable {
 	@Id
 	@XmlElement
 	Integer taskid;
-	/**
-	 */
+	
+	/** The taskcontent. */
 
 	@Column(name = "taskcontent", length = 2000, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -53,44 +59,61 @@ public class Task implements Serializable {
 	@XmlElement
 	String taskcontent;
 
-	/**
-	 */
+	/** The activity. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "activityid", referencedColumnName = "activityid", nullable = false) })
 	@XmlTransient
 	Activity activity;
 
 	/**
+	 * Sets the taskid.
+	 *
+	 * @param taskid the new taskid
 	 */
 	public void setTaskid(Integer taskid) {
 		this.taskid = taskid;
 	}
 
 	/**
+	 * Gets the taskid.
+	 *
+	 * @return the taskid
 	 */
 	public Integer getTaskid() {
 		return this.taskid;
 	}
 
 	/**
+	 * Sets the taskcontent.
+	 *
+	 * @param taskcontent the new taskcontent
 	 */
 	public void setTaskcontent(String taskcontent) {
 		this.taskcontent = taskcontent;
 	}
 
 	/**
+	 * Gets the taskcontent.
+	 *
+	 * @return the taskcontent
 	 */
 	public String getTaskcontent() {
 		return this.taskcontent;
 	}
 
 	/**
+	 * Sets the activity.
+	 *
+	 * @param activity the new activity
 	 */
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
 
 	/**
+	 * Gets the activity.
+	 *
+	 * @return the activity
 	 */
 	@JsonIgnore
 	public Activity getActivity() {
@@ -98,6 +121,7 @@ public class Task implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new task.
 	 */
 	public Task() {
 	}
@@ -105,6 +129,7 @@ public class Task implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Task that) {
 		setTaskid(that.getTaskid());
@@ -115,6 +140,7 @@ public class Task implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -126,7 +152,8 @@ public class Task implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -136,7 +163,8 @@ public class Task implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

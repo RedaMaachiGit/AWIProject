@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Suinfo.
  */
 
 @Entity
@@ -30,10 +35,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Suinfo")
 
 public class Suinfo implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The suinfoid. */
 
 	@Column(name = "suinfoid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -41,16 +47,16 @@ public class Suinfo implements Serializable {
 	@Id
 	@XmlElement
 	Integer suinfoid;
-	/**
-	 */
+	
+	/** The suinfofirstname. */
 
 	@Column(name = "suinfofirstname", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String suinfofirstname;
-	/**
-	 */
+	
+	/** The suinfolastname. */
 
 	@Column(name = "suinfolastname", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -58,56 +64,79 @@ public class Suinfo implements Serializable {
 	@XmlElement
 	String suinfolastname;
 
-	/**
-	 */
+	/** The yourtaskuser. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuser;
 
 	/**
+	 * Sets the suinfoid.
+	 *
+	 * @param suinfoid the new suinfoid
 	 */
 	public void setSuinfoid(Integer suinfoid) {
 		this.suinfoid = suinfoid;
 	}
 
 	/**
+	 * Gets the suinfoid.
+	 *
+	 * @return the suinfoid
 	 */
 	public Integer getSuinfoid() {
 		return this.suinfoid;
 	}
 
 	/**
+	 * Sets the suinfofirstname.
+	 *
+	 * @param suinfofirstname the new suinfofirstname
 	 */
 	public void setSuinfofirstname(String suinfofirstname) {
 		this.suinfofirstname = suinfofirstname;
 	}
 
 	/**
+	 * Gets the suinfofirstname.
+	 *
+	 * @return the suinfofirstname
 	 */
 	public String getSuinfofirstname() {
 		return this.suinfofirstname;
 	}
 
 	/**
+	 * Sets the suinfolastname.
+	 *
+	 * @param suinfolastname the new suinfolastname
 	 */
 	public void setSuinfolastname(String suinfolastname) {
 		this.suinfolastname = suinfolastname;
 	}
 
 	/**
+	 * Gets the suinfolastname.
+	 *
+	 * @return the suinfolastname
 	 */
 	public String getSuinfolastname() {
 		return this.suinfolastname;
 	}
 
 	/**
+	 * Sets the yourtaskuser.
+	 *
+	 * @param yourtaskuser the new yourtaskuser
 	 */
 	public void setYourtaskuser(Yourtaskuser yourtaskuser) {
 		this.yourtaskuser = yourtaskuser;
 	}
 
 	/**
+	 * Gets the yourtaskuser.
+	 *
+	 * @return the yourtaskuser
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuser() {
@@ -115,6 +144,7 @@ public class Suinfo implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new suinfo.
 	 */
 	public Suinfo() {
 	}
@@ -122,6 +152,7 @@ public class Suinfo implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Suinfo that) {
 		setSuinfoid(that.getSuinfoid());
@@ -133,6 +164,7 @@ public class Suinfo implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -145,7 +177,8 @@ public class Suinfo implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -155,7 +188,8 @@ public class Suinfo implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)
