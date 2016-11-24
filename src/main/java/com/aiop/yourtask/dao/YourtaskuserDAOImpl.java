@@ -1023,23 +1023,6 @@ public class YourtaskuserDAOImpl extends AbstractJpaDao<Yourtaskuser> implements
 			return null;
 		}
 	}
-
-	/* (non-Javadoc)
-	 * @see com.aiop.yourtask.dao.YourtaskuserDAO#findYourtaskuserOrderByPrimaryKey(java.lang.Integer)
-	 */
-	@Override
-	public List findYourtaskuserOrderByPrimaryKey(Integer userId) throws DataAccessException {
-		try {
-			return entityManager.createQuery(
-			        "SELECT o FROM Order o WHERE o.orderid = :orderid")
-	        .setParameter("orderid", userId)
-	        .getResultList();
-			//Query query = createNamedQuery("findYourtaskuserByPrimaryKey", startResult, maxRows, userid);
-			//return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
-		} catch (NoResultException nre) {
-			return null;
-		}
-	}
 }
 
 

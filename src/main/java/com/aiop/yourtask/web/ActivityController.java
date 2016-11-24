@@ -430,7 +430,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityId));
-		mav.setViewName("activity/detailsPublicActivity.jsp");
+		mav.setViewName("activity/su/detailsPublicActivity.jsp");
 
 		return mav;
 	}
@@ -689,7 +689,7 @@ public class ActivityController {
 
 		mav.addObject("activitys", activityDAO.findActivityByActivityvisibility(true));
 
-		mav.setViewName("activity/listActivities.jsp");
+		mav.setViewName("activity/su/listPublicActivities.jsp");
 
 		return mav;
 	}

@@ -5,10 +5,12 @@
 package com.aiop.yourtask.dao;
 
 import com.aiop.yourtask.domain.Order;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.math.BigDecimal;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 import org.skyway.spring.util.dao.JpaDao;
@@ -219,5 +221,7 @@ public interface OrderDAO extends JpaDao<Order> {
 	 * @throws DataAccessException the data access exception
 	 */
 	public Set<Order> findOrderByOrderdate(Calendar orderdate_2, int startResult, int maxRows) throws DataAccessException;
+	
+	public List findOrdersByYourtaskuser(Yourtaskuser user) throws DataAccessException;
 
 }

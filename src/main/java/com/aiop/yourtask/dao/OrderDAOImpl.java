@@ -5,10 +5,12 @@
 package com.aiop.yourtask.dao;
 
 import com.aiop.yourtask.domain.Order;
+import com.aiop.yourtask.domain.Yourtaskuser;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -382,5 +384,22 @@ public class OrderDAOImpl extends AbstractJpaDao<Order> implements OrderDAO {
 	 */
 	public boolean canBeMerged(Order entity) {
 		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.dao.YourtaskuserDAO#findYourtaskuserOrderByPrimaryKey(java.lang.Integer)
+	 */
+	@Override
+	public List findOrdersByYourtaskuser(Yourtaskuser user) throws DataAccessException {
+		try {
+			return entityManager.createQuery(
+			        "SELECT o FROM Order o WHERE o.yourtaskuserByUserid = :user")
+	        .setParameter("user", user)
+	        .getResultList();
+			//Query query = createNamedQuery("findYourtaskuserByPrimaryKey", startResult, maxRows, userid);
+			//return (com.aiop.yourtask.domain.Yourtaskuser) query.getSingleResult();
+		} catch (NoResultException nre) {
+			return null;
+		}
 	}
 }
