@@ -20,8 +20,10 @@ import util.JsonReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -369,30 +371,27 @@ public class ProductController {
 	public ModelAndView allProducts() {
 		ModelAndView mav = new ModelAndView();
 
-		
-		
-		/*
-		Set<Comment> listcomment = activity.getComments();
-		Set<Yourtaskuser> listusercomment = new HashSet<Yourtaskuser>();
-		for(Comment item : listcomment) {
-			Comment comment = commentDAO.findCommentByPrimaryKey(item.getCommentid());
-			listusercomment.add(comment.getYourtaskuser());
-		}
-		List<Yourtaskuser> listusercommentok = new ArrayList<>(listusercomment);
-		*/
-		/*
 		try {
-			Set<Product> listExternalProducts = new HashSet<Product>();
+			List<Map<String,String>> externalProducts = new ArrayList<>();
+						
 			for (int i = 0; i < JsonReader.getNumberOfProduct(); i++) {
-				listExternalProducts.add(new Product(JsonReader.getNameProduct(i),JsonReader.getDescriptionProduct(i),"ok",JsonReader.getPriceSeller(i),JsonReader.getQuantityStock(i)))
+				Map<String, String> productAttribute = new HashMap<String, String>();
+				productAttribute.put("id", JsonReader.getIdSeller(i).toString());
+				productAttribute.put("name", JsonReader.getNameProduct(i).toString());
+				productAttribute.put("description", JsonReader.getDescriptionProduct(i).toString());
+				productAttribute.put("image", "http://www.icone-png.com/png/54/53883.png");
+				productAttribute.put("price", JsonReader.getPriceSeller(i).toString());
+				productAttribute.put("availablequantity", JsonReader.getQuantityStock(i).toString());
+				externalProducts.add(i,productAttribute);
 			}
+			mav.addObject("externalproducts", externalProducts);
 		} catch (IOException | JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
+		
 		mav.addObject("products", productService.loadProducts());
-
+		
 		mav.setViewName("product/su/listAllProducts.jsp");
 
 		return mav;

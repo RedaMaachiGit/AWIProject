@@ -59,7 +59,53 @@
 							</tbody>
 						</table>
 						<br>
+						
 						<h2>From external companies</h2>
+						<table class="table table-bordered table-hover" id="viewTable2">
+							<thead>
+								<tr>
+									<th class="thead">Name</th>
+									<th class="thead">Description</th>
+									<th class="thead">Image</th>
+									<th class="thead">Price</th>
+									<th class="thead">Available Quantity</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${externalproducts}" var="current"  varStatus="i">	
+									<c:choose>
+										<c:when test="${(i.count) % 2 == 0}">
+						    				<c:set var="rowclass" value="rowtwo"/>
+										</c:when>
+										<c:otherwise>
+							    			<c:set var="rowclass" value="rowone"/>
+										</c:otherwise>
+									</c:choose>
+									<tr class="${rowclass}">
+										<td>
+											${externalproducts[i.index].name}
+											&nbsp;
+										</td>
+										<td>
+											${externalproducts[i.index].description}
+											&nbsp;
+										</td>
+										<td>
+											<img src="${externalproducts[i.index].image}" alt="Product Image" style="max-height:5%;">
+											&nbsp;
+										</td>
+										<td>
+											${externalproducts[i.index].price}
+											&nbsp;
+										</td>
+										<td>
+											${externalproducts[i.index].availablequantity}
+											&nbsp;
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 						
 						
 					<div class="clear">&nbsp;</div>
@@ -68,6 +114,7 @@
 			<script type="text/javascript">
 			$(document).ready(function(){
 			    $('#viewTable').DataTable();
+			    $('#viewTable2').DataTable();
 			});
 			</script>
 	</body>
