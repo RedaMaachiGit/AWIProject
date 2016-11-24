@@ -2,15 +2,18 @@
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" media="screen" href="resources/css/style.css"/>
-	<title>Home</title>
+	<title>Access denied</title>
 </head>
-
 <body>
-	<jsp:include page="../menu.jsp" />
-	<h1 id="banner">Unauthorized</h1>
+	<h1>Unauthorized</h1>
 	<hr/>
+	<p>You have no right to access to this page.</p>
+	<p> Maybe you are not connected as the right user. so please login or register</p>
+	<ul>
+		<li><a href="/login">login page</a></li>
+		<li><a href="/login">registration page</a></li>
+		<li><a href="mailto:bsthiaw@gmail.com">contact the administrator</a></li>
+	</ul>
 	
-	<p class="message">Access denied!</p>
 </body>
 </html>

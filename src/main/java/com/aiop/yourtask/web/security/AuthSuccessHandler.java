@@ -52,11 +52,9 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
 	  	SecurityContext context = SecurityContextHolder.getContext();
 	    Object principalObj = context.getAuthentication().getPrincipal();
 	    UserDetails principal = ((UserDetails) principalObj);
-	    //String principal = ((UserDetails) principalObj).getUsername();
 	            
 	    //response.addCookie(cookieService.createCookie(principal));
-	    //SimpleGrantedAuthority roleAdmin = new SimpleGrantedAuthority("ROLE_ADMIN");
-	    //GrantedAuthority gA;
+
 	    Object[] roles = principal.getAuthorities().toArray();
 	    GrantedAuthority principalRole = (GrantedAuthority) roles[roles.length-1];
 	    

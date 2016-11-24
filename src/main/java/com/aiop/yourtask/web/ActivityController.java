@@ -93,7 +93,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
-		mav.setViewName("activity/tasks/listTasks.jsp");
+		mav.setViewName("activity/su/tasks/listTasks.jsp");
 
 		return mav;
 	}
@@ -109,7 +109,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
-		mav.setViewName("activity/comments/listComments.jsp");
+		mav.setViewName("activity/su/comments/listComments.jsp");
 
 		return mav;
 	}

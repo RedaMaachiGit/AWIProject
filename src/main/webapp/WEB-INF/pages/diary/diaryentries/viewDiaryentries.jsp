@@ -6,10 +6,7 @@
 <title>View <fmt:message key="diary.title"/> <fmt:message key="diaryentry.title"/></title>
 </head>
 <body>
-<div id="contentarea">      
-	<div id="lb"><div id="rb"><div id="bb"><div id="blc">
-	<div id="brc"><div id="tb"><div id="tlc"><div id="trc">
-		<div id="content">
+<div id="contentarea" class="container">      
 			<h1><fmt:message key="navigation.view"/> <fmt:message key="diaryentry.title"/></h1>
 			<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/selectDiary?iddiaryKey=${diary_iddiary}&"><span><img src="images/icons/back.gif" /><fmt:message key="navigation.back"/></span></a></div>
 		
@@ -54,8 +51,5 @@
 				</tbody>
 			</table>
 		</div>
-	</div></div></div></div>
-	</div></div></div></div>
-</div>
 </body>
 </html>

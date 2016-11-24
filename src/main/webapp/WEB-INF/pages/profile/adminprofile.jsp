@@ -4,16 +4,16 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources" />
 <html>
 <head>
-<title>Edit a user <fmt:message key="yourtaskuser.title" /></title>
+<title>Profile <fmt:message key="yourtaskuser.title" /></title>
 </head>
 <body>
 	<div id="contentarea" class="container">
 		<div class=row>
 			<div class="col-sm-6">
 				<div class="panel panel-success">
-					<div class="panel-heading">User's principal informations</div>
+					<div class="panel-heading">Your principal informations</div>
 					<div class="panel-body">
-						<form:form action="${pageContext.request.contextPath}/admin/user/edit" method="POST" modelAttribute="yourtaskuser">
+						<form:form action="${pageContext.request.contextPath}/admin/profile/save" method="POST" modelAttribute="yourtaskuser">
 									<div class="hidden">
 										<div class="control-label"><fmt:message
 												key="yourtaskuser.userid.title" />:</div>
@@ -243,92 +243,7 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="col-sm-6">
-				<div class="panel panel-success">
-					<div class="panel-heading">Secondary informations</div>
-					<div class="panel-body">
-						<form:form
-							action="${pageContext.request.contextPath}/admin/user/editsuinfo"
-							method="POST" modelAttribute="suinfo">
-									<div class="hidden">
-										<div class="control-label"><fmt:message
-												key="suinfo.suinfoid.title" />:</div>
-										<div class='input'><c:choose>
-												<c:when test='${newFlag}'>
-													<form:input id="suinfo_suinfoid" path="suinfoid"
-														cssStyle="width:300px;" />
-													<script type="text/javascript">
-														Spring
-																.addDecoration(new Spring.ElementDecoration(
-																		{
-																			elementId : "suinfo_suinfoid",
-																			widgetType : "dijit.form.NumberTextBox",
-																			widgetAttrs : {
-																				promptMessage : "<fmt:message key="suinfo.suinfoid.help"/>",
-																				constraints : {
-																					places : 0
-																				}
-																			}
-																		}));
-													</script>
-												</c:when>
-												<c:otherwise>
-							${suinfo.suinfoid}
-						&nbsp;
-									<form:hidden id="suinfo_suinfoid" path="suinfoid" />
-												</c:otherwise>
-											</c:choose></div>
-									</div>
-									<div class="form-group">
-										<div class="control-label">First name:</div>
-										<div class='input'><form:input id="suinfo_suinfofirstname"
-												path="suinfofirstname" cssStyle="width:300px;" /> <script
-												type="text/javascript">
-													Spring
-															.addDecoration(new Spring.ElementDecoration(
-																	{
-																		elementId : "suinfo_suinfofirstname",
-																		widgetType : "dijit.form.ValidationTextBox",
-																		widgetAttrs : {
-																			promptMessage : "<fmt:message key="suinfo.suinfofirstname.help"/>"
-																		}
-																	}));
-												</script></div>
-									</div>
-									<div class="form-group">
-										<div class="control-label">Last name:</div>
-										<div class='input'><form:input id="suinfo_suinfolastname"
-												path="suinfolastname" cssStyle="width:300px;" /> <script
-												type="text/javascript">
-													Spring
-															.addDecoration(new Spring.ElementDecoration(
-																	{
-																		elementId : "suinfo_suinfolastname",
-																		widgetType : "dijit.form.ValidationTextBox",
-																		widgetAttrs : {
-																			promptMessage : "<fmt:message key="suinfo.suinfolastname.help"/>"
-																		}
-																	}));
-												</script></div>
-									</div>
-							<input class="btn btn-success"
-								id="save" type="submit"
-								value="<fmt:message key="navigation.save"/>" />
-							<script type="text/javascript">
-								Spring
-										.addDecoration(new Spring.ValidateAllDecoration(
-												{
-													elementId : 'save',
-													event : 'onclick'
-												}));
-							</script>
-							<input type="hidden" name="yourtaskuser_userid"
-								value="${yourtaskuser_userid}">
-						</form:form>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 </body>

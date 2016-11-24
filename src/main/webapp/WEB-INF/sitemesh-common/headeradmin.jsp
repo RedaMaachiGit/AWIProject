@@ -18,12 +18,9 @@
         	</div>
        		<div id="navbar" class="collapse navbar-collapse">
          		<ul class="nav navbar-nav">
-         			<li><a href="./"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-           			<li><a href="./access/profile"><span class="glyphicon glyphicon-user"></span> My profile</a></li>
-           			<li><a href="${pageContext.request.contextPath}/access/diaries"><span class="glyphicon glyphicon-shopping-cart"></span> Buy products</a></li>
-           			<li><a href="${pageContext.request.contextPath}/access/diaries"><span class="glyphicon glyphicon-list-alt"></span> My orders</a></li>
-           			<li><a href="${pageContext.request.contextPath}/access/activities"><span class="glyphicon glyphicon-calendar"></span> My activities</a></li>
-           			<li><a href="${pageContext.request.contextPath}/access/activities"><span class="glyphicon glyphicon-th"></span> All activities</a></li>
+         			<li><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+           			<li><a href="${pageContext.request.contextPath}/admin/profile"><span class="glyphicon glyphicon-user"></span> My profile</a></li>
+           			<li><a href="${pageContext.request.contextPath}/admin/"><span class="glyphicon glyphicon-wrench"></span> Manage users</a></li>
          		</ul>
           		<ul class="nav navbar-nav navbar-right">
           			<li>

@@ -39,15 +39,15 @@
 									</c:choose>
 									<tr class="${rowclass}">
 										<td nowrap="nowrap">
-											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}">
+											<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/su/activity/${current.activityid}">
 												<span class="glyphicon glyphicon-zoom-in"></span>
 											</a>
 											
-											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}/editActivity">
+											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/su/activity/${current.activityid}/editActivity">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</a>
 											
-											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/activity/${current.activityid}/deleteActivity">
+											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/su/activity/${current.activityid}/deleteActivity">
 												<span class="glyphicon glyphicon-trash"></span>
 											</a>
 										</td>

@@ -38,7 +38,7 @@ public class AdminController {
 	 *
 	 * @return the model and view
 	 */
-	@RequestMapping("/admin")
+	@RequestMapping("/admin*")
 	public ModelAndView adminDashboard() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("yourtaskusers", yourtaskuserService.loadYourtaskusers());

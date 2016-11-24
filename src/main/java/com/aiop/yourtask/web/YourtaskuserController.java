@@ -36,7 +36,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.WebDataBinder;
@@ -199,20 +200,20 @@ public class YourtaskuserController {
 	}
 
 	/**
-	 * Edit an existing Activity entity.
+	 * Edit an existing Activity entity. (modified)
 	 *
 	 * @param userId the user id
 	 * @param activityId the activity id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/editActivity")
-	public ModelAndView editUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}/editActivity")
+	public ModelAndView editUserActivity(@PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
-		
+		Yourtaskuser user = authentication.getActiveUser();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", userId);
+		mav.addObject("yourtaskuser_userid", user.getUserid());
 		mav.addObject("activity", activity);
-		mav.setViewName("yourtaskuser/activities/editActivities.jsp");
+		mav.setViewName("activity/su/editactivity.jsp");
 
 		return mav;
 	}
@@ -685,10 +686,11 @@ public class YourtaskuserController {
 	 * @param activityId the activity id
 	 * @return the string
 	 */
-	@RequestMapping("/deleteYourtaskuserActivities/{userId}/{activityId}")
-	public String deleteYourtaskuserActivities(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
-		yourtaskuserService.deleteYourtaskuserActivities(userId, activityId);
-		return "redirect:/su/"+userId+"/activities/";
+	@RequestMapping("/deleteYourtaskuserActivities/{activityId}")
+	public String deleteYourtaskuserActivities(@PathVariable("activityId") Integer activityId) {
+		Yourtaskuser user = authentication.getActiveUser();
+		yourtaskuserService.deleteYourtaskuserActivities(user.getUserid(), activityId);
+		return "redirect:/su/activities/";
 	}
 
 	/**
@@ -1016,13 +1018,14 @@ public class YourtaskuserController {
 	 * @param activity the activity
 	 * @return the string
 	 */
-	@RequestMapping("/saveYourtaskuserActivities/{userId}")
-	public String saveYourtaskuserActivities(@PathVariable("userId") Integer userId, @ModelAttribute Activity activity) {	
+	@RequestMapping("/su/saveYourtaskuserActivities")
+	public String saveYourtaskuserActivities( @ModelAttribute Activity activity) {	
+		Yourtaskuser user = authentication.getActiveUser();
 		if (activity.getActivityid() == null) {
 			activity.setActivityid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
-		yourtaskuserService.saveYourtaskuserActivities(userId, activity);
-		return "redirect:/su/"+userId+"/activities/";
+		yourtaskuserService.saveYourtaskuserActivities(user.getUserid(), activity);
+		return "redirect:/su/activities/";
 	}
 
 	/**
@@ -1337,13 +1340,13 @@ public class YourtaskuserController {
 	 * @param activityId the activity id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/deleteActivity")
-	public ModelAndView deleteUserActivity(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}/deleteActivity")
+	public ModelAndView deleteUserActivity(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
-
+		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityId));
-		mav.addObject("yourtaskuser_userid", userId);
-		mav.setViewName("yourtaskuser/activities/deleteActivities.jsp");
+		mav.addObject("yourtaskuser_userid", user.getUserid());
+		mav.setViewName("activity/su/deleteActivities.jsp");
 
 		return mav;
 	}
@@ -1360,45 +1363,6 @@ public class YourtaskuserController {
 	public String saveYourtaskuser(@ModelAttribute Yourtaskuser yourtaskuser) { // retournait un String avant
 		yourtaskuserService.saveYourtaskuser(yourtaskuser);
 		return "forward:/indexYourtaskuser";
-		//int id=yourtaskuser.getUserid(); // rajouté
-		//return "forward:/indexYourtaskuser";
-	/*	return "forward:/selectYourtaskUser?useridKey=1&"; // rajouté
-		
-		
-		
-		//saveYourtaskuserActivities
-		if (yourtaskuser.getUserid() == null) {
-			yourtaskuser.setUserid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
-		}
-		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuser(yourtaskuser);
-		Yourtaskuser parent_yourtaskuser = yourtaskuserService.saveYourtaskuserActivities(yourtaskuser_userid, activities);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", yourtaskuser_userid);
-		mav.addObject("yourtaskuser", parent_yourtaskuser);
-		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
-
-		return mav;
-		
-		//indexYourtaskUser
-		ModelAndView mav = new ModelAndView();
-
-		ActivityDAO activityDAO = new ActivityDAO();
-		activityDAO.findActivityByY
-		mav.addObject("yourtaskusers", yourtaskuserService.loadYourtaskusers());
-
-		mav.setViewName("yourtaskuser/listYourtaskusers.jsp");
-
-		return mav;
-		
-		//selectyourtaskuser
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser.getUserid()));
-		
-		mav.setViewName("yourtaskuser/activitiesByUser.jsp");
-		
-		return mav;
-	*/	
 		
 	}
 	
@@ -1707,10 +1671,10 @@ public class YourtaskuserController {
 	 * @return the string
 	 */
 	@RequestMapping("/admin/users/delete/{userid}")
-	public String adminDeleteYourtaskuser(@RequestParam Integer useridKey) {
-		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(useridKey);
+	public String adminDeleteYourtaskuser(@RequestParam Integer userid) {
+		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(userid);
 		yourtaskuserService.deleteYourtaskuser(yourtaskuser);
-		return "forward:/admin/indexYourtaskuser";
+		return "redirect:/admin/";
 	}
 	
 
@@ -1757,6 +1721,42 @@ public class YourtaskuserController {
 		scinfo.setScinfosiret("");scinfo.setScinfowebsite("");
 		scinfo.setYourtaskuser(yourtaskuser);
 		scinfoDAO.store(scinfo);
+		return "redirect:/admin/users";
+	}
+	
+	/**
+	 * Save an existing Scinfo entity.
+	 *
+	 * @param yourtaskuser_userid
+	 *            the yourtaskuser userid
+	 * @param scinfos
+	 *            the scinfos
+	 * @return the string
+	 */
+	@RequestMapping("/admin/company/editscinfo")
+	public String adminSaveCompanyScinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Scinfo scinfos) {
+		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Yourtaskuser yourtaskuser = yourtaskuserService.findByUsername(user.getUsername());
+		yourtaskuserService.saveYourtaskuserScinfos(yourtaskuser.getUserid(), scinfos);
+
+		return "redirect:/admin/users";
+	}
+
+	/**
+	 * Save an existing Suinfo entity.
+	 *
+	 * @param yourtaskuser_userid
+	 *            the yourtaskuser userid
+	 * @param suinfos
+	 *            the suinfos
+	 * @return the string
+	 */
+	@RequestMapping("/admin/user/editsuinfo")
+	public String adminSaveCompanySuinfos(@RequestParam Integer yourtaskuser_userid, @ModelAttribute Suinfo suinfos) {
+		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Yourtaskuser yourtaskuser = yourtaskuserService.findByUsername(user.getUsername());
+		yourtaskuserService.saveYourtaskuserSuinfos(yourtaskuser.getUserid(), suinfos);
+
 		return "redirect:/admin/users";
 	}
 }

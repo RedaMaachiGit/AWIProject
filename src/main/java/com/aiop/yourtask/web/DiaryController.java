@@ -654,7 +654,7 @@ public class DiaryController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("diary", diaryDAO.findDiaryByPrimaryKey(iddiaryKey));
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
+		mav.setViewName("activity/su/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -667,15 +667,15 @@ public class DiaryController {
 	 * @param diaryId the diary id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}")
-	public ModelAndView selectUserActivityDiary(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
+	@RequestMapping("/su/activity/{activityId}/diary/{diaryId}")
+	public ModelAndView selectUserActivityDiary(@PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
 		Activity activity = activityDAO.findActivityByActivityid(activityId);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activityid", activityId);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/detailsDiary.jsp");
+		mav.setViewName("activity/su/diaries/detailsDiary.jsp");
 
 		return mav;
 	}
@@ -695,7 +695,7 @@ public class DiaryController {
 		mav.addObject("activityid", activityId);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/detailsDiaryPublicActivity.jsp");
+		mav.setViewName("activity/su/diaries/detailsDiaryPublicActivity.jsp");
 
 		return mav;
 	}
