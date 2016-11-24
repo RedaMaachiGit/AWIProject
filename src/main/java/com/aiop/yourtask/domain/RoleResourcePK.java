@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -7,26 +10,30 @@ import javax.persistence.Id;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class RoleResourcePK.
  */
 public class RoleResourcePK implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Instantiates a new role resource PK.
 	 */
 	public RoleResourcePK() {
 	}
 
-	/**
-	 */
+	/** The roleid. */
 
 	@Column(name = "roleid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@Id
 	public Integer roleid;
-	/**
-	 */
+	
+	/** The resourceid. */
 
 	@Column(name = "resourceid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -35,30 +42,43 @@ public class RoleResourcePK implements Serializable {
 	public Integer resourceid;
 
 	/**
+	 * Sets the roleid.
+	 *
+	 * @param roleid the new roleid
 	 */
 	public void setRoleid(Integer roleid) {
 		this.roleid = roleid;
 	}
 
 	/**
+	 * Gets the roleid.
+	 *
+	 * @return the roleid
 	 */
 	public Integer getRoleid() {
 		return this.roleid;
 	}
 
 	/**
+	 * Sets the resourceid.
+	 *
+	 * @param resourceid the new resourceid
 	 */
 	public void setResourceid(Integer resourceid) {
 		this.resourceid = resourceid;
 	}
 
 	/**
+	 * Gets the resourceid.
+	 *
+	 * @return the resourceid
 	 */
 	public Integer getResourceid() {
 		return this.resourceid;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -69,7 +89,8 @@ public class RoleResourcePK implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)
@@ -88,6 +109,9 @@ public class RoleResourcePK implements Serializable {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("RoleResourcePK");

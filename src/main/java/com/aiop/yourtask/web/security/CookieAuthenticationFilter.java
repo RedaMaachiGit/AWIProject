@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.security;
 
 import java.io.IOException;
@@ -15,25 +18,44 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import com.aiop.yourtask.service.CustomUserDetailsService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CookieAuthenticationFilter.
+ */
 public class CookieAuthenticationFilter extends GenericFilterBean {
 
+  /** The user detail service. */
   private final CustomUserDetailsService userDetailService;
 
+  /** The cookie service. */
   private final CookieService cookieService;
   
+  /**
+   * Instantiates a new cookie authentication filter.
+   */
   public CookieAuthenticationFilter() {
 	    this.userDetailService = new CustomUserDetailsService();
 	    this.cookieService =  new CookieService.Impl();
 	  }
 
+  /**
+   * Instantiates a new cookie authentication filter.
+   *
+   * @param userDetailService the user detail service
+   * @param cookieService the cookie service
+   */
   public CookieAuthenticationFilter(CustomUserDetailsService userDetailService,
       CookieService cookieService) {
     this.userDetailService = userDetailService;
     this.cookieService = cookieService;
   }
 
+  /** The Constant FILTER_APPLIED. */
   static final String FILTER_APPLIED = "__spring_security_scpf_applied";
 
+  /* (non-Javadoc)
+   * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+   */
   @Override
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException,
     ServletException {

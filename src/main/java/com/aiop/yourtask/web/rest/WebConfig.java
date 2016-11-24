@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 import java.util.HashMap;
 import java.util.List;
@@ -21,15 +24,27 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.aiop.yourtask.domain.Product;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class WebConfig.
+ */
 @Configuration
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    /* (non-Javadoc)
+     * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#configureMessageConverters(java.util.List)
+     */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
             converters.add(marshallingMessageConverter());
     }
 
+    /**
+     * Marshalling message converter.
+     *
+     * @return the marshalling http message converter
+     */
     @Bean
     public MarshallingHttpMessageConverter marshallingMessageConverter() {
         MarshallingHttpMessageConverter converter = new MarshallingHttpMessageConverter();
@@ -38,6 +53,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return converter;
     }
 
+    /**
+     * Jaxb marshaller.
+     *
+     * @return the jaxb 2 marshaller
+     */
     @Bean 
     public Jaxb2Marshaller jaxbMarshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();

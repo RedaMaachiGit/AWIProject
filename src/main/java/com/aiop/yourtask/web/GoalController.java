@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.DiaryDAO;
@@ -24,46 +27,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Goal entities
- * 
+ * Spring MVC controller that handles CRUD requests for Goal entities.
  */
 
 @Controller("GoalController")
 
 public class GoalController {
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Goal entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Goal entities. */
 	@Autowired
 	private GoalDAO goalDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Goal entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Goal entities. */
 	@Autowired
 	private GoalService goalService;
 
 	/**
-	 * Entry point to show all Goal entities
-	 * 
+	 * Entry point to show all Goal entities.
+	 *
+	 * @return the string
 	 */
 	public String indexGoal() {
 		return "redirect:/indexGoal";
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/goalController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -73,9 +73,10 @@ public class GoalController {
 	}
 
 	/**
-	* Show all Goal entities
-	* 
-	*/
+	 * Show all Goal entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/indexGoal")
 	public ModelAndView listGoals() {
 		ModelAndView mav = new ModelAndView();
@@ -88,9 +89,11 @@ public class GoalController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newGoalDiary")
 	public ModelAndView newGoalDiary(@RequestParam Integer goal_goalid) {
 		ModelAndView mav = new ModelAndView();
@@ -103,9 +106,11 @@ public class GoalController {
 	}
 
 	/**
-	* Edit an existing Goal entity
-	* 
-	*/
+	 * Edit an existing Goal entity.
+	 *
+	 * @param goalidKey the goalid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editGoal")
 	public ModelAndView editGoal(@RequestParam Integer goalidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -117,9 +122,12 @@ public class GoalController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param diary the diary
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveGoalDiary")
 	public ModelAndView saveGoalDiary(@RequestParam Integer goal_goalid, @ModelAttribute Diary diary) {
 		Goal parent_goal = goalService.saveGoalDiary(goal_goalid, diary);
@@ -133,9 +141,11 @@ public class GoalController {
 	}
 
 	/**
-	* Delete an existing Goal entity
-	* 
-	*/
+	 * Delete an existing Goal entity.
+	 *
+	 * @param goalidKey the goalid key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteGoal")
 	public String deleteGoal(@RequestParam Integer goalidKey) {
 		Goal goal = goalDAO.findGoalByPrimaryKey(goalidKey);
@@ -144,9 +154,10 @@ public class GoalController {
 	}
 
 	/**
-	* Create a new Goal entity
-	* 
-	*/
+	 * Create a new Goal entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newGoal")
 	public ModelAndView newGoal() {
 		ModelAndView mav = new ModelAndView();
@@ -159,9 +170,12 @@ public class GoalController {
 	}
 
 	/**
-	* Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param related_diary_iddiary the related diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteGoalDiary")
 	public ModelAndView confirmDeleteGoalDiary(@RequestParam Integer goal_goalid, @RequestParam Integer related_diary_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -174,9 +188,11 @@ public class GoalController {
 	}
 
 	/**
-	* Select an existing Goal entity
-	* 
-	*/
+	 * Select an existing Goal entity.
+	 *
+	 * @param goalidKey the goalid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectGoal")
 	public ModelAndView selectGoal(@RequestParam Integer goalidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -188,9 +204,11 @@ public class GoalController {
 	}
 
 	/**
-	* Show all Diary entities by Goal
-	* 
-	*/
+	 * Show all Diary entities by Goal.
+	 *
+	 * @param goalidKey the goalid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listGoalDiary")
 	public ModelAndView listGoalDiary(@RequestParam Integer goalidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -202,9 +220,11 @@ public class GoalController {
 	}
 
 	/**
-	* Select the Goal entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the Goal entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param goalidKey the goalid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteGoal")
 	public ModelAndView confirmDeleteGoal(@RequestParam Integer goalidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -216,9 +236,12 @@ public class GoalController {
 	}
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param diary_iddiary the diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectGoalDiary")
 	public ModelAndView selectGoalDiary(@RequestParam Integer goal_goalid, @RequestParam Integer diary_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diary_iddiary, -1, -1);
@@ -232,9 +255,11 @@ public class GoalController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -250,9 +275,11 @@ public class GoalController {
 	}
 
 	/**
-	* Save an existing Goal entity
-	* 
-	*/
+	 * Save an existing Goal entity.
+	 *
+	 * @param goal the goal
+	 * @return the string
+	 */
 	@RequestMapping("/saveGoal")
 	public String saveGoal(@ModelAttribute Goal goal) {
 		goalService.saveGoal(goal);
@@ -260,9 +287,12 @@ public class GoalController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param related_diary_iddiary the related diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteGoalDiary")
 	public ModelAndView deleteGoalDiary(@RequestParam Integer goal_goalid, @RequestParam Integer related_diary_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -277,9 +307,12 @@ public class GoalController {
 	}
 
 	/**
-	* Edit an existing Diary entity
-	* 
-	*/
+	 * Edit an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param diary_iddiary the diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/editGoalDiary")
 	public ModelAndView editGoalDiary(@RequestParam Integer goal_goalid, @RequestParam Integer diary_iddiary) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diary_iddiary, -1, -1);

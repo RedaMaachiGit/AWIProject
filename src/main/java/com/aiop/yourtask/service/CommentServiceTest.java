@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -37,6 +40,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -79,8 +83,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveCommentYourtaskuser() {
@@ -94,8 +97,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Activity entity
-	* 
+	 * Save an existing Activity entity.
 	 */
 	@Test
 	public void saveCommentActivity() {
@@ -109,8 +111,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Comment entity
-	* 
+	 * Delete an existing Comment entity.
 	 */
 	@Test
 	public void deleteComment() {
@@ -121,8 +122,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteCommentYourtaskuser() {
@@ -136,8 +136,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Activity entity
-	* 
+	 * Delete an existing Activity entity.
 	 */
 	@Test
 	public void deleteCommentActivity() {
@@ -151,8 +150,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Comment entity
-	* 
+	 * Return a count of all Comment entity.
 	 */
 	@Test
 	public void countComments() {
@@ -163,8 +161,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Comment entity
-	* 
+	 * Load an existing Comment entity.
 	 */
 	@Test
 	public void loadComments() {
@@ -175,8 +172,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Comment entity
-	* 
+	 * Return all Comment entity.
 	 */
 	@Test
 	public void findAllComments() {
@@ -190,8 +186,7 @@ public class CommentServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Comment entity
-	* 
+	 * Save an existing Comment entity.
 	 */
 	@Test
 	public void saveComment() {
@@ -201,7 +196,7 @@ public class CommentServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findCommentByPrimaryKey() {
@@ -215,6 +210,7 @@ public class CommentServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -224,8 +220,7 @@ public class CommentServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

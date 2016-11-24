@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage OrderProduct entities.
  * 
@@ -37,24 +41,21 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			OrderProduct.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new OrderProductDAOImpl
-	 *
+	 * Instantiates a new OrderProductDAOImpl.
 	 */
 	public OrderProductDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,17 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findAllOrderProducts
+	 * JPQL Query - findAllOrderProducts.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<OrderProduct> findAllOrderProducts() throws DataAccessException {
@@ -79,8 +83,12 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	}
 
 	/**
-	 * JPQL Query - findAllOrderProducts
+	 * JPQL Query - findAllOrderProducts.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -91,8 +99,12 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	}
 
 	/**
-	 * JPQL Query - findOrderProductByPrimaryKey
+	 * JPQL Query - findOrderProductByPrimaryKey.
 	 *
+	 * @param orderid the orderid
+	 * @param productid the productid
+	 * @return the order product
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public OrderProduct findOrderProductByPrimaryKey(Integer orderid, Integer productid) throws DataAccessException {
@@ -101,8 +113,14 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	}
 
 	/**
-	 * JPQL Query - findOrderProductByPrimaryKey
+	 * JPQL Query - findOrderProductByPrimaryKey.
 	 *
+	 * @param orderid the orderid
+	 * @param productid the productid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the order product
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -116,10 +134,11 @@ public class OrderProductDAOImpl extends AbstractJpaDao<OrderProduct> implements
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(OrderProduct entity) {
 		return true;

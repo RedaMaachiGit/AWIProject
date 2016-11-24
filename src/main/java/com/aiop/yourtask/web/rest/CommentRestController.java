@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -27,46 +30,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Comment entities
- * 
+ * Spring Rest controller that handles CRUD requests for Comment entities.
  */
 
 @Controller("CommentRestController")
 
 public class CommentRestController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Comment entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Comment entities. */
 	@Autowired
 	private CommentService commentService;
 
 	/**
-	 * Create a new Activity entity
-	 * 
+	 * Create a new Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param activity the activity
+	 * @return the activity
 	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/activity", method = RequestMethod.POST)
 	@ResponseBody
@@ -76,9 +70,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Get Activity entity by Comment
-	* 
-	*/
+	 * Get Activity entity by Comment.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @return the comment activity
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/activity", method = RequestMethod.GET)
 	@ResponseBody
 	public Activity getCommentActivity(@PathVariable Integer comment_commentid) {
@@ -86,9 +82,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -104,9 +102,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteCommentYourtaskuser(@PathVariable Integer comment_commentid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -114,9 +114,12 @@ public class CommentRestController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/yourtaskuser", method = RequestMethod.POST)
 	@ResponseBody
 	public Yourtaskuser newCommentYourtaskuser(@PathVariable Integer comment_commentid, @RequestBody Yourtaskuser yourtaskuser) {
@@ -125,9 +128,12 @@ public class CommentRestController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param activity the activity
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/activity", method = RequestMethod.PUT)
 	@ResponseBody
 	public Activity saveCommentActivity(@PathVariable Integer comment_commentid, @RequestBody Activity activity) {
@@ -136,9 +142,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param comment the comment
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Comment", method = RequestMethod.PUT)
 	@ResponseBody
 	public Comment saveComment(@RequestBody Comment comment) {
@@ -147,9 +155,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Get Yourtaskuser entity by Comment
-	* 
-	*/
+	 * Get Yourtaskuser entity by Comment.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @return the comment yourtaskuser
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/yourtaskuser", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser getCommentYourtaskuser(@PathVariable Integer comment_commentid) {
@@ -157,9 +167,12 @@ public class CommentRestController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/yourtaskuser", method = RequestMethod.PUT)
 	@ResponseBody
 	public Yourtaskuser saveCommentYourtaskuser(@PathVariable Integer comment_commentid, @RequestBody Yourtaskuser yourtaskuser) {
@@ -168,9 +181,12 @@ public class CommentRestController {
 	}
 
 	/**
-	* View an existing Activity entity
-	* 
-	*/
+	 * View an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the activity
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/activity/{activity_activityid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Activity loadCommentActivity(@PathVariable Integer comment_commentid, @PathVariable Integer related_activity_activityid) {
@@ -180,9 +196,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @param comment the comment
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Comment", method = RequestMethod.POST)
 	@ResponseBody
 	public Comment newComment(@RequestBody Comment comment) {
@@ -191,9 +209,10 @@ public class CommentRestController {
 	}
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteComment(@PathVariable Integer comment_commentid) {
@@ -202,9 +221,12 @@ public class CommentRestController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the yourtaskuser
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/yourtaskuser/{yourtaskuser_userid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Yourtaskuser loadCommentYourtaskuser(@PathVariable Integer comment_commentid, @PathVariable Integer related_yourtaskuser_userid) {
@@ -214,9 +236,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_activity_activityid the related activity activityid
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}/activity/{activity_activityid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteCommentActivity(@PathVariable Integer comment_commentid, @PathVariable Integer related_activity_activityid) {
@@ -224,9 +248,11 @@ public class CommentRestController {
 	}
 
 	/**
-	* Select an existing Comment entity
-	* 
-	*/
+	 * Select an existing Comment entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @return the comment
+	 */
 	@RequestMapping(value = "/Comment/{comment_commentid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Comment loadComment(@PathVariable Integer comment_commentid) {
@@ -234,9 +260,10 @@ public class CommentRestController {
 	}
 
 	/**
-	* Show all Comment entities
-	* 
-	*/
+	 * Show all Comment entities.
+	 *
+	 * @return the list
+	 */
 	@RequestMapping(value = "/Comment", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Comment> listComments() {

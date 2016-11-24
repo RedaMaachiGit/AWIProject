@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Goal entities.
  * 
@@ -36,24 +40,21 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	 */
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] { Goal.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new GoalDAOImpl
-	 *
+	 * Instantiates a new GoalDAOImpl.
 	 */
 	public GoalDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -62,14 +63,18 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalname
+	 * JPQL Query - findGoalByGoalname.
 	 *
+	 * @param goalname the goalname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Goal> findGoalByGoalname(String goalname) throws DataAccessException {
@@ -78,8 +83,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalname
+	 * JPQL Query - findGoalByGoalname.
 	 *
+	 * @param goalname the goalname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -90,8 +100,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoaldescriptionContaining
+	 * JPQL Query - findGoalByGoaldescriptionContaining.
 	 *
+	 * @param goaldescription the goaldescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Goal> findGoalByGoaldescriptionContaining(String goaldescription) throws DataAccessException {
@@ -100,8 +113,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoaldescriptionContaining
+	 * JPQL Query - findGoalByGoaldescriptionContaining.
 	 *
+	 * @param goaldescription the goaldescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -112,8 +130,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByPrimaryKey
+	 * JPQL Query - findGoalByPrimaryKey.
 	 *
+	 * @param goalid the goalid
+	 * @return the goal
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Goal findGoalByPrimaryKey(Integer goalid) throws DataAccessException {
@@ -122,8 +143,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByPrimaryKey
+	 * JPQL Query - findGoalByPrimaryKey.
 	 *
+	 * @param goalid the goalid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the goal
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -137,8 +163,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalnameContaining
+	 * JPQL Query - findGoalByGoalnameContaining.
 	 *
+	 * @param goalname the goalname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Goal> findGoalByGoalnameContaining(String goalname) throws DataAccessException {
@@ -147,8 +176,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalnameContaining
+	 * JPQL Query - findGoalByGoalnameContaining.
 	 *
+	 * @param goalname the goalname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -159,8 +193,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalid
+	 * JPQL Query - findGoalByGoalid.
 	 *
+	 * @param goalid the goalid
+	 * @return the goal
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Goal findGoalByGoalid(Integer goalid) throws DataAccessException {
@@ -169,8 +206,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoalid
+	 * JPQL Query - findGoalByGoalid.
 	 *
+	 * @param goalid the goalid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the goal
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -184,8 +226,10 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllGoals
+	 * JPQL Query - findAllGoals.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Goal> findAllGoals() throws DataAccessException {
@@ -194,8 +238,12 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllGoals
+	 * JPQL Query - findAllGoals.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -206,8 +254,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoaldescription
+	 * JPQL Query - findGoalByGoaldescription.
 	 *
+	 * @param goaldescription the goaldescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Goal> findGoalByGoaldescription(String goaldescription) throws DataAccessException {
@@ -216,8 +267,13 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * JPQL Query - findGoalByGoaldescription
+	 * JPQL Query - findGoalByGoaldescription.
 	 *
+	 * @param goaldescription the goaldescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -228,10 +284,11 @@ public class GoalDAOImpl extends AbstractJpaDao<Goal> implements GoalDAO {
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Goal entity) {
 		return true;

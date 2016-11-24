@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.OrderDAO;
@@ -17,9 +20,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Order entities
- * 
+ * Spring service that handles CRUD requests for Order entities.
  */
 
 @Service("OrderService")
@@ -27,24 +30,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
-	/**
-	 * DAO injected by Spring that manages Order entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Order entities. */
 	@Autowired
 	private OrderDAO orderDAO;
 
-	/**
-	 * DAO injected by Spring that manages OrderProduct entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages OrderProduct entities. */
 	@Autowired
 	private OrderProductDAO orderProductDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -56,8 +50,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param orderid the orderid
+	 * @param related_yourtaskuserbyuseridsc the related yourtaskuserbyuseridsc
+	 * @return the order
 	 */
 	@Transactional
 	public Order saveOrderYourtaskuserByUseridsc(Integer orderid, Yourtaskuser related_yourtaskuserbyuseridsc) {
@@ -94,8 +91,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Save an existing OrderProduct entity
-	 * 
+	 * Save an existing OrderProduct entity.
+	 *
+	 * @param orderid the orderid
+	 * @param related_orderproducts the related orderproducts
+	 * @return the order
 	 */
 	@Transactional
 	public Order saveOrderOrderProducts(Integer orderid, OrderProduct related_orderproducts) {
@@ -122,8 +122,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Save an existing Order entity
-	 * 
+	 * Save an existing Order entity.
+	 *
+	 * @param order the order
 	 */
 	@Transactional
 	public void saveOrder(Order order) {
@@ -145,8 +146,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Delete an existing OrderProduct entity
-	 * 
+	 * Delete an existing OrderProduct entity.
+	 *
+	 * @param order_orderid the order orderid
+	 * @param related_orderproducts_orderid the related orderproducts orderid
+	 * @param related_orderproducts_productid the related orderproducts productid
+	 * @return the order
 	 */
 	@Transactional
 	public Order deleteOrderOrderProducts(Integer order_orderid, Integer related_orderproducts_orderid, Integer related_orderproducts_productid) {
@@ -164,8 +169,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Delete an existing Order entity
-	 * 
+	 * Delete an existing Order entity.
+	 *
+	 * @param order the order
 	 */
 	@Transactional
 	public void deleteOrder(Order order) {
@@ -173,7 +179,8 @@ public class OrderServiceImpl implements OrderService {
 		orderDAO.flush();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.OrderService#findOrderByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Order findOrderByPrimaryKey(Integer orderid) {
@@ -181,8 +188,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param order_orderid the order orderid
+	 * @param related_yourtaskuserbyuserid_userid the related yourtaskuserbyuserid userid
+	 * @return the order
 	 */
 	@Transactional
 	public Order deleteOrderYourtaskuserByUserid(Integer order_orderid, Integer related_yourtaskuserbyuserid_userid) {
@@ -204,8 +214,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Load an existing Order entity
-	 * 
+	 * Load an existing Order entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Order> loadOrders() {
@@ -213,8 +224,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Return all Order entity
-	 * 
+	 * Return all Order entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Order> findAllOrders(Integer startResult, Integer maxRows) {
@@ -222,8 +236,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param orderid the orderid
+	 * @param related_yourtaskuserbyuserid the related yourtaskuserbyuserid
+	 * @return the order
 	 */
 	@Transactional
 	public Order saveOrderYourtaskuserByUserid(Integer orderid, Yourtaskuser related_yourtaskuserbyuserid) {
@@ -260,8 +277,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Return a count of all Order entity
-	 * 
+	 * Return a count of all Order entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countOrders() {
@@ -269,8 +287,11 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param order_orderid the order orderid
+	 * @param related_yourtaskuserbyuseridsc_userid the related yourtaskuserbyuseridsc userid
+	 * @return the order
 	 */
 	@Transactional
 	public Order deleteOrderYourtaskuserByUseridsc(Integer order_orderid, Integer related_yourtaskuserbyuseridsc_userid) {

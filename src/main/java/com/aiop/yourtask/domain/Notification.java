@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Notification.
  */
 
 @Entity
@@ -30,10 +35,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Notification")
 
 public class Notification implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The notificationid. */
 
 	@Column(name = "notificationid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -41,16 +47,16 @@ public class Notification implements Serializable {
 	@Id
 	@XmlElement
 	Integer notificationid;
-	/**
-	 */
+	
+	/** The notificationseen. */
 
 	@Column(name = "notificationseen", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	Boolean notificationseen;
-	/**
-	 */
+	
+	/** The notificationcontent. */
 
 	@Column(name = "notificationcontent", length = 2000, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -58,56 +64,79 @@ public class Notification implements Serializable {
 	@XmlElement
 	String notificationcontent;
 
-	/**
-	 */
+	/** The yourtaskuser. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuser;
 
 	/**
+	 * Sets the notificationid.
+	 *
+	 * @param notificationid the new notificationid
 	 */
 	public void setNotificationid(Integer notificationid) {
 		this.notificationid = notificationid;
 	}
 
 	/**
+	 * Gets the notificationid.
+	 *
+	 * @return the notificationid
 	 */
 	public Integer getNotificationid() {
 		return this.notificationid;
 	}
 
 	/**
+	 * Sets the notificationseen.
+	 *
+	 * @param notificationseen the new notificationseen
 	 */
 	public void setNotificationseen(Boolean notificationseen) {
 		this.notificationseen = notificationseen;
 	}
 
 	/**
+	 * Gets the notificationseen.
+	 *
+	 * @return the notificationseen
 	 */
 	public Boolean getNotificationseen() {
 		return this.notificationseen;
 	}
 
 	/**
+	 * Sets the notificationcontent.
+	 *
+	 * @param notificationcontent the new notificationcontent
 	 */
 	public void setNotificationcontent(String notificationcontent) {
 		this.notificationcontent = notificationcontent;
 	}
 
 	/**
+	 * Gets the notificationcontent.
+	 *
+	 * @return the notificationcontent
 	 */
 	public String getNotificationcontent() {
 		return this.notificationcontent;
 	}
 
 	/**
+	 * Sets the yourtaskuser.
+	 *
+	 * @param yourtaskuser the new yourtaskuser
 	 */
 	public void setYourtaskuser(Yourtaskuser yourtaskuser) {
 		this.yourtaskuser = yourtaskuser;
 	}
 
 	/**
+	 * Gets the yourtaskuser.
+	 *
+	 * @return the yourtaskuser
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuser() {
@@ -115,6 +144,7 @@ public class Notification implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new notification.
 	 */
 	public Notification() {
 	}
@@ -122,6 +152,7 @@ public class Notification implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Notification that) {
 		setNotificationid(that.getNotificationid());
@@ -133,6 +164,7 @@ public class Notification implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -145,7 +177,8 @@ public class Notification implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -155,7 +188,8 @@ public class Notification implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

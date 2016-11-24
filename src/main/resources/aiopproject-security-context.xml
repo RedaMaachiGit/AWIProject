@@ -16,6 +16,8 @@
 	
 	<beans:bean id="authSuccessHandler" class="com.aiop.yourtask.web.security.AuthSuccessHandler"/>
 	
+	 <beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+	
 	<authentication-manager>
 		<authentication-provider user-service-ref="customUserDetailsService">
 	        		<!-- <password-encoder hash="md5"/> -->

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.DiaryDAO;
@@ -15,9 +18,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Goal entities
- * 
+ * Spring service that handles CRUD requests for Goal entities.
  */
 
 @Service("GoalService")
@@ -25,17 +28,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class GoalServiceImpl implements GoalService {
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Goal entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Goal entities. */
 	@Autowired
 	private GoalDAO goalDAO;
 
@@ -47,8 +44,9 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Load an existing Goal entity
-	 * 
+	 * Load an existing Goal entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Goal> loadGoals() {
@@ -56,8 +54,9 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Save an existing Goal entity
-	 * 
+	 * Save an existing Goal entity.
+	 *
+	 * @param goal the goal
 	 */
 	@Transactional
 	public void saveGoal(Goal goal) {
@@ -77,8 +76,9 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Delete an existing Goal entity
-	 * 
+	 * Delete an existing Goal entity.
+	 *
+	 * @param goal the goal
 	 */
 	@Transactional
 	public void deleteGoal(Goal goal) {
@@ -87,8 +87,11 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Save an existing Diary entity
-	 * 
+	 * Save an existing Diary entity.
+	 *
+	 * @param goalid the goalid
+	 * @param related_diary the related diary
+	 * @return the goal
 	 */
 	@Transactional
 	public Goal saveGoalDiary(Integer goalid, Diary related_diary) {
@@ -114,7 +117,8 @@ public class GoalServiceImpl implements GoalService {
 		return goal;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.GoalService#findGoalByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Goal findGoalByPrimaryKey(Integer goalid) {
@@ -122,8 +126,9 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Return a count of all Goal entity
-	 * 
+	 * Return a count of all Goal entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countGoals() {
@@ -131,8 +136,11 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Delete an existing Diary entity
-	 * 
+	 * Delete an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param related_diary_iddiary the related diary iddiary
+	 * @return the goal
 	 */
 	@Transactional
 	public Goal deleteGoalDiary(Integer goal_goalid, Integer related_diary_iddiary) {
@@ -154,8 +162,11 @@ public class GoalServiceImpl implements GoalService {
 	}
 
 	/**
-	 * Return all Goal entity
-	 * 
+	 * Return all Goal entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Goal> findAllGoals(Integer startResult, Integer maxRows) {

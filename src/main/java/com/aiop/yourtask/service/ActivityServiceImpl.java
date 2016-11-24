@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -21,9 +24,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Activity entities
- * 
+ * Spring service that handles CRUD requests for Activity entities.
  */
 
 @Service("ActivityService")
@@ -31,38 +34,23 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ActivityServiceImpl implements ActivityService {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Task entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Task entities. */
 	@Autowired
 	private TaskDAO taskDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -74,8 +62,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Save an existing Diary entity
-	 * 
+	 * Save an existing Diary entity.
+	 *
+	 * @param activityid the activityid
+	 * @param related_diaries the related diaries
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity saveActivityDiaries(Integer activityid, Diary related_diaries) {
@@ -102,8 +93,9 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Delete an existing Activity entity
-	 * 
+	 * Delete an existing Activity entity.
+	 *
+	 * @param activity the activity
 	 */
 	@Transactional
 	public void deleteActivity(Activity activity) {
@@ -112,8 +104,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Delete an existing Comment entity
-	 * 
+	 * Delete an existing Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity deleteActivityComments(Integer activity_activityid, Integer related_comments_commentid) {
@@ -131,8 +126,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Return all Activity entity
-	 * 
+	 * Return all Activity entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Activity> findAllActivitys(Integer startResult, Integer maxRows) {
@@ -140,8 +138,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Save an existing Comment entity
-	 * 
+	 * Save an existing Comment entity.
+	 *
+	 * @param activityid the activityid
+	 * @param related_comments the related comments
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity saveActivityComments(Integer activityid, Comment related_comments) {
@@ -167,7 +168,8 @@ public class ActivityServiceImpl implements ActivityService {
 		return activity;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.ActivityService#findActivityByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Activity findActivityByPrimaryKey(Integer activityid) {
@@ -175,8 +177,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Save an existing Task entity
-	 * 
+	 * Save an existing Task entity.
+	 *
+	 * @param activityid the activityid
+	 * @param related_tasks the related tasks
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity saveActivityTasks(Integer activityid, Task related_tasks) {
@@ -202,8 +207,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param activityid the activityid
+	 * @param related_yourtaskuser the related yourtaskuser
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity saveActivityYourtaskuser(Integer activityid, Yourtaskuser related_yourtaskuser) {
@@ -240,8 +248,9 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Save an existing Activity entity
-	 * 
+	 * Save an existing Activity entity.
+	 *
+	 * @param activity the activity
 	 */
 	@Transactional
 	public void saveActivity(Activity activity) {
@@ -262,8 +271,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Delete an existing Task entity
-	 * 
+	 * Delete an existing Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_tasks_taskid the related tasks taskid
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity deleteActivityTasks(Integer activity_activityid, Integer related_tasks_taskid) {
@@ -281,8 +293,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Delete an existing Diary entity
-	 * 
+	 * Delete an existing Diary entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_diaries_iddiary the related diaries iddiary
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity deleteActivityDiaries(Integer activity_activityid, Integer related_diaries_iddiary) {
@@ -300,8 +315,9 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Return a count of all Activity entity
-	 * 
+	 * Return a count of all Activity entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countActivitys() {
@@ -309,8 +325,9 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Load an existing Activity entity
-	 * 
+	 * Load an existing Activity entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Activity> loadActivitys() {
@@ -318,8 +335,11 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the activity
 	 */
 	@Transactional
 	public Activity deleteActivityYourtaskuser(Integer activity_activityid, Integer related_yourtaskuser_userid) {

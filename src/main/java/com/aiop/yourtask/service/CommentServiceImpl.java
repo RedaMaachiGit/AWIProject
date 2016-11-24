@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -17,9 +20,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Comment entities
- * 
+ * Spring service that handles CRUD requests for Comment entities.
  */
 
 @Service("CommentService")
@@ -27,24 +30,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CommentServiceImpl implements CommentService {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -56,8 +50,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param commentid the commentid
+	 * @param related_yourtaskuser the related yourtaskuser
+	 * @return the comment
 	 */
 	@Transactional
 	public Comment saveCommentYourtaskuser(Integer commentid, Yourtaskuser related_yourtaskuser) {
@@ -94,8 +91,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Save an existing Activity entity
-	 * 
+	 * Save an existing Activity entity.
+	 *
+	 * @param commentid the commentid
+	 * @param related_activity the related activity
+	 * @return the comment
 	 */
 	@Transactional
 	public Comment saveCommentActivity(Integer commentid, Activity related_activity) {
@@ -123,8 +123,9 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Delete an existing Comment entity
-	 * 
+	 * Delete an existing Comment entity.
+	 *
+	 * @param comment the comment
 	 */
 	@Transactional
 	public void deleteComment(Comment comment) {
@@ -133,8 +134,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the comment
 	 */
 	@Transactional
 	public Comment deleteCommentYourtaskuser(Integer comment_commentid, Integer related_yourtaskuser_userid) {
@@ -156,8 +160,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Delete an existing Activity entity
-	 * 
+	 * Delete an existing Activity entity.
+	 *
+	 * @param comment_commentid the comment commentid
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the comment
 	 */
 	@Transactional
 	public Comment deleteCommentActivity(Integer comment_commentid, Integer related_activity_activityid) {
@@ -179,8 +186,9 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Return a count of all Comment entity
-	 * 
+	 * Return a count of all Comment entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countComments() {
@@ -188,8 +196,9 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Load an existing Comment entity
-	 * 
+	 * Load an existing Comment entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Comment> loadComments() {
@@ -197,8 +206,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Return all Comment entity
-	 * 
+	 * Return all Comment entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Comment> findAllComments(Integer startResult, Integer maxRows) {
@@ -206,8 +218,9 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * Save an existing Comment entity
-	 * 
+	 * Save an existing Comment entity.
+	 *
+	 * @param comment the comment
 	 */
 	@Transactional
 	public void saveComment(Comment comment) {
@@ -226,7 +239,8 @@ public class CommentServiceImpl implements CommentService {
 		commentDAO.flush();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.CommentService#findCommentByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Comment findCommentByPrimaryKey(Integer commentid) {

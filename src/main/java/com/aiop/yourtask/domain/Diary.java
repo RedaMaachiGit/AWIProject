@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -19,7 +22,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Diary.
  */
 
 @Entity
@@ -38,10 +43,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Diary")
 @XmlRootElement(namespace = "aiopproject/com/aiop/yourtask/domain")
 public class Diary implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The iddiary. */
 
 	@Column(name = "iddiary", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -49,16 +55,16 @@ public class Diary implements Serializable {
 	@Id
 	@XmlElement
 	Integer iddiary;
-	/**
-	 */
+	
+	/** The diaryname. */
 
 	@Column(name = "diaryname", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String diaryname;
-	/**
-	 */
+	
+	/** The diarydate. */
 	@Temporal(TemporalType.DATE)
 	@Column(name = "diarydate", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -66,74 +72,97 @@ public class Diary implements Serializable {
 	@XmlElement
 	Calendar diarydate;
 
-	/**
-	 */
+	/** The activity. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "activityid", referencedColumnName = "activityid", nullable = false) })
 	@XmlTransient
 	Activity activity;
-	/**
-	 */
+	
+	/** The yourtaskuser. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuser;
-	/**
-	 */
+	
+	/** The diaryentries. */
 	@OneToMany(mappedBy = "diary", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Diaryentry> diaryentries;
-	/**
-	 */
+	
+	/** The goals. */
 	@OneToMany(mappedBy = "diary", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 
 	@XmlElement(name = "", namespace = "")
 	java.util.Set<com.aiop.yourtask.domain.Goal> goals;
 
 	/**
+	 * Sets the iddiary.
+	 *
+	 * @param iddiary the new iddiary
 	 */
 	public void setIddiary(Integer iddiary) {
 		this.iddiary = iddiary;
 	}
 
 	/**
+	 * Gets the iddiary.
+	 *
+	 * @return the iddiary
 	 */
 	public Integer getIddiary() {
 		return this.iddiary;
 	}
 
 	/**
+	 * Sets the diaryname.
+	 *
+	 * @param diaryname the new diaryname
 	 */
 	public void setDiaryname(String diaryname) {
 		this.diaryname = diaryname;
 	}
 
 	/**
+	 * Gets the diaryname.
+	 *
+	 * @return the diaryname
 	 */
 	public String getDiaryname() {
 		return this.diaryname;
 	}
 
 	/**
+	 * Sets the diarydate.
+	 *
+	 * @param diarydate the new diarydate
 	 */
 	public void setDiarydate(Calendar diarydate) {
 		this.diarydate = diarydate;
 	}
 
 	/**
+	 * Gets the diarydate.
+	 *
+	 * @return the diarydate
 	 */
 	public Calendar getDiarydate() {
 		return this.diarydate;
 	}
 
 	/**
+	 * Sets the activity.
+	 *
+	 * @param activity the new activity
 	 */
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
 
 	/**
+	 * Gets the activity.
+	 *
+	 * @return the activity
 	 */
 	@JsonIgnore
 	public Activity getActivity() {
@@ -141,12 +170,18 @@ public class Diary implements Serializable {
 	}
 
 	/**
+	 * Sets the yourtaskuser.
+	 *
+	 * @param yourtaskuser the new yourtaskuser
 	 */
 	public void setYourtaskuser(Yourtaskuser yourtaskuser) {
 		this.yourtaskuser = yourtaskuser;
 	}
 
 	/**
+	 * Gets the yourtaskuser.
+	 *
+	 * @return the yourtaskuser
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuser() {
@@ -154,12 +189,18 @@ public class Diary implements Serializable {
 	}
 
 	/**
+	 * Sets the diaryentries.
+	 *
+	 * @param diaryentries the new diaryentries
 	 */
 	public void setDiaryentries(Set<Diaryentry> diaryentries) {
 		this.diaryentries = diaryentries;
 	}
 
 	/**
+	 * Gets the diaryentries.
+	 *
+	 * @return the diaryentries
 	 */
 	@JsonIgnore
 	public Set<Diaryentry> getDiaryentries() {
@@ -170,12 +211,18 @@ public class Diary implements Serializable {
 	}
 
 	/**
+	 * Sets the goals.
+	 *
+	 * @param goals the new goals
 	 */
 	public void setGoals(Set<Goal> goals) {
 		this.goals = goals;
 	}
 
 	/**
+	 * Gets the goals.
+	 *
+	 * @return the goals
 	 */
 	@JsonIgnore
 	public Set<Goal> getGoals() {
@@ -186,6 +233,7 @@ public class Diary implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new diary.
 	 */
 	public Diary() {
 	}
@@ -193,6 +241,7 @@ public class Diary implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Diary that) {
 		setIddiary(that.getIddiary());
@@ -207,6 +256,7 @@ public class Diary implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -219,7 +269,8 @@ public class Diary implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -229,7 +280,8 @@ public class Diary implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

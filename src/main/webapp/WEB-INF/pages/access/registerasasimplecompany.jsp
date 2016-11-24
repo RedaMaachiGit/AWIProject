@@ -42,7 +42,7 @@
 							Password:
 						</td>
 						<td>
-							<form:input id="yourtaskuser_userpassword" path="userpassword" cssStyle="width:200px;"/>
+							<form:input id="yourtaskuser_userpassword" type="password" path="userpassword" cssStyle="width:200px;"/>
 							<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "yourtaskuser_userpassword",widgetType : "dijit.form.ValidationTextBox",widgetAttrs : {promptMessage: "<fmt:message key="yourtaskuser.userpassword.help"/>"}})); </script>
 						</td>
 					</tr>

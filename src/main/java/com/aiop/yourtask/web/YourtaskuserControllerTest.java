@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>YourtaskuserController</code> controller.
  *
@@ -43,6 +47,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserRole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserSuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserNotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -417,6 +465,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -434,6 +484,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -451,6 +503,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -468,6 +522,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -485,6 +541,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -502,6 +560,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserScinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -519,6 +579,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -536,6 +598,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -553,6 +617,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -570,6 +636,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -587,6 +655,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -604,6 +674,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -621,6 +693,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserOrdersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -638,6 +712,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -655,6 +731,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -672,6 +750,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -689,6 +769,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -706,6 +788,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -723,6 +807,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -740,6 +826,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserActivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -757,6 +845,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -774,6 +864,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -791,6 +883,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -808,6 +902,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -825,6 +921,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -842,6 +940,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -859,6 +959,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -876,6 +978,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -893,6 +997,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -910,6 +1016,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -927,6 +1035,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -944,6 +1054,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -961,6 +1073,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -978,6 +1092,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserProducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -995,6 +1111,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1012,6 +1130,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1029,6 +1149,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1046,6 +1168,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1063,6 +1187,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1080,6 +1206,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1097,6 +1225,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1114,6 +1244,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1131,6 +1263,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1148,6 +1282,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1165,6 +1301,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1182,6 +1320,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1199,6 +1339,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1216,6 +1358,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>listYourtaskuserOrdersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1233,6 +1377,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>indexYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1250,6 +1396,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>selectYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1267,6 +1415,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>editYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1284,6 +1434,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>saveYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1301,6 +1453,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>newYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1318,6 +1472,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1335,6 +1491,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>deleteYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1352,6 +1510,8 @@ public class YourtaskuserControllerTest {
 
 	/**
 	 * Test <code>yourtaskuserControllerbinaryaction()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -1370,6 +1530,7 @@ public class YourtaskuserControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -1381,6 +1542,7 @@ public class YourtaskuserControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -1392,6 +1554,7 @@ public class YourtaskuserControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

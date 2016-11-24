@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -39,6 +42,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -81,8 +85,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Activity entity
-	* 
+	 * Save an existing Activity entity.
 	 */
 	@Test
 	public void saveDiaryActivity() {
@@ -96,8 +99,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Diary entity
-	* 
+	 * Delete an existing Diary entity.
 	 */
 	@Test
 	public void deleteDiary() {
@@ -108,8 +110,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Diary entity
-	* 
+	 * Save an existing Diary entity.
 	 */
 	@Test
 	public void saveDiary() {
@@ -119,7 +120,7 @@ public class DiaryServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findDiaryByPrimaryKey() {
@@ -132,8 +133,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Diary entity
-	* 
+	 * Load an existing Diary entity.
 	 */
 	@Test
 	public void loadDiarys() {
@@ -144,8 +144,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Diaryentry entity
-	* 
+	 * Delete an existing Diaryentry entity.
 	 */
 	@Test
 	public void deleteDiaryDiaryentries() {
@@ -159,8 +158,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Goal entity
-	* 
+	 * Delete an existing Goal entity.
 	 */
 	@Test
 	public void deleteDiaryGoals() {
@@ -174,8 +172,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Diary entity
-	* 
+	 * Return all Diary entity.
 	 */
 	@Test
 	public void findAllDiarys() {
@@ -189,8 +186,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Diaryentry entity
-	* 
+	 * Save an existing Diaryentry entity.
 	 */
 	@Test
 	public void saveDiaryDiaryentries() {
@@ -204,8 +200,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Diary entity
-	* 
+	 * Return a count of all Diary entity.
 	 */
 	@Test
 	public void countDiarys() {
@@ -216,8 +211,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Goal entity
-	* 
+	 * Save an existing Goal entity.
 	 */
 	@Test
 	public void saveDiaryGoals() {
@@ -231,8 +225,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteDiaryYourtaskuser() {
@@ -246,8 +239,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Activity entity
-	* 
+	 * Delete an existing Activity entity.
 	 */
 	@Test
 	public void deleteDiaryActivity() {
@@ -261,8 +253,7 @@ public class DiaryServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveDiaryYourtaskuser() {
@@ -277,6 +268,7 @@ public class DiaryServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -286,8 +278,7 @@ public class DiaryServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

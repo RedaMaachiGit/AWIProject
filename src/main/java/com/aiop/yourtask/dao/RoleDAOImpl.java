@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Role entities.
  * 
@@ -36,24 +40,21 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	 */
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] { Role.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new RoleDAOImpl
-	 *
+	 * Instantiates a new RoleDAOImpl.
 	 */
 	public RoleDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -62,14 +63,18 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findRoleByRolename
+	 * JPQL Query - findRoleByRolename.
 	 *
+	 * @param rolename the rolename
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Role> findRoleByRolename(String rolename) throws DataAccessException {
@@ -78,8 +83,13 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByRolename
+	 * JPQL Query - findRoleByRolename.
 	 *
+	 * @param rolename the rolename
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -90,8 +100,11 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByPrimaryKey
+	 * JPQL Query - findRoleByPrimaryKey.
 	 *
+	 * @param roleid the roleid
+	 * @return the role
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Role findRoleByPrimaryKey(Integer roleid) throws DataAccessException {
@@ -100,8 +113,13 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByPrimaryKey
+	 * JPQL Query - findRoleByPrimaryKey.
 	 *
+	 * @param roleid the roleid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the role
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -115,8 +133,10 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllRoles
+	 * JPQL Query - findAllRoles.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Role> findAllRoles() throws DataAccessException {
@@ -125,8 +145,12 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findAllRoles
+	 * JPQL Query - findAllRoles.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -137,8 +161,11 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByRoleid
+	 * JPQL Query - findRoleByRoleid.
 	 *
+	 * @param roleid the roleid
+	 * @return the role
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Role findRoleByRoleid(Integer roleid) throws DataAccessException {
@@ -147,8 +174,13 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByRoleid
+	 * JPQL Query - findRoleByRoleid.
 	 *
+	 * @param roleid the roleid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the role
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -162,8 +194,11 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByRolenameContaining
+	 * JPQL Query - findRoleByRolenameContaining.
 	 *
+	 * @param rolename the rolename
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Role> findRoleByRolenameContaining(String rolename) throws DataAccessException {
@@ -172,8 +207,13 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * JPQL Query - findRoleByRolenameContaining
+	 * JPQL Query - findRoleByRolenameContaining.
 	 *
+	 * @param rolename the rolename
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -184,10 +224,11 @@ public class RoleDAOImpl extends AbstractJpaDao<Role> implements RoleDAO {
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Role entity) {
 		return true;

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web.rest;
 
 import com.aiop.yourtask.dao.DiaryDAO;
@@ -25,39 +28,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring Rest controller that handles CRUD requests for Goal entities
- * 
+ * Spring Rest controller that handles CRUD requests for Goal entities.
  */
 
 @Controller("GoalRestController")
 
 public class GoalRestController {
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Goal entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Goal entities. */
 	@Autowired
 	private GoalDAO goalDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Goal entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Goal entities. */
 	@Autowired
 	private GoalService goalService;
 
 	/**
-	 * Register custom, context-specific property editors
-	 * 
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
@@ -74,9 +70,12 @@ public class GoalRestController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param diary the diary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}/diary", method = RequestMethod.POST)
 	@ResponseBody
 	public Diary newGoalDiary(@PathVariable Integer goal_goalid, @RequestBody Diary diary) {
@@ -85,9 +84,10 @@ public class GoalRestController {
 	}
 
 	/**
-	* Show all Goal entities
-	* 
-	*/
+	 * Show all Goal entities.
+	 *
+	 * @return the list
+	 */
 	@RequestMapping(value = "/Goal", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Goal> listGoals() {
@@ -95,9 +95,11 @@ public class GoalRestController {
 	}
 
 	/**
-	* Select an existing Goal entity
-	* 
-	*/
+	 * Select an existing Goal entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @return the goal
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}", method = RequestMethod.GET)
 	@ResponseBody
 	public Goal loadGoal(@PathVariable Integer goal_goalid) {
@@ -105,9 +107,11 @@ public class GoalRestController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param related_diary_iddiary the related diary iddiary
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}/diary/{diary_iddiary}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteGoalDiary(@PathVariable Integer goal_goalid, @PathVariable Integer related_diary_iddiary) {
@@ -115,9 +119,11 @@ public class GoalRestController {
 	}
 
 	/**
-	* Create a new Goal entity
-	* 
-	*/
+	 * Create a new Goal entity.
+	 *
+	 * @param goal the goal
+	 * @return the goal
+	 */
 	@RequestMapping(value = "/Goal", method = RequestMethod.POST)
 	@ResponseBody
 	public Goal newGoal(@RequestBody Goal goal) {
@@ -126,9 +132,12 @@ public class GoalRestController {
 	}
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param related_diary_iddiary the related diary iddiary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}/diary/{diary_iddiary}", method = RequestMethod.GET)
 	@ResponseBody
 	public Diary loadGoalDiary(@PathVariable Integer goal_goalid, @PathVariable Integer related_diary_iddiary) {
@@ -138,9 +147,10 @@ public class GoalRestController {
 	}
 
 	/**
-	* Delete an existing Goal entity
-	* 
-	*/
+	 * Delete an existing Goal entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void deleteGoal(@PathVariable Integer goal_goalid) {
@@ -149,9 +159,11 @@ public class GoalRestController {
 	}
 
 	/**
-	* Save an existing Goal entity
-	* 
-	*/
+	 * Save an existing Goal entity.
+	 *
+	 * @param goal the goal
+	 * @return the goal
+	 */
 	@RequestMapping(value = "/Goal", method = RequestMethod.PUT)
 	@ResponseBody
 	public Goal saveGoal(@RequestBody Goal goal) {
@@ -160,9 +172,12 @@ public class GoalRestController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @param diary the diary
+	 * @return the diary
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}/diary", method = RequestMethod.PUT)
 	@ResponseBody
 	public Diary saveGoalDiary(@PathVariable Integer goal_goalid, @RequestBody Diary diary) {
@@ -171,9 +186,11 @@ public class GoalRestController {
 	}
 
 	/**
-	* Get Diary entity by Goal
-	* 
-	*/
+	 * Get Diary entity by Goal.
+	 *
+	 * @param goal_goalid the goal goalid
+	 * @return the goal diary
+	 */
 	@RequestMapping(value = "/Goal/{goal_goalid}/diary", method = RequestMethod.GET)
 	@ResponseBody
 	public Diary getGoalDiary(@PathVariable Integer goal_goalid) {

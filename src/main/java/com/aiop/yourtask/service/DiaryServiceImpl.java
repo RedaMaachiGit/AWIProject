@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -21,9 +24,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Diary entities
- * 
+ * Spring service that handles CRUD requests for Diary entities.
  */
 
 @Service("DiaryService")
@@ -31,38 +34,23 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DiaryServiceImpl implements DiaryService {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diaryentry entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diaryentry entities. */
 	@Autowired
 	private DiaryentryDAO diaryentryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Goal entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Goal entities. */
 	@Autowired
 	private GoalDAO goalDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -74,8 +62,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Save an existing Activity entity
-	 * 
+	 * Save an existing Activity entity.
+	 *
+	 * @param iddiary the iddiary
+	 * @param related_activity the related activity
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary saveDiaryActivity(Integer iddiary, Activity related_activity) {
@@ -103,8 +94,9 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Delete an existing Diary entity
-	 * 
+	 * Delete an existing Diary entity.
+	 *
+	 * @param diary the diary
 	 */
 	@Transactional
 	public void deleteDiary(Diary diary) {
@@ -113,8 +105,9 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Save an existing Diary entity
-	 * 
+	 * Save an existing Diary entity.
+	 *
+	 * @param diary the diary
 	 */
 	@Transactional
 	public void saveDiary(Diary diary) {
@@ -133,7 +126,8 @@ public class DiaryServiceImpl implements DiaryService {
 		diaryDAO.flush();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.DiaryService#findDiaryByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Diary findDiaryByPrimaryKey(Integer iddiary) {
@@ -141,8 +135,9 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Load an existing Diary entity
-	 * 
+	 * Load an existing Diary entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Diary> loadDiarys() {
@@ -150,8 +145,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Delete an existing Diaryentry entity
-	 * 
+	 * Delete an existing Diaryentry entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_diaryentries_diaryentryid the related diaryentries diaryentryid
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary deleteDiaryDiaryentries(Integer diary_iddiary, Integer related_diaryentries_diaryentryid) {
@@ -169,8 +167,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Delete an existing Goal entity
-	 * 
+	 * Delete an existing Goal entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_goals_goalid the related goals goalid
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary deleteDiaryGoals(Integer diary_iddiary, Integer related_goals_goalid) {
@@ -188,8 +189,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Return all Diary entity
-	 * 
+	 * Return all Diary entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Diary> findAllDiarys(Integer startResult, Integer maxRows) {
@@ -197,8 +201,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Save an existing Diaryentry entity
-	 * 
+	 * Save an existing Diaryentry entity.
+	 *
+	 * @param iddiary the iddiary
+	 * @param related_diaryentries the related diaryentries
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary saveDiaryDiaryentries(Integer iddiary, Diaryentry related_diaryentries) {
@@ -226,8 +233,9 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Return a count of all Diary entity
-	 * 
+	 * Return a count of all Diary entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countDiarys() {
@@ -235,8 +243,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Save an existing Goal entity
-	 * 
+	 * Save an existing Goal entity.
+	 *
+	 * @param iddiary the iddiary
+	 * @param related_goals the related goals
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary saveDiaryGoals(Integer iddiary, Goal related_goals) {
@@ -263,8 +274,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary deleteDiaryYourtaskuser(Integer diary_iddiary, Integer related_yourtaskuser_userid) {
@@ -286,8 +300,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Delete an existing Activity entity
-	 * 
+	 * Delete an existing Activity entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary deleteDiaryActivity(Integer diary_iddiary, Integer related_activity_activityid) {
@@ -309,8 +326,11 @@ public class DiaryServiceImpl implements DiaryService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param iddiary the iddiary
+	 * @param related_yourtaskuser the related yourtaskuser
+	 * @return the diary
 	 */
 	@Transactional
 	public Diary saveDiaryYourtaskuser(Integer iddiary, Yourtaskuser related_yourtaskuser) {

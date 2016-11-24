@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>ActivityController</code> controller.
  *
@@ -43,6 +47,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>editActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>newActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>saveActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>deleteActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>selectActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>listActivityYourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>editActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>newActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>saveActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>deleteActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>selectActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>listActivityDiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>editActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>newActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>saveActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>deleteActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>selectActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>listActivityComments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>editActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -417,6 +465,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>newActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -434,6 +484,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>saveActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -451,6 +503,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -468,6 +522,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>deleteActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -485,6 +541,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>selectActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -502,6 +560,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>listActivityTasks()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -519,6 +579,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>indexActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -536,6 +598,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>selectActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -553,6 +617,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>editActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -570,6 +636,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>saveActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -587,6 +655,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>newActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -604,6 +674,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>confirmDeleteActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -621,6 +693,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>deleteActivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -638,6 +712,8 @@ public class ActivityControllerTest {
 
 	/**
 	 * Test <code>activityControllerbinaryaction()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -656,6 +732,7 @@ public class ActivityControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -667,6 +744,7 @@ public class ActivityControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -678,6 +756,7 @@ public class ActivityControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

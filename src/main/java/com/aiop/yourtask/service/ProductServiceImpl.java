@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.OrderProductDAO;
@@ -17,9 +20,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Product entities
- * 
+ * Spring service that handles CRUD requests for Product entities.
  */
 
 @Service("ProductService")
@@ -27,24 +30,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ProductServiceImpl implements ProductService {
 
-	/**
-	 * DAO injected by Spring that manages OrderProduct entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages OrderProduct entities. */
 	@Autowired
 	private OrderProductDAO orderProductDAO;
 
-	/**
-	 * DAO injected by Spring that manages Product entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Product entities. */
 	@Autowired
 	private ProductDAO productDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
@@ -56,8 +50,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Delete an existing OrderProduct entity
-	 * 
+	 * Delete an existing OrderProduct entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_orderproducts_orderid the related orderproducts orderid
+	 * @param related_orderproducts_productid the related orderproducts productid
+	 * @return the product
 	 */
 	@Transactional
 	public Product deleteProductOrderProducts(Integer product_productid, Integer related_orderproducts_orderid, Integer related_orderproducts_productid) {
@@ -75,8 +73,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Save an existing Product entity
-	 * 
+	 * Save an existing Product entity.
+	 *
+	 * @param product the product
 	 */
 	@Transactional
 	public void saveProduct(Product product) {
@@ -99,8 +98,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Load an existing Product entity
-	 * 
+	 * Load an existing Product entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Product> loadProducts() {
@@ -108,8 +108,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Save an existing Yourtaskuser entity
-	 * 
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param productid the productid
+	 * @param related_yourtaskuser the related yourtaskuser
+	 * @return the product
 	 */
 	@Transactional
 	public Product saveProductYourtaskuser(Integer productid, Yourtaskuser related_yourtaskuser) {
@@ -146,8 +149,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Delete an existing Product entity
-	 * 
+	 * Delete an existing Product entity.
+	 *
+	 * @param product the product
 	 */
 	@Transactional
 	public void deleteProduct(Product product) {
@@ -156,8 +160,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Return all Product entity
-	 * 
+	 * Return all Product entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Product> findAllProducts(Integer startResult, Integer maxRows) {
@@ -166,8 +173,10 @@ public class ProductServiceImpl implements ProductService {
 	
 
 	/**
-	 * Return all Product entity of a company without limit
-	 * 
+	 * Return all Product entity of a company without limit.
+	 *
+	 * @param company_companyid the company companyid
+	 * @return the list
 	 */
 	@Transactional
 	public List<Product> findAllCompanysProducts(Integer company_companyid) {
@@ -176,8 +185,9 @@ public class ProductServiceImpl implements ProductService {
 
 	
 	/**
-	 * Return all Product entity without limit
-	 * 
+	 * Return all Product entity without limit.
+	 *
+	 * @return the list
 	 */
 	@Transactional
 	public List<Product> findAllProducts() {
@@ -185,8 +195,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Save an existing OrderProduct entity
-	 * 
+	 * Save an existing OrderProduct entity.
+	 *
+	 * @param productid the productid
+	 * @param related_orderproducts the related orderproducts
+	 * @return the product
 	 */
 	@Transactional
 	public Product saveProductOrderProducts(Integer productid, OrderProduct related_orderproducts) {
@@ -213,8 +226,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Delete an existing Yourtaskuser entity
-	 * 
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param product_productid the product productid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the product
 	 */
 	@Transactional
 	public Product deleteProductYourtaskuser(Integer product_productid, Integer related_yourtaskuser_userid) {
@@ -235,7 +251,8 @@ public class ProductServiceImpl implements ProductService {
 		return product;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.ProductService#findProductByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Product findProductByPrimaryKey(Integer productid) {
@@ -243,8 +260,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	/**
-	 * Return a count of all Product entity
-	 * 
+	 * Return a count of all Product entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countProducts() {

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Diaryentry entities.
  * 
@@ -37,24 +41,21 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Diaryentry.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new DiaryentryDAOImpl
-	 *
+	 * Instantiates a new DiaryentryDAOImpl.
 	 */
 	public DiaryentryDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,18 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findDiaryentryByPrimaryKey
+	 * JPQL Query - findDiaryentryByPrimaryKey.
 	 *
+	 * @param diaryentryid the diaryentryid
+	 * @return the diaryentry
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Diaryentry findDiaryentryByPrimaryKey(Integer diaryentryid) throws DataAccessException {
@@ -79,8 +84,13 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	}
 
 	/**
-	 * JPQL Query - findDiaryentryByPrimaryKey
+	 * JPQL Query - findDiaryentryByPrimaryKey.
 	 *
+	 * @param diaryentryid the diaryentryid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the diaryentry
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -94,8 +104,10 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	}
 
 	/**
-	 * JPQL Query - findAllDiaryentrys
+	 * JPQL Query - findAllDiaryentrys.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Diaryentry> findAllDiaryentrys() throws DataAccessException {
@@ -104,8 +116,12 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	}
 
 	/**
-	 * JPQL Query - findAllDiaryentrys
+	 * JPQL Query - findAllDiaryentrys.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -116,10 +132,11 @@ public class DiaryentryDAOImpl extends AbstractJpaDao<Diaryentry> implements Dia
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Diaryentry entity) {
 		return true;

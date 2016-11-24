@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web.rest;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>YourtaskuserRestController</code> controller.
  *
@@ -43,6 +47,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridrole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridrole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridrole()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridrolerole_roleid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridrolerole_roleid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridsuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridsuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridsuinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridsuinfossuinfo_suinfoid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridsuinfossuinfo_suinfoid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridnotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridnotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridnotifications()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridnotificationsnotification_notificationid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridnotificationsnotification_notificationid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridscinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridscinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridscinfos()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridscinfosscinfo_scinfoid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridscinfosscinfo_scinfoid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -417,6 +465,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridsc()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -434,6 +484,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridscorder_orderid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -451,6 +503,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridscorder_orderid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -468,6 +522,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridactivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -485,6 +541,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridactivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -502,6 +560,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridactivities()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -519,6 +579,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridactivitiesactivity_activityid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -536,6 +598,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridactivitiesactivity_activityid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -553,6 +617,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useriddiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -570,6 +636,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useriddiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -587,6 +655,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useriddiaries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -604,6 +674,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useriddiariesdiary_iddiary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -621,6 +693,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useriddiariesdiary_iddiary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -638,6 +712,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridproducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -655,6 +731,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridproducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -672,6 +750,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridproducts()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -689,6 +769,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridproductsproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -706,6 +788,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridproductsproduct_productid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -723,6 +807,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridcomments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -740,6 +826,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridcomments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -757,6 +845,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridcomments()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -774,6 +864,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridcommentscomment_commentid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -791,6 +883,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridcommentscomment_commentid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -808,6 +902,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -825,6 +921,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -842,6 +940,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUserid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -859,6 +959,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridorder_orderid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -876,6 +978,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_useridordersForUseridorder_orderid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -893,6 +997,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -910,6 +1016,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -927,6 +1035,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -944,6 +1054,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -961,6 +1073,8 @@ public class YourtaskuserRestControllerTest {
 
 	/**
 	 * Test <code>Yourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -979,6 +1093,7 @@ public class YourtaskuserRestControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -990,6 +1105,7 @@ public class YourtaskuserRestControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -1001,6 +1117,7 @@ public class YourtaskuserRestControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

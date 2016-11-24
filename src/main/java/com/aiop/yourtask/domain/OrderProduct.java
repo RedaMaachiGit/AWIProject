@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class OrderProduct.
  */
 @IdClass(com.aiop.yourtask.domain.OrderProductPK.class)
 @Entity
@@ -30,10 +35,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "OrderProduct")
 
 public class OrderProduct implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The orderid. */
 
 	@Column(name = "orderid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -41,8 +47,8 @@ public class OrderProduct implements Serializable {
 	@Id
 	@XmlElement
 	Integer orderid;
-	/**
-	 */
+	
+	/** The productid. */
 
 	@Column(name = "productid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -50,8 +56,8 @@ public class OrderProduct implements Serializable {
 	@Id
 	@XmlElement
 	Integer productid;
-	/**
-	 */
+	
+	/** The quantity. */
 
 	@Column(name = "quantity", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -59,15 +65,14 @@ public class OrderProduct implements Serializable {
 	@XmlElement
 	Integer quantity;
 
-	/**
-	 */
+	/** The order. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "orderid", referencedColumnName = "orderid", nullable = false, insertable = false, updatable = false) })
 	@XmlTransient
 	Order order;
-	/**
-	 */
+	
+	/** The product. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "productid", referencedColumnName = "productid", nullable = false, insertable = false, updatable = false) })
@@ -75,48 +80,72 @@ public class OrderProduct implements Serializable {
 	Product product;
 
 	/**
+	 * Sets the orderid.
+	 *
+	 * @param orderid the new orderid
 	 */
 	public void setOrderid(Integer orderid) {
 		this.orderid = orderid;
 	}
 
 	/**
+	 * Gets the orderid.
+	 *
+	 * @return the orderid
 	 */
 	public Integer getOrderid() {
 		return this.orderid;
 	}
 
 	/**
+	 * Sets the productid.
+	 *
+	 * @param productid the new productid
 	 */
 	public void setProductid(Integer productid) {
 		this.productid = productid;
 	}
 
 	/**
+	 * Gets the productid.
+	 *
+	 * @return the productid
 	 */
 	public Integer getProductid() {
 		return this.productid;
 	}
 
 	/**
+	 * Sets the quantity.
+	 *
+	 * @param quantity the new quantity
 	 */
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
 	/**
+	 * Gets the quantity.
+	 *
+	 * @return the quantity
 	 */
 	public Integer getQuantity() {
 		return this.quantity;
 	}
 
 	/**
+	 * Sets the order.
+	 *
+	 * @param order the new order
 	 */
 	public void setOrder(Order order) {
 		this.order = order;
 	}
 
 	/**
+	 * Gets the order.
+	 *
+	 * @return the order
 	 */
 	@JsonIgnore
 	public Order getOrder() {
@@ -124,12 +153,18 @@ public class OrderProduct implements Serializable {
 	}
 
 	/**
+	 * Sets the product.
+	 *
+	 * @param product the new product
 	 */
 	public void setProduct(Product product) {
 		this.product = product;
 	}
 
 	/**
+	 * Gets the product.
+	 *
+	 * @return the product
 	 */
 	@JsonIgnore
 	public Product getProduct() {
@@ -137,6 +172,7 @@ public class OrderProduct implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new order product.
 	 */
 	public OrderProduct() {
 	}
@@ -144,6 +180,7 @@ public class OrderProduct implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(OrderProduct that) {
 		setOrderid(that.getOrderid());
@@ -156,6 +193,7 @@ public class OrderProduct implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -168,7 +206,8 @@ public class OrderProduct implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -179,7 +218,8 @@ public class OrderProduct implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

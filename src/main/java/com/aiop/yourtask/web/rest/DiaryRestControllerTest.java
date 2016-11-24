@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.web.rest;
 
@@ -23,6 +26,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit test for the <code>DiaryRestController</code> controller.
  *
@@ -43,6 +47,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryactivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -60,6 +66,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryactivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -77,6 +85,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryactivity()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -94,6 +104,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryactivityactivity_activityid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -111,6 +123,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryactivityactivity_activityid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -128,6 +142,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -145,6 +161,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -162,6 +180,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryyourtaskuser()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -179,6 +199,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryyourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -196,6 +218,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiaryyourtaskuseryourtaskuser_userid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -213,6 +237,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarydiaryentries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -230,6 +256,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarydiaryentries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -247,6 +275,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarydiaryentries()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -264,6 +294,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarydiaryentriesdiaryentry_diaryentryid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -281,6 +313,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarydiaryentriesdiaryentry_diaryentryid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -298,6 +332,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarygoals()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -315,6 +351,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarygoals()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -332,6 +370,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarygoals()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -349,6 +389,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarygoalsgoal_goalid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -366,6 +408,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiarygoalsgoal_goalid()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -383,6 +427,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -400,6 +446,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -417,6 +465,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -434,6 +484,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -451,6 +503,8 @@ public class DiaryRestControllerTest {
 
 	/**
 	 * Test <code>Diarydiary_iddiary()</code>.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	@SuppressWarnings("unused")
@@ -469,6 +523,7 @@ public class DiaryRestControllerTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -480,6 +535,7 @@ public class DiaryRestControllerTest {
 	/**
 	 * Returns a mock HttpServletRequest object.
 	 *
+	 * @return the mock http servlet request
 	 */
 	private MockHttpServletRequest getMockHttpServletRequest() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
@@ -491,6 +547,7 @@ public class DiaryRestControllerTest {
 	/**
 	 * Returns a mock HttpServletResponse object.
 	 *
+	 * @return the mock http servlet response
 	 */
 	private MockHttpServletResponse getMockHttpServletResponse() {
 		return new MockHttpServletResponse();

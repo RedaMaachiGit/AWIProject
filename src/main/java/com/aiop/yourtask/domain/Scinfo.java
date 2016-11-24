@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -17,7 +20,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Scinfo.
  */
 
 @Entity
@@ -30,10 +35,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Scinfo")
 
 public class Scinfo implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The scinfoid. */
 
 	@Column(name = "scinfoid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -41,24 +47,24 @@ public class Scinfo implements Serializable {
 	@Id
 	@XmlElement
 	Integer scinfoid;
-	/**
-	 */
+	
+	/** The scinfosiret. */
 
 	@Column(name = "scinfosiret", length = 14, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String scinfosiret;
-	/**
-	 */
+	
+	/** The scinfoactivitydomain. */
 
 	@Column(name = "scinfoactivitydomain", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String scinfoactivitydomain;
-	/**
-	 */
+	
+	/** The scinfowebsite. */
 
 	@Column(name = "scinfowebsite", length = 75, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -66,68 +72,97 @@ public class Scinfo implements Serializable {
 	@XmlElement
 	String scinfowebsite;
 
-	/**
-	 */
+	/** The yourtaskuser. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false) })
 	@XmlTransient
 	Yourtaskuser yourtaskuser;
 
 	/**
+	 * Sets the scinfoid.
+	 *
+	 * @param scinfoid the new scinfoid
 	 */
 	public void setScinfoid(Integer scinfoid) {
 		this.scinfoid = scinfoid;
 	}
 
 	/**
+	 * Gets the scinfoid.
+	 *
+	 * @return the scinfoid
 	 */
 	public Integer getScinfoid() {
 		return this.scinfoid;
 	}
 
 	/**
+	 * Sets the scinfosiret.
+	 *
+	 * @param scinfosiret the new scinfosiret
 	 */
 	public void setScinfosiret(String scinfosiret) {
 		this.scinfosiret = scinfosiret;
 	}
 
 	/**
+	 * Gets the scinfosiret.
+	 *
+	 * @return the scinfosiret
 	 */
 	public String getScinfosiret() {
 		return this.scinfosiret;
 	}
 
 	/**
+	 * Sets the scinfoactivitydomain.
+	 *
+	 * @param scinfoactivitydomain the new scinfoactivitydomain
 	 */
 	public void setScinfoactivitydomain(String scinfoactivitydomain) {
 		this.scinfoactivitydomain = scinfoactivitydomain;
 	}
 
 	/**
+	 * Gets the scinfoactivitydomain.
+	 *
+	 * @return the scinfoactivitydomain
 	 */
 	public String getScinfoactivitydomain() {
 		return this.scinfoactivitydomain;
 	}
 
 	/**
+	 * Sets the scinfowebsite.
+	 *
+	 * @param scinfowebsite the new scinfowebsite
 	 */
 	public void setScinfowebsite(String scinfowebsite) {
 		this.scinfowebsite = scinfowebsite;
 	}
 
 	/**
+	 * Gets the scinfowebsite.
+	 *
+	 * @return the scinfowebsite
 	 */
 	public String getScinfowebsite() {
 		return this.scinfowebsite;
 	}
 
 	/**
+	 * Sets the yourtaskuser.
+	 *
+	 * @param yourtaskuser the new yourtaskuser
 	 */
 	public void setYourtaskuser(Yourtaskuser yourtaskuser) {
 		this.yourtaskuser = yourtaskuser;
 	}
 
 	/**
+	 * Gets the yourtaskuser.
+	 *
+	 * @return the yourtaskuser
 	 */
 	@JsonIgnore
 	public Yourtaskuser getYourtaskuser() {
@@ -135,6 +170,7 @@ public class Scinfo implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new scinfo.
 	 */
 	public Scinfo() {
 	}
@@ -142,6 +178,7 @@ public class Scinfo implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Scinfo that) {
 		setScinfoid(that.getScinfoid());
@@ -154,6 +191,7 @@ public class Scinfo implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -167,7 +205,8 @@ public class Scinfo implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -177,7 +216,8 @@ public class Scinfo implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

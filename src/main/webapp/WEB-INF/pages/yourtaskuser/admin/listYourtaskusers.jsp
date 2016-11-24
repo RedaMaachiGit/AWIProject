@@ -25,7 +25,7 @@
 					<th >Actions</th>
 					<th >id</th>
 					<th >username</th>
-					<th >id</th>
+					<th >email</th>
 					<th >date of birth</th>
 				</tr>
 			</thead>

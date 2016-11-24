@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -36,6 +39,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -78,8 +82,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Goal entity
-	* 
+	 * Load an existing Goal entity.
 	 */
 	@Test
 	public void loadGoals() {
@@ -90,8 +93,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Goal entity
-	* 
+	 * Save an existing Goal entity.
 	 */
 	@Test
 	public void saveGoal() {
@@ -102,8 +104,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Goal entity
-	* 
+	 * Delete an existing Goal entity.
 	 */
 	@Test
 	public void deleteGoal() {
@@ -114,8 +115,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Diary entity
-	* 
+	 * Save an existing Diary entity.
 	 */
 	@Test
 	public void saveGoalDiary() {
@@ -128,7 +128,7 @@ public class GoalServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findGoalByPrimaryKey() {
@@ -141,8 +141,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Goal entity
-	* 
+	 * Return a count of all Goal entity.
 	 */
 	@Test
 	public void countGoals() {
@@ -153,8 +152,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Diary entity
-	* 
+	 * Delete an existing Diary entity.
 	 */
 	@Test
 	public void deleteGoalDiary() {
@@ -168,8 +166,7 @@ public class GoalServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Goal entity
-	* 
+	 * Return all Goal entity.
 	 */
 	@Test
 	public void findAllGoals() {
@@ -184,6 +181,7 @@ public class GoalServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -193,8 +191,7 @@ public class GoalServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

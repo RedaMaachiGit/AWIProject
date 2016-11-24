@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +20,24 @@ import com.aiop.yourtask.domain.Suinfo;
 import com.aiop.yourtask.domain.Yourtaskuser;
 import com.aiop.yourtask.service.YourtaskuserService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AdminController.
+ */
 @Controller
 @RequestMapping
 public class AdminController {
 	
-	/**
-	 * Service injected by Spring that provides CRUD operations for Yourtaskuser entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserService yourtaskuserService;
 
 
+	/**
+	 * Admin dashboard.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/admin")
 	public ModelAndView adminDashboard() {
 		ModelAndView mav = new ModelAndView();

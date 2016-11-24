@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -33,60 +36,47 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Diary entities
- * 
+ * Spring MVC controller that handles CRUD requests for Diary entities.
  */
 
 @Controller("DiaryController")
 
 public class DiaryController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diaryentry entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diaryentry entities. */
 	@Autowired
 	private DiaryentryDAO diaryentryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Goal entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Goal entities. */
 	@Autowired
 	private GoalDAO goalDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Diary entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Diary entities. */
 	@Autowired
 	private DiaryService diaryService;
 
 	/**
-	 * Edit an existing Diaryentry entity
-	 * 
+	 * Edit an existing Diaryentry entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param diaryentryId the diaryentry id
+	 * @return the model and view
 	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/diaryentry/{diaryentryId}/editDiaryentry")
 	public ModelAndView editDiaryDiaryentries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId) {
@@ -103,9 +93,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteDiaryYourtaskuser")
 	public ModelAndView deleteDiaryYourtaskuser(@RequestParam Integer diary_iddiary, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -120,9 +113,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/newDiaryActivity")
 	public ModelAndView newDiaryActivity(@RequestParam Integer diary_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -135,9 +130,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param diary the diary
+	 * @return the string
+	 */
 	@RequestMapping("/saveDiary")
 	public String saveDiary(@ModelAttribute Diary diary) {
 		diaryService.saveDiary(diary);
@@ -145,9 +142,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Delete an existing Goal entity
-	* 
-	*/
+	 * Delete an existing Goal entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param goalId the goal id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteDiaryGoals/{userId}/{activityId}/{diaryId}/{goalId}")
 	public String deleteDiaryGoals(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId ) {
 		diaryService.deleteDiaryGoals(diaryId, goalId);
@@ -155,9 +157,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteDiaryYourtaskuser")
 	public ModelAndView confirmDeleteDiaryYourtaskuser(@RequestParam Integer diary_iddiary, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -170,9 +175,12 @@ public class DiaryController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectDiaryYourtaskuser")
 	public ModelAndView selectDiaryYourtaskuser(@RequestParam Integer diary_iddiary, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);
@@ -186,9 +194,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Select the Diary entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the Diary entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteDiary")
 	public ModelAndView confirmDeleteDiary(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
@@ -200,9 +210,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -218,9 +230,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Show all Diaryentry entities by Diary
-	* 
-	*/
+	 * Show all Diaryentry entities by Diary.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listDiaryDiaryentries")
 	public ModelAndView listDiaryDiaryentries(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
@@ -232,9 +246,12 @@ public class DiaryController {
 	}
 
 	/**
-	* View an existing Activity entity
-	* 
-	*/
+	 * View an existing Activity entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param activity_activityid the activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectDiaryActivity")
 	public ModelAndView selectDiaryActivity(@RequestParam Integer diary_iddiary, @RequestParam Integer activity_activityid) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activity_activityid, -1, -1);
@@ -248,9 +265,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Select the child Diaryentry entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Diaryentry entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param diaryentryId the diaryentry id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/diaryentry/{diaryentryId}/deleteDiaryentry")
 	public ModelAndView confirmDeleteDiaryDiaryentries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId) {
 		ModelAndView mav = new ModelAndView();
@@ -265,9 +287,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Save an existing Diaryentry entity
-	* 
-	*/
+	 * Save an existing Diaryentry entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param diaryentry the diaryentry
+	 * @return the string
+	 */
 	@RequestMapping("/saveDiaryDiaryentries/{userId}/{activityId}/{diaryId}")
 	public String saveDiaryDiaryentries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId, @ModelAttribute Diaryentry diaryentry) {
 		if (diaryentry.getDiaryentryid() == null) {
@@ -280,7 +307,12 @@ public class DiaryController {
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/diaryController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -290,9 +322,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Edit an existing Diary entity
-	* 
-	*/
+	 * Edit an existing Diary entity.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editDiary")
 	public ModelAndView editDiary(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
@@ -304,9 +338,11 @@ public class DiaryController {
 	}
 
 	/**
-	* View an existing Goal entity
-	* 
-	*/
+	 * View an existing Goal entity.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/selectDiaryGoals")
 	public ModelAndView selectDiaryGoals(@RequestParam Integer diary_iddiary, @RequestParam Integer goals_goalid) {
@@ -335,9 +371,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Show all Yourtaskuser entities by Diary
-	* 
-	*/
+	 * Show all Yourtaskuser entities by Diary.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listDiaryYourtaskuser")
 	public ModelAndView listDiaryYourtaskuser(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
@@ -349,9 +387,13 @@ public class DiaryController {
 	}
 
 	/**
-	* Create a new Goal entity
-	* 
-	*/
+	 * Create a new Goal entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/createGoal")
 	public ModelAndView newUserActivityDiaryGoal(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
@@ -366,9 +408,10 @@ public class DiaryController {
 	}
 
 	/**
-	* Show all Diary entities
-	* 
-	*/
+	 * Show all Diary entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/indexDiary")
 	public ModelAndView listDiarys() {
 		ModelAndView mav = new ModelAndView();
@@ -381,17 +424,23 @@ public class DiaryController {
 	}
 
 	/**
-	* Entry point to show all Diary entities
-	* 
-	*/
+	 * Entry point to show all Diary entities.
+	 *
+	 * @return the string
+	 */
 	public String indexDiary() {
 		return "redirect:/indexDiary";
 	}
 
 	/**
-	* Save an existing Goal entity
-	* 
-	*/
+	 * Save an existing Goal entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param goal the goal
+	 * @return the string
+	 */
 	@RequestMapping("/saveDiaryGoals/{userId}/{activityId}/{diaryId}")
 	public String saveDiaryGoals(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId, @ModelAttribute Goal goal) {
 		if (goal.getGoalid() == null) {
@@ -403,9 +452,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteDiary")
 	public String deleteDiary(@RequestParam Integer iddiaryKey) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(iddiaryKey);
@@ -414,9 +465,12 @@ public class DiaryController {
 	}
 
 	/**
-	* View an existing Diaryentry entity
-	* 
-	*/
+	 * View an existing Diaryentry entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param activity_activityid the activity activityid
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/selectDiaryDiaryentries")
 	public ModelAndView selectDiaryDiaryentries(@RequestParam Integer diary_iddiary, @RequestParam Integer diaryentries_diaryentryid) {
@@ -447,9 +501,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Show all Activity entities by Diary
-	* 
-	*/
+	 * Show all Activity entities by Diary.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listDiaryActivity")
 	public ModelAndView listDiaryActivity(@RequestParam Integer iddiaryKey) {
 		ModelAndView mav = new ModelAndView();
@@ -461,9 +517,10 @@ public class DiaryController {
 	}
 
 	/**
-	* Create a new Diary entity
-	* 
-	*/
+	 * Create a new Diary entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newDiary")
 	public ModelAndView newDiary() {
 		ModelAndView mav = new ModelAndView();
@@ -476,9 +533,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Activity entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteDiaryActivity")
 	public ModelAndView confirmDeleteDiaryActivity(@RequestParam Integer diary_iddiary, @RequestParam Integer related_activity_activityid) {
 		ModelAndView mav = new ModelAndView();
@@ -491,9 +551,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Delete an existing Diaryentry entity
-	* 
-	*/
+	 * Delete an existing Diaryentry entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param diaryentryId the diaryentry id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteDiaryDiaryentries/{userId}/{activityId}/{diaryId}/{diaryentryId}")
 	public String deleteDiaryDiaryentries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("diaryentryId") Integer diaryentryId ) {
 		diaryService.deleteDiaryDiaryentries(diaryId, diaryentryId);
@@ -501,9 +566,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param related_activity_activityid the related activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteDiaryActivity")
 	public ModelAndView deleteDiaryActivity(@RequestParam Integer diary_iddiary, @RequestParam Integer related_activity_activityid) {
 		ModelAndView mav = new ModelAndView();
@@ -518,9 +586,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editDiaryYourtaskuser")
 	public ModelAndView editDiaryYourtaskuser(@RequestParam Integer diary_iddiary, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);
@@ -534,9 +605,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveDiaryYourtaskuser")
 	public ModelAndView saveDiaryYourtaskuser(@RequestParam Integer diary_iddiary, @ModelAttribute Yourtaskuser yourtaskuser) {
 		Diary parent_diary = diaryService.saveDiaryYourtaskuser(diary_iddiary, yourtaskuser);
@@ -550,9 +624,12 @@ public class DiaryController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @param activity the activity
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveDiaryActivity")
 	public ModelAndView saveDiaryActivity(@RequestParam Integer diary_iddiary, @ModelAttribute Activity activity) {
 		Diary parent_diary = diaryService.saveDiaryActivity(diary_iddiary, activity);
@@ -566,9 +643,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Select an existing Diary entity
-	* 
-	*/
+	 * Select an existing Diary entity.
+	 *
+	 * @param iddiaryKey the iddiary key
+	 * @return the model and view
+	 */
 	
 	@RequestMapping("/selectDiary")
 	public ModelAndView selectDiary(@RequestParam Integer iddiaryKey) {
@@ -580,6 +659,14 @@ public class DiaryController {
 		return mav;
 	}
 	
+	/**
+	 * Select user activity diary.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}")
 	public ModelAndView selectUserActivityDiary(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
@@ -593,6 +680,13 @@ public class DiaryController {
 		return mav;
 	}
 	
+	/**
+	 * Select public activity diaries.
+	 *
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/allactivities/activity/{activityId}/diary/{diaryId}")
 	public ModelAndView selectPublicActivityDiaries(@PathVariable("activityId") Integer activityId, @PathVariable("diaryId") Integer diaryId) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
@@ -607,9 +701,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Edit an existing Goal entity
-	* 
-	*/
+	 * Edit an existing Goal entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param goalId the goal id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/goal/{goalId}/editGoal")
 	public ModelAndView editDiaryGoals(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId) {
 		Goal goal = goalDAO.findGoalByPrimaryKey(goalId, -1, -1);
@@ -625,9 +724,11 @@ public class DiaryController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param diary_iddiary the diary iddiary
+	 * @return the model and view
+	 */
 	@RequestMapping("/newDiaryYourtaskuser")
 	public ModelAndView newDiaryYourtaskuser(@RequestParam Integer diary_iddiary) {
 		ModelAndView mav = new ModelAndView();
@@ -640,9 +741,13 @@ public class DiaryController {
 	}
 
 	/**
-	* Create a new Diaryentry entity
-	* 
-	*/
+	 * Create a new Diaryentry entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/createDiaryentry")
 	public ModelAndView newUserActivityDiaryDiaryentry(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
@@ -657,9 +762,14 @@ public class DiaryController {
 	}
 
 	/**
-	* Select the child Goal entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Goal entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @param goalId the goal id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/goal/{goalId}/deleteGoal")
 	public ModelAndView confirmDeleteDiaryGoals(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId,@PathVariable("goalId") Integer goalId) {
 		ModelAndView mav = new ModelAndView();

@@ -10,15 +10,9 @@
 	</head>
 	<body>
 		<div class="container">
-						<div class="navitem">
-							<a class="button" href="${pageContext.request.contextPath}/indexYourtaskuser">
-								<span class="glyphicon glyphicon-arrow-left"></span>
-								<span><fmt:message key="navigation.back"/></span>
-							</a>
-						</div>	
 						<h1>My Activities</h1>
 						<div class="navitem">
-							<a class="btn btn-primary" href="${pageContext.request.contextPath}/su/${yourtaskuser.userid}/createActivity">
+							<a class="btn btn-primary" href="${pageContext.request.contextPath}/su/activity/new">
 								<span class="glyphicon glyphicon-plus"></span>
 								<span><fmt:message key="navigation.new"/> <fmt:message key="activity.title"/></span>
 							</a>

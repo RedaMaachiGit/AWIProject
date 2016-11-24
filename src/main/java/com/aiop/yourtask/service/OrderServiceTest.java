@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -37,6 +40,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -79,8 +83,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveOrderYourtaskuserByUseridsc() {
@@ -94,8 +97,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing OrderProduct entity
-	* 
+	 * Save an existing OrderProduct entity.
 	 */
 	@Test
 	public void saveOrderOrderProducts() {
@@ -109,8 +111,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Order entity
-	* 
+	 * Save an existing Order entity.
 	 */
 	@Test
 	public void saveOrder() {
@@ -121,8 +122,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing OrderProduct entity
-	* 
+	 * Delete an existing OrderProduct entity.
 	 */
 	@Test
 	public void deleteOrderOrderProducts() {
@@ -137,8 +137,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Order entity
-	* 
+	 * Delete an existing Order entity.
 	 */
 	@Test
 	public void deleteOrder() {
@@ -148,7 +147,7 @@ public class OrderServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findOrderByPrimaryKey() {
@@ -161,8 +160,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteOrderYourtaskuserByUserid() {
@@ -176,8 +174,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Order entity
-	* 
+	 * Load an existing Order entity.
 	 */
 	@Test
 	public void loadOrders() {
@@ -188,8 +185,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Order entity
-	* 
+	 * Return all Order entity.
 	 */
 	@Test
 	public void findAllOrders() {
@@ -203,8 +199,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Yourtaskuser entity
-	* 
+	 * Save an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void saveOrderYourtaskuserByUserid() {
@@ -218,8 +213,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Order entity
-	* 
+	 * Return a count of all Order entity.
 	 */
 	@Test
 	public void countOrders() {
@@ -230,8 +224,7 @@ public class OrderServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Yourtaskuser entity
-	* 
+	 * Delete an existing Yourtaskuser entity.
 	 */
 	@Test
 	public void deleteOrderYourtaskuserByUseridsc() {
@@ -246,6 +239,7 @@ public class OrderServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -255,8 +249,7 @@ public class OrderServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

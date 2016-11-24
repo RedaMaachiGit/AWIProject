@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.ResourceDAO;
@@ -26,55 +29,48 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for RoleResource entities
- * 
+ * Spring MVC controller that handles CRUD requests for RoleResource entities.
  */
 
 @Controller("RoleResourceController")
 
 public class RoleResourceController {
 
-	/**
-	 * DAO injected by Spring that manages Resource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Resource entities. */
 	@Autowired
 	private ResourceDAO resourceDAO;
 
-	/**
-	 * DAO injected by Spring that manages Role entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Role entities. */
 	@Autowired
 	private RoleDAO roleDAO;
 
-	/**
-	 * DAO injected by Spring that manages RoleResource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages RoleResource entities. */
 	@Autowired
 	private RoleResourceDAO roleResourceDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for RoleResource entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for RoleResource entities. */
 	@Autowired
 	private RoleResourceService roleResourceService;
 
 	/**
-	 * Entry point to show all RoleResource entities
-	 * 
+	 * Entry point to show all RoleResource entities.
+	 *
+	 * @return the string
 	 */
 	public String indexRoleResource() {
 		return "redirect:/indexRoleResource";
 	}
 
 	/**
-	* Select the child Role entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Role entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_role_roleid the related role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteRoleResourceRole")
 	public ModelAndView confirmDeleteRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer related_role_roleid) {
 		ModelAndView mav = new ModelAndView();
@@ -88,9 +84,10 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Create a new RoleResource entity
-	* 
-	*/
+	 * Create a new RoleResource entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newRoleResource")
 	public ModelAndView newRoleResource() {
 		ModelAndView mav = new ModelAndView();
@@ -103,9 +100,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Create a new Resource entity
-	* 
-	*/
+	 * Create a new Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newRoleResourceResource")
 	public ModelAndView newRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid) {
 		ModelAndView mav = new ModelAndView();
@@ -119,9 +119,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Show all Role entities by RoleResource
-	* 
-	*/
+	 * Show all Role entities by RoleResource.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listRoleResourceRole")
 	public ModelAndView listRoleResourceRole(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -133,9 +136,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Select the RoleResource entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the RoleResource entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteRoleResource")
 	public ModelAndView confirmDeleteRoleResource(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -147,9 +153,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Edit an existing RoleResource entity
-	* 
-	*/
+	 * Edit an existing RoleResource entity.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editRoleResource")
 	public ModelAndView editRoleResource(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -161,9 +170,11 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Save an existing RoleResource entity
-	* 
-	*/
+	 * Save an existing RoleResource entity.
+	 *
+	 * @param roleresource the roleresource
+	 * @return the string
+	 */
 	@RequestMapping("/saveRoleResource")
 	public String saveRoleResource(@ModelAttribute RoleResource roleresource) {
 		roleResourceService.saveRoleResource(roleresource);
@@ -171,9 +182,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Save an existing Resource entity
-	* 
-	*/
+	 * Save an existing Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param resource the resource
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveRoleResourceResource")
 	public ModelAndView saveRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @ModelAttribute Resource resource) {
 		RoleResource parent_roleresource = roleResourceService.saveRoleResourceResource(roleresource_roleid, roleresource_resourceid, resource);
@@ -188,9 +203,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Delete an existing Resource entity
-	* 
-	*/
+	 * Delete an existing Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_resource_resourceid the related resource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteRoleResourceResource")
 	public ModelAndView deleteRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer related_resource_resourceid) {
 		ModelAndView mav = new ModelAndView();
@@ -206,7 +225,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/roleresourceController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -216,9 +240,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Save an existing Role entity
-	* 
-	*/
+	 * Save an existing Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param role the role
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveRoleResourceRole")
 	public ModelAndView saveRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @ModelAttribute Role role) {
 		RoleResource parent_roleresource = roleResourceService.saveRoleResourceRole(roleresource_roleid, roleresource_resourceid, role);
@@ -233,9 +261,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Delete an existing Role entity
-	* 
-	*/
+	 * Delete an existing Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_role_roleid the related role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteRoleResourceRole")
 	public ModelAndView deleteRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer related_role_roleid) {
 		ModelAndView mav = new ModelAndView();
@@ -251,9 +283,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Show all Resource entities by RoleResource
-	* 
-	*/
+	 * Show all Resource entities by RoleResource.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listRoleResourceResource")
 	public ModelAndView listRoleResourceResource(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -265,9 +300,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* View an existing Role entity
-	* 
-	*/
+	 * View an existing Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param role_roleid the role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectRoleResourceRole")
 	public ModelAndView selectRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer role_roleid) {
 		Role role = roleDAO.findRoleByPrimaryKey(role_roleid, -1, -1);
@@ -282,9 +321,11 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -300,9 +341,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Edit an existing Resource entity
-	* 
-	*/
+	 * Edit an existing Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param resource_resourceid the resource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editRoleResourceResource")
 	public ModelAndView editRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer resource_resourceid) {
 		Resource resource = resourceDAO.findResourceByPrimaryKey(resource_resourceid, -1, -1);
@@ -317,9 +362,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Delete an existing RoleResource entity
-	* 
-	*/
+	 * Delete an existing RoleResource entity.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteRoleResource")
 	public String deleteRoleResource(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		RoleResource roleresource = roleResourceDAO.findRoleResourceByPrimaryKey(roleidKey, resourceidKey);
@@ -328,9 +376,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Create a new Role entity
-	* 
-	*/
+	 * Create a new Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newRoleResourceRole")
 	public ModelAndView newRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid) {
 		ModelAndView mav = new ModelAndView();
@@ -344,9 +395,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Edit an existing Role entity
-	* 
-	*/
+	 * Edit an existing Role entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param role_roleid the role roleid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editRoleResourceRole")
 	public ModelAndView editRoleResourceRole(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer role_roleid) {
 		Role role = roleDAO.findRoleByPrimaryKey(role_roleid, -1, -1);
@@ -361,9 +416,10 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Show all RoleResource entities
-	* 
-	*/
+	 * Show all RoleResource entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/indexRoleResource")
 	public ModelAndView listRoleResources() {
 		ModelAndView mav = new ModelAndView();
@@ -376,9 +432,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* View an existing Resource entity
-	* 
-	*/
+	 * View an existing Resource entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param resource_resourceid the resource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectRoleResourceResource")
 	public ModelAndView selectRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer resource_resourceid) {
 		Resource resource = resourceDAO.findResourceByPrimaryKey(resource_resourceid, -1, -1);
@@ -393,9 +453,12 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Select an existing RoleResource entity
-	* 
-	*/
+	 * Select an existing RoleResource entity.
+	 *
+	 * @param roleidKey the roleid key
+	 * @param resourceidKey the resourceid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectRoleResource")
 	public ModelAndView selectRoleResource(@RequestParam Integer roleidKey, @RequestParam Integer resourceidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -407,9 +470,13 @@ public class RoleResourceController {
 	}
 
 	/**
-	* Select the child Resource entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Resource entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param roleresource_roleid the roleresource roleid
+	 * @param roleresource_resourceid the roleresource resourceid
+	 * @param related_resource_resourceid the related resource resourceid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteRoleResourceResource")
 	public ModelAndView confirmDeleteRoleResourceResource(@RequestParam Integer roleresource_roleid, @RequestParam Integer roleresource_resourceid, @RequestParam Integer related_resource_resourceid) {
 		ModelAndView mav = new ModelAndView();

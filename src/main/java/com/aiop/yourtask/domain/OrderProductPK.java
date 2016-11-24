@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -7,26 +10,30 @@ import javax.persistence.Id;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class OrderProductPK.
  */
 public class OrderProductPK implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Instantiates a new order product PK.
 	 */
 	public OrderProductPK() {
 	}
 
-	/**
-	 */
+	/** The orderid. */
 
 	@Column(name = "orderid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@Id
 	public Integer orderid;
-	/**
-	 */
+	
+	/** The productid. */
 
 	@Column(name = "productid", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -35,30 +42,43 @@ public class OrderProductPK implements Serializable {
 	public Integer productid;
 
 	/**
+	 * Sets the orderid.
+	 *
+	 * @param orderid the new orderid
 	 */
 	public void setOrderid(Integer orderid) {
 		this.orderid = orderid;
 	}
 
 	/**
+	 * Gets the orderid.
+	 *
+	 * @return the orderid
 	 */
 	public Integer getOrderid() {
 		return this.orderid;
 	}
 
 	/**
+	 * Sets the productid.
+	 *
+	 * @param productid the new productid
 	 */
 	public void setProductid(Integer productid) {
 		this.productid = productid;
 	}
 
 	/**
+	 * Gets the productid.
+	 *
+	 * @return the productid
 	 */
 	public Integer getProductid() {
 		return this.productid;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -69,7 +89,8 @@ public class OrderProductPK implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)
@@ -88,6 +109,9 @@ public class OrderProductPK implements Serializable {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("OrderProductPK");

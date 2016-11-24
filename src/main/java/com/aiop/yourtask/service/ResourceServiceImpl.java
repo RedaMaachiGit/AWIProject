@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.service;
 
 import com.aiop.yourtask.dao.ResourceDAO;
@@ -15,9 +18,9 @@ import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring service that handles CRUD requests for Resource entities
- * 
+ * Spring service that handles CRUD requests for Resource entities.
  */
 
 @Service("ResourceService")
@@ -25,17 +28,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ResourceServiceImpl implements ResourceService {
 
-	/**
-	 * DAO injected by Spring that manages Resource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Resource entities. */
 	@Autowired
 	private ResourceDAO resourceDAO;
 
-	/**
-	 * DAO injected by Spring that manages RoleResource entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages RoleResource entities. */
 	@Autowired
 	private RoleResourceDAO roleResourceDAO;
 
@@ -46,7 +43,8 @@ public class ResourceServiceImpl implements ResourceService {
 	public ResourceServiceImpl() {
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see com.aiop.yourtask.service.ResourceService#findResourceByPrimaryKey(java.lang.Integer)
 	 */
 	@Transactional
 	public Resource findResourceByPrimaryKey(Integer resourceid) {
@@ -54,8 +52,11 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Return all Resource entity
-	 * 
+	 * Return all Resource entity.
+	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the list
 	 */
 	@Transactional
 	public List<Resource> findAllResources(Integer startResult, Integer maxRows) {
@@ -63,8 +64,11 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Save an existing RoleResource entity
-	 * 
+	 * Save an existing RoleResource entity.
+	 *
+	 * @param resourceid the resourceid
+	 * @param related_roleresources the related roleresources
+	 * @return the resource
 	 */
 	@Transactional
 	public Resource saveResourceRoleResources(Integer resourceid, RoleResource related_roleresources) {
@@ -91,8 +95,9 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Save an existing Resource entity
-	 * 
+	 * Save an existing Resource entity.
+	 *
+	 * @param resource the resource
 	 */
 	@Transactional
 	public void saveResource(Resource resource) {
@@ -111,8 +116,9 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Return a count of all Resource entity
-	 * 
+	 * Return a count of all Resource entity.
+	 *
+	 * @return the integer
 	 */
 	@Transactional
 	public Integer countResources() {
@@ -120,8 +126,9 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Load an existing Resource entity
-	 * 
+	 * Load an existing Resource entity.
+	 *
+	 * @return the sets the
 	 */
 	@Transactional
 	public Set<Resource> loadResources() {
@@ -129,8 +136,9 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Delete an existing Resource entity
-	 * 
+	 * Delete an existing Resource entity.
+	 *
+	 * @param resource the resource
 	 */
 	@Transactional
 	public void deleteResource(Resource resource) {
@@ -139,8 +147,12 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 
 	/**
-	 * Delete an existing RoleResource entity
-	 * 
+	 * Delete an existing RoleResource entity.
+	 *
+	 * @param resource_resourceid the resource resourceid
+	 * @param related_roleresources_roleid the related roleresources roleid
+	 * @param related_roleresources_resourceid the related roleresources resourceid
+	 * @return the resource
 	 */
 	@Transactional
 	public Resource deleteResourceRoleResources(Integer resource_resourceid, Integer related_roleresources_roleid, Integer related_roleresources_resourceid) {

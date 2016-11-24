@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.domain;
 
@@ -15,7 +18,9 @@ import javax.xml.bind.annotation.*;
 
 import javax.persistence.*;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Diaryresource.
  */
 
 @Entity
@@ -25,10 +30,11 @@ import javax.persistence.*;
 @XmlType(namespace = "aiopproject/com/aiop/yourtask/domain", name = "Diaryresource")
 
 public class Diaryresource implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
+	/** The iddiaryresource. */
 
 	@Column(name = "iddiaryresource", nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -36,16 +42,16 @@ public class Diaryresource implements Serializable {
 	@Id
 	@XmlElement
 	Integer iddiaryresource;
-	/**
-	 */
+	
+	/** The typediaryresource. */
 
 	@Column(name = "typediaryresource", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
 
 	@XmlElement
 	String typediaryresource;
-	/**
-	 */
+	
+	/** The urldiaryresource. */
 
 	@Column(name = "urldiaryresource", length = 50, nullable = false)
 	@Basic(fetch = FetchType.EAGER)
@@ -53,56 +59,79 @@ public class Diaryresource implements Serializable {
 	@XmlElement
 	String urldiaryresource;
 
-	/**
-	 */
+	/** The diaryentry. */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({ @JoinColumn(name = "diaryentryid", referencedColumnName = "diaryentryid", nullable = false) })
 	@XmlTransient
 	Diaryentry diaryentry;
 
 	/**
+	 * Sets the iddiaryresource.
+	 *
+	 * @param iddiaryresource the new iddiaryresource
 	 */
 	public void setIddiaryresource(Integer iddiaryresource) {
 		this.iddiaryresource = iddiaryresource;
 	}
 
 	/**
+	 * Gets the iddiaryresource.
+	 *
+	 * @return the iddiaryresource
 	 */
 	public Integer getIddiaryresource() {
 		return this.iddiaryresource;
 	}
 
 	/**
+	 * Sets the typediaryresource.
+	 *
+	 * @param typediaryresource the new typediaryresource
 	 */
 	public void setTypediaryresource(String typediaryresource) {
 		this.typediaryresource = typediaryresource;
 	}
 
 	/**
+	 * Gets the typediaryresource.
+	 *
+	 * @return the typediaryresource
 	 */
 	public String getTypediaryresource() {
 		return this.typediaryresource;
 	}
 
 	/**
+	 * Sets the urldiaryresource.
+	 *
+	 * @param urldiaryresource the new urldiaryresource
 	 */
 	public void setUrldiaryresource(String urldiaryresource) {
 		this.urldiaryresource = urldiaryresource;
 	}
 
 	/**
+	 * Gets the urldiaryresource.
+	 *
+	 * @return the urldiaryresource
 	 */
 	public String getUrldiaryresource() {
 		return this.urldiaryresource;
 	}
 
 	/**
+	 * Sets the diaryentry.
+	 *
+	 * @param diaryentry the new diaryentry
 	 */
 	public void setDiaryentry(Diaryentry diaryentry) {
 		this.diaryentry = diaryentry;
 	}
 
 	/**
+	 * Gets the diaryentry.
+	 *
+	 * @return the diaryentry
 	 */
 	@JsonIgnore
 	public Diaryentry getDiaryentry() {
@@ -110,6 +139,7 @@ public class Diaryresource implements Serializable {
 	}
 
 	/**
+	 * Instantiates a new diaryresource.
 	 */
 	public Diaryresource() {
 	}
@@ -117,6 +147,7 @@ public class Diaryresource implements Serializable {
 	/**
 	 * Copies the contents of the specified bean into this bean.
 	 *
+	 * @param that the that
 	 */
 	public void copy(Diaryresource that) {
 		setIddiaryresource(that.getIddiaryresource());
@@ -128,6 +159,7 @@ public class Diaryresource implements Serializable {
 	/**
 	 * Returns a textual representation of a bean.
 	 *
+	 * @return the string
 	 */
 	public String toString() {
 
@@ -140,7 +172,8 @@ public class Diaryresource implements Serializable {
 		return buffer.toString();
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -150,7 +183,8 @@ public class Diaryresource implements Serializable {
 		return result;
 	}
 
-	/**
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(Object obj) {
 		if (obj == this)

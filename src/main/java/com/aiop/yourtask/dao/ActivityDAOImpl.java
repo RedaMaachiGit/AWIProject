@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.dao;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
 
+// TODO: Auto-generated Javadoc
 /**
  * DAO to manage Activity entities.
  * 
@@ -37,24 +41,21 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	private final static Set<Class<?>> dataTypes = new HashSet<Class<?>>(Arrays.asList(new Class<?>[] {
 			Activity.class }));
 
-	/**
-	 * EntityManager injected by Spring for persistence unit postgresqlall
-	 *
-	 */
+	/** EntityManager injected by Spring for persistence unit postgresqlall. */
 	@PersistenceContext(unitName = "postgresqlall")
 	private EntityManager entityManager;
 
 	/**
-	 * Instantiates a new ActivityDAOImpl
-	 *
+	 * Instantiates a new ActivityDAOImpl.
 	 */
 	public ActivityDAOImpl() {
 		super();
 	}
 
 	/**
-	 * Get the entity manager that manages persistence unit 
+	 * Get the entity manager that manages persistence unit .
 	 *
+	 * @return the entity manager
 	 */
 	public EntityManager getEntityManager() {
 		return entityManager;
@@ -63,14 +64,17 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	/**
 	 * Returns the set of entity classes managed by this DAO.
 	 *
+	 * @return the types
 	 */
 	public Set<Class<?>> getTypes() {
 		return dataTypes;
 	}
 
 	/**
-	 * JPQL Query - findAllActivitys
+	 * JPQL Query - findAllActivitys.
 	 *
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findAllActivitys() throws DataAccessException {
@@ -79,8 +83,12 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findAllActivitys
+	 * JPQL Query - findAllActivitys.
 	 *
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -91,8 +99,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityname
+	 * JPQL Query - findActivityByActivityname.
 	 *
+	 * @param activityname the activityname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findActivityByActivityname(String activityname) throws DataAccessException {
@@ -101,8 +112,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityname
+	 * JPQL Query - findActivityByActivityname.
 	 *
+	 * @param activityname the activityname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -113,8 +129,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitynameContaining
+	 * JPQL Query - findActivityByActivitynameContaining.
 	 *
+	 * @param activityname the activityname
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findActivityByActivitynameContaining(String activityname) throws DataAccessException {
@@ -123,8 +142,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitynameContaining
+	 * JPQL Query - findActivityByActivitynameContaining.
 	 *
+	 * @param activityname the activityname
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -135,8 +159,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityid
+	 * JPQL Query - findActivityByActivityid.
 	 *
+	 * @param activityid the activityid
+	 * @return the activity
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Activity findActivityByActivityid(Integer activityid) throws DataAccessException {
@@ -145,8 +172,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityid
+	 * JPQL Query - findActivityByActivityid.
 	 *
+	 * @param activityid the activityid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the activity
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -160,8 +192,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityvisibility
+	 * JPQL Query - findActivityByActivityvisibility.
 	 *
+	 * @param activityvisibility the activityvisibility
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findActivityByActivityvisibility(Boolean activityvisibility) throws DataAccessException {
@@ -170,8 +205,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivityvisibility
+	 * JPQL Query - findActivityByActivityvisibility.
 	 *
+	 * @param activityvisibility the activityvisibility
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -182,8 +222,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitydescription
+	 * JPQL Query - findActivityByActivitydescription.
 	 *
+	 * @param activitydescription the activitydescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findActivityByActivitydescription(String activitydescription) throws DataAccessException {
@@ -192,8 +235,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitydescription
+	 * JPQL Query - findActivityByActivitydescription.
 	 *
+	 * @param activitydescription the activitydescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -204,8 +252,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitydescriptionContaining
+	 * JPQL Query - findActivityByActivitydescriptionContaining.
 	 *
+	 * @param activitydescription the activitydescription
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Set<Activity> findActivityByActivitydescriptionContaining(String activitydescription) throws DataAccessException {
@@ -214,8 +265,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByActivitydescriptionContaining
+	 * JPQL Query - findActivityByActivitydescriptionContaining.
 	 *
+	 * @param activitydescription the activitydescription
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the sets the
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -226,8 +282,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByPrimaryKey
+	 * JPQL Query - findActivityByPrimaryKey.
 	 *
+	 * @param activityid the activityid
+	 * @return the activity
+	 * @throws DataAccessException the data access exception
 	 */
 	@Transactional
 	public Activity findActivityByPrimaryKey(Integer activityid) throws DataAccessException {
@@ -236,8 +295,13 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * JPQL Query - findActivityByPrimaryKey
+	 * JPQL Query - findActivityByPrimaryKey.
 	 *
+	 * @param activityid the activityid
+	 * @param startResult the start result
+	 * @param maxRows the max rows
+	 * @return the activity
+	 * @throws DataAccessException the data access exception
 	 */
 
 	@Transactional
@@ -251,10 +315,11 @@ public class ActivityDAOImpl extends AbstractJpaDao<Activity> implements Activit
 	}
 
 	/**
-	 * Used to determine whether or not to merge the entity or persist the entity when calling Store
-	 * @see store
-	 * 
+	 * Used to determine whether or not to merge the entity or persist the entity when calling Store.
 	 *
+	 * @param entity the entity
+	 * @return true, if successful
+	 * @see store
 	 */
 	public boolean canBeMerged(Activity entity) {
 		return true;

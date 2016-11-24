@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 
 package com.aiop.yourtask.service;
 
@@ -36,6 +39,7 @@ import org.springframework.web.context.request.RequestScope;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.SessionScope;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class to run the service as a JUnit test. Each operation in the service is a separate test.
  *
@@ -78,8 +82,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Task entity
-	* 
+	 * Save an existing Task entity.
 	 */
 	@Test
 	public void saveTask() {
@@ -90,8 +93,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Save an existing Activity entity
-	* 
+	 * Save an existing Activity entity.
 	 */
 	@Test
 	public void saveTaskActivity() {
@@ -105,8 +107,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Activity entity
-	* 
+	 * Delete an existing Activity entity.
 	 */
 	@Test
 	public void deleteTaskActivity() {
@@ -119,7 +120,7 @@ public class TaskServiceTest {
 	}
 
 	/**
-	 * Operation Unit Test
+	 * Operation Unit Test.
 	 */
 	@Test
 	public void findTaskByPrimaryKey() {
@@ -132,8 +133,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return all Task entity
-	* 
+	 * Return all Task entity.
 	 */
 	@Test
 	public void findAllTasks() {
@@ -147,8 +147,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Delete an existing Task entity
-	* 
+	 * Delete an existing Task entity.
 	 */
 	@Test
 	public void deleteTask() {
@@ -159,8 +158,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Return a count of all Task entity
-	* 
+	 * Return a count of all Task entity.
 	 */
 	@Test
 	public void countTasks() {
@@ -171,8 +169,7 @@ public class TaskServiceTest {
 
 	/**
 	 * Operation Unit Test
-	* Load an existing Task entity
-	* 
+	 * Load an existing Task entity.
 	 */
 	@Test
 	public void loadTasks() {
@@ -184,6 +181,7 @@ public class TaskServiceTest {
 	/**
 	 * Autowired to set the Spring application context.
 	 *
+	 * @param context the new context
 	 */
 	@Autowired
 	public void setContext(ApplicationContext context) {
@@ -193,8 +191,7 @@ public class TaskServiceTest {
 	}
 
 	/**
-	 * Sets Up the Request context
-	 *
+	 * Sets Up the Request context.
 	 */
 	private void setupRequestContext() {
 		MockHttpServletRequest request = new MockHttpServletRequest();

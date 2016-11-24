@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.aiop.yourtask.web;
 
 import com.aiop.yourtask.dao.ActivityDAO;
@@ -40,65 +43,50 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
+// TODO: Auto-generated Javadoc
 /**
- * Spring MVC controller that handles CRUD requests for Activity entities
- * 
+ * Spring MVC controller that handles CRUD requests for Activity entities.
  */
 
 @Controller("ActivityController")
 
 public class ActivityController {
 
-	/**
-	 * DAO injected by Spring that manages Activity entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
 	private ActivityDAO activityDAO;
 
-	/**
-	 * DAO injected by Spring that manages Comment entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Comment entities. */
 	@Autowired
 	private CommentDAO commentDAO;
 
-	/**
-	 * DAO injected by Spring that manages Diary entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Diary entities. */
 	@Autowired
 	private DiaryDAO diaryDAO;
 
-	/**
-	 * DAO injected by Spring that manages Task entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Task entities. */
 	@Autowired
 	private TaskDAO taskDAO;
 
-	/**
-	 * DAO injected by Spring that manages Yourtaskuser entities
-	 * 
-	 */
+	/** DAO injected by Spring that manages Yourtaskuser entities. */
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/**
-	 * Service injected by Spring that provides CRUD operations for Activity entities
-	 * 
-	 */
+	/** Service injected by Spring that provides CRUD operations for Activity entities. */
 	@Autowired
 	private ActivityService activityService;
 	
+    /** The authentication. */
     @Autowired
     private AuthenticationFacade authentication;
     
     
 
 	/**
-	 * Show all Task entities by Activity
-	 * 
+	 * Show all Task entities by Activity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
 	 */
 	@RequestMapping("/listActivityTasks")
 	public ModelAndView listActivityTasks(@RequestParam Integer activityidKey) {
@@ -111,9 +99,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Show all Comment entities by Activity
-	* 
-	*/
+	 * Show all Comment entities by Activity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listActivityComments")
 	public ModelAndView listActivityComments(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -125,9 +115,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Create a new Task entity
-	* 
-	*/
+	 * Create a new Task entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/createTask")
 	public ModelAndView newUserActivityTask(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
@@ -141,9 +134,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Delete an existing Comment entity
-	* 
-	*/
+	 * Delete an existing Comment entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_comments_commentid the related comments commentid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteActivityComments")
 	public ModelAndView deleteActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer related_comments_commentid) {
 		ModelAndView mav = new ModelAndView();
@@ -158,9 +154,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Select the Activity entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the Activity entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteActivity")
 	public ModelAndView confirmDeleteActivity(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -172,9 +170,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Delete an existing Activity entity
-	* 
-	*/
+	 * Delete an existing Activity entity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the string
+	 */
 	@RequestMapping("/deleteActivity")
 	public String deleteActivity(@RequestParam Integer activityidKey) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityidKey);
@@ -183,9 +183,10 @@ public class ActivityController {
 	}
 
 	/**
-	* Create a new Activity entity
-	* 
-	*/
+	 * Create a new Activity entity.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/newActivity")
 	public ModelAndView newActivity() {
 		ModelAndView mav = new ModelAndView();
@@ -198,9 +199,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Show all Yourtaskuser entities by Activity
-	* 
-	*/
+	 * Show all Yourtaskuser entities by Activity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listActivityYourtaskuser")
 	public ModelAndView listActivityYourtaskuser(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -212,9 +215,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Save an existing Comment entity
-	* 
-	*/
+	 * Save an existing Comment entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param comments the comments
+	 * @return the string
+	 */
 	@RequestMapping("/saveActivityComments/{userId}/{activityId}")
 	public String saveActivityComments(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Comment comments) {		
 		if (comments.getCommentid() == null) {
@@ -229,9 +236,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Yourtaskuser entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/confirmDeleteActivityYourtaskuser")
 	public ModelAndView confirmDeleteActivityYourtaskuser(@RequestParam Integer activity_activityid, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -244,9 +254,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Select the child Comment entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Comment entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param task the task
+	 * @return the string
+	 */
 	/*
 	@RequestMapping("/confirmDeleteActivityComments")
 	public ModelAndView confirmDeleteActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer related_comments_commentid) {
@@ -284,17 +298,22 @@ public class ActivityController {
 	}
 
 	/**
-	* Entry point to show all Activity entities
-	* 
-	*/
+	 * Entry point to show all Activity entities.
+	 *
+	 * @return the string
+	 */
 	public String indexActivity() {
 		return "redirect:/indexActivity";
 	}
 
 	/**
-	* View an existing Diary entity
-	* 
-	*/
+	 * View an existing Diary entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param taskId the task id
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/selectActivityDiaries")
 	public ModelAndView selectActivityDiaries(@RequestParam Integer activity_activityid, @RequestParam Integer diaries_iddiary) {
@@ -326,9 +345,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Edit an existing Yourtaskuser entity
-	* 
-	*/
+	 * Edit an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/editActivityYourtaskuser")
 	public ModelAndView editActivityYourtaskuser(@RequestParam Integer activity_activityid, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);
@@ -342,9 +364,12 @@ public class ActivityController {
 	}
 
 	/**
-	* View an existing Task entity
-	* 
-	*/
+	 * View an existing Task entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param tasks_taskid the tasks taskid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectActivityTasks")
 	public ModelAndView selectActivityTasks(@RequestParam Integer activity_activityid, @RequestParam Integer tasks_taskid) {
 		Task task = taskDAO.findTaskByPrimaryKey(tasks_taskid, -1, -1);
@@ -358,9 +383,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Edit an existing Diary entity
-	* 
-	*/
+	 * Edit an existing Diary entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/editDiary")
 	public ModelAndView editUserActivityDiary(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
@@ -375,9 +404,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Select an existing Activity entity
-	* 
-	*/
+	 * Select an existing Activity entity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectActivity")
 	public ModelAndView selectActivity(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -389,9 +420,11 @@ public class ActivityController {
 	}
 	
 	/**
-	* Select an existing Activity entity
-	* 
-	*/
+	 * Select an existing Activity entity.
+	 *
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/allactivities/activity/{activityId}")
 	public ModelAndView selectPublicActivity(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
@@ -402,6 +435,13 @@ public class ActivityController {
 		return mav;
 	}
 	
+	/**
+	 * Select user activity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}")
 	public ModelAndView selectUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
@@ -429,9 +469,12 @@ public class ActivityController {
 	}
 
 	/**
-	* View an existing Yourtaskuser entity
-	* 
-	*/
+	 * View an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param yourtaskuser_userid the yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/selectActivityYourtaskuser")
 	public ModelAndView selectActivityYourtaskuser(@RequestParam Integer activity_activityid, @RequestParam Integer yourtaskuser_userid) {
 		Yourtaskuser yourtaskuser = yourtaskuserDAO.findYourtaskuserByPrimaryKey(yourtaskuser_userid, -1, -1);
@@ -445,9 +488,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Delete an existing Diary entity
-	* 
-	*/
+	 * Delete an existing Diary entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteActivityDiaries/{userId}/{activityId}/{diaryId}")
 	public String deleteActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		//ModelAndView mav = new ModelAndView();
@@ -464,9 +511,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Diary entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diaryId the diary id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/deleteDiary")
 	public ModelAndView confirmDeleteActivityDiaries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
@@ -480,9 +531,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Show all Diary entities by Activity
-	* 
-	*/
+	 * Show all Diary entities by Activity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/listActivityDiaries")
 	public ModelAndView listActivityDiaries(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -494,9 +547,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Select the child Task entity for display allowing the user to confirm that they would like to delete the entity
-	* 
-	*/
+	 * Select the child Task entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param taskId the task id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/{userId}/activity/{activityId}/task/{taskId}/deleteTask")
 	public ModelAndView confirmDeleteActivityTasks(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 		ModelAndView mav = new ModelAndView();
@@ -510,9 +567,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Save an existing Diary entity
-	* 
-	*/
+	 * Save an existing Diary entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param diary the diary
+	 * @return the string
+	 */
 	@RequestMapping("/saveActivityDiaries/{userId}/{activityId}")
 	public String saveActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Diary diary) {
 		if (diary.getIddiary() == null) {
@@ -526,9 +587,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Delete an existing Yourtaskuser entity
-	* 
-	*/
+	 * Delete an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param related_yourtaskuser_userid the related yourtaskuser userid
+	 * @return the model and view
+	 */
 	@RequestMapping("/deleteActivityYourtaskuser")
 	public ModelAndView deleteActivityYourtaskuser(@RequestParam Integer activity_activityid, @RequestParam Integer related_yourtaskuser_userid) {
 		ModelAndView mav = new ModelAndView();
@@ -543,9 +607,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Edit an existing Activity entity
-	* 
-	*/
+	 * Edit an existing Activity entity.
+	 *
+	 * @param activityidKey the activityid key
+	 * @return the model and view
+	 */
 	@RequestMapping("/editActivity")
 	public ModelAndView editActivity(@RequestParam Integer activityidKey) {
 		ModelAndView mav = new ModelAndView();
@@ -557,9 +623,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Create a new Yourtaskuser entity
-	* 
-	*/
+	 * Create a new Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @return the model and view
+	 */
 	@RequestMapping("/newActivityYourtaskuser")
 	public ModelAndView newActivityYourtaskuser(@RequestParam Integer activity_activityid) {
 		ModelAndView mav = new ModelAndView();
@@ -572,9 +640,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Save an existing Yourtaskuser entity
-	* 
-	*/
+	 * Save an existing Yourtaskuser entity.
+	 *
+	 * @param activity_activityid the activity activityid
+	 * @param yourtaskuser the yourtaskuser
+	 * @return the model and view
+	 */
 	@RequestMapping("/saveActivityYourtaskuser")
 	public ModelAndView saveActivityYourtaskuser(@RequestParam Integer activity_activityid, @ModelAttribute Yourtaskuser yourtaskuser) {
 		Activity parent_activity = activityService.saveActivityYourtaskuser(activity_activityid, yourtaskuser);
@@ -588,9 +659,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Register custom, context-specific property editors
-	* 
-	*/
+	 * Register custom, context-specific property editors.
+	 *
+	 * @param binder the binder
+	 * @param request the request
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder, HttpServletRequest request) { // Register static property editors.
 		binder.registerCustomEditor(java.util.Calendar.class, new org.skyway.spring.util.databinding.CustomCalendarEditor());
@@ -606,9 +679,10 @@ public class ActivityController {
 	}
 
 	/**
-	* Show all Activity entities
-	* 
-	*/
+	 * Show all Activity entities.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/allactivities")
 	public ModelAndView listActivitys() {
 		ModelAndView mav = new ModelAndView();
@@ -621,9 +695,12 @@ public class ActivityController {
 	}
 
 	/**
-	* View an existing Comment entity
-	* 
-	*/
+	 * View an existing Comment entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/selectActivityComments")
 	public ModelAndView selectActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer comments_commentid) {
@@ -654,9 +731,13 @@ public class ActivityController {
 	}
 
 	/**
-	* Delete an existing Task entity
-	* 
-	*/
+	 * Delete an existing Task entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @param taskId the task id
+	 * @return the string
+	 */
 	@RequestMapping("/deleteActivityTasks/{userId}/{activityId}/{taskId}")
 	public String deleteActivityTasks(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 
@@ -667,9 +748,12 @@ public class ActivityController {
 	}
 
 	/**
-	* Edit an existing Comment entity
-	* 
-	*/
+	 * Edit an existing Comment entity.
+	 *
+	 * @param userId the user id
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	/*
 	@RequestMapping("/editActivityComments")
 	public ModelAndView editActivityComments(@RequestParam Integer activity_activityid, @RequestParam Integer comments_commentid) {
@@ -700,9 +784,11 @@ public class ActivityController {
 	}
 	
 	/**
-	* Create a new Comment entity
-	* 
-	*/
+	 * Create a new Comment entity.
+	 *
+	 * @param activityId the activity id
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/allactivities/activity/{activityId}/createComment")
 	public ModelAndView newPublicActivityComments(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
@@ -715,7 +801,12 @@ public class ActivityController {
 	}
 
 	/**
-	*/
+	 * Stream binary.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @return the model and view
+	 */
 	@RequestMapping("/activityController/binary.action")
 	public ModelAndView streamBinary(@ModelAttribute HttpServletRequest request, @ModelAttribute HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -725,9 +816,11 @@ public class ActivityController {
 	}
 
 	/**
-	* Save an existing Activity entity
-	* 
-	*/
+	 * Save an existing Activity entity.
+	 *
+	 * @param activity the activity
+	 * @return the string
+	 */
 	@RequestMapping("/saveActivity")
 	public String saveActivity(@ModelAttribute Activity activity) {
 		activityService.saveActivity(activity);
@@ -736,15 +829,35 @@ public class ActivityController {
 	
 	
 	/**
-	* Select the activities of a user
-	* 
-	*/
+	 * Select the activities of a user.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping("/su/activities")
 	public ModelAndView activitiesByUser() {
 		ModelAndView mav = new ModelAndView();
 		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("yourtaskuser", user);
 		mav.setViewName("activity/yourtaskuser/activitiesByUser.jsp");
+		return mav;
+	}
+	
+	
+	/**
+	 * Create a new Activity entity.
+	 *
+	 * @return the model and view
+	 */
+	@RequestMapping("/su/activity/new")
+	public ModelAndView newUserActivity() {
+		Yourtaskuser user = authentication.getActiveUser();
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("yourtaskuser_userid", user.getUserid());
+		mav.addObject("activity", new Activity());
+		mav.addObject("newFlag", true);
+		mav.setViewName("activity/newactivity.jsp");
+
 		return mav;
 	}
 }
