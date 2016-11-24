@@ -117,18 +117,18 @@ public class ActivityController {
 	/**
 	 * Create a new Task entity.
 	 *
-	 * @param userId the user id
 	 * @param activityId the activity id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/createTask")
-	public ModelAndView newUserActivityTask(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}/createTask")
+	public ModelAndView newUserActivityTask(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid", userId);
+		mav.addObject("userid", user.getUserid());
 		mav.addObject("task", new Task());
 		mav.addObject("newFlag", true);
-		mav.setViewName("activity/tasks/editTasks.jsp");
+		mav.setViewName("activity/su/tasks/editTasks.jsp");
 
 		return mav;
 	}
@@ -222,16 +222,18 @@ public class ActivityController {
 	 * @param comments the comments
 	 * @return the string
 	 */
-	@RequestMapping("/saveActivityComments/{userId}/{activityId}")
-	public String saveActivityComments(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Comment comments) {		
+	@RequestMapping("/su/saveActivityComments/{activityId}")
+	public String saveActivityComments( @PathVariable("activityId") Integer activityId, @ModelAttribute Comment comments) {		
 		if (comments.getCommentid() == null) {
 			int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
 			comments.setCommentid(id);
 			comments.setCommentdate(Calendar.getInstance());
 		}
-		comments.setYourtaskuser(yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
+
+		Yourtaskuser user = authentication.getActiveUser();
+		comments.setYourtaskuser(yourtaskuserDAO.findYourtaskuserByPrimaryKey(user.getUserid()));
 		activityService.saveActivityComments(activityId, comments);
-		return "redirect:/su/"+userId+"/activity/"+activityId;
+		return "redirect:/su/activity/"+activityId;
 	}
 	
 	/**
@@ -288,7 +290,7 @@ public class ActivityController {
 
 		mav.addObject("comment", commentDAO.findCommentByPrimaryKey(related_comments_commentid));
 		mav.addObject("activity_activityid", activity_activityid);
-		mav.setViewName("activity/comments/deleteComments.jsp");
+		mav.setViewName("activity/su/comments/deleteComments.jsp");
 
 		return mav;
 	}
@@ -298,23 +300,13 @@ public class ActivityController {
 	* Save an existing Task entity
 	* 
 	*/
-	@RequestMapping("/saveActivityTasks/{userId}/{activityId}")
-	public String saveActivityTasks(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Task task) {
+	@RequestMapping("/su/saveActivityTasks/{activityId}")
+	public String saveActivityTasks( @PathVariable("activityId") Integer activityId, @ModelAttribute Task task) {
 		if (task.getTaskid() == null) {
 			task.setTaskid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
 		activityService.saveActivityTasks(activityId, task);
-
-		/*
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("activity_activityid", activityId);
-		mav.addObject("activity", parent_activity);
-		mav.setViewName("activity/detailsActivity.jsp");
-
-		return mav;
-		*/
-		
-		return "redirect:/su/"+userId+"/activity/"+activityId;
+		return "redirect:/su/activity/"+activityId;
 	}
 
 	/**
@@ -342,7 +334,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/viewDiaries.jsp");
+		mav.setViewName("activity/su/diaries/viewDiaries.jsp");
 
 		return mav;
 	}
@@ -351,15 +343,15 @@ public class ActivityController {
 	* Edit an existing Task entity
 	* 
 	*/
-	@RequestMapping("/su/{userId}/activity/{activityId}/task/{taskId}/editTask")
-	public ModelAndView editActivityTasks(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
+	@RequestMapping("/su/activity/{activityId}/task/{taskId}/editTask")
+	public ModelAndView editActivityTasks(@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 		Task task = taskDAO.findTaskByPrimaryKey(taskId, -1, -1);
-
+		Yourtaskuser user = authentication.getActiveUser();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid", userId);
+		mav.addObject("userid", user.getUserid());
 		mav.addObject("task", task);
-		mav.setViewName("activity/tasks/editTasks.jsp");
+		mav.setViewName("activity/su/tasks/editTasks.jsp");
 
 		return mav;
 	}
@@ -397,7 +389,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("task", task);
-		mav.setViewName("activity/tasks/viewTasks.jsp");
+		mav.setViewName("activity/su/tasks/viewTasks.jsp");
 
 		return mav;
 	}
@@ -410,15 +402,15 @@ public class ActivityController {
 	 * @param diaryId the diary id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/editDiary")
-	public ModelAndView editUserActivityDiary(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
+	@RequestMapping("/su/activity/{activityId}/diary/{diaryId}/editDiary")
+	public ModelAndView editUserActivityDiary(@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		Diary diary = diaryDAO.findDiaryByPrimaryKey(diaryId, -1, -1);
-
+		Yourtaskuser user = authentication.getActiveUser();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid", userId);
+		mav.addObject("userid", user.getUserid());
 		mav.addObject("diary", diary);
-		mav.setViewName("activity/diaries/editDiaries.jsp");
+		mav.setViewName("activity/su/diaries/editDiaries.jsp");
 
 		return mav;
 	}
@@ -475,12 +467,12 @@ public class ActivityController {
 	/**
 	 * Select user activity.
 	 *
-	 * @param userId the user id
+	 * 
 	 * @param activityId the activity id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}")
-	public ModelAndView selectUserActivity(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}")
+	public ModelAndView selectUserActivity(@PathVariable("activityId") Integer activityId) {
 		Activity activity = activityDAO.findActivityByPrimaryKey(activityId, -1, -1);
 
 		Set<Comment> listcomment = activity.getComments();
@@ -501,7 +493,7 @@ public class ActivityController {
 		mav.addObject("activity", activity);
 		mav.addObject("userid", activity.getYourtaskuser().getUserid());
 		
-		mav.setViewName("activity/detailsActivity.jsp");
+		mav.setViewName("activity/su/detailsActivity.jsp");
 
 		return mav;
 	}
@@ -533,19 +525,12 @@ public class ActivityController {
 	 * @param diaryId the diary id
 	 * @return the string
 	 */
-	@RequestMapping("/deleteActivityDiaries/{userId}/{activityId}/{diaryId}")
-	public String deleteActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
+	@RequestMapping("/deleteActivityDiaries/{activityId}/{diaryId}")
+	public String deleteActivityDiaries( @PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		//ModelAndView mav = new ModelAndView();
 
 		activityService.deleteActivityDiaries(activityId, diaryId);
-/*
-		mav.addObject("activity_activityid", activityId);
-		mav.addObject("activity", activity);
-		mav.setViewName("activity/detailsActivity.jsp");
-
-		return mav;
-		*/
-		return "redirect:/su/"+userId+"/activity/"+activityId;
+		return "redirect:/su/activity/"+activityId;
 	}
 
 	/**
@@ -556,14 +541,14 @@ public class ActivityController {
 	 * @param diaryId the diary id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/diary/{diaryId}/deleteDiary")
-	public ModelAndView confirmDeleteActivityDiaries(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
+	@RequestMapping("/su/activity/{activityId}/diary/{diaryId}/deleteDiary")
+	public ModelAndView confirmDeleteActivityDiaries(@PathVariable("activityId") Integer activityId,@PathVariable("diaryId") Integer diaryId) {
 		ModelAndView mav = new ModelAndView();
-
+		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("diary", diaryDAO.findDiaryByPrimaryKey(diaryId));
 		mav.addObject("activityid",activityId);
-		mav.addObject("userid",userId);
-		mav.setViewName("activity/diaries/deleteDiaries.jsp");
+		mav.addObject("userid",user.getUserid());
+		mav.setViewName("activity/su/diaries/deleteDiaries.jsp");
 
 		return mav;
 	}
@@ -579,7 +564,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("activity", activityDAO.findActivityByPrimaryKey(activityidKey));
-		mav.setViewName("activity/diaries/listDiaries.jsp");
+		mav.setViewName("activity/su/diaries/listDiaries.jsp");
 
 		return mav;
 	}
@@ -592,14 +577,14 @@ public class ActivityController {
 	 * @param taskId the task id
 	 * @return the model and view
 	 */
-	@RequestMapping("/su/{userId}/activity/{activityId}/task/{taskId}/deleteTask")
-	public ModelAndView confirmDeleteActivityTasks(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
+	@RequestMapping("/su/activity/{activityId}/task/{taskId}/deleteTask")
+	public ModelAndView confirmDeleteActivityTasks(@PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 		ModelAndView mav = new ModelAndView();
-
+		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("task", taskDAO.findTaskByPrimaryKey(taskId));
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid",userId);
-		mav.setViewName("activity/tasks/deleteTasks.jsp");
+		mav.addObject("userid",user.getUserid());
+		mav.setViewName("activity/su/tasks/deleteTasks.jsp");
 
 		return mav;
 	}
@@ -612,8 +597,8 @@ public class ActivityController {
 	 * @param diary the diary
 	 * @return the string
 	 */
-	@RequestMapping("/saveActivityDiaries/{userId}/{activityId}")
-	public String saveActivityDiaries(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId, @ModelAttribute Diary diary) {
+	@RequestMapping("/su/saveActivityDiaries/{activityId}")
+	public String saveActivityDiaries(@PathVariable("activityId") Integer activityId, @ModelAttribute Diary diary) {
 		if (diary.getIddiary() == null) {
 			diary.setIddiary((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 			diary.setDiarydate(Calendar.getInstance());
@@ -621,7 +606,7 @@ public class ActivityController {
 		diary.setYourtaskuser(activityDAO.findActivityByActivityid(activityId).getYourtaskuser());
 		activityService.saveActivityDiaries(activityId, diary);
 
-		return "redirect:/su/"+userId+"/activity/"+activityId;
+		return "redirect:/su/activity/"+activityId;
 	}
 
 	/**
@@ -747,7 +732,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("comment", comment);
-		mav.setViewName("activity/comments/viewComments.jsp");
+		mav.setViewName("activity/su/comments/viewComments.jsp");
 
 		return mav;
 	}*/
@@ -756,14 +741,15 @@ public class ActivityController {
 	* Create a new Diary entity
 	* 
 	*/
-	@RequestMapping("/su/{userId}/activity/{activityId}/createDiary")
-	public ModelAndView newUserActivityDiary(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}/createDiary")
+	public ModelAndView newUserActivityDiary(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();  
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid", userId);
+		mav.addObject("userid", user.getUserid());
 		mav.addObject("diary", new Diary());
 		mav.addObject("newFlag", true);
-		mav.setViewName("activity/diaries/editDiaries.jsp");
+		mav.setViewName("activity/su/diaries/editDiaries.jsp");
 
 		return mav;
 	}
@@ -776,19 +762,17 @@ public class ActivityController {
 	 * @param taskId the task id
 	 * @return the string
 	 */
-	@RequestMapping("/deleteActivityTasks/{userId}/{activityId}/{taskId}")
-	public String deleteActivityTasks(@PathVariable("userId") Integer userId, @PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
+	@RequestMapping("/deleteActivityTasks/{activityId}/{taskId}")
+	public String deleteActivityTasks( @PathVariable("activityId") Integer activityId,@PathVariable("taskId") Integer taskId) {
 
 		activityService.deleteActivityTasks(activityId, taskId);
-		
-		return "redirect:/su/"+userId+"/activity/"+activityId;
+		return "redirect:/su/activity/"+activityId;
 		
 	}
 
 	/**
 	 * Edit an existing Comment entity.
 	 *
-	 * @param userId the user id
 	 * @param activityId the activity id
 	 * @return the model and view
 	 */
@@ -800,7 +784,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("activity_activityid", activity_activityid);
 		mav.addObject("comment", comment);
-		mav.setViewName("activity/comments/editComments.jsp");
+		mav.setViewName("activity/su/comments/editComments.jsp");
 
 		return mav;
 	}*/
@@ -809,14 +793,15 @@ public class ActivityController {
 	* Create a new Comment entity
 	* 
 	*/
-	@RequestMapping("/su/{userId}/activity/{activityId}/createComment")
-	public ModelAndView newUserActivityComment(@PathVariable("userId") Integer userId,@PathVariable("activityId") Integer activityId) {
+	@RequestMapping("/su/activity/{activityId}/createComment")
+	public ModelAndView newUserActivityComment(@PathVariable("activityId") Integer activityId) {
 		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("activityid", activityId);
-		mav.addObject("userid", userId);
+		mav.addObject("userid", user.getUserid());
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
-		mav.setViewName("activity/comments/editComments.jsp");
+		mav.setViewName("activity/su/comments/editComments.jsp");
 
 		return mav;
 	}
@@ -833,7 +818,7 @@ public class ActivityController {
 		mav.addObject("activityid", activityId);
 		mav.addObject("comment", new Comment());
 		mav.addObject("newFlag", true);
-		mav.setViewName("activity/comments/editCommentsPublicActivity.jsp");
+		mav.setViewName("activity/su/comments/editCommentsPublicActivity.jsp");
 
 		return mav;
 	}
@@ -862,7 +847,7 @@ public class ActivityController {
 	@RequestMapping("/saveActivity")
 	public String saveActivity(@ModelAttribute Activity activity) {
 		activityService.saveActivity(activity);
-		return "forward:/indexActivity";
+		return "forward:/su/activities";
 	}
 	
 	
@@ -876,7 +861,7 @@ public class ActivityController {
 		ModelAndView mav = new ModelAndView();
 		Yourtaskuser user = authentication.getActiveUser();
 		mav.addObject("yourtaskuser", user);
-		mav.setViewName("activity/yourtaskuser/activitiesByUser.jsp");
+		mav.setViewName("activity/su/activities.jsp");
 		return mav;
 	}
 	
@@ -894,7 +879,7 @@ public class ActivityController {
 		mav.addObject("yourtaskuser_userid", user.getUserid());
 		mav.addObject("activity", new Activity());
 		mav.addObject("newFlag", true);
-		mav.setViewName("activity/newactivity.jsp");
+		mav.setViewName("activity/su/newactivity.jsp");
 
 		return mav;
 	}
