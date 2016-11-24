@@ -330,15 +330,6 @@ public interface YourtaskuserDAO extends JpaDao<Yourtaskuser> {
 	public Yourtaskuser findYourtaskuserByPrimaryKey(Integer userid_1) throws DataAccessException;
 	
 	/**
-	 * JPQL Query - findYourtaskuserOrderByPrimaryKey.
-	 *
-	 * @param userid_1 the userid 1
-	 * @return the list
-	 * @throws DataAccessException the data access exception
-	 */
-	public List findYourtaskuserOrderByPrimaryKey(Integer userid_1) throws DataAccessException;
-
-	/**
 	 * JPQL Query - findYourtaskuserByPrimaryKey.
 	 *
 	 * @param userid_1 the userid 1

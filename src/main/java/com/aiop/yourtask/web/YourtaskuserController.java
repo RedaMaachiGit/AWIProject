@@ -60,7 +60,8 @@ public class YourtaskuserController {
 	
 	/** The authentication facade. */
 	@Autowired
-    private AuthenticationFacade authenticationFacade;
+    private AuthenticationFacade authentication;
+    
 
 	/** DAO injected by Spring that manages Activity entities. */
 	@Autowired
@@ -161,18 +162,7 @@ public class YourtaskuserController {
 		return mav;
 	}
 
-	/**
-	 * Delete an existing Product entity.
-	 *
-	 * @param userId the user id
-	 * @param productId the product id
-	 * @return the string
-	 */
-	@RequestMapping("/deleteYourtaskuserProducts/{userId}/{productId}")
-	public String deleteYourtaskuserProducts(@PathVariable("userId") Integer userId, @PathVariable("productId") Integer productId) {
-		yourtaskuserService.deleteYourtaskuserProducts(userId, productId);
-		return "redirect:/sc/"+userId+"/products/";
-	}
+	
 
 	/**
 	 * Show all Suinfo entities by Yourtaskuser.
@@ -227,24 +217,7 @@ public class YourtaskuserController {
 		return mav;
 	}
 	
-	/**
-	 * Edit an existing Product entity.
-	 *
-	 * @param userId the user id
-	 * @param productId the product id
-	 * @return the model and view
-	 */
-	@RequestMapping("/sc/{userId}/product/{productId}/editProduct")
-	public ModelAndView editUserProduct(@PathVariable("userId") Integer userId, @PathVariable("productId") Integer productId) {
-		Product product = productDAO.findProductByPrimaryKey(productId, -1, -1);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", userId);
-		mav.addObject("product", product);
-		mav.setViewName("yourtaskuser/products/editProducts.jsp");
-
-		return mav;
-	}
+	
 
 	/**
 	 * Delete an existing Diary entity.
@@ -534,13 +507,14 @@ public class YourtaskuserController {
 	 * @param product the product
 	 * @return the string
 	 */
-	@RequestMapping("/saveYourtaskuserProducts/{userId}")
-	public String saveYourtaskuserProducts(@PathVariable("userId") Integer userId, @ModelAttribute Product product) {
+	@RequestMapping("/sc/saveYourtaskuserProducts")
+	public String saveYourtaskuserProducts(@ModelAttribute Product product) {
 		if (product.getProductid() == null) {
 			product.setProductid((int)(System.currentTimeMillis() % Integer.MAX_VALUE));
 		}
-		yourtaskuserService.saveYourtaskuserProducts(userId, product);
-		return "redirect:/sc/"+userId+"/products/";
+		Yourtaskuser user = authentication.getActiveUser();
+		yourtaskuserService.saveYourtaskuserProducts(user.getUserid(), product);
+		return "redirect:/sc/products/";
 	}
 
 	/**
@@ -810,22 +784,7 @@ public class YourtaskuserController {
 		return mav;
 	}
 	
-	/**
-	 * Create a new Product entity.
-	 *
-	 * @param userId the user id
-	 * @return the model and view
-	 */
-	@RequestMapping("/sc/{userId}/createProduct")
-	public ModelAndView newUserProduct(@PathVariable("userId") Integer userId) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("yourtaskuser_userid", userId);
-		mav.addObject("product", new Product());
-		mav.addObject("newFlag", true);
-		mav.setViewName("yourtaskuser/products/editProducts.jsp");
-
-		return mav;
-	}
+	
 
 	/**
 	 * Delete an existing Yourtaskuser entity.
@@ -1297,22 +1256,7 @@ public class YourtaskuserController {
 		return mav;
 	}
 	
-	/**
-	 * Select an existing Yourtaskuser entity.
-	 *
-	 * @param userId the user id
-	 * @return the model and view
-	 */
-	@RequestMapping("/sc/{userId}/products")
-	public ModelAndView scProducts(@PathVariable("userId") Integer userId) {
-		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(userId));
-		
-		mav.setViewName("yourtaskuser/productsByUser.jsp");
-
-		return mav;
-	}
+	
 
 	/**
 	 * Show all Order entities by Yourtaskuser.
@@ -1404,23 +1348,7 @@ public class YourtaskuserController {
 		return mav;
 	}
 	
-	/**
-	 * Select the child Product entity for display allowing the user to confirm that they would like to delete the entity.
-	 *
-	 * @param userId the user id
-	 * @param productId the product id
-	 * @return the model and view
-	 */
-	@RequestMapping("/sc/{userId}/product/{productId}/deleteProduct")
-	public ModelAndView deleteUserProduct(@PathVariable("userId") Integer userId,@PathVariable("productId") Integer productId) {
-		ModelAndView mav = new ModelAndView();
-
-		mav.addObject("product", productDAO.findProductByPrimaryKey(productId));
-		mav.addObject("yourtaskuser_userid", userId);
-		mav.setViewName("yourtaskuser/products/deleteProducts.jsp");
-
-		return mav;
-	}
+	
 
 	/**
 	 * Save an existing Yourtaskuser entity.
@@ -1794,8 +1722,7 @@ public class YourtaskuserController {
 	 */
 	@RequestMapping("/admin/users/saveuser")
 	public String adminCreateUser(@ModelAttribute Yourtaskuser yourtaskuser) {
-		Random rand = new Random();
-		int id = rand.nextInt();
+		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
 		yourtaskuser.setUserid(id);
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(2));
 		yourtaskuser.setUsertype("USER");
@@ -1818,8 +1745,7 @@ public class YourtaskuserController {
 	 */
 	@RequestMapping("/admin/users/savecompany")
 	public String adminCreateCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
-		Random rand = new Random();
-		int id = rand.nextInt();
+		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
 		yourtaskuser.setUserid(id);
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(3));
 		yourtaskuser.setUsertype("COMPANY");

@@ -12,6 +12,7 @@ import com.aiop.yourtask.domain.OrderProduct;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.OrderService;
+import com.aiop.yourtask.web.security.AuthenticationFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,6 +54,11 @@ public class OrderController {
 	/** Service injected by Spring that provides CRUD operations for Order entities. */
 	@Autowired
 	private OrderService orderService;
+	
+	/** The authentication. */
+    @Autowired
+    private AuthenticationFacade authentication;
+    
 
 	/**
 	 * Entry point to show all Order entities.
@@ -481,11 +487,9 @@ public class OrderController {
 	@RequestMapping("/su/orders")
 	public ModelAndView listOrdersBySU() {
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("orders", yourtaskuserDAO.findYourtaskuserOrderByPrimaryKey(1)); // 1 A CHANGER PAR idUser
-		
-		mav.setViewName("order/listOrdersBySU.jsp");
-
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("orders", orderDAO.findOrdersByYourtaskuser(user));
+		mav.setViewName("order/su/listOrdersBySU.jsp");
 		return mav;
 	}
 	
@@ -494,14 +498,12 @@ public class OrderController {
 	 *
 	 * @return the model and view
 	 */
-	@RequestMapping("/sac/orders")
+	@RequestMapping("/sc/orders")
 	public ModelAndView listOrdersBySC() {
 		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(1)); // 1 A CHANGER PAR idUser
-		
-		mav.setViewName("order/listOrdersBySC.jsp");
-
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(user.getUserid()));
+		mav.setViewName("order/sc/listOrdersBySC.jsp");
 		return mav;
 	}
 

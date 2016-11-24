@@ -6,16 +6,28 @@ package com.aiop.yourtask.web;
 import com.aiop.yourtask.dao.OrderProductDAO;
 import com.aiop.yourtask.dao.ProductDAO;
 import com.aiop.yourtask.dao.YourtaskuserDAO;
-
+import com.aiop.yourtask.domain.Activity;
+import com.aiop.yourtask.domain.Comment;
 import com.aiop.yourtask.domain.OrderProduct;
 import com.aiop.yourtask.domain.Product;
 import com.aiop.yourtask.domain.Yourtaskuser;
 
 import com.aiop.yourtask.service.ProductService;
+import com.aiop.yourtask.service.YourtaskuserService;
+import com.aiop.yourtask.web.security.AuthenticationFacade;
+
+import util.JsonReader;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -24,6 +36,7 @@ import org.springframework.web.bind.WebDataBinder;
 
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,6 +66,16 @@ public class ProductController {
 	/** Service injected by Spring that provides CRUD operations for Product entities. */
 	@Autowired
 	private ProductService productService;
+	
+	/** Service injected by Spring that provides CRUD operations for Product entities. */
+	@Autowired
+	private YourtaskuserService yourtaskuserService;
+	
+	 /** The authentication. */
+    @Autowired
+    private AuthenticationFacade authentication;
+    
+    
 
 	/**
 	 * Entry point to show all Product entities.
@@ -346,9 +369,31 @@ public class ProductController {
 	public ModelAndView allProducts() {
 		ModelAndView mav = new ModelAndView();
 
+		
+		
+		/*
+		Set<Comment> listcomment = activity.getComments();
+		Set<Yourtaskuser> listusercomment = new HashSet<Yourtaskuser>();
+		for(Comment item : listcomment) {
+			Comment comment = commentDAO.findCommentByPrimaryKey(item.getCommentid());
+			listusercomment.add(comment.getYourtaskuser());
+		}
+		List<Yourtaskuser> listusercommentok = new ArrayList<>(listusercomment);
+		*/
+		/*
+		try {
+			Set<Product> listExternalProducts = new HashSet<Product>();
+			for (int i = 0; i < JsonReader.getNumberOfProduct(); i++) {
+				listExternalProducts.add(new Product(JsonReader.getNameProduct(i),JsonReader.getDescriptionProduct(i),"ok",JsonReader.getPriceSeller(i),JsonReader.getQuantityStock(i)))
+			}
+		} catch (IOException | JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
 		mav.addObject("products", productService.loadProducts());
 
-		mav.setViewName("product/listAllProducts.jsp");
+		mav.setViewName("product/su/listAllProducts.jsp");
 
 		return mav;
 	}
@@ -493,4 +538,91 @@ public class ProductController {
 		productService.deleteProduct(product);
 		return "forward:/indexProduct";
 	}
+	
+	/**
+	 * Select an existing list of Product.
+	 *
+	 * @param userId the user id
+	 * @return the model and view
+	 */
+	@RequestMapping("/sc/products")
+	public ModelAndView scProducts() {
+		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("yourtaskuser", yourtaskuserDAO.findYourtaskuserByPrimaryKey(user.getUserid()));
+		
+		mav.setViewName("yourtaskuser/productsByUser.jsp");
+
+		return mav;
+	}
+
+	/**
+	 * Create a new Product entity.
+	 *
+	 * @param userId the user id
+	 * @return the model and view
+	 */
+	@RequestMapping("/sc/product/new")
+	public ModelAndView newUserProduct() {
+		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("yourtaskuser_userid", user.getUserid());
+		mav.addObject("product", new Product());
+		mav.addObject("newFlag", true);
+		mav.setViewName("product/sc/newproduct.jsp");
+
+		return mav;
+	}
+	
+	/**
+	 * Edit an existing Product entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the model and view
+	 */
+	@RequestMapping("/sc/product/{productId}/editProduct")
+	public ModelAndView editUserProduct(@PathVariable("productId") Integer productId) {
+		Product product = productDAO.findProductByPrimaryKey(productId, -1, -1);
+		
+		Yourtaskuser user = authentication.getActiveUser();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("yourtaskuser_userid", user.getUserid());
+		mav.addObject("product", product);
+		mav.setViewName("product/sc/editproduct.jsp");
+
+		return mav;
+	}
+	
+	/**
+	 * Select the child Product entity for display allowing the user to confirm that they would like to delete the entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the model and view
+	 */
+	@RequestMapping("/sc/product/{productId}/deleteProduct")
+	public ModelAndView deleteUserProduct(@PathVariable("productId") Integer productId) {
+		ModelAndView mav = new ModelAndView();
+		Yourtaskuser user = authentication.getActiveUser();
+		mav.addObject("product", productDAO.findProductByPrimaryKey(productId));
+		mav.addObject("yourtaskuser_userid", user.getUserid());
+		mav.setViewName("product/sc/deleteproduct.jsp");
+		return mav;
+	}
+	
+	/**
+	 * Delete an existing Product entity.
+	 *
+	 * @param userId the user id
+	 * @param productId the product id
+	 * @return the string
+	 */
+	@RequestMapping("/deleteYourtaskuserProducts/{productId}")
+	public String deleteYourtaskuserProducts(@PathVariable("productId") Integer productId) {
+		Yourtaskuser user = authentication.getActiveUser();
+		yourtaskuserService.deleteYourtaskuserProducts(user.getUserid(), productId);
+		return "redirect:/sc/products/";
+	}
+	
 }

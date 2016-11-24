@@ -4,24 +4,18 @@
 <!-- <fmt:setBundle basename="bundles.activity-resources"/> -->
 <html>
 	<head>
-		<title>My activities</title>
+		<title>Buy products</title>
 		<script src="${pageContext.request.contextPath}/js/datatables.min.js" ></script>
 		<link href="${pageContext.request.contextPath}/css/datatables.min.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div class="container">
-						<h1>My Products</h1>
-						<div class="navitem">
-							<a class="btn btn-primary" href="${pageContext.request.contextPath}/sc/product/new">
-								<span class="glyphicon glyphicon-plus"></span>
-								<span>New Product</span>
-							</a>
-						</div>
+						<h1>Buy Products</h1>
+						<h2>From companies using our app</h2>
 						<br>
 						<table class="table table-bordered table-hover" id="viewTable">
 							<thead>
 								<tr>
-									<th class="thead">&nbsp;</th>
 									<th class="thead">Name</th>
 									<th class="thead">Description</th>
 									<th class="thead">Image</th>
@@ -30,7 +24,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${yourtaskuser.products}" var="current"  varStatus="i">	
+								<c:forEach items="${products}" var="current"  varStatus="i">	
 									<c:choose>
 										<c:when test="${(i.count) % 2 == 0}">
 						    				<c:set var="rowclass" value="rowtwo"/>
@@ -40,19 +34,6 @@
 										</c:otherwise>
 									</c:choose>
 									<tr class="${rowclass}">
-										<td nowrap="nowrap">
-											<!--<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/sc/${yourtaskuser.userid}/product/${current.productid}">
-												<span class="glyphicon glyphicon-zoom-in"></span>
-											</a>-->
-											
-											<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/sc/product/${current.productid}/editProduct">
-												<span class="glyphicon glyphicon-pencil"></span>
-											</a>
-											
-											<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/sc/product/${current.productid}/deleteProduct">
-												<span class="glyphicon glyphicon-trash"></span>
-											</a>
-										</td>
 										<td>
 											${current.productname}
 											&nbsp;
@@ -77,6 +58,10 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<br>
+						<h2>From external companies</h2>
+						
+						
 					<div class="clear">&nbsp;</div>
 				<div class="spacer">&nbsp;</div>
 			</div>
