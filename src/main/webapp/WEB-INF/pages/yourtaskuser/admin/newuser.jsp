@@ -3,11 +3,11 @@
 <fmt:setBundle basename="bundles.yourtaskuser-resources"/>
 <html>
 <head>
-<title>Edit <fmt:message key="yourtaskuser.title"/></title>
+<title>Creation <fmt:message key="yourtaskuser.title"/></title>
 </head>
 <body>
 <div id="content" class="container">
-		<h1>Let's create a new user</h1>
+		<h1>Let's create</h1>
 		<div class="navitem"><a class="button" href="${pageContext.request.contextPath}/admin/users"><span class="glyphicon glyphicon-left"></span><fmt:message key="navigation.back"/></a></div>
 		<form:form action="${pageContext.request.contextPath}/saveYourtaskuser" method="POST" modelAttribute="yourtaskuser">
 					<div class="hidden">

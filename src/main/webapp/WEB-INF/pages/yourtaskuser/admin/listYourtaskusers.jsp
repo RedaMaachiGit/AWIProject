@@ -33,9 +33,8 @@
 				<c:forEach items="${yourtaskusers}" var="current" varStatus="i">
 				<tr>
 					<td >
-						<a title="<fmt:message key="navigation.view" />" href="${pageContext.request.contextPath}/admin/users/view/${current.userid}" ><span class="glyphicon glyphicon-search"></span></a>
 						<a title="<fmt:message key="navigation.edit" />" href="${pageContext.request.contextPath}/admin/users/edit/${current.userid}"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/admin/users/delete/${current.userid}&"><span class="glyphicon glyphicon-trash"></span></a>
+						<a title="<fmt:message key="navigation.delete" />" href="${pageContext.request.contextPath}/admin/users/delete/${current.userid}"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 					<td >${current.userid}</td>
 					<td >${current.userusername}</td>

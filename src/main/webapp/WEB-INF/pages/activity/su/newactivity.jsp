@@ -15,8 +15,12 @@
 								<span class="glyphicon glyphicon-arrow-left"></span>
 								<span><fmt:message key="navigation.back"/></span>
 							</a>
-						</div>				
-							<form:form action="${pageContext.request.contextPath}/saveYourtaskuserActivities/${yourtaskuser_userid}" method="POST" modelAttribute="activity">
+						</div>	
+						<div class="row">
+							<h1>Add a new activity</h1>
+						</div>		
+						<div class="row">
+							<form:form action="${pageContext.request.contextPath}/su/saveYourtaskuserActivities" method="POST" modelAttribute="activity">
 												<div class="form-group">
 													<div class="col-lg-2 control-label">
 														Name :
@@ -46,14 +50,11 @@
 														<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "activity_activityvisibility",widgetType : "dijit.form.CheckBox",widgetAttrs : {}})); </script>
 													</div>
 												</div>
-											</div>
 									<div class="col-sm-offset-3 col-sm-4 col-sm-offset-3">
 										<span>
 											<input class="btn btn-primary" id="save" type="submit" value="SAVE ACTIVITY"/>
 										</span>
 									</div>
-									<!-- <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'save', event:'onclick'}));</script> -->
-									<!-- <input type="hidden" name="yourtaskuser_userid" value="${yourtaskuser_userid}" > -->
 								</form:form>
 								<div class="clear">&nbsp;</div>
 							</div>
