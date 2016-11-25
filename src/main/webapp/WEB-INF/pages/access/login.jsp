@@ -82,7 +82,7 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       //console.log('Successful login for: ' + response.name + 'reponse: ' + ' ' + response.mail + ' ' + response.first_name + ' ' + response.location);
-      window.location = 'http://yourtask.mybluemix.net/register/user?facebookmail=' + response.mail + '&facebookcity=' + response.location + '&facebookname=' + response.name;
+      window.location = 'http://yourtask.mybluemix.net/register/user?facebookmail=' + response.mail + '&facebookcity=' + response.location + '&facebookname=' + response.name.replace(/ /g,"_");
     });
   }
 </script>
