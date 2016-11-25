@@ -10,6 +10,10 @@
 	</head>
 	<body>
 		<div class="container">
+						<div class="row">
+							<a class="btn btn-primary" href="${pageContext.request.contextPath}/su/basket/list">
+							<span class="glyphicon glyphicon-shopping-cart"></span> See my basket</a>
+						</div>
 						<h1>Buy Products</h1>
 						<h2>From companies using our app</h2>
 						<br>
@@ -21,6 +25,7 @@
 									<th class="thead">Image</th>
 									<th class="thead">Price</th>
 									<th class="thead">Available Quantity</th>
+									<th> Add to basket</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -52,6 +57,12 @@
 										</td>
 										<td>
 											${current.productavailablequantity}
+											&nbsp;
+										</td>
+										<td>
+											<a class="btn btn-primary" 
+											href="${pageContext.request.contextPath}/su/basket/add/${current.productid}">
+											<span class="glyphicon glyphicon-plus"></span></a>
 											&nbsp;
 										</td>
 									</tr>

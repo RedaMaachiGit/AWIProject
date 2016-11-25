@@ -24,7 +24,8 @@
 			<!-- <password-encoder hash="md5"/> -->
 		</authentication-provider>
 	</authentication-manager>
-
+	
+	
 	<http auto-config="true" create-session="ifRequired">
 
 		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -47,6 +48,10 @@
 		<logout invalidate-session="true" logout-success-url="/"
 			logout-url="/logout" />
 		<custom-filter position="PRE_AUTH_FILTER" ref="cookieAuthentification" />
+		
+		<session-management>
+        	<concurrency-control max-sessions="1" />
+    	</session-management>
 	</http>
 
 </beans:beans>

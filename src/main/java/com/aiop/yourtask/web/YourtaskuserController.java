@@ -38,6 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.WebDataBinder;
@@ -104,7 +105,10 @@ public class YourtaskuserController {
 	@Autowired
 	private YourtaskuserDAO yourtaskuserDAO;
 
-	/** Service injected by Spring that provides CRUD operations for Yourtaskuser entities. */
+	/**
+	 * Service injected by Spring that provides CRUD operations for Yourtaskuser
+	 * entities.
+	 */
 	@Autowired
 	private YourtaskuserService yourtaskuserService;
 
@@ -1534,8 +1538,9 @@ public class YourtaskuserController {
 	 */
 	@RequestMapping("/register/saveuser")
 	public String saveNewUser(@ModelAttribute Yourtaskuser yourtaskuser) {
-		Random rand = new Random();
-		int id = rand.nextInt();
+		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
+		//BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(); 
+		//yourtaskuser.setUserpassword(bcrypt.encode(yourtaskuser.getUserpassword()));
 		yourtaskuser.setUserid(id);
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(2));
 		yourtaskuser.setUsertype("USER");
@@ -1557,8 +1562,9 @@ public class YourtaskuserController {
 	 */
 	@RequestMapping("/register/savecompany")
 	public String saveNewCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
-		Random rand = new Random();
-		int id = rand.nextInt();
+		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
+		//BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(); 
+		//yourtaskuser.setUserpassword(bcrypt.encode(yourtaskuser.getUserpassword())); 
 		yourtaskuser.setUserid(id);
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(3));
 		yourtaskuser.setUsertype("COMPANY");
@@ -1688,6 +1694,8 @@ public class YourtaskuserController {
 	public String adminCreateUser(@ModelAttribute Yourtaskuser yourtaskuser) {
 		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
 		yourtaskuser.setUserid(id);
+		//BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(); 
+		//yourtaskuser.setUserpassword(bcrypt.encode(yourtaskuser.getUserpassword()));
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(2));
 		yourtaskuser.setUsertype("USER");
 		yourtaskuser.setUsertoken("");
@@ -1710,6 +1718,8 @@ public class YourtaskuserController {
 	@RequestMapping("/admin/users/savecompany")
 	public String adminCreateCompany(@ModelAttribute Yourtaskuser yourtaskuser) {
 		int id = (int)(System.currentTimeMillis() % Integer.MAX_VALUE);
+		//BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(); 
+		//yourtaskuser.setUserpassword(bcrypt.encode(yourtaskuser.getUserpassword()));
 		yourtaskuser.setUserid(id);
 		yourtaskuser.setRole(roleDAO.findRoleByRoleid(3));
 		yourtaskuser.setUsertype("COMPANY");

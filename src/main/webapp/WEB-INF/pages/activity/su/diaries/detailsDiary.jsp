@@ -13,7 +13,7 @@
 		<!-- Bouton BACK -->
 		<div class="navitem">
 			<a class="button"
-				href="${pageContext.request.contextPath}/su/activity/${activity_activityid}">
+				href="${pageContext.request.contextPath}/su/activity/${activityid}">
 				<span class="glyphicon glyphicon-arrow-left"></span> <span><fmt:message
 						key="navigation.back" /></span>
 			</a>
@@ -44,7 +44,6 @@
 					<th class="thead">Description</th>
 				</tr>
 			</thead>
-			<div class="form-group">
 				<tbody>
 					<c:forEach items="${diary.goals}" var="current" varStatus="i">
 						<c:choose>
@@ -73,7 +72,6 @@
 						</tr>
 					</c:forEach>
 				</tbody>
-			</div>
 		</table>
 
 		<h1>Diary Entries</h1>

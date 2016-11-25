@@ -20,7 +20,7 @@
          		<ul class="nav navbar-nav">
          			<li><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/profile"><span class="glyphicon glyphicon-user"></span> My profile</a></li>
-           			<li><a href="${pageContext.request.contextPath}/su/products"><span class="glyphicon glyphicon-shopping-cart"></span> Buy products</a></li>
+           			<li><a href="${pageContext.request.contextPath}/su/allproducts"><span class="glyphicon glyphicon-shopping-cart"></span> Buy products</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/orders"><span class="glyphicon glyphicon-list-alt"></span> My orders</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/activities"><span class="glyphicon glyphicon-calendar"></span> My activities</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/allactivities"><span class="glyphicon glyphicon-th"></span> All activities</a></li>
