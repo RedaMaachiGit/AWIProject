@@ -185,6 +185,8 @@
 			<span><input class="btn btn-success" id="save" type="submit" value="BEGIN YOUR JOURNEY"/></span>
 			<script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'save', event:'onclick'}));</script>
 		</form:form>
+		<fb:login-button onlogin="logoutFromFacebook();">
+		</fb:login-button>
 		<div class="clear">&nbsp;</div>
 
 				</div></div></div>
