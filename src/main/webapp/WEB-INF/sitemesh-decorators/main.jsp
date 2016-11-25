@@ -37,13 +37,13 @@
     </head>
 
 	<body class="tundra spring">
-		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
-					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
-					<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/su")){ %>
+		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("login")
+					&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("register")){ %>
+					<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("su")){ %>
 		    					<jsp:include page="/WEB-INF/sitemesh-common/headersimpleuser.jsp" />
-					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/sc")){ %> 
+					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("sc")){ %> 
 								<jsp:include page="/WEB-INF/sitemesh-common/headersimplecompany.jsp" />
-					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/admin")){ %> 
+					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("admin")){ %> 
 								<jsp:include page="/WEB-INF/sitemesh-common/headeradmin.jsp" />
 					<% }} %>			
 		<div id="wrapper" class="container">
