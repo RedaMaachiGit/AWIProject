@@ -31,7 +31,8 @@
 		</div>
 		<div class="row">
 			<h1>Diaries</h1>
-			<table class="table table-bordered table-hover table-list-search" id="viewTable">
+			<table class="table table-bordered table-hover table-list-search"
+				id="viewTable">
 				<thead>
 					<tr>
 						<th class="thead">&nbsp;</th>
@@ -52,7 +53,7 @@
 						<tr class="${rowclass}">
 							<td nowrap="nowrap"><a
 								title="<fmt:message key="navigation.view" />"
-								href="${pageContext.request.contextPath}/su/${userid}/activity/${activity.activityid}/diary/${current.iddiary}">
+								href="${pageContext.request.contextPath}/su/activity/${activity.activityid}/diary/${current.iddiary}">
 									<span class="glyphicon glyphicon-zoom-in"></span>
 							</a></td>
 							<td>${current.diaryname}&nbsp;</td>
@@ -65,7 +66,8 @@
 		</div>
 		<div class="row">
 			<h1>Tasks</h1>
-			<table class="table table-bordered table-hover table-list-search" id="viewTable">
+			<table class="table table-bordered table-hover table-list-search"
+				id="viewTable">
 				<thead>
 					<tr>
 						<th class="thead">Task</th>
@@ -97,7 +99,8 @@
 							key="navigation.new" /> <fmt:message key="comment.title" /></span>
 				</a>
 			</div>
-			<table class="table table-bordered table-hover table-list-search" id="viewTable">
+			<table class="table table-bordered table-hover table-list-search"
+				id="viewTable">
 				<thead>
 					<tr>
 						<!--<th class="thead">&nbsp;</th>-->
