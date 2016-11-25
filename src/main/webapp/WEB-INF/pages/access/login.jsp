@@ -18,7 +18,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      //testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -131,7 +131,7 @@
 													class="form-control btn btn-primary btn-login"
 													type="submit" value="Login">
 											</div>
-											<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+											<fb:login-button scope="public_profile,email" onlogin="testAPI();">
 											</fb:login-button>
 
 											<div id="status">
