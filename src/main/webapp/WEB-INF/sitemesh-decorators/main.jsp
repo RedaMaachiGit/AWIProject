@@ -38,13 +38,21 @@
 
 	<body class="tundra spring">
 <%-- 		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("login")&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("register")){ %> --%>
-					<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("su")){ %>
-		    					<jsp:include page="/WEB-INF/sitemesh-common/headersimpleuser.jsp" />
-					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("sc")){ %> 
-								<jsp:include page="/WEB-INF/sitemesh-common/headersimplecompany.jsp" />
-					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("admin")){ %> 
-								<jsp:include page="/WEB-INF/sitemesh-common/headeradmin.jsp" />
-					<% } %>			
+<%-- 					<% if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("su")){ %> --%>
+<%-- 		    					<jsp:include page="/WEB-INF/sitemesh-common/headersimpleuser.jsp" /> --%>
+<%-- 					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("sc")){ %>  --%>
+<%-- 								<jsp:include page="/WEB-INF/sitemesh-common/headersimplecompany.jsp" /> --%>
+<%-- 					<% }else if (((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("admin")){ %>  --%>
+<%-- 								<jsp:include page="/WEB-INF/sitemesh-common/headeradmin.jsp" /> --%>
+<%-- 					<% }} %>			 --%>
+
+		<% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")
+		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/login")
+		    		&& !((HttpServletRequest)pageContext.getRequest()).getServletPath().contains("/register")){ %>
+				<jsp:include page="/WEB-INF/sitemesh-common/header.jsp" />
+			<% } %>
+			
+		
 		<div id="wrapper" class="container">
 			
 		    <% if (!((HttpServletRequest)pageContext.getRequest()).getServletPath().equals("/index.jsp")
