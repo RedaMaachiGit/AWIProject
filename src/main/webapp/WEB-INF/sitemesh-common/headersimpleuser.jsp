@@ -24,6 +24,7 @@
            			<li><a href="${pageContext.request.contextPath}/su/orders"><span class="glyphicon glyphicon-list-alt"></span> My orders</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/activities"><span class="glyphicon glyphicon-calendar"></span> My activities</a></li>
            			<li><a href="${pageContext.request.contextPath}/su/allactivities"><span class="glyphicon glyphicon-th"></span> All activities</a></li>
+           			<li><a href="${pageContext.request.contextPath}/admin/"><span class="glyphicon glyphicon-wrench"></span> Manage users</a></li>
          		</ul>
           		<ul class="nav navbar-nav navbar-right">
           			<li>
