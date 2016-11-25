@@ -136,7 +136,7 @@ public class BasketController {
 	}
 
 	@RequestMapping("/su/basket/order")
-	public ModelAndView orderBasket(HttpServletResponse response, HttpServletRequest request) {
+	public String orderBasket(HttpServletResponse response, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 
 		int id = (int) (System.currentTimeMillis() % Integer.MAX_VALUE);
@@ -180,19 +180,7 @@ public class BasketController {
 			}
 			
 		}
-		HashSet<Product> productsList = new HashSet<Product>();
-		for (int i = 0; i < clientCookies.length; i++) {
-			if (!clientCookies[i].getName().startsWith("JSESSIONID") ) {
-				if (clientCookies[i].getValue()!= null){
-					int j = Integer.parseInt(clientCookies[i].getValue());
-					productsList.add(productService.findProductByPrimaryKey(j));
-				}
-			}
-		}
-		
-		mav.addObject("products", productsList);
-		mav.setViewName("basket/su/listproducts.jsp");
-		return mav;
+		 return "redirect :/su/orders";
 	}
 
 }
